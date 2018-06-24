@@ -1,0 +1,29 @@
+.card-group {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.group-logo {
+  margin-bottom: 25px;
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+  width: 350px;
+  height: 200px;
+  -webkit-box-shadow: 0 0 0 0 #ffffff;
+  box-shadow: 0 0 0 0 #ffffff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.group-logo:hover {
+  -webkit-box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+}

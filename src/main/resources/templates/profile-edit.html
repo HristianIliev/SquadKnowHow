@@ -1,0 +1,365 @@
+<!doctype html>
+<html class="no-js" lang="bg" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Hristian Iliev">
+    <meta name="keywords" content="Squad,Team,Organize">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Променяне на профил - SquadKnowHow</title>
+
+    <!-- TAB ICON -->
+    <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png">
+    <link rel="shortcut icon" type="image/ico" href="/static/images/favicon.ico" />
+
+    <!-- LIBS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/themify-icons.css">
+    <link rel="stylesheet" href="/static/css/animate.css">
+    <link rel="stylesheet" href="/static/css/magnific-popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="/static/css/mdb.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css">
+    <link rel="stylesheet" href="/static/css/smart_wizard_theme_arrows.css" type="text/css" />
+    <link rel="stylesheet" href="/static/css/smart_wizard.css" type="text/css" />
+    <link rel="stylesheet" href="/static/css/switchery.css" />
+    <link rel="stylesheet" href="/static/css/iziToast.min.css">
+    <link rel="stylesheet" href="/static/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="/static/css/fine-uploader-gallery.css">
+
+    <!-- MAIN-CSS -->
+    <link rel="stylesheet" href="/static/css/notifications.css">
+    <link rel="stylesheet" href="/static/css/normalize.css">
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+
+<body th:id="'user-id_' + ${user.getId()}" data-spy="scroll" class="gray-bg-my-profile">
+
+    <div class="preloader">
+        <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+        </div>
+    </div>
+
+    <!-- Mainmenu-area-->
+    <div id="main-nav" class="mainmenu-area" style="background-color: #138fc2;" data-offset-top="100">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand logo">
+                    <h2>squadknowhow</h2>
+                </a>
+            </div>
+            <nav class="collapse navbar-collapse" id="primary-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/users">
+                            <i class="fas fa-users"></i> Търсещи</a>
+                    </li>
+                    <li>
+                        <a href="/projects-of-people">
+                            <i class="fas fa-list-ul"></i> Проекти</a>
+                    </li>
+                    <li>
+                        <a href="/groups-of-people">
+                            <i class="fas fa-expand"></i> Групи</a>
+                    </li>
+                    <li>
+                        <a href="/messages">
+                            <i class="fas fa-comments"></i> Моите съобщения</a>
+                    </li>
+                    <li>
+                        <a href="/my-projects">
+                            <i class="fas fa-user-circle"></i> Моите проекти</a>
+                    </li>
+                    <li class="notifications dropdown">
+                        <span class="counter bgc-red" th:text="${user.getNotifications().size()}">3</span>
+                        <a href="https://colorlib.com/polygon/adminator/index.html" class="dropdown-toggle no-after" data-toggle="dropdown">
+                            <i class="far fa-bell fa-2x"></i>
+                        </a>
+                        <ul id="notifications-dropdown-menu" class="dropdown-menu">
+                            <li class="pX-20 pY-15 bdB">
+                                <i class="ti-bell pR-10"></i>
+                                <span class="fsz-sm fw-600 c-grey-900">Известия</span>
+                            </li>
+                            <li>
+                                <ul id="notifications-list" class="ovY-a pos-r scrollable lis-n p-0 m-0 fsz-sm ps">
+                                    <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                        <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                                    </div>
+                                    <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                        <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+                                    </div>
+                                    <h4 th:if="${user.getNotifications().size() == 0}" class="text-center no-notifications">
+                                        Няма нови известия
+                                        <i class="far fa-frown"></i>
+                                    </h4>
+                                    <li th:each="notification: ${user.getNotifications()}" th:id="'notification_' + ${notification.getId()}" class="should-delete-notification">
+                                        <a href="#" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
+                                            <div class="peer mR-15">
+                                                <img class="w-3r bdrs-50p" th:src="@{'data:image/jpeg;base64, ' + ${notification.getBase64Image()}}" alt="">
+                                            </div>
+                                            <div class="peer peer-greed">
+                                                <span class="fw-500" th:text="${notification.getSender().getFirstName()} + ' ' + ${notification.getSender().getLastName()}">
+                                                </span>
+                                                <span class="c-grey-600" th:text="${notification.getContent()}">
+                                                </span>
+                                                <p class="m-0">
+                                                    <small class="fsz-xs" th:text="${notification.getTimestamp()}"></small>
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="pX-20 pY-15 ta-c bdT">
+                                <span>
+                                    <a href="" class="c-grey-600 cH-blue fsz-sm td-n should-delete-notifications">Маркирай всички известия като прочетени
+                                        <i class="fas fa-bookmark fsz-xs mL-10"></i>
+                                    </a>
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <div class="picture-navbar dropdown-toggle no-after peers" data-toggle="dropdown">
+                            <img id="profile-image-navbar" class="" th:src="@{'data:image/jpeg;base64, ' + ${user.getBase64Image()}}" alt="profile-picture">
+                        </div>
+                        <ul id="dropdown-profile-image" class="dropdown-menu fsz-sm animated zoomIn" style="position: absolute;
+                        transform: translate3d(60px, 93px, 0px);
+                        top: 0px;
+                        will-change: transform;">
+                            <li>
+                                <a href="/edit-profile" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                                    <i class="ti-settings mR-10"></i>
+                                    <span>Настройки</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/profile" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                                    <i class="ti-user mR-10"></i>
+                                    <span>Моят профил</span>
+                                </a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a id="logout-btn" href="/logout" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                                    <i class="ti-power-off mR-10"></i>
+                                    <span>Изход</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!--Mainmenu-area/ -->
+
+    <div class="card card-for-bg">
+        <div class="card-body">
+            <div id="smartwizard">
+                <ul class="steps">
+                    <li>
+                        <a href="#step-1">Лична информация
+                            <br>
+                            <small>Промени личната си информация</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#step-2">Емайл
+                            <br>
+                            <small>Промени емайлът, с който имаш достъп до платформата</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#step-3">Парола
+                            <br>
+                            <small>Промени паролата си</small>
+                        </a>
+                    </li>
+                </ul>
+                <div>
+                    <div id="step-1">
+                        <div class="form-margins" id="fine-uploader">
+                        </div>
+
+                        <!-- First Name -->
+                        <div id="firstNameForm" class="md-form form-lg form-margins">
+                            <i id="profileFirstNameIcon" class="fa fa-user prefix fa-5x"></i>
+                            <input id="profileFirstName" th:value="${user.getFirstName()}" type="text" class="form-control">
+                            <small id="profileFirstNameHelp" class="form-text text-muted">
+                                Между 2 и 16 символа.
+                            </small>
+                        </div>
+
+                        <!-- Last Name -->
+                        <div class="md-form form-lg form-margins">
+                            <i id="profileLastNameIcon" class="fa fa-address-card prefix fa-5x"></i>
+                            <input id="profileLastName" th:value="${user.getLastName()}" type="text" class="form-control">
+                        </div>
+
+                        <!-- Description -->
+                        <div class="md-form form-lg form-margins">
+                            <i id="profileDescriptionIcon" class="fa fa-id-badge prefix"></i>
+                            <textarea id="profileDescription" th:inline="text" type="text" class="form-control md-textarea" rows="6">[[${user.getDescription()}]]</textarea>
+                            <small id="descriptionHelp" class="form-text text-muted">
+                                Минимум 25 символа.
+                            </small>
+                        </div>
+                    </div>
+                    <div id="step-2">
+                        <!-- Email -->
+                        <div class="md-form form-lg form-margins">
+                            <i id="profileEmailIcon" class="fa fa-envelope prefix"></i>
+                            <input id="profileEmail" th:value="${user.getEmail()}" type="email" class="form-control">
+                        </div>
+                    </div>
+                    <div id="step-3">
+                        <!-- Password -->
+                        <div class="md-form form-lg form-margins">
+                            <i id="profilePasswordIcon" class="fa fa-lock prefix"></i>
+                            <input id="profilePassword" th:value="${user.getPassword()}" type="password" class="form-control">
+                            <small id="passwordHelp" class="form-text text-muted">
+                                Трябва да е между 8 и 20 символа.
+                            </small>
+                        </div>
+
+                        <!-- Confirm password -->
+                        <div class="md-form form-lg form-margins">
+                            <i id="profileConfirmPasswordIcon" class="fa fa-key prefix"></i>
+                            <input id="profileConfirmPassword" th:value="${user.getPassword()}" type="password" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
+    <script src="/static/js/vendor/bootstrap.min.js"></script>
+    <!--Plugin-JS-->
+    <script src="/static/js/owl.carousel.min.js"></script>
+    <script src="/static/js/contact-form.js"></script>
+    <script src="/static/js/jquery.parallax-1.1.3.js"></script>
+    <script src="/static/js/scrollUp.min.js"></script>
+    <script src="/static/js/magnific-popup.min.js"></script>
+    <script src="/static/js/wow.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="/static/js-mdb/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="/static/js-mdb/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="/static/js-mdb/mdb.min.js"></script>
+    <!--Main-active-JS-->
+    <script src="https://unpkg.com/tippy.js@2.3.0/dist/tippy.all.min.js"></script>
+    <script src="/static/js/notify.js"></script>
+    <script src="/static/js/h-main.js"></script>
+
+    <script src="/static/js/iziToast.min.js" type="text/javascript"></script>
+
+    <script src="/static/js/switchery.js"></script>
+
+    <script src="/static/js/jquery-ui.min.js"></script>
+
+    <script src="/static/js/fine-uploader.core.min.js"></script>
+    <script src="/static/js/jquery.fine-uploader.js"></script>
+    <!-- Profile picture -->
+    <script type="text/template" id="qq-template">
+        <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="Пусни файловете тук">
+            <div class="qq-upload-drop-area-selector qq-upload-drop-area" qq-hide-dropzone>
+                <span class="qq-upload-drop-area-text-selector"></span>
+            </div>
+            <div class="qq-upload-button-selector qq-upload-button">
+                <div>Избери нова профилна снимка</div>
+            </div>
+            <span class="qq-drop-processing-selector qq-drop-processing">
+                <span>Processing dropped files...</span>
+                <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+            </span>
+            <ul class="qq-upload-list-selector qq-upload-list" role="region" aria-live="polite" aria-relevant="additions removals">
+                <li>
+                    <span role="status" class="qq-upload-status-text-selector qq-upload-status-text"></span>
+                    <div class="qq-progress-bar-container-selector qq-progress-bar-container">
+                        <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-progress-bar-selector qq-progress-bar"></div>
+                    </div>
+                    <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+                    <div class="qq-thumbnail-wrapper">
+                        <img class="qq-thumbnail-selector" qq-max-size="120" qq-server-scale>
+                    </div>
+                    <button type="button" class="qq-upload-cancel-selector qq-upload-cancel">X</button>
+                    <button type="button" class="qq-upload-retry-selector qq-upload-retry">
+                        <span class="qq-btn qq-retry-icon" aria-label="Retry"></span>
+                        Retry
+                    </button>
+
+                    <div class="qq-file-info">
+                        <div class="qq-file-name">
+                            <span class="qq-upload-file-selector qq-upload-file"></span>
+                            <span class="qq-edit-filename-icon-selector qq-btn qq-edit-filename-icon" aria-label="Edit filename"></span>
+                        </div>
+                        <input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
+                        <span class="qq-upload-size-selector qq-upload-size"></span>
+                        <button type="button" class="qq-btn qq-upload-delete-selector qq-upload-delete">
+                            <span class="qq-btn qq-delete-icon" aria-label="Delete"></span>
+                        </button>
+                        <button type="button" class="qq-btn qq-upload-pause-selector qq-upload-pause">
+                            <span class="qq-btn qq-pause-icon" aria-label="Pause"></span>
+                        </button>
+                        <button type="button" class="qq-btn qq-upload-continue-selector qq-upload-continue">
+                            <span class="qq-btn qq-continue-icon" aria-label="Continue"></span>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+
+            <dialog class="qq-alert-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">Close</button>
+                </div>
+            </dialog>
+
+            <dialog class="qq-confirm-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">No</button>
+                    <button type="button" class="qq-ok-button-selector">Yes</button>
+                </div>
+            </dialog>
+
+            <dialog class="qq-prompt-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <input type="text">
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">Cancel</button>
+                    <button type="button" class="qq-ok-button-selector">Ok</button>
+                </div>
+            </dialog>
+        </div>
+    </script>
+    <script type="text/javascript" src="/static/js/jquery.smartWizard.min.js"></script>
+
+    <script src="/static/js/profile-edit.js"></script>
+
+    <script src="/static/js/dropdown.js"></script>
+    <script src="/static/js/vendor.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+.project-cover-photo {
+  height: 450px;
+  width: 100%;
+}
+
+.project-cover-photo-container {
+  padding-left: 75px;
+  padding-bottom: 50px;
+}
+
+.smaller-picture {
+  border: none;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 135.67px;
+  margin-bottom: 10px;
+}
+.row {
+  padding-right: 10px;
+}
+
+.project-title {
+  text-align: center;
+  margin-top: 10px;
+  color: rgb(109, 109, 109);
+}
+
+.smaller-collumn {
+  padding-left: 75px;
+  padding-bottom: 50px;
+}

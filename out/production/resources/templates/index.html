@@ -1,0 +1,618 @@
+<!doctype html>
+<html class="no-js" lang="bg">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Hristian Iliev">
+    <meta name="keywords" content="Squad,Team,Organize">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>SquadKnowHow</title>
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png">
+    <link rel="shortcut icon" type="image/ico" href="/static/images/favicon.ico" />
+    <!-- Plugin-CSS -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/static/css/themify-icons.css">
+    <link rel="stylesheet" href="/static/css/magnific-popup.css">
+    <link rel="stylesheet" href="/static/css/animate.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
+    <!-- Main-Stylesheets -->
+    <link rel="stylesheet" href="/static/css/normalize.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <link rel="stylesheet" href="/static/css/iziToast.min.css">
+
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body data-spy="scroll" data-target="#primary-menu">
+
+    <div class="preloader">
+        <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+        </div>
+    </div>
+    <!--Mainmenu-area-->
+    <div class="mainmenu-area" data-spy="affix" data-offset-top="100">
+        <div class="container animated fadeInDown">
+            <!--Logo-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-menu">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand logo">
+                    <h2>squadknowhow</h2>
+                </a>
+            </div>
+            <!--Logo/-->
+            <nav class="collapse navbar-collapse" id="primary-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/people">
+                            <i class="fas fa-users"></i> Търсещи</a>
+                    </li>
+                    <li>
+                        <a href="/projects">
+                            <i class="fas fa-list-ul"></i> Проекти</a>
+                    </li>
+                    <li>
+                        <a href="/groups" class="has-divider">
+                            <i class="fas fa-expand"></i> Групи</a>
+                    </li>
+                    <li class="active">
+                        <a href="#home-page">
+                            <i class="fas fa-home"></i> Начало</a>
+                    </li>
+                    <li>
+                        <a href="#feature-page">
+                            <i class="fas fa-code"></i> Функции</a>
+                    </li>
+                    <li>
+                        <a href="#service-page">
+                            <i class="fas fa-info"></i> Как работи?</a>
+                    </li>
+                    <!-- <li><a href="#price-page">Pricing</a></li>
+                    <li><a href="#team-page">Team</a></li> -->
+                    <li>
+                        <a href="#faq-page">
+                            <i class="fas fa-question"></i> Въпроси</a>
+                    </li>
+                    <!-- <li><a href="#blog-page">Blog</a></li> -->
+                    <li>
+                        <a href="#contact-page">
+                            <i class="fas fa-phone"></i> Контакти</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!--Mainmenu-area/-->
+
+
+
+    <!--Header-area-->
+    <header class="header-area overlay full-height relative v-center" id="home-page">
+        <div class="absolute anlge-bg"></div>
+        <div class="container">
+            <div class="row v-center">
+                <div class="col-xs-12 col-md-7 header-text animated fadeInLeft">
+                    <h2>Намери екип за своя стартиращ проект само с един клик!</h2>
+                    <p>Направи си профил и регистрирай своите интереси и предпочитания. Започни да търсиш отбор за проекта си
+                        лесно и удобно!</p>
+                    <a href="/sign-in" class="button white">Вход</a>
+                    <button type="button" class="button white" data-toggle="modal" data-target="#registerModal">Регистрирай се</button>
+
+                </div>
+                <div class="hidden-xs hidden-sm col-md-5 text-right animated fadeInRight">
+                    <!-- <div class="screen-box screen-slider">
+                        <div class="item">
+                            <img src="/static/images/screen-1.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="/static/images/screen-2.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="/static/images/screen-3.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="/static/images/screen-4.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="/static/images/screen-5.jpg" alt="">
+                        </div>
+                    </div> -->
+                    <img class="header-photo" src="/static/images/header-photo.jpg" alt="">
+                    <!-- <img src="/static/images/Webp.net-resizeimage.png" alt=""> -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--Header-area/-->
+
+    <section class="gray-bg section-padding fadeInLeft animated wow" id="feature-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+                    <div class="page-title">
+                        <h2>специални функции</h2>
+                        <p>Платформата SquadKnowHow ти предоставя голям набор от функции, които да олеснят процеа на създаване
+                            и реализиране на какъвто и да е проект</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-9 col-md-6">
+                    <div class="box">
+                        <div class="box-icon">
+                            <img src="/static/images/portfolio-icon-1.png" alt="">
+                        </div>
+                        <h3>Сподели своята идея</h3>
+                        <p>Представи идеята си по най-иновативния начин</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-9 col-md-6">
+                    <div class="box">
+                        <div class="box-icon">
+                            <img src="/static/images/portfolio-icon-2.png" alt="">
+                        </div>
+                        <h3>Сформирай отбор</h3>
+                        <p>Избирай измежду огромен запас от различни специалисти във всяка област</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-9 col-md-6">
+                    <div class="box">
+                        <div class="box-icon">
+                            <img src="/static/images/portfolio-icon-3.png" alt="">
+                        </div>
+                        <h3>Стартирай група</h3>
+                        <p>Групите в SquadKnowHow предоставят възможност на твоята общност да се обедини и да реализира проекти.</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-9 col-md-6">
+                    <div class="box">
+                        <div class="box-icon">
+                            <img src="/static/images/portfolio-icon-4.png" alt="">
+                        </div>
+                        <h3>Реализирай проекта си</h3>
+                        <p>Работи в екип със своя отбор и виж как проектът ти се реализира по бърз и лесен начин</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sky-bg section-padding" id="service-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div id="caption_slide" class="carousel slide caption-slider zoomIn animated wow" data-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active row">
+                                <div class="v-center">
+                                    <div class="col-xs-12 col-md-6">
+                                        <div class="caption-title" data-animation="animated fadeInUp">
+                                            <h2>Започни с регистрацията</h2>
+                                        </div>
+                                        <div class="caption-desc" data-animation="animated fadeInUp">
+                                            <p>В тази начална стъпка можеш да предоставиш личните си данни, да изложиш своите
+                                                интереси, предишни работни места и проекти, а също и твоите умения. Колкото
+                                                по подробни са твоите данни толкова по-лесно ще се ориентира бъдещия ти екип</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3">
+                                        <div class="caption-photo one" data-animation="animated fadeInRight">
+                                            <img src="/static/images/registration1.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3">
+                                        <div class="caption-photo two" data-animation="animated fadeInRight">
+                                            <img src="/static/images/registration2.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item row">
+                                <div class="v-center">
+                                    <div class="col-xs-12 col-md-6">
+                                        <div class="caption-title" data-animation="animated fadeInUp">
+                                            <h2>Разглеждай проекти</h2>
+                                        </div>
+                                        <div class="caption-desc" data-animation="animated fadeInUp">
+                                            <p>В секцията "Проекти" можеш да разглеждаш всички вече съществуващи проекти. Имаш
+                                                възможността да ги филтрираш по място, тип търсещи партньори и име. Лесно
+                                                можеш да намериш идеалният проект за твоята сфера на умения и интереси.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3">
+                                        <div class="caption-photo one" data-animation="animated fadeInRight">
+                                            <img src="/static/images/projects1.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3">
+                                        <div class="caption-photo two" data-animation="animated fadeInRight">
+                                            <img src="/static/images/projects2.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item row">
+                                <div class="v-center">
+                                    <div class="col-xs-12 col-md-6">
+                                        <div class="caption-title" data-animation="animated fadeInUp">
+                                            <h2>Бързо и лесно намери партньори</h2>
+                                        </div>
+                                        <div class="caption-desc" data-animation="animated fadeInUp">
+                                            <p>В секцията "Търсещи" можеш много лесно и бързо да намериш потребители, които
+                                                искат да започнат да проект. Можеш да и филтрираш по име, сфера на умения,
+                                                местоживеене, умения и интереси, за да сформираш перфектния екип за твоя
+                                                старт-ъп!
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3">
+                                        <div class="caption-photo one" data-animation="animated fadeInRight">
+                                            <img src="/static/images/users1.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3">
+                                        <div class="caption-photo two" data-animation="animated fadeInRight">
+                                            <img src="/static/images/users2.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item row">
+                                <div class="v-center">
+                                    <div class="col-xs-12 col-md-6">
+                                        <div class="caption-title" data-animation="animated fadeInUp">
+                                            <h2>Групите</h2>
+                                        </div>
+                                        <div class="caption-desc" data-animation="animated fadeInUp">
+                                            <p>Групите са страхотна възможност да намериш партньори със сходни интереси, които
+                                                са готови да ти помогнат или дадът съвет за твоя стартиращ проект. Можеш
+                                                да немериш всички групи в секцията "Групи".</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3">
+                                        <div class="caption-photo one" data-animation="animated fadeInRight">
+                                            <img src="/static/images/groups1.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3">
+                                        <div class="caption-photo two" data-animation="animated fadeInRight">
+                                            <img src="/static/images/groups2.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators caption-indector">
+                            <li data-target="#caption_slide" data-slide-to="0" class="active">
+                                <strong>Регистрацията </strong>е основната стъпка.
+                            </li>
+                            <li data-target="#caption_slide" data-slide-to="1">
+                                <strong>Разглеждай </strong>вече съществуващите проекти.
+                            </li>
+                            <li data-target="#caption_slide" data-slide-to="2">
+                                <strong>Потребители </strong> - възможни партньори.
+                            </li>
+                            <li data-target="#caption_slide" data-slide-to="3">
+                                <strong>Групи </strong>от хора със сходни виждания.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gray-bg section-padding" id="faq-page">
+        <div class="container fadeInRight animated wow">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+                    <div class="page-title">
+                        <h2>Често задавани въпроси</h2>
+                        <p>Тук ще откриеш едни от най-често задаваните въпроси свързани с платформата и нейното използване.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                    <div class="panel-group" id="accordion">
+                        <div class="panel">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true">Трябва ли да съм пълнолетен за да използвам платформата?</a>
+                            </h4>
+                            <div id="collapse1" class="panel-collapse collapse in">
+                                <p>Не, не е задължително потребителите на сайта да са пълнолетни.</p>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Защо не мога да достъпя страниците на потребителите, проектите и групите в сайта?</a>
+                            </h4>
+                            <div id="collapse2" class="panel-collapse collapse">
+                                <p>Регистрацията е задължителна стъпка ако искате да достъпите тази информация. След като се
+                                    регистрирате и успешно влезете в профила си ще можете бепроблемно да използвате пълния
+                                    набор от функционалности на сайта.</p>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Как да създам собствен стартиращ проект?</a>
+                            </h4>
+                            <div id="collapse3" class="panel-collapse collapse">
+                                <p>За да започнете нов проект е задължително първо да сте влезли във собствения си профил. След
+                                    това можете да отидете в секцията "Проекти" и да натиснете бутоне "Започни нов проект"
+                                    при което ще бъдете пренасочени към страница, която ще ви упъти при създаването на нов
+                                    проект.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Бих искал да се свържа с някой от потребителите. Как да го направя?</a>
+                            </h4>
+                            <div id="collapse4" class="panel-collapse collapse">
+                                <p>След като влезете в профила си ще имате достъп до списъкът от потребители в тази платформа.
+                                    След като достъпите някой от профилите на потребилите ще видите бутон "Изпрати съобщение".
+                                    След като изпратите своето съобщение потребителят ще може да достъпи това съобщение от
+                                    менчто "Моите съобщения" и да тоговори ако желае. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-area relative sky-bg" id="contact-page">
+        <div class="absolute footer-bg"></div>
+        <div class="footer-top fadeInUp animated wow">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+                        <div class="page-title">
+                            <h2>Изпрати своето запитване</h2>
+                            <p>Ще се постараем да отговорим възможно най-бързо и в рамките на един ден на запитването ти. Контактът
+                                с потребителите стои на първо място за нас.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-8">
+                        <form action="process.php" id="contact-form" method="post" class="contact-form">
+                            <div class="form-double">
+                                <input type="text" id="form-name" name="form-name" placeholder="Твоето име" class="form-control" required="required">
+                                <input type="email" id="form-email" name="form-email" class="form-control" placeholder="E-mail адрес" required="required">
+                            </div>
+                            <input type="text" id="form-subject" name="form-subject" class="form-control" placeholder="Тема на съобщението">
+                            <textarea id="form-message" name="form-message" rows="5" class="form-control" placeholder="Съобщението ти"
+                                required="required"></textarea>
+                            <button type="sibmit" class="button">Submit</button>
+                        </form>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <address class="side-icon-boxes">
+                            <div class="side-icon-box">
+                                <div class="side-icon">
+                                    <img src="/static/images/phone-arrow.png" alt="">
+                                </div>
+                                <p>
+                                    <strong>Телефон: </strong>
+                                    <a href="callto:8801812726495">+359884174488</a>
+                                </p>
+                            </div>
+                            <div class="side-icon-box">
+                                <div class="side-icon">
+                                    <img src="/static/images/mail-arrow.png" alt="">
+                                </div>
+                                <p>
+                                    <strong>E-mail: </strong>
+                                    <a href="mailto:youremail@example.com">squadknowhow@abv.bg</a>
+                                    <br />
+                                    <a href="mailto:youremail@example.com">squadknowhow@gmail.com</a>
+                                </p>
+                            </div>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-middle fadeInUp animated wow">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 pull-right">
+                        <ul class="social-menu text-right x-left">
+                            <li>
+                                <a href="#">
+                                    <i class="ti-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="ti-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="ti-google"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="ti-linkedin"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="ti-github"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <p>Можеш да откриеш страницата ни, а също и отворената ни документация и код на следните социални мрежи</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom fadeInUp animated wow">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <p>&copy;2018 SquadKnowHow
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- <div class="alert alert-danger fade show v-center" role="alert">
+        This is a danger alert—check it out!
+    </div> -->
+
+    <!-- Modal for registration -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header sky-bg">
+                    <h4 class="modal-title" id="exampleModalLabel">Какви са твоите способности?</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body gray-bg section-padding-modal">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-4 ">
+                                <div class="box-reg">
+                                    <div class="box-icon-reg">
+                                        <i class="fa fa-laptop fa-5x"></i>
+                                    </div>
+                                    <h3>Програмист</h3>
+                                    <p>Софтуер!</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                <div class="box-reg">
+                                    <div class="box-icon-reg">
+                                        <i class="fa fa-cogs fa-5x"></i>
+                                    </div>
+                                    <h3>Инженер</h3>
+                                    <p>Цивилен, електрически, строителен...</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                <div class="box-reg">
+                                    <div class="box-icon-reg">
+                                        <i class="fa fa-edit fa-5x"></i>
+                                    </div>
+                                    <h3>Дизайнер</h3>
+                                    <p>Графичен, звуков, продуктов...</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                <div class="box-reg">
+                                    <div class="box-icon-reg">
+                                        <i class="fa fa-flask fa-5x"></i>
+                                    </div>
+                                    <h3>Учен</h3>
+                                    <p>Физик, биолог, химик...</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                <div class="box-reg">
+                                    <div class="box-icon-reg">
+                                        <i class="fa fa-music fa-5x"></i>
+                                    </div>
+                                    <h3>Музикант</h3>
+                                    <p>Продуцент, певец, изпълнител...</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                <div class="box-reg">
+                                    <div class="box-icon-reg">
+                                        <i class="fa fa-paint-brush fa-5x"></i>
+                                    </div>
+                                    <h3>Художник</h3>
+                                    <p>Илустратор, художник...</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                <div class="box-reg">
+                                    <div class="box-icon-reg">
+                                        <i class="fa fa-book fa-5x"></i>
+                                    </div>
+                                    <h3>Писател</h3>
+                                    <p>Журналист, новелист, редактор...</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                <div class="box-reg">
+                                    <div class="box-icon-reg">
+                                        <i class="fa fa-film fa-5x"></i>
+                                    </div>
+                                    <h3>Режисьор</h3>
+                                    <p>Директор, статист, оператор...</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                <div class="box-reg">
+                                    <div class="box-icon-reg">
+                                        <i class="fa fa-address-card fa-5x"></i>
+                                    </div>
+                                    <h3>Продуктов мениджър</h3>
+                                    <p>Организира изработката на продукта</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer sky-bg">
+                    <button type="button" class="btn btn-secondary button white" data-dismiss="modal">Затвори</button>
+                    <a id="proceed-btn" type="button" class="btn btn-primary button white" href="/register">Продължи напред</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Vendor-JS-->
+    <script src="/static/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/static/js/vendor/bootstrap.min.js"></script>
+    <!--Plugin-JS-->
+    <script src="/static/js/owl.carousel.min.js"></script>
+    <script src="/static/js/contact-form.js"></script>
+    <script src="/static/js/jquery.parallax-1.1.3.js"></script>
+    <script src="/static/js/scrollUp.min.js"></script>
+    <script src="/static/js/magnific-popup.min.js"></script>
+    <script src="/static/js/wow.min.js"></script>
+    <!--Main-active-JS-->
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/notify.js"></script>
+    <script src="/static/js/iziToast.min.js" type="text/javascript"></script>
+    <script src="/static/js/h-main.js"></script>
+</body>
+
+</html>

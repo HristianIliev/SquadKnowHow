@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="no-js" lang="bg">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Регистрирай се - SquadKnowHow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png">
+    <link rel="shortcut icon" type="image/ico" href="/static/images/favicon.ico" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="/static/css/mdb.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link rel="stylesheet" href="/static/bower_components/jquery-labelauty/source/jquery-labelauty.css">
+    <link rel="stylesheet" href="/static/css/jquery-ui.min.css">
+
+    <link rel="stylesheet" href="/static/css/fine-uploader-gallery.css">
+
+    <link rel="stylesheet" href="/static/css/animate.css">
+</head>
+
+<body>
+    <div style="margin-right: 0px; margin-left: 0px;" class="row v-center full-height gray-bg">
+        <!-- Material form register -->
+        <form class="col-xs-12 col-md-5 form-register-design animated zoomIn">
+            <p class="h4 text-center mb-4 form-header-text">Създай акаунт</p>
+            <p class="h2 text-center var-text" id="var-text2"></p>
+
+            <!-- Profile Picture -->
+            <div id="fine-uploader">
+            </div>
+
+            <!-- Location -->
+            <div class="md-form form-lg">
+                <i class="fa fa-location-arrow prefix fa-5x"></i>
+                <input type="text" id="location" class="form-control">
+                <label for="location">Град</label>
+            </div>
+
+            <!-- Programming skills -->
+            <div class="md-form form-lg">
+                <i class="fa fa-tasks prefix fa-5x"></i>
+                <input type="text" id="skills" class="form-control" aria-describedby="programming-skills-help">
+                <label for="skills">Инженерни умения</label>
+                <small id="programming-skills-help" class="form-text text-muted" style="font-size: 13px;">
+                    Максимум 6 умения. Примерни умения: Rocket science, Civil engineering, Electrical engineering...
+                </small>
+            </div>
+
+            <!-- Interests -->
+            <div class="md-form form-lg">
+                <i class="fa fa-comments prefix fa-5x"></i>
+                <input type="text" id="interests" class="form-control" aria-describedby="interests">
+                <label for="interests">Интереси</label>
+                <small id="interests-help" class="form-text text-muted" style="font-size: 13px;">
+                    Примерни интереси: Hardware setup, Quad copters, Education...
+                </small>
+            </div>
+
+            <!-- Education -->
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle btn-lg" type="button" id="educationDropdown" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Образувание
+                </button>
+                <div class="dropdown-menu" aria-labelledby="educationDropdown">
+                    <h6 class="dropdown-header">Избери ниво на образование</h6>
+                    <a class="dropdown-item" href="#">В училище</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Професионален бакалавър</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Бакалавър</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Магистър</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Доктор</a>
+                    <div class="dropdown-divider"></div>
+                </div>
+            </div>
+
+            <!-- Site -->
+            <div class="md-form form-lg">
+                <i class="fa fa-internet-explorer prefix fa-5x"></i>
+                <input type="text" id="personal-site" class="form-control" aria-describedby="personal-site-help">
+                <label for="personal-site">Сайт</label>
+                <small id="personal-site-help" class="form-text text-muted" style="font-size: 13px;">
+                    Блог, портфолио..
+                </small>
+            </div>
+
+            <!-- Work sample -->
+
+            <div class="md-form form-lg">
+                <i class="fa fa-creative-commons prefix fa-5x"></i>
+                <input type="text" id="work-sample" class="form-control" aria-describedby="work-sample-help">
+                <label for="work-sample">Линк към някой твой проект</label>
+            </div>
+
+            <!-- Employed by -->
+            <div class="md-form form-lg">
+                <i class="fa fa-building prefix fa-5x"></i>
+                <input type="text" id="employed-by" class="form-control" aria-describedby="employed-by-help">
+                <label for="employed-by" id="label-for-employed-by">Името на компанията за която работиш</label>
+                <small id="employed-by-help" class="form-text text-muted" style="font-size: 13px;">
+                    Името на компанията за която работиш може да играе важна роля при избора на другите потребители за партньор.
+                </small>
+            </div>
+
+            <input data-labelauty="Не съм обвързан към никоя фирма" type="checkbox" id="checkbox1" />
+
+            <div class="md-form form-lg">
+                <i class="fa fa-history prefix fa-5x"></i>
+                <input type="text" id="previous-employment" class="form-control" aria-describedby="employed-by-help">
+                <label for="previous-employment" id="label-for-employed-by">Предишни работни места</label>
+            </div>
+
+            <div class="text-center mt-4 btn-lg">
+                <button type="button" class="button form-submit-button" onclick="goBack()">Назад</button>
+                <script>
+                    function goBack() {
+                        window.history.back();
+                    }
+                </script>
+                <a type="button" class="button form-submit-button" href="#" id="finish-btn">Завърши</a>
+            </div>
+        </form>
+
+        <!-- Material form register -->
+        <div id="register-caption" class="col-xs-12 col-md-7 header-text v-center image-area full-height-for-real">
+            <h2>Стани част от SquadKnowHow!</h2>
+            <p>Започни да използваш предимствата на платформата като попълниш данните си.
+                <br> Регистрацията отнема само минута!</p>
+        </div>
+    </div>
+
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="/static/js-mdb/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="/static/js-mdb/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="/static/js-mdb/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="/static/js-mdb/mdb.min.js"></script>
+    <script src="/static/js/jquery-ui.min.js"></script>
+
+    <script src="/static/js/register.js"></script>
+
+    <script src="/static/js/dropzone.js"></script>
+
+    <script src="/static/js/fine-uploader.core.min.js"></script>
+    <script src="/static/js/jquery.fine-uploader.js"></script>
+    <!-- Profile picture -->
+    <script type="text/template" id="qq-template">
+        <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="Пусни файловете тук">
+            <div class="qq-upload-drop-area-selector qq-upload-drop-area" qq-hide-dropzone>
+                <span class="qq-upload-drop-area-text-selector"></span>
+            </div>
+            <div class="qq-upload-button-selector qq-upload-button">
+                <div>Избери профилна снимка</div>
+            </div>
+            <span class="qq-drop-processing-selector qq-drop-processing">
+                <span>Processing dropped files...</span>
+                <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+            </span>
+            <ul class="qq-upload-list-selector qq-upload-list" role="region" aria-live="polite" aria-relevant="additions removals">
+                <li>
+                    <span role="status" class="qq-upload-status-text-selector qq-upload-status-text"></span>
+                    <div class="qq-progress-bar-container-selector qq-progress-bar-container">
+                        <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-progress-bar-selector qq-progress-bar"></div>
+                    </div>
+                    <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+                    <div class="qq-thumbnail-wrapper">
+                        <img class="qq-thumbnail-selector" qq-max-size="120" qq-server-scale>
+                    </div>
+                    <button type="button" class="qq-upload-cancel-selector qq-upload-cancel">X</button>
+                    <button type="button" class="qq-upload-retry-selector qq-upload-retry">
+                        <span class="qq-btn qq-retry-icon" aria-label="Retry"></span>
+                        Retry
+                    </button>
+
+                    <div class="qq-file-info">
+                        <div class="qq-file-name">
+                            <span class="qq-upload-file-selector qq-upload-file"></span>
+                            <span class="qq-edit-filename-icon-selector qq-btn qq-edit-filename-icon" aria-label="Edit filename"></span>
+                        </div>
+                        <input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
+                        <span class="qq-upload-size-selector qq-upload-size"></span>
+                        <button type="button" class="qq-btn qq-upload-delete-selector qq-upload-delete">
+                            <span class="qq-btn qq-delete-icon" aria-label="Delete"></span>
+                        </button>
+                        <button type="button" class="qq-btn qq-upload-pause-selector qq-upload-pause">
+                            <span class="qq-btn qq-pause-icon" aria-label="Pause"></span>
+                        </button>
+                        <button type="button" class="qq-btn qq-upload-continue-selector qq-upload-continue">
+                            <span class="qq-btn qq-continue-icon" aria-label="Continue"></span>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+
+            <dialog class="qq-alert-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">Close</button>
+                </div>
+            </dialog>
+
+            <dialog class="qq-confirm-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">No</button>
+                    <button type="button" class="qq-ok-button-selector">Yes</button>
+                </div>
+            </dialog>
+
+            <dialog class="qq-prompt-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <input type="text">
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">Cancel</button>
+                    <button type="button" class="qq-ok-button-selector">Ok</button>
+                </div>
+            </dialog>
+        </div>
+    </script>
+
+    <script src="/static/bower_components/jquery-labelauty/source/jquery-labelauty.js"></script>
+
+    <script src="/static/js/register-with-tags-engineer.js"></script>
+
+    <script src="/static/js/wow.min.js"></script>
+    <script>
+        new WOW().init({
+            mobile: true,
+        });
+    </script>
+</body>
+
+</html>

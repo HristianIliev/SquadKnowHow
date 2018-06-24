@@ -1,0 +1,426 @@
+<!doctype html>
+<html class="no-js" lang="bg" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Hristian Iliev">
+    <meta name="keywords" content="Squad,Team,Organize">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моят профил - SquadKnowHow</title>
+
+    <!-- Tab icon -->
+    <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png">
+    <link rel="shortcut icon" type="image/ico" href="/static/images/favicon.ico" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/themify-icons.css">
+    <link rel="stylesheet" href="/static/css/magnific-popup.css">
+    <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link href="/static/css/mdb.min.css" rel="stylesheet">
+    <link href='/static/css/rotating-card.css' rel='stylesheet' />
+    <link rel="stylesheet" href="/static/css/animate.css">
+
+    <!-- MAIN-CSS -->
+    <link rel="stylesheet" href="/static/css/notifications.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/normalize.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <link rel="stylesheet" href="/static/css/hopscotch.min.css">
+</head>
+
+<body th:id="'user-id_' + ${user.getId()}" data-spy="scroll" class="gray-bg-my-profile">
+
+    <div class="preloader">
+        <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+        </div>
+    </div>
+
+    <!-- Mainmenu-area-->
+    <div id="main-nav" class="mainmenu-area" style="background-color: #138fc2;" data-offset-top="100">
+        <div class="container animated fadeInDown wow">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand logo">
+                    <h2>squadknowhow</h2>
+                </a>
+            </div>
+            <nav class="collapse navbar-collapse" id="primary-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a id="tour-step-8" href="/users">
+                            <i class="fas fa-users"></i> Търсещи</a>
+                    </li>
+                    <li>
+                        <a id="tour-step-7" href="/projects-of-people">
+                            <i class="fas fa-list-ul"></i> Проекти</a>
+                    </li>
+                    <li>
+                        <a id="tour-step-6" href="/groups-of-people">
+                            <i class="fas fa-expand"></i> Групи</a>
+                    </li>
+                    <li>
+                        <a id="tour-step-5" href="/messages">
+                            <i class="fas fa-comments"></i> Моите съобщения</a>
+                    </li>
+                    <li>
+                        <a id="tour-step-4" href="/my-projects">
+                            <i class="fas fa-user-circle"></i> Моите проекти</a>
+                    </li>
+                    <li id="tour-step-3" class="notifications dropdown">
+                        <span class="counter bgc-red" th:text="${user.getNotifications().size()}">3</span>
+                        <a href="https://colorlib.com/polygon/adminator/index.html" class="dropdown-toggle no-after" data-toggle="dropdown">
+                            <i class="far fa-bell fa-2x"></i>
+                        </a>
+                        <ul id="notifications-dropdown-menu" class="dropdown-menu">
+                            <li class="pX-20 pY-15 bdB">
+                                <i class="ti-bell pR-10"></i>
+                                <span class="fsz-sm fw-600 c-grey-900">Известия</span>
+                            </li>
+                            <li>
+                                <ul id="notifications-list" class="ovY-a pos-r scrollable lis-n p-0 m-0 fsz-sm ps">
+                                    <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                        <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                                    </div>
+                                    <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                        <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+                                    </div>
+                                    <h4 th:if="${user.getNotifications().size() == 0}" class="text-center no-notifications">
+                                        Няма нови известия
+                                        <i class="far fa-frown"></i>
+                                    </h4>
+                                    <li th:each="notification: ${user.getNotifications()}" th:id="'notification_' + ${notification.getId()}" class="should-delete-notification">
+                                        <a href="#" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
+                                            <div class="peer mR-15">
+                                                <img class="w-3r bdrs-50p" th:src="@{'data:image/jpeg;base64, ' + ${notification.getBase64Image()}}" alt="">
+                                            </div>
+                                            <div class="peer peer-greed">
+                                                <span class="fw-500" th:text="${notification.getSender().getFirstName()} + ' ' + ${notification.getSender().getLastName()}">
+                                                </span>
+                                                <span class="c-grey-600" th:text="${notification.getContent()}">
+                                                </span>
+                                                <p class="m-0">
+                                                    <small class="fsz-xs" th:text="${notification.getTimestamp()}"></small>
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="pX-20 pY-15 ta-c bdT">
+                                <span>
+                                    <a href="" class="c-grey-600 cH-blue fsz-sm td-n should-delete-notifications">Маркирай всички известия като прочетени
+                                        <i class="fas fa-bookmark fsz-xs mL-10"></i>
+                                    </a>
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="tour-step-2" class="dropdown">
+                        <div class="picture-navbar dropdown-toggle no-after peers" data-toggle="dropdown">
+                            <img id="profile-image-navbar" class="" th:src="@{'data:image/jpeg;base64, ' + ${user.getBase64Image()}}" alt="profile-picture">
+                        </div>
+                        <ul id="dropdown-profile-image" class="dropdown-menu fsz-sm animated zoomIn" style="position: absolute;
+                        transform: translate3d(60px, 93px, 0px);
+                        top: 0px;
+                        will-change: transform;">
+                            <li>
+                                <a href="/edit-profile" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                                    <i class="ti-settings mR-10"></i>
+                                    <span>Настройки</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/profile" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                                    <i class="ti-user mR-10"></i>
+                                    <span>Моят профил</span>
+                                </a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a id="logout-btn" href="/logout" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                                    <i class="ti-power-off mR-10"></i>
+                                    <span>Изход</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!--Mainmenu-area/ -->
+
+
+    <div class="card card-smth">
+        <!--Card content-->
+        <div class="card-body">
+            <div class="row">
+                <!-- THE PART WITH THE IMAGE -->
+                <div class="col-xs-12 col-md-4 collumn-profile animated fadeInUp wow test-div">
+                    <img id="profile-image" class="profile-image" alt="profile-image" th:src="@{'data:image/jpeg;base64, ' + ${user.getBase64Image()}}">
+                    <div class="row row-dividers">
+                        <div class="col-md-6 label-text">Лична информация</div>
+                        <div class="col-md-6">
+                            <hr class="divider">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <ul class="about-list">
+                                <li>
+                                    Местоположение:
+                                </li>
+                                <li>
+                                    Е-майл:
+                                </li>
+                                <li>
+                                    Сайт:
+                                </li>
+                                <li>
+                                    Работи за:
+                                </li>
+                                <li>
+                                    Работил в:
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-7">
+                            <ul class="about-list">
+                                <li id="location" th:if="${user.getCity() == null}">
+                                    <span>България</span>
+                                </li>
+                                <li id="location" th:if="${user.getCity() != null}">
+                                    <span th:inline="text">[[${user.getCity().getName()}]], България</span>
+                                </li>
+                                <li>
+                                    <a id="email" class="about-a" th:text="${user.getEmail()}" th:href="'mailto:' + ${user.getEmail()}">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id="personal-site" class="about-a" th:if="${user.getPersonalSite().length() == 0}">
+                                        <span>Няма въведен сайт</span>
+                                    </a>
+                                    <a id="personal-site" class="about-a" th:if="${user.getPersonalSite().length() != 0}" th:text="${user.getPersonalSite()}"
+                                        th:href="${user.getPersonalSite()}"></a>
+                                </li>
+                                <li id="employer" th:if="${user.isUnemployed()}">
+                                    Не работи за никого
+                                </li>
+                                <li id="employer" th:if="${!user.isUnemployed()}">
+                                    <span th:if="${user.getEmployer() != null}" th:text="${user.getEmployer().getName()}">
+                                    </span>
+                                    <span th:if="${user.getEmployer() == null}">
+                                        Не работи за никого
+                                    </span>
+                                </li>
+                                <li id="previous-employment" th:text="${previousEmployment}"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- THE PART WITH THE INFORMATION -->
+                <div class="col-xs-12 col-md-8 collumn-profile">
+                    <div id="profile-name" class="profile-name" th:text="${user.getFirstName()} + ' ' + ${user.getLastName()}">
+                    </div>
+                    <div class="profile-location" th:if="${user.getCity() == null}">
+                        <i id="profile-location" class="fas fa-map-marker-alt"></i>
+                        <span>България</span>
+                    </div>
+                    <div class="profile-location" th:if="${user.getCity() != null}" th:inline="text">
+                        <i id="profile-location" class="fas fa-map-marker-alt"></i>
+                        [[${user.getCity().getName()}]], България
+                    </div>
+                    <div id="profile-occupation" class="profile-occupation" th:text="${user.getSkillset().getName()}">
+                    </div>
+                    <div id="profile-description" class="profile-description a" th:text="${user.getDescription()}">
+                    </div>
+                    <ul class="nav nav-pills mb-3 nav-fill nav-justified" id="pills-tab" role="tablist">
+                        <li class="nav-item active">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home"
+                                aria-selected="true">
+                                <i class="fa fa-info-circle"></i> Информация</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
+                                aria-selected="false">
+                                <i class="fab fa-product-hunt"></i> Проекти</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact"
+                                aria-selected="false">
+                                <i class="fa fa-users"></i> Групи</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane active animated fadeInUp" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                            <div id="profile-skills" class="label-group">Умения</div>
+                            <span th:text="${profileSkills}"></span>
+                            <div id="profile-interests" class="label-group">Интереси</div>
+                            <span th:text="${profileInterests}"></span>
+                            <div id="profile-education" class="label-group">Образувание</div>
+                            <span th:if="${user.getDegree() == null}">
+                                Няма въведено образувание
+                            </span>
+                            <span th:if="${user.getDegree() != null}" th:text="${user.getDegree()}">
+                            </span>
+                            <div class="label-group" th:if="${user.getSkillset().getName() == 'Програмист'}">
+                                Github профил
+                            </div>
+                            <a class="about-a" th:if="${user.getGithubUsername() != 0}" th:href="${user.getGithubUsername()}" th:text="${user.getGithubUsername()}"></a>
+                            <span th:if="${user.getGithubUsername() == 0}">Няма въведена Github страница</span>
+                        </div>
+                        <div class="tab-pane animated fadeInUp" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            <div class="row">
+                                <!--Card group-->
+                                <div id="card-deck-projects" class="card-deck">
+                                    <div th:each="project: ${user.getProjects()}" class="col-md-6">
+                                        <div class="card-container manual-flip">
+                                            <div class="card">
+                                                <div class="front">
+                                                    <a class="should-send-project-id" th:id="'user-cover' + ${project.getId()}" th:href="@{'/project-admin/' + ${project.getId()}}">
+                                                        <div class="cover-rotating">
+                                                            <img th:src="@{'data:image/jpeg;base64, ' + ${project.getBase64Image()}}" alt="SquadKnowHow">
+                                                        </div>
+                                                    </a>
+                                                    <div class="content-rotating">
+                                                        <div class="main">
+                                                            <a th:id="'card-name_' + ${project.getId()}" th:href="@{'/project-admin/' + ${project.getId()}}" class="should-send-project-id name card-name"
+                                                                th:text="${project.getName()}"></a>
+                                                            <p class="text-center" th:inline="text">
+                                                                <i class="fas fa-map-marker-alt fa-3x"></i> [[${project.getName()}]], България
+                                                            </p>
+                                                        </div>
+                                                        <div class="footer">
+                                                            <button class="btn-rotating btn-rotating-simple" onclick="rotateCard(this)">
+                                                                <i class="fa fa-mail-forward"></i> Разбери още</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="back">
+                                                    <div style="position: relative;" class="header">
+                                                        <h3 class="motto" th:text="${project.getDescription().substring(0, 126)} + '..'"></h3>
+                                                    </div>
+                                                    <div style="position: relative;" class="content">
+                                                        <div class="main">
+                                                            <h4 class="text-center">
+                                                                Проектът се нуждае от
+                                                            </h4>
+                                                            <p class="text-center" style="font-size: 13px;" th:text="${project.getProjectNeedsStr()}">
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="footer">
+                                                        <button class="btn-rotating btn-rotating-simple" title="Обърни картата" onclick="rotateCard(this)">
+                                                            <i class="fa fa-reply"></i> Back</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Card group-->
+                            </div>
+                            <h2 th:if="${user.getProjects().size() == 0}" class="text-center">Няма проекти</h2>
+                        </div>
+                        <div class="tab-pane animated fadeInUp" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                            <div class="row">
+                                <!--Card group-->
+                                <div class="card-deck" id="card-deck-groups-logged">
+                                    <div th:each="group: ${user.getGroups()}" class="col-md-6">
+                                        <div class="card-container manual-flip">
+                                            <div class="card">
+                                                <div class="front-group">
+                                                    <a th:href="@{'/group/' + ${group.getId()}}" th:id="'user-cover_' + ${group.getId()}" class="should-send-group-id">
+                                                        <div class="view overlay cover-rotating">
+                                                            <img th:src="@{'data:image/jpeg;base64, ' + ${group.getBase64Image()}}" alt="SquadKnowHow">
+                                                            <a th:href="@{'/group/' + ${group.getId()}}">
+                                                                <div class="mask rgba-white-slight">
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </a>
+                                                    <div class="content-rotating">
+                                                        <div class="main text-center">
+                                                            <a th:id="'card-name_' + ${group.getId()}" th:href="@{'/group/' + ${group.getId()}}" class="should-send-group-id name" th:text="${group.getName()}"></a>
+                                                            <div class="row stats-row">
+                                                                <div class="stat has-right-border col-md-6">
+                                                                    <h4 th:text="${group.getMembersCount()}"></h4>
+                                                                    <p>
+                                                                        Участващи
+                                                                    </p>
+                                                                </div>
+                                                                <div class="stat col-md-6">
+                                                                    <h4 th:text="${group.getProjectsCount()}"></h4>
+                                                                    <p>
+                                                                        Проекти
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2 th:if="${user.getGroups().size() == 0}" class="text-center">
+                                Няма групи
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Plugin-JS-->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="/static/js/hopscotch.min.js"></script>
+    <script src="/static/js/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $().ready(function () {
+            $('[rel="tooltip"]').tooltip();
+
+        });
+
+        function rotateCard(btn) {
+            var $card = $(btn).closest('.card-container');
+            console.log($card);
+            if ($card.hasClass('hover')) {
+                $card.removeClass('hover');
+            } else {
+                $card.addClass('hover');
+            }
+        }
+    </script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="/static/js-mdb/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="/static/js-mdb/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="/static/js-mdb/mdb.min.js"></script>
+    <!--Main-active-JS-->
+    <script src="/static/js/my-profile.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,412 @@
+<!doctype html>
+<html class="no-js" lang="bg" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Hristian Iliev">
+    <meta name="keywords" content="Squad,Team,Organize">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Група - SquadKnowHow</title>
+
+    <!-- Tab-icon -->
+    <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png">
+    <link rel="shortcut icon" type="image/ico" href="/static/images/favicon.ico" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/static/css/themify-icons.css">
+
+    <!-- Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
+
+    <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <!-- Material-design-bootstrap -->
+    <link rel="stylesheet" href="/static/css/mdb.min.css">
+
+    <!-- Rotating-card -->
+    <link rel='stylesheet' href='/static/css/rotating-card.css' />
+
+    <!-- Popups -->
+    <link rel="stylesheet" href="/static/css/iziToast.min.css">
+
+    <!-- Notifications -->
+    <link rel="stylesheet" href="/static/css/notifications.css">
+
+    <!-- Main-css -->
+    <link rel="stylesheet" href="/static/css/normalize.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/responsive.css">
+</head>
+
+<body th:id="'user-id_' + ${user.getId()}" data-spy="scroll" class="gray-bg-my-profile">
+
+    <div class="preloader">
+        <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+        </div>
+    </div>
+
+    <!-- Mainmenu-area-->
+    <div id="main-nav" class="mainmenu-area" style="background-color: #138fc2;" data-offset-top="100">
+        <div class="container animated fadeInDown wow">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand logo">
+                    <h2>squadknowhow</h2>
+                </a>
+            </div>
+            <nav class="collapse navbar-collapse" id="primary-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/users">
+                            <i class="fas fa-users"></i> Търсещи</a>
+                    </li>
+                    <li>
+                        <a href="/projects-of-people">
+                            <i class="fas fa-list-ul"></i> Проекти</a>
+                    </li>
+                    <li class="active">
+                        <a href="/groups-of-people">
+                            <i class="fas fa-expand"></i> Групи</a>
+                    </li>
+                    <li>
+                        <a href="/messages">
+                            <i class="fas fa-comments"></i> Моите съобщения</a>
+                    </li>
+                    <li>
+                        <a href="/my-projects">
+                            <i class="fas fa-user-circle"></i> Моите проекти</a>
+                    </li>
+                    <li class="notifications dropdown">
+                        <span class="counter bgc-red" th:text="${user.getNotifications().size()}">3</span>
+                        <a href="https://colorlib.com/polygon/adminator/index.html" class="dropdown-toggle no-after" data-toggle="dropdown">
+                            <i class="far fa-bell fa-2x"></i>
+                        </a>
+                        <ul id="notifications-dropdown-menu" class="dropdown-menu">
+                            <li class="pX-20 pY-15 bdB">
+                                <i class="ti-bell pR-10"></i>
+                                <span class="fsz-sm fw-600 c-grey-900">Известия</span>
+                            </li>
+                            <li>
+                                <ul id="notifications-list" class="ovY-a pos-r scrollable lis-n p-0 m-0 fsz-sm ps">
+                                    <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                        <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                                    </div>
+                                    <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                        <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+                                    </div>
+                                    <h4 th:if="${user.getNotifications().size() == 0}" class="text-center no-notifications">
+                                        Няма нови известия
+                                        <i class="far fa-frown"></i>
+                                    </h4>
+                                    <li th:each="notification: ${user.getNotifications()}" th:id="'notification_' + ${notification.getId()}" class="should-delete-notification">
+                                        <a href="#" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
+                                            <div class="peer mR-15">
+                                                <img class="w-3r bdrs-50p" th:src="@{'data:image/jpeg;base64, ' + ${notification.getBase64Image()}}" alt="">
+                                            </div>
+                                            <div class="peer peer-greed">
+                                                <span class="fw-500" th:text="${notification.getSender().getFirstName()} + ' ' + ${notification.getSender().getLastName()}">
+                                                </span>
+                                                <span class="c-grey-600" th:text="${notification.getContent()}">
+                                                </span>
+                                                <p class="m-0">
+                                                    <small class="fsz-xs" th:text="${notification.getTimestamp()}"></small>
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="pX-20 pY-15 ta-c bdT">
+                                <span>
+                                    <a href="" class="c-grey-600 cH-blue fsz-sm td-n should-delete-notifications">Маркирай всички известия като прочетени
+                                        <i class="fas fa-bookmark fsz-xs mL-10"></i>
+                                    </a>
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <div class="picture-navbar dropdown-toggle no-after peers" data-toggle="dropdown">
+                            <img id="profile-image-navbar" class="" th:src="@{'data:image/jpeg;base64, ' + ${user.getBase64Image()}}" alt="profile-picture">
+                        </div>
+                        <ul id="dropdown-profile-image" class="dropdown-menu fsz-sm animated zoomIn" style="position: absolute;
+                        transform: translate3d(60px, 93px, 0px);
+                        top: 0px;
+                        will-change: transform;">
+                            <li>
+                                <a href="/edit-profile" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                                    <i class="ti-settings mR-10"></i>
+                                    <span>Настройки</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/profile" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                                    <i class="ti-user mR-10"></i>
+                                    <span>Моят профил</span>
+                                </a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a id="logout-btn" href="/logout" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                                    <i class="ti-power-off mR-10"></i>
+                                    <span>Изход</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!--Mainmenu-area/ -->
+
+
+    <div class="card card-smth card-group">
+        <!--Card content-->
+        <div class="card-body animated zoomIn wow">
+            <button id="join-group-button" class="button-white-bg button-outline" style="margin-bottom:10px;">
+                <i class="fa fa-plus"></i> Присъедини се към групата</button>
+            <div class="row">
+                <!-- THE PART WITH THE IMAGE -->
+                <div class="col-md-4 ">
+                    <img class="group-logo" th:src="@{'data:image/jpeg;base64, ' + ${group.getBase64Image()}}" alt="">
+                    <div class="row row-dividers">
+                        <div class="col-md-6 label-text">Описание на групата</div>
+                        <div class="col-md-6">
+                            <hr class="divider">
+                        </div>
+                    </div>
+                    <h3 class="text-center group-name" th:text="${group.getName()}"></h3>
+                    <div class="text-center group-description" th:text="${group.getDescription()}"></div>
+                    <hr class="divider">
+                    <h3 class="text-center">Тип на групата</h3>
+                    <div class="text-center group-type" th:text="${group.getGroupType()}"></div>
+                </div>
+
+                <!-- THE PART WITH THE INFORMATION -->
+                <div class="col-md-8">
+                    <ul class="nav nav-pills mb-3 nav-fill nav-justified" id="pills-tab" role="tablist">
+                        <li class="nav-item active">
+                            <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
+                                aria-selected="false">
+                                <i class="fab fa-product-hunt"></i> Проекти</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact"
+                                aria-selected="false">
+                                <i class="fa fa-users"></i> Членуващи</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane active animated fadeInUp" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            <div class="row">
+                                <!--Card group-->
+                                <div class="card-deck" id="card-deck-projects">
+                                    <div th:each="member: ${group.getMembers()}">
+                                        <div th:each="project: ${member.getProjects()}" class="col-md-6">
+                                            <div class="card-container manual-flip">
+                                                <div class="card">
+                                                    <div th:id="'creator-id_' + ${project.getCreator()}" class="front">
+                                                        <a th:id="'user-cover_' + ${project.getId()}" class="should-send-project-id">
+                                                            <div class="cover-rotating">
+                                                                <img th:src="@{'data:image/jpeg;base64, ' + ${project.getBase64Image()}}" alt="">
+                                                            </div>
+                                                        </a>
+                                                        <div class="content-rotating">
+                                                            <div th:id="'creator-id2_' + ${project.getCreator()}" class="main">
+                                                                <a th:id="'card-name_' + ${project.getId()}" th:href="'/project/' + ${project.getId()}" class="should-send-project-id name card-name"
+                                                                    th:text="${project.getName()}"></a>
+                                                                <p class="text-center" th:inline="text">
+                                                                    <i class="fas fa-map-marker-alt fa-3x"></i> [[${project.getCity().getName()}]], България
+                                                                </p>
+                                                            </div>
+                                                            <div class="footer">
+                                                                <button class="btn-rotating btn-rotating-simple" onclick="rotateCard(this)">
+                                                                    <i class="fa fa-mail-forward"></i> Разбери още
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="back">
+                                                        <div style="position: relative;" class="header">
+                                                            <h3 class="motto" th:text="${project.getDescription().substring(0, 126)} + '...'">
+                                                            </h3>
+                                                        </div>
+                                                        <div style="position: relative; margin-top: 75px;" class="content">
+                                                            <div class="main">
+                                                                <h4 class="text-center">Проектът се нуждае от</h4>
+                                                                <p class="text-center" style="font-size: 13px;" th:text="${project.getProjectNeedsStr()}"></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="footer">
+                                                            <button class="btn-rotating btn-rotating-simple" title="Обърни картата" onclick="rotateCard(this)">
+                                                                <i class="fa fa-reply"></i> Back
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--Card group-->
+                            </div>
+                        </div>
+                        <div class="tab-pane animated fadeInUp" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                            <div class="row">
+                                <!--Card group-->
+                                <div class="card-deck" id="card-deck-members">
+                                    <div th:each="member: ${group.getMembers()}" class="col-md-6">
+                                        <div class="card-container manual-flip">
+                                            <div class="card">
+                                                <div class="front">
+                                                    <a th:href="'/user/' + ${member.getId()}" th:id="'user-cover_' + ${member.getId()}" class="user-cover should-send-user-id">
+                                                        <div class="cover">
+                                                            <img th:if="${member.getSkillset().getName() == 'Програмист'}" src="/static/images/rotating_card_thumb2.png" alt="">
+                                                            <img th:if="${member.getSkillset().getName() == 'Инженер'}" src="" alt="" style="background: linear-gradient(to bottom, #00bfa5 0%, #b2dfdb 100%);">
+                                                            <img th:if="${member.getSkillset().getName() == 'Дизайнер'}" src="" alt="" style="background: linear-gradient(to bottom, #64dd17 0%, #dcedc8 100%);">
+                                                            <img th:if="${member.getSkillset().getName() == 'Учен'}" src="" alt="" style="background: linear-gradient(to bottom, #263238 0%, #cfd8dc 100%);">
+                                                            <img th:if="${member.getSkillset().getName() == 'Музикант'}" src="" alt="" style="background: linear-gradient(to bottom, #6200ea 0%, #d1c4e9 100%);">
+                                                            <img th:if="${member.getSkillset().getName() == 'Художник'}" src="" alt="" style="background: linear-gradient(to bottom, #c51162 0%, #f8bbd0 100%);">
+                                                            <img th:if="${member.getSkillset().getName() == 'Писател'}" src="" alt="" style="background: linear-gradient(to bottom, #aeea00 0%, #fff9c4 100%);">
+                                                            <img th:if="${member.getSkillset().getName() == 'Режисьор'}" src="" alt="" style="background: linear-gradient(to bottom, #3e2723 0%, #d7ccc8 100%);">
+                                                            <img th:if="${member.getSkillset().getName() == 'Продуктов мениджър'}" src="" alt="" style="background: linear-gradient(to bottom, #ffab00 0%, #ffecb3 100%);">
+                                                        </div>
+                                                    </a>
+                                                    <a th:id="'user-image_' + ${member.getId()}" th:href="'/user/' + ${member.getId()}" class="user-image should-send-user-id">
+                                                        <div class="user">
+                                                            <img th:if="${member.getImage() == null}" src="/static/images/default-profile-picture.jpg" alt="" class="img-circle">
+                                                            <img th:if="${member.getImage() != null}" th:src="@{'data:image/jpeg;base64, ' + ${member.getBase64Image()}}" alt="" class="img-circle">
+                                                        </div>
+                                                    </a>
+                                                    <div class="content">
+                                                        <div class="main">
+                                                            <a th:id="'card-name_' + ${member.getId()}" th:href="'/user/' + ${member.getId()}" class="name card-name should-send-user-id"
+                                                                th:text="${member.getFirstName()} + ' ' + ${member.getLastName()}"></a>
+                                                            <p class="profession" th:text="${member.getSkillset().getName()}">
+                                                            </p>
+                                                            <p class="text-center">
+                                                                <i class="fas fa-map-marker-alt fa-3x"></i>
+                                                                <span th:if="${member.getCity().getName().length() == 0}">България</span>
+                                                                <span th:if="${member.getCity().getName().length() != 0}" th:inline="text">[[${member.getCity().getName()}]], България</span>
+                                                            </p>
+                                                        </div>
+                                                        <div class="footer">
+                                                            <button class="btn-rotating btn-rotating-simple" onclick="rotateCard(this)">
+                                                                <i class="fa fa-mail-forward"></i> Разбери още
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="back">
+                                                    <div style="position:relative;" class="header">
+                                                        <h3 class="motto" th:inline='text'>
+                                                            "[[${member.getDescription()}]]"
+                                                        </h3>
+                                                    </div>
+                                                    <div style="position:relative;" class="content">
+                                                        <div class="main">
+                                                            <h4 class="text-center">
+                                                                Умения
+                                                            </h4>
+                                                            <p class="text-center" style="font-size: 13px;" th:text="${member.getProfileSkills()}">
+
+                                                            </p>
+                                                            <h4 class="text-center">
+                                                                Интереси
+                                                            </h4>
+                                                            <p class="text-center" style="font-size: 13px;" th:text="${member.getProfileInterests()}">
+
+                                                            </p>
+                                                            <h4 class="text-center">
+                                                                Образувание
+                                                            </h4>
+                                                            <p class="text-center" style="font-size: 13px;" th:text="${member.getDegree()}">
+
+                                                            </p>
+                                                            <h4 class="text-center">
+                                                                Работил за
+                                                            </h4>
+                                                            <p class="text-center" style="font-size: 13px;" th:text="${member.getPreviousEmploymentString()}">
+
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="footer">
+                                                        <button class="btn-rotating btn-rotating-simple" title="Обърни картата" onclick="rotateCard(this)">
+                                                            <i class="fa fa-reply"></i> Обърни
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- -------------JS------------------- -->
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <script src="/static/js/vendor/bootstrap.min.js"></script>
+
+    <!-- Material-design-bootstrap -->
+    <script type="text/javascript" src="/static/js-mdb/popper.min.js"></script>
+    <script type="text/javascript" src="/static/js-mdb/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/js-mdb/mdb.min.js"></script>
+
+    <!-- Rotate-button -->
+    <script type="text/javascript">
+        $().ready(function () {
+            $('[rel="tooltip"]').tooltip();
+
+        });
+
+        function rotateCard(btn) {
+            var $card = $(btn).closest('.card-container');
+            console.log($card);
+            if ($card.hasClass('hover')) {
+                $card.removeClass('hover');
+            } else {
+                $card.addClass('hover');
+            }
+        }
+    </script>
+
+    <!-- Popups -->
+    <script src="/static/js/iziToast.min.js" type="text/javascript"></script>
+
+    <!-- Main-js -->
+    <script src="/static/js/group-page.js"></script>
+    <script src="/static/js/vendor.js"></script>
+</body>
+
+</html>

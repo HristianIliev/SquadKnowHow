@@ -139,41 +139,18 @@ public class User implements Model {
     this.setPassword(password);
   }
 
-  /**
-   * Constructor made for the unit tests.
-   *
-   * @param id       id
-   * @param email    email
-   * @param password password
-   */
   public User(int id, String email, String password) {
     this.setId(id);
     this.setEmail(email);
     this.setPassword(password);
   }
 
-  /**
-   * Constructor made for the unit tests.
-   *
-   * @param firstName firstName
-   * @param lastName  lastName
-   * @param id        id
-   */
   public User(String firstName, String lastName, int id) {
     this.setFirstName(firstName);
     this.setLastName(lastName);
     this.setId(id);
   }
 
-  /**
-   * Constructor made for the unit tests.
-   *
-   * @param firstName   firstName
-   * @param lastName    lastName
-   * @param description description
-   * @param email       email
-   * @param password    password
-   */
   public User(String firstName,
               String lastName,
               String description,
@@ -186,24 +163,12 @@ public class User implements Model {
     this.setPassword(password);
   }
 
-  /**
-   * Constructor made for the unit tests.
-   *
-   * @param firstName firstName
-   * @param lastName  lastName
-   * @param skillset  skillset
-   */
   public User(String firstName, String lastName, UserCategory skillset) {
     this.setFirstName(firstName);
     this.setLastName(lastName);
     this.setSkillset(skillset);
   }
 
-  /**
-   * Method for the parsing as JSON the groups.
-   *
-   * @return List of the groups.
-   */
   @JsonProperty
   public List<GroupMemberOf> getGroupMemberOf() {
     List<GroupMemberOf> result = new ArrayList<GroupMemberOf>();

@@ -19,7 +19,6 @@ import squadknowhow.response.models.ResponseUpload;
 import squadknowhow.response.models.UserProjects;
 
 public interface IProjectsService {
-
   List<ProjectShort> getProjects(int page, String name, String userCategory, String city);
 
   ResponseProjectId createProject(Project project, int creatorId);

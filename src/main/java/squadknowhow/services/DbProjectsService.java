@@ -61,21 +61,6 @@ public class DbProjectsService implements IProjectsService {
   private final IValidator<EditedProject> editedProjectValidator;
   private final IValidator<Project> projectValidator;
 
-  /**
-   * The service with the business logic when dealing with projects.
-   *
-   * @param projectsRepository       Repository for the projects.
-   * @param messagesRepository       Repository for the messages.
-   * @param usersRepository          Repository for the users.
-   * @param notificationsRepository  Repository for the notifications.
-   * @param citiesRepository         Repository for the cities.
-   * @param userCategoriesRepository Repository for the userCategories.
-   * @param advicesRepository        Repository for the advices.
-   * @param questionsRepository      Repository for the questions.
-   * @param idValidator              Validator for id parameters.
-   * @param editedProjectValidator   Validator for EditedProject parameters.
-   * @param projectValidator         Validator for Project parameters.
-   */
   @Autowired
   public DbProjectsService(IRepository<Project> projectsRepository,
                            IRepository<ProjectShort> projectsShortRepository,
@@ -153,32 +138,26 @@ public class DbProjectsService implements IProjectsService {
     User newMember = this.usersRepository.getById(recipientId);
     User creatorOfProject = this.usersRepository.getById(creatorId);
 
-    Message messageToInsert = new Message();
-    messageToInsert.setTopic("Отхвърлена заявка за проект \""
-            + appliedProject.getName() + "\"");
-    messageToInsert.setContent("Заявката ти за проект \""
-            + appliedProject.getName() + "\" беше отхвърлена.");
-
-    int year = Calendar.getInstance().get(Calendar.YEAR);
-    int month = Calendar.getInstance().get(Calendar.MONTH);
-    int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-    int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
-    int minutes = Calendar.getInstance().get(Calendar.MINUTE);
-    messageToInsert.setTimestamp(year + "." + month + "." + day + " " + hour + ":" + minutes);
-    messageToInsert.setSender(creatorOfProject);
-    messageToInsert.setRecipient(newMember);
-    messageToInsert.setKind("rejectionMessage");
+    Message messageToInsert = this.writeMessage(appliedProject.getName(),
+            creatorOfProject,
+            newMember,
+            "rejectionMessage",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "");
 
     Message messageToDelete = this.messagesRepository.getById(messageToDeleteId);
     this.messagesRepository.delete(messageToDelete);
 
-    Notification notificationToInsert = new Notification();
-    notificationToInsert.setTimestamp(year + "." + month + "." + day + " " + hour + ":" + minutes);
-    notificationToInsert.setSender(creatorOfProject);
-    notificationToInsert.setRecipient(newMember);
-    notificationToInsert.setKind("rejection-message");
-    notificationToInsert.setContent(" не те одобри за проект \""
-            + appliedProject.getName() + "\".");
+    Notification notificationToInsert = this.writeNotification(appliedProject.getName(),
+            creatorOfProject,
+            newMember,
+            "rejection-message",
+            "",
+            "");
 
     this.notificationsRepository.create(notificationToInsert);
     this.messagesRepository.create(messageToInsert);
@@ -194,37 +173,29 @@ public class DbProjectsService implements IProjectsService {
       throw new InvalidParameterException("Topic is empty");
     }
 
-    int year = Calendar.getInstance().get(Calendar.YEAR);
-    int month = Calendar.getInstance().get(Calendar.MONTH);
-    int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-    int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
-    int minutes = Calendar.getInstance().get(Calendar.MINUTE);
     Project project = this.projectsRepository.getById(projectId);
     User projectCreator = this.usersRepository.getById(project.getCreator());
     for (int i = 0; i < project.getMembers().size(); i++) {
       User recipient = project.getMembers().get(i);
 
       if (recipient.getId() != projectCreator.getId()) {
-        Message messageToInsert = new Message();
-        messageToInsert.setTopic(message.getTopic());
-        messageToInsert.setContent(message.getContent());
-        messageToInsert.setTimestamp(year + "." + month + "." + day + " " + hour + ":" + minutes);
-        messageToInsert.setSender(projectCreator);
-        messageToInsert.setRecipient(recipient);
-        messageToInsert.setKind("normal");
+        Message messageToInsert = this.writeMessage(project.getName(),
+                projectCreator,
+                recipient,
+                "normal",
+                message.getTopic(),
+                message.getContent(),
+                "",
+                "",
+                "",
+                "");
 
-        Notification notificationToInsert = new Notification();
-        notificationToInsert.setTimestamp(year + "."
-                + month + "."
-                + day + " "
-                + hour + ":"
-                + minutes);
-        notificationToInsert.setSender(projectCreator);
-        notificationToInsert.setRecipient(recipient);
-        notificationToInsert.setKind("normal");
-        notificationToInsert.setContent(projectCreator.getFirstName() + " "
-                + projectCreator.getLastName() + ", създател на \""
-                + project.getName() + "\" ти изпрати съобщение.");
+        Notification notificationToInsert = this.writeNotification(project.getName(),
+                projectCreator,
+                recipient,
+                "normal",
+                projectCreator.getFirstName(),
+                projectCreator.getLastName());
 
         this.messagesRepository.create(messageToInsert);
         this.notificationsRepository.create(notificationToInsert);
@@ -244,29 +215,16 @@ public class DbProjectsService implements IProjectsService {
       throw new InvalidParameterException("Sender id is not valid");
     }
 
-    int year = Calendar.getInstance().get(Calendar.YEAR);
-    int month = Calendar.getInstance().get(Calendar.MONTH);
-    int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-    int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
-    int minutes = Calendar.getInstance().get(Calendar.MINUTE);
-
     Project project = this.projectsRepository.getById(advice.getProjectId());
     User sender = this.usersRepository.getById(advice.getSenderId());
-    Advice adviceToInsert = new Advice();
-    adviceToInsert.setTitle(advice.getTopic());
-    adviceToInsert.setContent(advice.getContent());
-    adviceToInsert.setSender(sender);
-    adviceToInsert.setProject(project);
-    adviceToInsert.setTimestamp(year + "." + month + "." + day + " " + hour + ":" + minutes);
+    Advice adviceToInsert = this.createAdvice(advice.getTopic(), advice.getContent(), sender, project);
 
-    Notification notificationToInsert = new Notification();
-    notificationToInsert.setTimestamp(year + "." + month + "." + day + " " + hour + ":" + minutes);
-    notificationToInsert.setSender(sender);
-    notificationToInsert.setRecipient(this.usersRepository.getById(project.getCreator()));
-    notificationToInsert.setKind("normal");
-    notificationToInsert.setContent(sender.getFirstName() + " "
-            + sender.getLastName() + ", ти изпрати съвет за \""
-            + project.getName() + "\".");
+    Notification notificationToInsert = this.writeNotification(project.getName(),
+            sender,
+            this.usersRepository.getById(project.getCreator()),
+            "normal-advice",
+            sender.getFirstName(),
+            sender.getLastName());
 
     this.advicesRepository.create(adviceToInsert);
     this.notificationsRepository.create(notificationToInsert);
@@ -284,29 +242,19 @@ public class DbProjectsService implements IProjectsService {
       throw new InvalidParameterException("Topic is empty");
     }
 
-    int year = Calendar.getInstance().get(Calendar.YEAR);
-    int month = Calendar.getInstance().get(Calendar.MONTH);
-    int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-    int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
-    int minutes = Calendar.getInstance().get(Calendar.MINUTE);
-
     Project project = this.projectsRepository.getById(question.getProjectId());
     User sender = this.usersRepository.getById(question.getSenderId());
-    Question questionToInsert = new Question();
-    questionToInsert.setTitle(question.getTopic());
-    questionToInsert.setContent(question.getContent());
-    questionToInsert.setSender(sender);
-    questionToInsert.setProject(project);
-    questionToInsert.setTimestamp(year + "." + month + "." + day + " " + hour + ":" + minutes);
+    Question questionToInsert = this.createQuestion(question.getTopic(),
+            question.getContent(),
+            sender,
+            project);
 
-    Notification notificationToInsert = new Notification();
-    notificationToInsert.setTimestamp(year + "." + month + "." + day + " " + hour + ":" + minutes);
-    notificationToInsert.setSender(sender);
-    notificationToInsert.setRecipient(this.usersRepository.getById(project.getCreator()));
-    notificationToInsert.setKind("normal");
-    notificationToInsert.setContent(sender.getFirstName() + " "
-            + sender.getLastName() + ", те попита въпрос относно \""
-            + project.getName() + "\".");
+    Notification notificationToInsert = this.writeNotification(project.getName(),
+            sender,
+            this.usersRepository.getById(project.getCreator()),
+            "normal-question",
+            sender.getFirstName(),
+            sender.getLastName());
 
     this.questionsRepository.create(questionToInsert);
     this.notificationsRepository.create(notificationToInsert);
@@ -335,12 +283,6 @@ public class DbProjectsService implements IProjectsService {
     return new ResponseSuccessful(true);
   }
 
-  /**
-   * Method for getting a certain project by its name.
-   *
-   * @param projectName The projectName to filter by.
-   * @return The found project or null.
-   */
   @Override
   public Project getProjectByName(String projectName) {
     if (projectName.isEmpty()) {
@@ -371,49 +313,29 @@ public class DbProjectsService implements IProjectsService {
 
     User creatorOfProject = this.usersRepository.getById(creatorId);
 
-    Message messageToInsert = new Message();
-    messageToInsert.setTopic("Заявка за включване към проект \"" + appliedProject.getName() + "\"");
-    messageToInsert.setContent("Здравей " + creatorOfProject.getFirstName() + ", аз се казвам "
-            + newMember.getFirstName() + " " + newMember.getLastName()
-            + " и съм много заинтригуван от твоята идея "
-            + "за проект и бих искал да участвам и да я доразвия като заема мястото на "
-            + newMember.getSkillset().getName().substring(0, 1).toLowerCase()
-            + newMember.getSkillset().getName().substring(1) + ".");
-
-    int year = Calendar.getInstance().get(Calendar.YEAR);
-    int month = Calendar.getInstance().get(Calendar.MONTH);
-    int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-    int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
-    int minutes = Calendar.getInstance().get(Calendar.MINUTE);
-    messageToInsert.setTimestamp(year + "." + month + "." + day + " " + hour + ":" + minutes);
-    messageToInsert.setSender(newMember);
-    messageToInsert.setRecipient(creatorOfProject);
-    messageToInsert.setKind("requestToJoin");
-
+    String skillset = newMember.getSkillset().getName().substring(0, 1).toLowerCase() + newMember.getSkillset().getName().substring(1);
+    Message messageToInsert = this.writeMessage(appliedProject.getName(),
+            newMember,
+            creatorOfProject,
+            "requestToJoin",
+            "",
+            "",
+            creatorOfProject.getFirstName(),
+            newMember.getFirstName(),
+            newMember.getLastName(),
+            skillset);
     this.messagesRepository.create(messageToInsert);
 
-    Notification notificationToInsert = new Notification();
-    notificationToInsert.setTimestamp(year + "." + month + "." + day + " " + hour + ":" + minutes);
-    notificationToInsert.setSender(newMember);
-    notificationToInsert.setRecipient(creatorOfProject);
-    notificationToInsert.setKind("approval-message");
-    notificationToInsert.setContent(" поиска да се включи в проект \""
-            + appliedProject.getName() + "\".");
+    Notification notificationToInsert = this.writeNotification(appliedProject.getName(),
+            newMember,
+            creatorOfProject,
+            "approval-message",
+            "",
+            "");
 
     this.notificationsRepository.create(notificationToInsert);
 
     return new ResponseSuccessful(true);
-  }
-
-  private boolean doesProjectNeedThisTypeOfUser(List<UserCategory> projectNeeds, UserCategory skillset) {
-    boolean result = false;
-    for (UserCategory projectNeed : projectNeeds) {
-      if (skillset.getName().equals(projectNeed.getName())) {
-        result = true;
-      }
-    }
-
-    return result;
   }
 
   @Override
@@ -445,51 +367,32 @@ public class DbProjectsService implements IProjectsService {
     this.projectsRepository.update(projectToUpdate);
 
     User creatorOfProject = this.usersRepository.getById(projectToUpdate.getCreator());
-    int year = Calendar.getInstance().get(Calendar.YEAR);
-    int month = Calendar.getInstance().get(Calendar.MONTH);
-    int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-    int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
-    int minutes = Calendar.getInstance().get(Calendar.MINUTE);
 
-    Message messageToInsert = new Message();
-    messageToInsert.setTopic("Приета заявка за проект \"" + projectToUpdate.getName() + "\"");
-    messageToInsert.setContent("Заявката ти за проект \""
-            + projectToUpdate.getName() + "\" беше приета.");
-    messageToInsert.setTimestamp(year + "." + month + "." + day + " " + hour + ":" + minutes);
-    messageToInsert.setSender(creatorOfProject);
-    messageToInsert.setRecipient(userToAdd);
-    messageToInsert.setKind("rejectionMessage");
+    Message messageToInsert = this.writeMessage(projectToUpdate.getName(),
+            creatorOfProject,
+            userToAdd,
+            "approvedMessage",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "");
 
     this.messagesRepository.create(messageToInsert);
 
-    Notification notificationToInsert = new Notification();
-    notificationToInsert.setTimestamp(year + "." + month + "." + day + " " + hour + ":" + minutes);
-    notificationToInsert.setSender(creatorOfProject);
-    notificationToInsert.setRecipient(userToAdd);
-    notificationToInsert.setKind("approved-new-member");
-    notificationToInsert.setContent(" те одобри да участваш в проект \""
-            + projectToUpdate.getName() + "\".");
+    Notification notificationToInsert = this.writeNotification(projectToUpdate.getName(),
+            creatorOfProject,
+            userToAdd,
+            "approved-new-member",
+            "",
+            "");
 
     this.notificationsRepository.create(notificationToInsert);
 
     this.call(projectToUpdate.getTelephone().substring(1));
 
     return new ResponseSuccessful(true);
-  }
-
-  private void call(String phoneNumber) {
-    Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
-    String number = "+359" + phoneNumber;
-    if (number.length() != PHONE_NUMBER_LENGTH) {
-      return;
-    }
-
-    PhoneNumber to = new PhoneNumber(number);
-    PhoneNumber from = new PhoneNumber(FROM_NUMBER);
-    Call call = Call.creator(to, from, URI.create("https://handler.twilio.com/twiml/EH87a0cdd4d586175f4048a761641d5e49"))
-            .create();
-
-    System.out.println(call.getSid());
   }
 
   @Override
@@ -515,30 +418,25 @@ public class DbProjectsService implements IProjectsService {
     User creatorOfProject = this.usersRepository.getById(projectToUpdate.getCreator());
     User recipient = this.usersRepository.getById(memberId);
 
-    int year = Calendar.getInstance().get(Calendar.YEAR);
-    int month = Calendar.getInstance().get(Calendar.MONTH);
-    int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-    int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
-    int minutes = Calendar.getInstance().get(Calendar.MINUTE);
-
-    Message messageToInsert = new Message();
-    messageToInsert.setTopic("Напускане на проект");
-    messageToInsert.setContent(recipient.getFirstName() + " "
-            + recipient.getLastName() + " напусна проект \""
-            + projectToUpdate.getName() + "\"");
-    messageToInsert.setTimestamp(year + "." + month + "." + day + " " + hour + ":" + minutes);
-    messageToInsert.setSender(recipient);
-    messageToInsert.setRecipient(creatorOfProject);
-    messageToInsert.setKind("rejectionMessage");
+    Message messageToInsert = this.writeMessage(projectToUpdate.getName(),
+            recipient,
+            creatorOfProject,
+            "leftMessage",
+            "",
+            "",
+            "",
+            recipient.getFirstName(),
+            recipient.getLastName(),
+            "");
 
     this.messagesRepository.create(messageToInsert);
 
-    Notification notificationToInsert = new Notification();
-    notificationToInsert.setTimestamp(year + "." + month + "." + day + " " + hour + ":" + minutes);
-    notificationToInsert.setSender(recipient);
-    notificationToInsert.setRecipient(creatorOfProject);
-    notificationToInsert.setKind("project-leave");
-    notificationToInsert.setContent(" напусна проект " + projectToUpdate.getName() + ".");
+    Notification notificationToInsert = this.writeNotification(projectToUpdate.getName(),
+            recipient,
+            creatorOfProject,
+            "project-leave",
+            "",
+            "");
 
     this.notificationsRepository.create(notificationToInsert);
 
@@ -568,73 +466,6 @@ public class DbProjectsService implements IProjectsService {
     }
 
     return projects.subList(fromIndex, toIndex);
-  }
-
-  private List<ProjectShort> buildWhereClauses(List<ProjectShort> projects,
-                                               String name,
-                                               String userCategory,
-                                               String city) {
-    boolean shouldFilterByName = false;
-    boolean shouldFilterByUserCategory = false;
-    boolean shouldFilterByCity = false;
-    if (!Objects.equals(name, "")) {
-      shouldFilterByName = true;
-    }
-
-    if (!Objects.equals(userCategory, "")) {
-      shouldFilterByUserCategory = true;
-    }
-
-    if (!Objects.equals(city, "")) {
-      shouldFilterByCity = true;
-    }
-
-    if (shouldFilterByName && shouldFilterByUserCategory && shouldFilterByCity) {
-      System.out.println("reached");
-
-      return projects.stream()
-              .filter(project -> project.getName().toLowerCase().contains(name.toLowerCase())
-                      && project.getProjectNeeds()
-                      .stream()
-                      .anyMatch(projectNeed -> projectNeed.getName().equals(userCategory))
-                      && project.getCity().getName().equals(city))
-              .collect(Collectors.toList());
-    } else if (shouldFilterByName && shouldFilterByUserCategory) {
-      return projects.stream()
-              .filter(project -> project.getName().toLowerCase().contains(name.toLowerCase())
-                      && project.getProjectNeeds()
-                      .stream()
-                      .anyMatch(projectNeed -> projectNeed.getName().equals(userCategory)))
-              .collect(Collectors.toList());
-    } else if (shouldFilterByName && shouldFilterByCity) {
-      return projects.stream()
-              .filter(project -> project.getName().toLowerCase().contains(name.toLowerCase())
-                      && project.getCity().getName().equals(city))
-              .collect(Collectors.toList());
-    } else if (shouldFilterByUserCategory && shouldFilterByCity) {
-      return projects.stream()
-              .filter(project -> project.getProjectNeeds()
-                      .stream()
-                      .anyMatch(projectNeed -> projectNeed.getName().equals(userCategory))
-                      && project.getCity().getName().equals(city))
-              .collect(Collectors.toList());
-    } else if (shouldFilterByName) {
-      return projects.stream()
-              .filter(project -> project.getName().toLowerCase().contains(name.toLowerCase()))
-              .collect(Collectors.toList());
-    } else if (shouldFilterByUserCategory) {
-      return projects.stream()
-              .filter(project -> project.getProjectNeeds()
-                      .stream()
-                      .anyMatch(projectNeed -> projectNeed.getName().equals(userCategory)))
-              .collect(Collectors.toList());
-    } else if (shouldFilterByCity) {
-      return projects.stream()
-              .filter(project -> project.getCity().getName().equals(city))
-              .collect(Collectors.toList());
-    }
-
-    return projects;
   }
 
   @Override
@@ -679,18 +510,6 @@ public class DbProjectsService implements IProjectsService {
     this.projectsRepository.create(projectToInsert);
 
     return new ResponseProjectId(projectToInsert.getId());
-  }
-
-  private City getCity(String cityName) {
-    return this.citiesRepository.getAll().stream()
-            .filter(cit -> cit.getName().equals(cityName))
-            .findFirst()
-            .orElse(null);
-  }
-
-  private UserCategory getUserCategory(String userCategoryName) {
-    return this.userCategoriesRepository.getAll().stream()
-            .filter(uc -> uc.getName().equals(userCategoryName)).findFirst().orElse(null);
   }
 
   @Override
@@ -806,5 +625,249 @@ public class DbProjectsService implements IProjectsService {
     this.projectsRepository.delete(projectToDelete);
 
     return new ResponseSuccessful(true);
+  }
+
+  private Message writeMessage(String projectName,
+                               User sender,
+                               User recipient,
+                               String kind,
+                               String topic,
+                               String content,
+                               String recipientFirstName,
+                               String senderFirstName,
+                               String senderLastName,
+                               String skillset) {
+    Message result = new Message();
+    result.setTimestamp(this.createTimestamp());
+    result.setSender(sender);
+    result.setRecipient(recipient);
+    switch (kind) {
+      case "rejectionMessage":
+        result.setTopic("Отхвърлена заявка за проект \""
+                + projectName + "\"");
+        result.setContent("Заявката ти за проект \""
+                + projectName + "\" беше отхвърлена.");
+        result.setKind(kind);
+        break;
+      case "normal":
+        result.setTopic(topic);
+        result.setContent(content);
+        result.setKind(kind);
+        break;
+      case "requestToJoin":
+        result.setTopic("Заявка за включване към проект \"" + projectName + "\"");
+        result.setContent("Здравей " + recipientFirstName + ", аз се казвам "
+                + senderFirstName + " " + senderLastName
+                + " и съм много заинтригуван от твоята идея "
+                + "за проект и бих искал да участвам и да я доразвия като заема мястото на "
+                + skillset + ".");
+        result.setKind(kind);
+        break;
+      case "approvedMessage":
+        result.setTopic("Приета заявка за проект \"" + projectName + "\"");
+        result.setContent("Заявката ти за проект \""
+                + projectName + "\" беше приета.");
+        result.setKind("rejectionMessage");
+        break;
+      case "leftMessage":
+        result.setTopic("Напускане на проект");
+        result.setContent(senderFirstName + " "
+                + senderLastName + " напусна проект \""
+                + projectName + "\"");
+        result.setKind("rejectionMessage");
+        break;
+    }
+
+    return result;
+  }
+
+  private Notification writeNotification(String projectName,
+                                         User sender,
+                                         User recipient,
+                                         String kind,
+                                         String senderFirstName,
+                                         String senderLastName) {
+    Notification result = new Notification();
+    result.setTimestamp(this.createTimestamp());
+    result.setSender(sender);
+    result.setRecipient(recipient);
+
+    switch (kind) {
+      case "rejection-message":
+        result.setContent(" не те одобри за проект \""
+                + projectName + "\".");
+        result.setKind(kind);
+        break;
+      case "normal":
+        result.setContent(senderFirstName + " "
+                + senderLastName + ", създател на \""
+                + projectName + "\" ти изпрати съобщение.");
+        result.setKind(kind);
+        break;
+      case "normal-advice":
+        result.setContent(senderFirstName + " "
+                + senderLastName + ", ти изпрати съвет относно \""
+                + projectName + "\".");
+        result.setKind(kind);
+      case "normal-question":
+        result.setContent(senderFirstName + " "
+                + senderLastName + ", те попита въпрос относно \""
+                + projectName + "\".");
+        result.setKind(kind);
+        break;
+      case "approval-message":
+        result.setContent(" поиска да се включи в проект \""
+                + projectName + "\".");
+        result.setKind(kind);
+        break;
+      case "approved-new-member":
+        result.setContent(" те одобри да участваш в проект \""
+                + projectName + "\".");
+        result.setKind(kind);
+        break;
+      case "project-leave":
+        result.setContent(" напусна проект " + projectName + ".");
+        result.setKind(kind);
+        break;
+    }
+
+    return result;
+  }
+
+  private String createTimestamp() {
+    int year = Calendar.getInstance().get(Calendar.YEAR);
+    int month = Calendar.getInstance().get(Calendar.MONTH);
+    int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+    int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+    int minutes = Calendar.getInstance().get(Calendar.MINUTE);
+    return year + "." + month + "." + day + " " + hour + ":" + minutes;
+  }
+
+
+  private Advice createAdvice(String topic, String content, User sender, Project project) {
+    Advice result = new Advice();
+    result.setTitle(topic);
+    result.setContent(content);
+    result.setSender(sender);
+    result.setProject(project);
+    result.setTimestamp(this.createTimestamp());
+
+    return result;
+  }
+
+  private Question createQuestion(String topic, String content, User sender, Project project) {
+    Question result = new Question();
+    result.setTitle(topic);
+    result.setContent(content);
+    result.setSender(sender);
+    result.setProject(project);
+    result.setTimestamp(this.createTimestamp());
+
+    return result;
+  }
+
+  private boolean doesProjectNeedThisTypeOfUser(List<UserCategory> projectNeeds, UserCategory skillset) {
+    boolean result = false;
+    for (UserCategory projectNeed : projectNeeds) {
+      if (skillset.getName().equals(projectNeed.getName())) {
+        result = true;
+      }
+    }
+
+    return result;
+  }
+
+  private City getCity(String cityName) {
+    return this.citiesRepository.getAll().stream()
+            .filter(cit -> cit.getName().equals(cityName))
+            .findFirst()
+            .orElse(null);
+  }
+
+  private UserCategory getUserCategory(String userCategoryName) {
+    return this.userCategoriesRepository.getAll().stream()
+            .filter(uc -> uc.getName().equals(userCategoryName)).findFirst().orElse(null);
+  }
+
+  private List<ProjectShort> buildWhereClauses(List<ProjectShort> projects,
+                                               String name,
+                                               String userCategory,
+                                               String city) {
+    boolean shouldFilterByName = false;
+    boolean shouldFilterByUserCategory = false;
+    boolean shouldFilterByCity = false;
+    if (!Objects.equals(name, "")) {
+      shouldFilterByName = true;
+    }
+
+    if (!Objects.equals(userCategory, "")) {
+      shouldFilterByUserCategory = true;
+    }
+
+    if (!Objects.equals(city, "")) {
+      shouldFilterByCity = true;
+    }
+
+    if (shouldFilterByName && shouldFilterByUserCategory && shouldFilterByCity) {
+      System.out.println("reached");
+
+      return projects.stream()
+              .filter(project -> project.getName().toLowerCase().contains(name.toLowerCase())
+                      && project.getProjectNeeds()
+                      .stream()
+                      .anyMatch(projectNeed -> projectNeed.getName().equals(userCategory))
+                      && project.getCity().getName().equals(city))
+              .collect(Collectors.toList());
+    } else if (shouldFilterByName && shouldFilterByUserCategory) {
+      return projects.stream()
+              .filter(project -> project.getName().toLowerCase().contains(name.toLowerCase())
+                      && project.getProjectNeeds()
+                      .stream()
+                      .anyMatch(projectNeed -> projectNeed.getName().equals(userCategory)))
+              .collect(Collectors.toList());
+    } else if (shouldFilterByName && shouldFilterByCity) {
+      return projects.stream()
+              .filter(project -> project.getName().toLowerCase().contains(name.toLowerCase())
+                      && project.getCity().getName().equals(city))
+              .collect(Collectors.toList());
+    } else if (shouldFilterByUserCategory && shouldFilterByCity) {
+      return projects.stream()
+              .filter(project -> project.getProjectNeeds()
+                      .stream()
+                      .anyMatch(projectNeed -> projectNeed.getName().equals(userCategory))
+                      && project.getCity().getName().equals(city))
+              .collect(Collectors.toList());
+    } else if (shouldFilterByName) {
+      return projects.stream()
+              .filter(project -> project.getName().toLowerCase().contains(name.toLowerCase()))
+              .collect(Collectors.toList());
+    } else if (shouldFilterByUserCategory) {
+      return projects.stream()
+              .filter(project -> project.getProjectNeeds()
+                      .stream()
+                      .anyMatch(projectNeed -> projectNeed.getName().equals(userCategory)))
+              .collect(Collectors.toList());
+    } else if (shouldFilterByCity) {
+      return projects.stream()
+              .filter(project -> project.getCity().getName().equals(city))
+              .collect(Collectors.toList());
+    }
+
+    return projects;
+  }
+
+  private void call(String phoneNumber) {
+    Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+    String number = "+359" + phoneNumber;
+    if (number.length() != PHONE_NUMBER_LENGTH) {
+      return;
+    }
+
+    PhoneNumber to = new PhoneNumber(number);
+    PhoneNumber from = new PhoneNumber(FROM_NUMBER);
+    Call call = Call.creator(to, from, URI.create("https://handler.twilio.com/twiml/EH87a0cdd4d586175f4048a761641d5e49"))
+            .create();
+
+    System.out.println(call.getSid());
   }
 }

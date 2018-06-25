@@ -102,19 +102,6 @@ public class ProjectsController {
     return this.projectsService.createProject(project, creatorId);
   }
 
-  /**
-   * Handles the upload of the project pictures.
-   *
-   * @param file          file
-   * @param uuid          uuid
-   * @param fileName      fileName
-   * @param partIndex     partIndex
-   * @param totalParts    totalParts
-   * @param totalFileSize totalFileSize
-   * @param id            id
-   * @return an object that indicates if it was successful or not
-   * @throws IOException thrown when uploading an image
-   */
   @RequestMapping(value = "/uploadProjectPicture", method = RequestMethod.POST)
   @ResponseBody
   public ResponseUpload uploadProjectPicture(@RequestParam("qqfile") MultipartFile file,

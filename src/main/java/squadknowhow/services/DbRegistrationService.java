@@ -36,18 +36,6 @@ public class DbRegistrationService implements IRegistrationService {
   private final IValidator<User> userValidator;
   private final PasswordEncoder passwordEncoder;
 
-  /**
-   * Service for the business logic when dealing with the registration.
-   *
-   * @param usersRepository          Repository for the users.
-   * @param citiesRepository         Repository for the cities.
-   * @param skillsRepository         Repository for the skills.
-   * @param interestsRepository      Repository for the interests.
-   * @param userCategoriesRepository Repository for the userCategories.
-   * @param companiesRepository      Repository for the companies.
-   * @param idValidator              Validator for id parameters.
-   * @param userValidator            Validator for User parameters.
-   */
   @Autowired
   public DbRegistrationService(IRepository<User> usersRepository,
                                IRepository<City> citiesRepository,

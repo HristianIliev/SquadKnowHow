@@ -18,13 +18,6 @@ public class DbTodoListEntriesService implements ITodoListEntriesService {
   private final IValidator<ListEntry> todoListEntryValidator;
   private final IRepository<TodoListEntry> todoListEntriesRepository;
 
-  /**
-   * Service for the business logic when dealing with the todoEntries in a project.
-   * @param todoListEntriesRepository Repository for the todoListEntries.
-   * @param projectsRepository Repository for the projects.
-   * @param idValidator Validator for id parameters.
-   * @param todoListEntryValidator Validator for todoListEntry parameters.
-   */
   @Autowired
   public DbTodoListEntriesService(IRepository<TodoListEntry> todoListEntriesRepository,
                                   IRepository<Project> projectsRepository,

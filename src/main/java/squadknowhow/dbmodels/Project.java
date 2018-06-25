@@ -131,28 +131,12 @@ public class Project implements Model {
     this.setDescription(description);
   }
 
-  /**
-   * Constructor for the unit tests.
-   *
-   * @param name        name
-   * @param description description
-   * @param goal1       goal1
-   */
   public Project(String name, String description, String goal1) {
     this.setName(name);
     this.setDescription(description);
     this.setGoal1(goal1);
   }
 
-  /**
-   * Constructor for the unit tests.
-   *
-   * @param name         name
-   * @param description  description
-   * @param goal1        goal1
-   * @param city         city
-   * @param projectNeeds projectNeeds
-   */
   public Project(String name,
                  String description,
                  String goal1,
@@ -175,24 +159,12 @@ public class Project implements Model {
     this.setName(name);
   }
 
-  /**
-   * Constructor for the unit tests.
-   *
-   * @param creator creator
-   * @param members members
-   * @param name    name
-   */
   public Project(int creator, List<User> members, String name) {
     this.setCreator(creator);
     this.setMembers(members);
     this.setName(name);
   }
 
-  /**
-   * Method that parses AllProjectMembers to JSON.
-   *
-   * @return Object with the projectMembers to be parsed
-   */
   @JsonProperty
   public List<ProjectMember> getProjectMembers() {
     List<ProjectMember> result = new ArrayList<>();
@@ -255,15 +227,6 @@ public class Project implements Model {
 
   public void setGithubPage(String githubPage) {
     this.githubPage = githubPage;
-  }
-
-  @Override
-  public String toString() {
-    return "Project [id=" + id + ", name=" + name + ", description="
-            + description + ", goal1=" + goal1 + ", goal2="
-            + getGoal2() + ", goal3=" + goal3 + ", githubPage="
-            + githubPage + ", city=" + city + ", projectNeeds="
-            + projectNeeds + ", members=" + members + ", visits=" + visits + "]";
   }
 
   public City getCity() {
@@ -494,5 +457,14 @@ public class Project implements Model {
 
   public void setTelephone(String telephone) {
     this.telephone = telephone;
+  }
+
+  @Override
+  public String toString() {
+    return "Project [id=" + id + ", name=" + name + ", description="
+            + description + ", goal1=" + goal1 + ", goal2="
+            + getGoal2() + ", goal3=" + goal3 + ", githubPage="
+            + githubPage + ", city=" + city + ", projectNeeds="
+            + projectNeeds + ", members=" + members + ", visits=" + visits + "]";
   }
 }

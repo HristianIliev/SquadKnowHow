@@ -49,17 +49,6 @@ public class ProfileController {
     return this.profileService.getUserById(id);
   }
 
-  /**
-   * Hadles a request for listing all of the users.
-   *
-   * @param page         page to filter by
-   * @param name         name to filter by
-   * @param userCategory userCategory to filter by
-   * @param city         city to filter by
-   * @param skills       skills to filter by
-   * @param interests    interests to filter by
-   * @return The users
-   */
   @RequestMapping(value = "/users")
   @ResponseBody
   public ResponseUsers getUsers(@RequestParam("page") int page,

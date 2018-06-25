@@ -35,11 +35,6 @@ public class Question implements Model {
   @JsonIgnore
   private User sender;
 
-  /**
-   * Method that generates the question sender into JSON.
-   *
-   * @return object that gets parsed to JSON.
-   */
   @JsonProperty
   public ResponseNotificationSender getQuestionSender() {
     return new ResponseNotificationSender(this.getSender().getId(),

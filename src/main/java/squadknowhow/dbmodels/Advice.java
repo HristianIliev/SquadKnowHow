@@ -35,11 +35,6 @@ public class Advice implements Model {
   @JsonIgnore
   private User sender;
 
-  /**
-   * When creating the JSON the advice Sender should also be present.
-   *
-   * @return Returns the Object that needs to be made into JSON.
-   */
   @JsonProperty
   public ResponseNotificationSender getAdviceSender() {
     return new ResponseNotificationSender(this.getSender().getId(),

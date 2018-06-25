@@ -26,14 +26,6 @@ public class DbTagsService implements ITagsService {
   private IRepository<Interest> interestsRepository;
   private IRepository<Company> companiesRepository;
 
-  /**
-   * Service for the business logic when dealing with the tags.
-   *
-   * @param citiesRepository    Repository for the cities.
-   * @param skillsRepository    Repository for the skills.
-   * @param interestsRepository Repository for the interests.
-   * @param companiesRepository Repository for the companies.
-   */
   @Autowired
   public DbTagsService(IRepository<City> citiesRepository,
                        IRepository<Skill> skillsRepository,

@@ -13,7 +13,6 @@ import squadknowhow.response.models.ResponsePagination;
 import squadknowhow.response.models.ResponseUpload;
 
 public interface IGroupsService {
-
   ResponseGroupId createGroup(Group group, int creatorId);
 
   ResponseUpload uploadImage(MultipartFile multipart, int id) throws IOException;

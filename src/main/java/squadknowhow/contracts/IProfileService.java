@@ -15,7 +15,6 @@ import squadknowhow.response.models.ResponsePagination;
 import squadknowhow.response.models.ResponseSuccessful;
 
 public interface IProfileService extends UserDetailsService {
-
   User getUserById(int id);
 
   List<UserShort> getUsers(int page,

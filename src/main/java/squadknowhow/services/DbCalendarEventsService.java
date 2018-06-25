@@ -19,13 +19,6 @@ public class DbCalendarEventsService implements ICalendarEventsService {
   private final IValidator<Integer> idValidator;
   private final IValidator<CalendarEvent> calendarEventValidator;
 
-  /**
-   * Constructor for the Service.
-   *
-   * @param calendarEventsRepository HibernateRepository for the calendarEvents.
-   * @param idValidator              Validator for id parameters.
-   * @param calendarEventValidator   Validator for Calendar Event parameters.
-   */
   @Autowired
   public DbCalendarEventsService(IRepository<CalendarEvent> calendarEventsRepository,
                                  IValidator<Integer> idValidator,

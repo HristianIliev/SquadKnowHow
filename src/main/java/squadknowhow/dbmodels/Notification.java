@@ -37,11 +37,6 @@ public class Notification implements Model {
   @JsonBackReference
   private User recipient;
 
-  /**
-   * Method that parses the notification sender to JSON.
-   *
-   * @return Object to be parsed into JSON.
-   */
   @JsonProperty
   public ResponseNotificationSender getNotificationSender() {
     return new ResponseNotificationSender(this.getSender().getId(),

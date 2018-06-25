@@ -28,13 +28,6 @@ public class DbGroupsService implements IGroupsService {
   private IRepository<Group> groupsRepository;
   private IRepository<User> usersRepository;
 
-  /**
-   * The service for the business logic when dealing with the groups.
-   * @param groupsRepository Repository for the groups.
-   * @param usersRepository Repository for the users.
-   * @param groupsValidator Validator for Group parameters.
-   * @param idValidator Validator for id parameters.
-   */
   @Autowired
   public DbGroupsService(IRepository<Group> groupsRepository,
                          IRepository<User> usersRepository,

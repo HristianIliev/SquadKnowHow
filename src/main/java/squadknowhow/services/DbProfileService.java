@@ -39,20 +39,6 @@ public class DbProfileService implements IProfileService {
   private final IValidator<EditedUser> editedUserValidator;
   private final IRepository<UserShort> usersShortRepository;
 
-  /**
-   * Service for the business logic when dealing with profiles.
-   *
-   * @param usersRepository          Repository for the users.
-   * @param usersShortRepository     Repository for the userShort.
-   * @param notificationsRepository  Repository for the notifications.
-   * @param messagesRepository       Repository for the messages.
-   * @param interestsRepository      Repository for the interest.
-   * @param skillsRepository         Repository for the skills.
-   * @param citiesRepository         Repository for the cities.
-   * @param userCategoriesRepository Repository for the UserCtegories.
-   * @param idValidator              Validator for id parameters.
-   * @param editedUserValidator      Validator for EditedUser parameters.
-   */
   @Autowired
   public DbProfileService(IRepository<User> usersRepository,
                           IRepository<UserShort> usersShortRepository,
@@ -187,6 +173,82 @@ public class DbProfileService implements IProfileService {
     return new ResponsePagination(numberOfPages, users.size());
   }
 
+  @Override
+  public Interest getInterest(String interestName) {
+    return this.interestsRepository.getAll().stream()
+            .filter(in -> in.getName().equals(interestName))
+            .findFirst()
+            .orElse(null);
+  }
+
+  @Override
+  public Skill getSkill(String skillName) {
+    return this.skillsRepository.getAll().stream()
+            .filter(sk -> sk.getName().equals(skillName))
+            .findFirst()
+            .orElse(null);
+  }
+
+  @Override
+  public City getCity(String cityName) {
+    return this.citiesRepository.getAll().stream()
+            .filter(cit -> cit.getName().equals(cityName))
+            .findFirst()
+            .orElse(null);
+  }
+
+  @Override
+  public UserCategory getUserCategory(String userCategoryName) {
+    return this.userCategoriesRepository.getAll().stream()
+            .filter(uc -> uc.getName().equals(userCategoryName))
+            .findFirst()
+            .orElse(null);
+  }
+
+  @Override
+  public ResponseSuccessful sendMessage(SentMessage message) {
+    if (!this.idValidator.isValid(message.getSenderId())) {
+      throw new InvalidParameterException("SenderId is not valid");
+    } else if (!this.idValidator.isValid(message.getRecipientId())) {
+      throw new InvalidParameterException("RecipientId is not valid");
+    } else if (message.getTopic().isEmpty()) {
+      throw new InvalidParameterException("Topic is empty");
+    }
+
+    User sender = this.getUserById(message.getSenderId());
+    User recipient = this.getUserById(message.getRecipientId());
+
+    Message messageToInsert = new Message();
+    messageToInsert.setTopic(message.getTopic());
+    messageToInsert.setContent(message.getContent());
+    messageToInsert.setTimestamp(message.getTimestamp());
+    messageToInsert.setSender(sender);
+    messageToInsert.setRecipient(recipient);
+    messageToInsert.setKind(message.getKind());
+
+    this.messagesRepository.create(messageToInsert);
+
+    Notification notificationToInsert = new Notification();
+    notificationToInsert.setTimestamp(message.getTimestamp());
+    notificationToInsert.setSender(sender);
+    notificationToInsert.setRecipient(recipient);
+    notificationToInsert.setKind("new-message");
+    notificationToInsert.setContent(" ти изпрати съобщение.");
+
+    this.notificationsRepository.create(notificationToInsert);
+
+    return new ResponseSuccessful(true);
+  }
+
+  @Override
+  public User getUserById(int id) {
+    if (!this.idValidator.isValid(id)) {
+      throw new InvalidParameterException("Id is not valid");
+    }
+
+    return this.usersRepository.getById(id);
+  }
+
   private List<UserShort> buildWhereClauses(List<UserShort> users,
                                             String name,
                                             String userCategory,
@@ -246,105 +308,5 @@ public class DbProfileService implements IProfileService {
     return users.stream()
             .filter(predicate)
             .collect(Collectors.toList());
-  }
-
-  /**
-   * Method for getting a certain Interest by name.
-   *
-   * @param interestName The interest name to filter by.
-   * @return The found interest or null if not found.
-   */
-  @Override
-  public Interest getInterest(String interestName) {
-    return this.interestsRepository.getAll().stream()
-            .filter(in -> in.getName().equals(interestName))
-            .findFirst()
-            .orElse(null);
-  }
-
-  /**
-   * Method for getting a certain Skill by name.
-   *
-   * @param skillName The skill name to filter by.
-   * @return The found skill or null if not found.
-   */
-  @Override
-  public Skill getSkill(String skillName) {
-    return this.skillsRepository.getAll().stream()
-            .filter(sk -> sk.getName().equals(skillName))
-            .findFirst()
-            .orElse(null);
-  }
-
-  /**
-   * Method for getting a certain City by name.
-   *
-   * @param cityName The city name to filter by.
-   * @return The found city or null if not found.
-   */
-  @Override
-  public City getCity(String cityName) {
-    return this.citiesRepository.getAll().stream()
-            .filter(cit -> cit.getName().equals(cityName))
-            .findFirst()
-            .orElse(null);
-  }
-
-  /**
-   * Method for getting a certain UserCategory by name.
-   *
-   * @param userCategoryName The userCategory name to filter by.
-   * @return The found userCategory or null if not found.
-   */
-  @Override
-  public UserCategory getUserCategory(String userCategoryName) {
-    return this.userCategoriesRepository.getAll().stream()
-            .filter(uc -> uc.getName().equals(userCategoryName))
-            .findFirst()
-            .orElse(null);
-  }
-
-  @Override
-  public ResponseSuccessful sendMessage(SentMessage message) {
-    if (!this.idValidator.isValid(message.getSenderId())) {
-      throw new InvalidParameterException("SenderId is not valid");
-    } else if (!this.idValidator.isValid(message.getRecipientId())) {
-      throw new InvalidParameterException("RecipientId is not valid");
-    } else if (message.getTopic().isEmpty()) {
-      throw new InvalidParameterException("Topic is empty");
-    }
-
-    User sender = this.getUserById(message.getSenderId());
-    User recipient = this.getUserById(message.getRecipientId());
-
-    Message messageToInsert = new Message();
-    messageToInsert.setTopic(message.getTopic());
-    messageToInsert.setContent(message.getContent());
-    messageToInsert.setTimestamp(message.getTimestamp());
-    messageToInsert.setSender(sender);
-    messageToInsert.setRecipient(recipient);
-    messageToInsert.setKind(message.getKind());
-
-    this.messagesRepository.create(messageToInsert);
-
-    Notification notificationToInsert = new Notification();
-    notificationToInsert.setTimestamp(message.getTimestamp());
-    notificationToInsert.setSender(sender);
-    notificationToInsert.setRecipient(recipient);
-    notificationToInsert.setKind("new-message");
-    notificationToInsert.setContent(" ти изпрати съобщение.");
-
-    this.notificationsRepository.create(notificationToInsert);
-
-    return new ResponseSuccessful(true);
-  }
-
-  @Override
-  public User getUserById(int id) {
-    if (!this.idValidator.isValid(id)) {
-      throw new InvalidParameterException("Id is not valid");
-    }
-
-    return this.usersRepository.getById(id);
   }
 }

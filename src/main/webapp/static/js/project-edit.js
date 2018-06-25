@@ -1,6 +1,4 @@
-// var id = sessionStorage.getItem("userId");
 var user = null;
-// var projectId = sessionStorage.getItem("projectToEditId");
 var changed = false;
 
 var arr = window.location.pathname.split("/");
@@ -13,74 +11,7 @@ var id = $("body")
   .attr("id")
   .substring(indexOfUndescoreForUserId + 1);
 
-// if (id === "null" || projectId === "null" || id === null) {
-//   window.location.replace("/sign-in");
-// } else {
-// $.ajax({
-//   url: "/api/user?id=" + id,
-//   method: "GET",
-//   success: function(result) {
-//     user = result;
-//     $("#profile-image-navbar").attr(
-//       "src",
-//       "data:image/png;base64, " + user.image
-//     );
-//   }
-// });
-
-setUpNotifications();
-
 setUpWizard();
-
-function setUpNotifications() {
-  $(".should-delete-notification").on("click", function() {
-    var indexOfUndescore = $(this)
-      .attr("id")
-      .indexOf("_");
-    var notificationId = $(this)
-      .attr("id")
-      .substring(indexOfUndescore + 1);
-
-    $.ajax({
-      url: "/api/deleteNotification?notificationId=" + notificationId,
-      method: "DELETE",
-      success: function(result) {
-        if (result.successfull) {
-          window.location.href = "/messages";
-        }
-      }
-    });
-  });
-
-  $(".should-delete-notifications").on("click", function(event) {
-    event.preventDefault();
-    var lis = $("#notifications-list li");
-    for (var i = 0; i < lis.length; i += 1) {
-      var indexOfUndescore = $(lis[i])
-        .attr("id")
-        .indexOf("_");
-      var notificationId = $(lis[i])
-        .attr("id")
-        .substring(indexOfUndescore + 1);
-
-      if (i === lis.length - 1) {
-        $.ajax({
-          url: "/api/deleteNotification?notificationId=" + notificationId,
-          method: "DELETE",
-          success: function(result) {
-            document.location.reload();
-          }
-        });
-      } else {
-        $.ajax({
-          url: "/api/deleteNotification?notificationId=" + notificationId,
-          method: "DELETE",
-          success: function(result) {}
-        });
-      }
-    }
-  });
-}
 
 function setUpWizard() {
   var uploader = $("#fine-uploader").fineUploader({
@@ -122,20 +53,6 @@ function setUpWizard() {
     }
   });
 
-  // $.ajax({
-  //   url: "/api/project?id=" + projectId,
-  //   method: "GET",
-  //   success: function(result) {
-  // $("#projectName").val(result.name);
-
-  // $("#textareaBasic").val(result.description);
-  // $("#projectGoals").val(result.goal1);
-  // $("#projectGoals2").val(result.goal2);
-  // $("#projectGoals3").val(result.goal3);
-  // $("#github-page").val(result.githubPage);
-  // $("#video-of-project").val(result.youtubeLink);
-  //   }
-  // });
   $("#projectName").change(function() {
     changed = true;
   });

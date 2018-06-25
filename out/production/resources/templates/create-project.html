@@ -71,124 +71,6 @@
 
     <div th:replace="fragments/headerSignedIn :: header('projects')">
     </div>
-    <!-- Mainmenu-area-->
-    <!-- <div id="main-nav" class="mainmenu-area" style="background-color: #138fc2;" data-offset-top="100">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="#" class="navbar-brand logo">
-                    <h2>squadknowhow</h2>
-                </a>
-            </div>
-            <nav class="collapse navbar-collapse" id="primary-menu">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/users">
-                            <i class="fas fa-users"></i> Търсещи</a>
-                    </li>
-                    <li class="active">
-                        <a href="/projects-of-people">
-                            <i class="fas fa-list-ul"></i> Проекти</a>
-                    </li>
-                    <li>
-                        <a href="/groups-of-people">
-                            <i class="fas fa-expand"></i> Групи</a>
-                    </li>
-                    <li>
-                        <a href="/messages">
-                            <i class="fas fa-comments"></i> Моите съобщения</a>
-                    </li>
-                    <li>
-                        <a href="/my-projects">
-                            <i class="fas fa-user-circle"></i> Моите проекти</a>
-                    </li>
-                    <li class="notifications dropdown">
-                        <span class="counter bgc-red" th:text="${user.getNotifications().size()}">3</span>
-                        <a href="https://colorlib.com/polygon/adminator/index.html" class="dropdown-toggle no-after" data-toggle="dropdown">
-                            <i class="far fa-bell fa-2x"></i>
-                        </a>
-                        <ul id="notifications-dropdown-menu" class="dropdown-menu">
-                            <li class="pX-20 pY-15 bdB">
-                                <i class="ti-bell pR-10"></i>
-                                <span class="fsz-sm fw-600 c-grey-900">Известия</span>
-                            </li>
-                            <li>
-                                <ul id="notifications-list" class="ovY-a pos-r scrollable lis-n p-0 m-0 fsz-sm ps">
-                                    <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
-                                        <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
-                                    </div>
-                                    <div class="ps__rail-y" style="top: 0px; right: 0px;">
-                                        <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
-                                    </div>
-                                    <h4 th:if="${user.getNotifications().size() == 0}" class="text-center no-notifications">
-                                        Няма нови известия
-                                        <i class="far fa-frown"></i>
-                                    </h4>
-                                    <li th:each="notification: ${user.getNotifications()}" th:id="'notification_' + ${notification.getId()}" class="should-delete-notification">
-                                        <a href="#" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
-                                            <div class="peer mR-15">
-                                                <img class="w-3r bdrs-50p" th:src="@{'data:image/jpeg;base64, ' + ${notification.getBase64Image()}}" alt="">
-                                            </div>
-                                            <div class="peer peer-greed">
-                                                <span class="fw-500" th:text="${notification.getSender().getFirstName()} + ' ' + ${notification.getSender().getLastName()}">
-                                                </span>
-                                                <span class="c-grey-600" th:text="${notification.getContent()}">
-                                                </span>
-                                                <p class="m-0">
-                                                    <small class="fsz-xs" th:text="${notification.getTimestamp()}"></small>
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="pX-20 pY-15 ta-c bdT">
-                                <span>
-                                    <a href="" class="c-grey-600 cH-blue fsz-sm td-n should-delete-notifications">Маркирай всички известия като прочетени
-                                        <i class="fas fa-bookmark fsz-xs mL-10"></i>
-                                    </a>
-                                </span>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <div class="picture-navbar dropdown-toggle no-after peers" data-toggle="dropdown">
-                            <img id="profile-image-navbar" class="" th:src="@{'data:image/jpeg;base64, ' + ${user.getBase64Image()}}" alt="profile-picture">
-                        </div>
-                        <ul id="dropdown-profile-image" class="dropdown-menu fsz-sm animated zoomIn" style="position: absolute;
-                        transform: translate3d(60px, 93px, 0px);
-                        top: 0px;
-                        will-change: transform;">
-                            <li>
-                                <a href="/edit-profile" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
-                                    <i class="ti-settings mR-10"></i>
-                                    <span>Настройки</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/profile" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
-                                    <i class="ti-user mR-10"></i>
-                                    <span>Моят профил</span>
-                                </a>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li>
-                                <a id="logout-btn" href="/logout" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
-                                    <i class="ti-power-off mR-10"></i>
-                                    <span>Изход</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div> -->
-    <!--Mainmenu-area/ -->
 
     <!-- Wizard-for-creating -->
     <div class="card card-for-bg">
@@ -450,6 +332,7 @@
     <!-- Main-JS -->
     <script src="/static/js/create-project.js"></script>
     <script src="/static/js/vendor.js"></script>
+    <script src="/static/js/notifications.js"></script>
 </body>
 
 </html>

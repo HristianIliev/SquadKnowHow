@@ -24,20 +24,32 @@
   <component name="ChangeListManager">
     <list default="true" id="3c02a052-18d6-4cd0-b9ff-7c0797967db3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/templates/index.html" afterPath="$PROJECT_DIR$/out/production/resources/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProjectsService.java" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProjectsService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/services/Settings.java" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/services/Settings.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/templates/create-group.html" afterPath="$PROJECT_DIR$/out/production/resources/templates/create-group.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/templates/create-project.html" afterPath="$PROJECT_DIR$/out/production/resources/templates/create-project.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/templates/group-page.html" afterPath="$PROJECT_DIR$/out/production/resources/templates/group-page.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/templates/groups-logged.html" afterPath="$PROJECT_DIR$/out/production/resources/templates/groups-logged.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/templates/groups.html" afterPath="$PROJECT_DIR$/out/production/resources/templates/groups.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/templates/my-messages.html" afterPath="$PROJECT_DIR$/out/production/resources/templates/my-messages.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/templates/my-profile.html" afterPath="$PROJECT_DIR$/out/production/resources/templates/my-profile.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/templates/my-projects.html" afterPath="$PROJECT_DIR$/out/production/resources/templates/my-projects.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/templates/people-logged.html" afterPath="$PROJECT_DIR$/out/production/resources/templates/people-logged.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/templates/people.html" afterPath="$PROJECT_DIR$/out/production/resources/templates/people.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/templates/profile-edit.html" afterPath="$PROJECT_DIR$/out/production/resources/templates/profile-edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/templates/profile.html" afterPath="$PROJECT_DIR$/out/production/resources/templates/profile.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/templates/project-edit.html" afterPath="$PROJECT_DIR$/out/production/resources/templates/project-edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/templates/project-page-admin.html" afterPath="$PROJECT_DIR$/out/production/resources/templates/project-page-admin.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/templates/project-page-member.html" afterPath="$PROJECT_DIR$/out/production/resources/templates/project-page-member.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/templates/project-page.html" afterPath="$PROJECT_DIR$/out/production/resources/templates/project-page.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/templates/projects-logged.html" afterPath="$PROJECT_DIR$/out/production/resources/templates/projects-logged.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/templates/projects.html" afterPath="$PROJECT_DIR$/out/production/resources/templates/projects.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/create-group.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/create-group.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/create-project.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/create-project.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/group-page.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/group-page.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/groups-logged.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/groups-logged.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/groups.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/groups.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/my-messages.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/my-messages.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/my-profile.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/my-profile.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/my-projects.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/my-projects.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/people-logged.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/people-logged.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/people.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/people.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/profile-edit.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/profile-edit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/profile.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/profile.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/project-edit.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/project-edit.html" />
@@ -45,8 +57,20 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/project-page-member.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/project-page-member.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/project-page.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/project-page.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/projects-logged.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/projects-logged.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/projects.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/projects.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/create-group.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/create-group.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/create-project.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/create-project.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/group-page.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/group-page.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/groups-logged.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/groups-logged.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/my-messages.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/my-messages.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/my-profile.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/my-profile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/my-projects.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/my-projects.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/people-logged.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/people-logged.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/profile-edit.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/profile-edit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/profile.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/profile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/project-edit.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/project-edit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/project-page-admin.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/project-page-admin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/project-page.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/project-page.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/projects-logged.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/projects-logged.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -80,11 +104,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DbProjectsService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DbProjectsService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProjectsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="683" column="37" lean-forward="false" selection-start-line="683" selection-start-column="37" selection-end-line="683" selection-end-column="37" />
+            <state relative-caret-position="713">
+              <caret line="689" column="45" lean-forward="false" selection-start-line="689" selection-start-column="45" selection-end-line="689" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -93,18 +117,18 @@
       <file leaf-file-name="DbCalendarEventsService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbCalendarEventsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-612">
-              <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="9" />
+            <state relative-caret-position="281">
+              <caret line="65" column="23" lean-forward="false" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DbGroupsService.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DbGroupsService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbGroupsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="9" />
+            <state relative-caret-position="414">
+              <caret line="135" column="25" lean-forward="false" selection-start-line="135" selection-start-column="25" selection-end-line="135" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -113,7 +137,7 @@
       <file leaf-file-name="DbProfileService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProfileService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
+            <state relative-caret-position="612">
               <caret line="58" column="7" lean-forward="false" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
               <folding />
             </state>
@@ -124,7 +148,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/Settings.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
-              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+              <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -133,7 +157,7 @@
       <file leaf-file-name="DbRegistrationService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbRegistrationService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-635">
+            <state relative-caret-position="108">
               <caret line="28" column="9" lean-forward="false" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="9" />
               <folding />
             </state>
@@ -143,7 +167,7 @@
       <file leaf-file-name="DbTagsService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbTagsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1339">
+            <state relative-caret-position="90">
               <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
               <folding />
             </state>
@@ -153,7 +177,7 @@
       <file leaf-file-name="DbTodoListEntriesService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbTodoListEntriesService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
+            <state relative-caret-position="1332">
               <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
               <folding />
             </state>
@@ -686,7 +710,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1087" />
@@ -723,10 +747,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -1102,7 +1126,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1113,15 +1137,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.228125" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24479167" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24479167" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.290625" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14479166" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21268657" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21481876" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1136,6 +1158,8 @@
       <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -1492,25 +1516,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbCalendarEventsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-612">
-          <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbGroupsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProfileService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
+        <state relative-caret-position="612">
           <caret line="58" column="7" lean-forward="false" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
           <folding />
         </state>
@@ -1518,7 +1526,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbRegistrationService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-635">
+        <state relative-caret-position="108">
           <caret line="28" column="9" lean-forward="false" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="9" />
           <folding />
         </state>
@@ -1526,7 +1534,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbTagsService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1339">
+        <state relative-caret-position="90">
           <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
           <folding />
         </state>
@@ -1534,32 +1542,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbTodoListEntriesService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
+        <state relative-caret-position="1332">
           <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/controllers/FragmentsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/controllers/FragmentsController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/Settings.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProjectsService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="683" column="37" lean-forward="false" selection-start-line="683" selection-start-column="37" selection-end-line="683" selection-end-column="37" />
+        <state relative-caret-position="713">
+          <caret line="689" column="45" lean-forward="false" selection-start-line="689" selection-start-column="45" selection-end-line="689" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbCalendarEventsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="65" column="23" lean-forward="false" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbGroupsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="135" column="25" lean-forward="false" selection-start-line="135" selection-start-column="25" selection-end-line="135" selection-end-column="25" />
           <folding />
         </state>
       </provider>

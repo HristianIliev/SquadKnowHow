@@ -42,14 +42,7 @@
 
 <body th:id="'user-id_' + ${user.getId()}" data-spy="scroll" class="gray-bg-my-profile">
 
-    <div class="preloader">
-        <div class="sk-folding-cube">
-            <div class="sk-cube1 sk-cube"></div>
-            <div class="sk-cube2 sk-cube"></div>
-            <div class="sk-cube4 sk-cube"></div>
-            <div class="sk-cube3 sk-cube"></div>
-        </div>
-    </div>
+    <div th:replace="fragments/preloader :: preloader"></div>
 
     <!-- Mainmenu-area-->
     <div id="main-nav" class="mainmenu-area" style="background-color: #138fc2;" data-offset-top="100">

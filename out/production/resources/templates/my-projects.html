@@ -40,7 +40,9 @@
 
     <div th:replace="fragments/preloader :: preloader"></div>
 
-    <div id="main-nav" class="mainmenu-area" style="background-color: #138fc2;" data-offset-top="100">
+    <div th:replace="fragments/headerSignedIn :: header('projects')">
+    </div>
+    <!-- <div id="main-nav" class="mainmenu-area" style="background-color: #138fc2;" data-offset-top="100">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse">
@@ -155,7 +157,7 @@
                 </ul>
             </nav>
         </div>
-    </div>
+    </div> -->
 
     <div class="row column-container">
         <div class="col-md-6">

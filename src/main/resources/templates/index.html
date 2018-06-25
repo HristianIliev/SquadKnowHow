@@ -38,18 +38,12 @@
 <body data-spy="scroll" data-target="#primary-menu">
 
     <div th:replace="fragments/preloader :: preloader"></div>
-    <!-- <div class="preloader">
-        <div class="sk-folding-cube">
-            <div class="sk-cube1 sk-cube"></div>
-            <div class="sk-cube2 sk-cube"></div>
-            <div class="sk-cube4 sk-cube"></div>
-            <div class="sk-cube3 sk-cube"></div>
-        </div>
-    </div> -->
+
     <!--Mainmenu-area-->
-    <div class="mainmenu-area" data-spy="affix" data-offset-top="100">
+    <div th:replace="fragments/header-home :: header">
+    </div>
+    <!-- <div class="mainmenu-area" data-spy="affix" data-offset-top="100">
         <div class="container animated fadeInDown">
-            <!--Logo-->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-menu">
                     <span class="icon-bar"></span>
@@ -60,7 +54,6 @@
                     <h2>squadknowhow</h2>
                 </a>
             </div>
-            <!--Logo/-->
             <nav class="collapse navbar-collapse" id="primary-menu">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
@@ -87,13 +80,10 @@
                         <a href="#service-page">
                             <i class="fas fa-info"></i> Как работи?</a>
                     </li>
-                    <!-- <li><a href="#price-page">Pricing</a></li>
-                    <li><a href="#team-page">Team</a></li> -->
                     <li>
                         <a href="#faq-page">
                             <i class="fas fa-question"></i> Въпроси</a>
                     </li>
-                    <!-- <li><a href="#blog-page">Blog</a></li> -->
                     <li>
                         <a href="#contact-page">
                             <i class="fas fa-phone"></i> Контакти</a>
@@ -101,8 +91,8 @@
                 </ul>
             </nav>
         </div>
-    </div>
-    <!--Mainmenu-area/-->
+    </div> -->
+    <!-- Mainmenu-area -->
 
 
 

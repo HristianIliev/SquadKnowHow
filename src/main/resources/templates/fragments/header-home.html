@@ -1,0 +1,63 @@
+<!doctype html>
+<html class="no-js" lang="bg">
+
+<head>
+</head>
+
+<body data-spy="scroll" data-target="#primary-menu">
+    <div class="mainmenu-area" data-spy="affix" data-offset-top="100" th:fragment="header">
+        <div class="container animated fadeInDown">
+            <!--Logo-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-menu">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand logo">
+                    <h2>squadknowhow</h2>
+                </a>
+            </div>
+            <!--Logo/-->
+            <nav class="collapse navbar-collapse" id="primary-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li th:classappend="${module == 'people' ? 'active' : ''}">
+                        <a href="/people">
+                            <i class="fas fa-users"></i> Търсещи</a>
+                    </li>
+                    <li th:classappend="${module == 'projects' ? 'active' : ''}">
+                        <a href="/projects">
+                            <i class="fas fa-list-ul"></i> Проекти</a>
+                    </li>
+                    <li th:classappend="${module == 'groups' ? 'active' : ''}">
+                        <a href="/groups" class="has-divider">
+                            <i class="fas fa-expand"></i> Групи</a>
+                    </li>
+                    <li th:classappend="${module == 'home' ? 'active' : ''}">
+                        <a href="#home-page">
+                            <i class="fas fa-home"></i> Начало</a>
+                    </li>
+                    <li>
+                        <a href="#feature-page">
+                            <i class="fas fa-code"></i> Функции</a>
+                    </li>
+                    <li>
+                        <a href="#service-page">
+                            <i class="fas fa-info"></i> Как работи?</a>
+                    </li>
+                    <li>
+                        <a href="#faq-page">
+                            <i class="fas fa-question"></i> Въпроси</a>
+                    </li>
+                    <li>
+                        <a href="#contact-page">
+                            <i class="fas fa-phone"></i> Контакти</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- Mainmenu-area -->
+</body>
+
+</html>

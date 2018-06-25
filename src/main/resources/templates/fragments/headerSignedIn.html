@@ -2,68 +2,11 @@
 <html class="no-js" lang="bg" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="author" content="Hristian Iliev">
-    <meta name="keywords" content="Squad,Team,Organize">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Групи - SquadKnowHow</title>
-
-    <!-- Tab-icon -->
-    <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png">
-    <link rel="shortcut icon" type="image/ico" href="/static/images/favicon.ico" />
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-
-    <link rel="stylesheet" href="/static/css/themify-icons.css">
-
-    <!-- Animations -->
-    <link rel="stylesheet" href="/static/css/animate.css">
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
-
-    <!-- Material-design-bootstrap -->
-    <link href="/static/css/mdb.min.css" rel="stylesheet">
-
-    <!-- Notifications -->
-    <link rel="stylesheet" href="/static/css/notifications.css">
-
-    <!-- Main-css -->
-    <link rel="stylesheet" href="/static/css/normalize.css">
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/responsive.css">
-    <link rel="stylesheet" href="/static/css/my-messages.css">
-    <link rel="stylesheet" href="/static/css/people.css">
-
-    <!-- Rotating-card -->
-    <link rel='stylesheet' href='/static/css/rotating-card-groups.css' />
-
-    <!-- Popups -->
-    <link rel="stylesheet" href="/static/css/iziToast.min.css">
-
-    <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
-<body th:id="'user-id_' + ${user.getId()}" data-spy="scroll" class="gray-bg-people">
-
-    <div th:replace="fragments/preloader :: preloader"></div>
-
-    <div th:replace="fragments/headerSignedIn :: header('groups')">
-    </div>
-    <!-- Mainmenu-area-->
-    <!-- <div id="main-nav" class="mainmenu-area" style="background-color: #138fc2;" data-offset-top="100">
-        <div class="container">
+<body th:id="'user-id_' + ${user.getId()}" data-spy="scroll" class="gray-bg-my-profile">
+    <div id="main-nav" class="mainmenu-area" style="background-color: #138fc2;" data-offset-top="100" th:fragment="header(activeTab)">
+        <div class="container animated fadeInDown wow">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse">
                     <span class="icon-bar"></span>
@@ -76,27 +19,27 @@
             </div>
             <nav class="collapse navbar-collapse" id="primary-menu">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/users">
+                    <li th:classappend="${activeTab == 'people' ? 'active' : ''}">
+                        <a id="tour-step-8" href="/users">
                             <i class="fas fa-users"></i> Търсещи</a>
                     </li>
-                    <li>
-                        <a href="/projects-of-people">
+                    <li th:classappend="${activeTab == 'projects' ? 'active' : ''}">
+                        <a id="tour-step-7" href="/projects-of-people">
                             <i class="fas fa-list-ul"></i> Проекти</a>
                     </li>
-                    <li class="active">
-                        <a href="#">
+                    <li th:classappend="${activeTab == 'groups' ? 'active' : ''}">
+                        <a id="tour-step-6" href="/groups-of-people">
                             <i class="fas fa-expand"></i> Групи</a>
                     </li>
-                    <li>
-                        <a href="/messages">
+                    <li th:classappend="${activeTab == 'messages' ? 'active' : ''}">
+                        <a id="tour-step-5" href="/messages">
                             <i class="fas fa-comments"></i> Моите съобщения</a>
                     </li>
-                    <li>
-                        <a href="/my-projects">
+                    <li th:classappend="${activeTab == 'my-projects' ? 'active' : ''}">
+                        <a id="tour-step-4" href="/my-projects">
                             <i class="fas fa-user-circle"></i> Моите проекти</a>
                     </li>
-                    <li class="notifications dropdown">
+                    <li id="tour-step-3" class="notifications dropdown">
                         <span class="counter bgc-red" th:text="${user.getNotifications().size()}">3</span>
                         <a href="https://colorlib.com/polygon/adminator/index.html" class="dropdown-toggle no-after" data-toggle="dropdown">
                             <i class="far fa-bell fa-2x"></i>
@@ -145,7 +88,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li id="tour-step-2" class="dropdown">
                         <div class="picture-navbar dropdown-toggle no-after peers" data-toggle="dropdown">
                             <img id="profile-image-navbar" class="" th:src="@{'data:image/jpeg;base64, ' + ${user.getBase64Image()}}" alt="profile-picture">
                         </div>
@@ -177,85 +120,7 @@
                 </ul>
             </nav>
         </div>
-    </div> -->
-    <!--Mainmenu-area/ -->
-
-    <nav class="navbar navbar-dark navbar-search-people light-sky-bg">
-        <div style="margin-right: 0px; margin-left: 0px;" class="row">
-            <!-- Search by name -->
-            <form class="form-inline col-xs-4 col-md-6">
-                <div class="md-form mt-0">
-                    <input id="search-user-name" class="form-control mr-sm-2" type="text" placeholder="Въведи името на проекта, който търсиш..."
-                        aria-label="Search">
-                    <button id="btn-search-user-name" class="btn btn-outline-white btn-lg" type="submit">
-                        <i class="fa fa-search"></i> Търси</button>
-                </div>
-            </form>
-        </div>
-    </nav>
-
-    <!--Card-->
-    <div class="card pagination-box">
-        <!--Card content-->
-        <div class="card-body">
-            <h2 class="card-title-people text-center">Групи от потребители</h2>
-            <h4 class="card-sub-title text-center">Групите от потребители в SquadKnowHow помагат на потребители със едни и същи интереси или занимания да се открият
-                по-лесно и да започнат страхотни проекти заедно</h4>
-            <button id="button-create-group" class="button-white-bg button-outline">
-                <i class="fa fa-plus"></i> Създай група</button>
-            <hr>
-            <div class="row">
-                <div class="card-deck" id="card-deck-groups-logged">
-                </div>
-            </div>
-        </div>
-
-        <!-- Pagination -->
-        <div style="text-align:center;">
-            <ul id="pagination-groups" class="pagination-lg justify-content-end"></ul>
-        </div>
     </div>
-    <!--/.Card-->
-
-    <!-- -------------JS------------------- -->
-    <!-- Jquery -->
-    <script src="/static/js/vendor/jquery-1.12.4.min.js"></script>
-
-    <!-- Bootstrap -->
-    <script src="/static/js/vendor/bootstrap.min.js"></script>
-
-    <!-- Material-design-bootstrap -->
-    <script type="text/javascript" src="/static/js-mdb/popper.min.js"></script>
-    <script type="text/javascript" src="/static/js-mdb/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/static/js-mdb/mdb.min.js"></script>
-
-    <!-- Popups -->
-    <script src="/static/js/iziToast.min.js" type="text/javascript"></script>
-
-    <!-- Rotate-button -->
-    <script type="text/javascript">
-        $().ready(function () {
-            $('[rel="tooltip"]').tooltip();
-
-        });
-
-        function rotateCard(btn) {
-            var $card = $(btn).closest('.card-container');
-            console.log($card);
-            if ($card.hasClass('hover')) {
-                $card.removeClass('hover');
-            } else {
-                $card.addClass('hover');
-            }
-        }
-    </script>
-
-    <!-- Pagination -->
-    <script src="/static/js/jquery.twbsPagination.min.js"></script>
-
-    <!-- Main-js -->
-    <script src="/static/js/groups-logged.js"></script>
-    <script src="/static/js/vendor.js"></script>
 </body>
 
 </html>

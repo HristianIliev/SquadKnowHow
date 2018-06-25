@@ -22,7 +22,7 @@ var id = $("body")
 //   "data:image/png;base64, " + user.image
 // );
 
-setUpWizard(result);
+setUpWizard();
 
 //   }
 // });
@@ -151,7 +151,7 @@ function setUpNotifications() {
   });
 }
 
-function setUpWizard(result) {
+function setUpWizard() {
   var uploader = $("#fine-uploader").fineUploader({
     debug: true,
     request: {

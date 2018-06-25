@@ -709,6 +709,7 @@ public class DbProjectsService implements IProjectsService {
                 + senderLastName + ", ти изпрати съвет относно \""
                 + projectName + "\".");
         result.setKind(kind);
+        break;
       case "normal-question":
         result.setContent(senderFirstName + " "
                 + senderLastName + ", те попита въпрос относно \""

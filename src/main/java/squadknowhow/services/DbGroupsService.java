@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import squadknowhow.contracts.IGroupsService;
 import squadknowhow.contracts.IRepository;
 import squadknowhow.dbmodels.Group;
+import squadknowhow.dbmodels.GroupShort;
 import squadknowhow.dbmodels.User;
 import squadknowhow.response.models.ResponseCheckGroupName;
 import squadknowhow.response.models.ResponseGroupId;
@@ -23,6 +24,7 @@ import squadknowhow.utils.validators.base.IValidator;
 
 @Service
 public class DbGroupsService implements IGroupsService {
+  private final IRepository<GroupShort> groupsShortRepository;
   private IValidator<Integer> idValidator;
   private IValidator<Group> groupsValidator;
   private IRepository<Group> groupsRepository;
@@ -30,10 +32,12 @@ public class DbGroupsService implements IGroupsService {
 
   @Autowired
   public DbGroupsService(IRepository<Group> groupsRepository,
+                         IRepository<GroupShort> groupsShortRepository,
                          IRepository<User> usersRepository,
                          IValidator<Group> groupsValidator,
                          IValidator<Integer> idValidator) {
     this.groupsRepository = groupsRepository;
+    this.groupsShortRepository = groupsShortRepository;
     this.usersRepository = usersRepository;
     this.groupsValidator = groupsValidator;
     this.idValidator = idValidator;
@@ -105,7 +109,7 @@ public class DbGroupsService implements IGroupsService {
 
     int numberOfPages = (int) Math.ceil(groups.size() / 20.0);
 
-    return new ResponsePagination(numberOfPages, groups.  size());
+    return new ResponsePagination(numberOfPages, groups.size());
   }
 
   @Override
@@ -123,12 +127,12 @@ public class DbGroupsService implements IGroupsService {
   }
 
   @Override
-  public List<Group> getGroups(int page, String name) {
+  public List<GroupShort> getGroups(int page, String name) {
     if (page < 1) {
       return null;
     }
 
-    List<Group> groups = this.groupsRepository.getAll();
+    List<GroupShort> groups = this.groupsShortRepository.getAll();
     groups = groups.stream()
             .filter(group -> group.getName().toLowerCase().contains(name.toLowerCase()))
             .collect(Collectors.toList());

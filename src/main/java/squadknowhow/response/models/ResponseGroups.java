@@ -3,19 +3,20 @@ package squadknowhow.response.models;
 import java.util.List;
 
 import squadknowhow.dbmodels.Group;
+import squadknowhow.dbmodels.GroupShort;
 
 public class ResponseGroups {
-  private List<Group> groups;
+  private List<GroupShort> groups;
 
-  public ResponseGroups(List<Group> groups) {
+  public ResponseGroups(List<GroupShort> groups) {
     this.setGroups(groups);
   }
 
-  public List<Group> getGroups() {
+  public List<GroupShort> getGroups() {
     return groups;
   }
 
-  public void setGroups(List<Group> groups) {
+  public void setGroups(List<GroupShort> groups) {
     this.groups = groups;
   }
 }

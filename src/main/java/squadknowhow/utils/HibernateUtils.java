@@ -9,6 +9,7 @@ import squadknowhow.dbmodels.CalendarEvent;
 import squadknowhow.dbmodels.City;
 import squadknowhow.dbmodels.Company;
 import squadknowhow.dbmodels.Group;
+import squadknowhow.dbmodels.GroupShort;
 import squadknowhow.dbmodels.Interest;
 import squadknowhow.dbmodels.Message;
 import squadknowhow.dbmodels.Notification;
@@ -38,6 +39,7 @@ public class HibernateUtils {
       configuration.addAnnotatedClass(Project.class);
       configuration.addAnnotatedClass(ProjectShort.class);
       configuration.addAnnotatedClass(Group.class);
+      configuration.addAnnotatedClass(GroupShort.class);
       configuration.addAnnotatedClass(Message.class);
       configuration.addAnnotatedClass(Notification.class);
       configuration.addAnnotatedClass(Advice.class);

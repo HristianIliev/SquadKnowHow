@@ -1,7 +1,11 @@
 package squadknowhow.dbmodels;
 
-import java.util.Arrays;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.apache.tomcat.util.codec.binary.Base64;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+import squadknowhow.contracts.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,17 +17,12 @@ import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.apache.tomcat.util.codec.binary.Base64;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
-
-import squadknowhow.contracts.Model;
+import java.util.Arrays;
+import java.util.List;
 
 @Entity
 @Table(name = "groups")
-public class Group implements Model {
+public class GroupShort implements Model{
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
@@ -45,19 +44,19 @@ public class Group implements Model {
                   @JoinColumn(name = "user_id")})
   private List<User> members;
 
-  public Group() {
+  public GroupShort() {
 
   }
 
-  public Group(int id) {
+  public GroupShort(int id) {
     this.setId(id);
   }
 
-  public Group(String name) {
+  public GroupShort(String name) {
     this.setName(name);
   }
 
-  public Group(List<User> members) {
+  public GroupShort(List<User> members) {
     this.setMembers(members);
   }
 
@@ -101,6 +100,7 @@ public class Group implements Model {
     this.groupType = groupType;
   }
 
+  @JsonIgnore
   public List<User> getMembers() {
     return members;
   }
@@ -114,12 +114,12 @@ public class Group implements Model {
     return Base64.encodeBase64String(this.getLogo());
   }
 
-  @JsonIgnore
+  @JsonProperty
   public int getMembersCount() {
     return this.members.size();
   }
 
-  @JsonIgnore
+  @JsonProperty
   public int getProjectsCount() {
     int result = 0;
     for (int i = 0; i < this.getMembers().size(); i++) {

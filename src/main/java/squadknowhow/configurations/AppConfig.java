@@ -13,6 +13,7 @@ import squadknowhow.dbmodels.CalendarEvent;
 import squadknowhow.dbmodels.City;
 import squadknowhow.dbmodels.Company;
 import squadknowhow.dbmodels.Group;
+import squadknowhow.dbmodels.GroupShort;
 import squadknowhow.dbmodels.Interest;
 import squadknowhow.dbmodels.Message;
 import squadknowhow.dbmodels.Notification;
@@ -247,6 +248,15 @@ public class AppConfig {
   IRepository<UserCategory> provideUserCategoriesGenericRepository() {
     HibernateRepository<UserCategory> repository = new HibernateRepository<>();
     repository.setEntityClass(UserCategory.class);
+
+    return repository;
+  }
+
+  @Bean
+  @Autowired
+  IRepository<GroupShort> provideGroupsShortGenericRepository() {
+    HibernateRepository<GroupShort> repository = new HibernateRepository<>();
+    repository.setEntityClass(GroupShort.class);
 
     return repository;
   }

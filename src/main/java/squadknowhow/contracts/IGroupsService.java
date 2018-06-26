@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 import squadknowhow.dbmodels.Group;
+import squadknowhow.dbmodels.GroupShort;
 import squadknowhow.response.models.ResponseCheckGroupName;
 import squadknowhow.response.models.ResponseCheckProjectName;
 import squadknowhow.response.models.ResponseGroupId;
@@ -23,7 +24,7 @@ public interface IGroupsService {
 
   ResponseCheckGroupName checkGroupName(String name);
 
-  List<Group> getGroups(int page, String name);
+  List<GroupShort> getGroups(int page, String name);
 
   boolean addGroupMember(int groupId, int userId);
 }

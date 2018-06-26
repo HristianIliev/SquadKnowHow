@@ -88,11 +88,6 @@ function populateGroups(result) {
 
   var groups = result.groups;
   for (var i = groups.length - 1; i >= 0; i -= 1) {
-    var projectsCount = 0;
-    for (var j = 0; j < groups[i].members.length; j += 1) {
-      projectsCount += groups[i].members[j].projects.length;
-    }
-
     $("#card-deck-groups-logged")
       .addClass("animated")
       .addClass("zoomIn")
@@ -162,7 +157,7 @@ function populateGroups(result) {
                                       .addClass("col-md-6")
                                       .append(
                                         $("<h4/>").text(
-                                          groups[i].members.length
+                                          groups[i].membersCount
                                         )
                                       )
                                       .append($("<p/>").text("Участващи"))
@@ -171,7 +166,7 @@ function populateGroups(result) {
                                     $("<div/>")
                                       .addClass("stat")
                                       .addClass("col-md-6")
-                                      .append($("<h4/>").text(projectsCount))
+                                      .append($("<h4/>").text(groups[i].projectsCount))
                                       .append($("<p/>").text("Проекта"))
                                   )
                               )

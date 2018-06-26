@@ -1329,7 +1329,6 @@ preloader
     padding-right: 150px;
   }
 }
-
 .alert-danger {
   background-color: white;
   border: 1px solid #f4516c;
@@ -1340,4 +1339,12 @@ preloader
   border-radius: 4px;
   margin-bottom: 1rem;
   text-align: center;
+}
+.money-caption {
+  margin-bottom: 10px;
+  font-weight: 500;
+  display: block;
+  color: #007460;
+  font-size: 2.4rem;
+  line-height: 3rem;
 }

@@ -257,6 +257,7 @@ public class Project implements Model {
     return cover;
   }
 
+  @JsonIgnore
   public String getBase64Image() {
     return Base64.encodeBase64String(this.getCover());
   }
@@ -285,6 +286,7 @@ public class Project implements Model {
     return picture1;
   }
 
+  @JsonIgnore
   public String getBase64Picture1() {
     return Base64.encodeBase64String(this.getPicture1());
   }
@@ -297,6 +299,7 @@ public class Project implements Model {
     return picture2;
   }
 
+  @JsonIgnore
   public String getBase64Picture2() {
     return Base64.encodeBase64String(this.getPicture2());
   }
@@ -309,6 +312,7 @@ public class Project implements Model {
     return picture3;
   }
 
+  @JsonIgnore
   public String getBase64Picture3() {
     return Base64.encodeBase64String(this.getPicture3());
   }
@@ -321,6 +325,7 @@ public class Project implements Model {
     return picture4;
   }
 
+  @JsonIgnore
   public String getBase64Picture4() {
     return Base64.encodeBase64String(this.getPicture4());
   }
@@ -333,6 +338,7 @@ public class Project implements Model {
     return picture5;
   }
 
+  @JsonIgnore
   public String getBase64Picture5() {
     return Base64.encodeBase64String(this.getPicture5());
   }
@@ -345,6 +351,7 @@ public class Project implements Model {
     return picture6;
   }
 
+  @JsonIgnore
   public String getBase64Picture6() {
     return Base64.encodeBase64String(this.getPicture6());
   }
@@ -357,6 +364,7 @@ public class Project implements Model {
     return picture7;
   }
 
+  @JsonIgnore
   public String getBase64Picture7() {
     return Base64.encodeBase64String(this.getPicture7());
   }
@@ -369,6 +377,7 @@ public class Project implements Model {
     return picture8;
   }
 
+  @JsonIgnore
   public String getBase64Picture8() {
     return Base64.encodeBase64String(this.getPicture8());
   }
@@ -381,6 +390,7 @@ public class Project implements Model {
     return picture9;
   }
 
+  @JsonIgnore
   public String getBase64Picture9() {
     return Base64.encodeBase64String(this.getPicture9());
   }
@@ -429,12 +439,14 @@ public class Project implements Model {
     this.questions = questions;
   }
 
+  @JsonIgnore
   public void printProjectNeeds() {
     for (UserCategory projectNeed : this.projectNeeds) {
       System.out.println(projectNeed.getName());
     }
   }
 
+  @JsonIgnore
   public String getProjectNeedsStr() {
     StringBuilder result = new StringBuilder();
     for (int i = 0; i < this.getProjectNeeds().size(); i++) {

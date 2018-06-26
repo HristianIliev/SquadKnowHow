@@ -313,6 +313,7 @@ public class User implements Model {
     return image;
   }
 
+  @JsonIgnore
   public String getBase64Image() {
     return Base64.encodeBase64String(this.getImage());
   }
@@ -430,6 +431,7 @@ public class User implements Model {
     this.needsTour = needsTour;
   }
 
+  @JsonIgnore
   public String getProfileInterests() {
     StringBuilder result = new StringBuilder();
     for (int i = 0; i < this.getInterests().size(); i++) {
@@ -446,6 +448,7 @@ public class User implements Model {
     return result.toString();
   }
 
+  @JsonIgnore
   public String getProfileSkills() {
     StringBuilder result = new StringBuilder();
     for (int i = 0; i < this.getSkills().size(); i++) {
@@ -462,6 +465,7 @@ public class User implements Model {
     return result.toString();
   }
 
+  @JsonIgnore
   public String getPreviousEmploymentString() {
     StringBuilder result = new StringBuilder();
     for (int i = 0; i < this.getPreviousEmployment().size(); i++) {
@@ -478,6 +482,7 @@ public class User implements Model {
     return result.toString();
   }
 
+  @JsonIgnore
   public List<Project> getCreatedProjects() {
     List<Project> result = this.getProjects().stream()
             .filter(pr -> pr.getCreator() == this.getId())
@@ -486,6 +491,7 @@ public class User implements Model {
     return result;
   }
 
+  @JsonIgnore
   public List<Project> getMemberOfProjects() {
     List<Project> result = this.getProjects().stream()
             .filter(pr -> pr.getCreator() != this.getId())
@@ -494,12 +500,14 @@ public class User implements Model {
     return result;
   }
 
+  @JsonIgnore
   public List<Message> getMessagesReverse() {
     List<Message> result = this.getMessages();
     Collections.reverse(result);
     return result;
   }
 
+  @JsonIgnore
   public List<Message> getSentMessagesReverse() {
     List<Message> result = this.getSentMessages();
     Collections.reverse(result);

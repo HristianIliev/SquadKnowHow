@@ -1,4 +1,44 @@
 var user = null;
+var needsMoney = $(".fund-me").is(":checked");
+
+$(".fund-me").change(function() {
+  if ($(".fund-me").is(":checked")) {
+    needsMoney = true;
+    $("#step-1").append(
+      $("<div/>")
+        .attr("id", "money-form")
+        .addClass("md-form")
+        .addClass("form-lg")
+        .addClass("form-margins")
+        .append(
+          $("<i/>")
+            .attr("id", "neededMoneyIcon")
+            .addClass("far")
+            .addClass("fa-money-bill-alt")
+            .addClass("prefix")
+            .addClass("fa-7x")
+        )
+        .append(
+          $("<input/>")
+            .attr("id", "neededMoney")
+            .attr("type", "number")
+            .attr("min", "0.01")
+            .attr("step", "0.01")
+            .attr("value", "0.01")
+            .addClass("form-control")
+        )
+        .append(
+          $("<label/>")
+            .attr("id", "neededMoneyLabel")
+            .attr("for", "neededMoney")
+            .text("Сума от която се нуждае проекта ти (Euro)")
+        )
+    );
+  } else {
+    $("#money-form").remove();
+    needsMoney = false;
+  }
+});
 
 var indexOfUndescoreForUserId = $("body")
   .attr("id")
@@ -373,7 +413,6 @@ function sendVerificationSMS(telephone, countryCode) {
 }
 
 function showCodeVerificationModal(telephone, countryCode) {
-  alert(telephone, countryCode);
   vex.dialog.open({
     message:
       "За да завършите успешно създаването на проекта си трябва първо да потвърдите телефонния си номер. Ние ви изпратихме SMS, въведете кода за достъп:",
@@ -405,6 +444,13 @@ function showCodeVerificationModal(telephone, countryCode) {
             var githubPage = $("#github-page").val();
             var city = $("#location").val();
             var videoLink = $("#video-of-project").val();
+            var neededMoney;
+            if (needsMoney) {
+              neededMoney = $("#neededMoney").val();
+            } else {
+              neededMoney = 0.0;
+            }
+
             var needsProgrammer = document.querySelector("#needsProgrammer")
               .checked;
             var needsDesigner = document.querySelector("#needsDesigner")
@@ -512,7 +558,10 @@ function showCodeVerificationModal(telephone, countryCode) {
                     name: artist
                   }
                 ],
-                telephone: telephone
+                telephone: telephone,
+                neededMoney: neededMoney,
+                receivedMoney: 0,
+                needsMoney: needsMoney
               }),
               contentType: "application/json",
               success: function(result) {

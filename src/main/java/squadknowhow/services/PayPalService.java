@@ -10,9 +10,16 @@ import com.paypal.api.payments.RedirectUrls;
 import com.paypal.api.payments.Transaction;
 import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.PayPalRESTException;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Call;
+import com.twilio.type.PhoneNumber;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import squadknowhow.contracts.IRepository;
+import squadknowhow.dbmodels.Project;
 import squadknowhow.response.models.PaymentID;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -21,11 +28,19 @@ import java.util.List;
 public class PayPalService {
   private static final String CLIENT_ID = System.getenv("PayPal_CLIENT_ID");
   private static final String CLIENT_SECRET = System.getenv("PayPal_CLIENT_SECRET");
+  private static final String ACCOUNT_SID = System.getenv("ACCOUNT_SID");
+  private static final String AUTH_TOKEN = System.getenv("AUTH_TOKEN");
+  private static final String FROM_NUMBER = System.getenv("FROM_NUMBER");
+  private static final int PHONE_NUMBER_LENGTH = 13;
 
   private final APIContext context;
+  private final IRepository<Project> projectsRepository;
 
-  public PayPalService() {
+  @Autowired
+  public PayPalService(IRepository<Project> projectsRepository) {
     this.context = new APIContext(CLIENT_ID, CLIENT_SECRET, "sandbox");
+
+    this.projectsRepository = projectsRepository;
   }
 
   public PaymentID createPayment() {
@@ -86,7 +101,7 @@ public class PayPalService {
     }
   }
 
-  public void completePayment(String paymentID, String payerID) {
+  public void completePayment(String paymentID, String payerID, int projectID) {
     Payment payment = new Payment();
     payment.setId(paymentID);
 
@@ -94,9 +109,34 @@ public class PayPalService {
     paymentExecution.setPayerId(payerID);
     try {
       Payment createdPayment = payment.execute(context, paymentExecution);
+
+      Project project = this.projectsRepository.getById(projectID);
+
+      double paid = Double.parseDouble(createdPayment.getTransactions().get(0).getAmount().getDetails().getSubtotal());
+      project.setReceivedMoney(project.getReceivedMoney() + paid);
+
+      this.call(project.getTelephone());
+
+      this.projectsRepository.update(project);
+
       System.out.println(createdPayment);
     } catch (PayPalRESTException e) {
       System.err.println(e.getDetails());
     }
+  }
+
+  private void call(String phoneNumber) {
+    Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+    String number = "+359" + phoneNumber;
+    if (number.length() != PHONE_NUMBER_LENGTH) {
+      return;
+    }
+
+    PhoneNumber to = new PhoneNumber(number);
+    PhoneNumber from = new PhoneNumber(FROM_NUMBER);
+    Call call = Call.creator(to, from, URI.create("https://handler.twilio.com/twiml/EH87a0cdd4d586175f4048a761641d5e49"))
+            .create();
+
+    System.out.println(call.getSid());
   }
 }

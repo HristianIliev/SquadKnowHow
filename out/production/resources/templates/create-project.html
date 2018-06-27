@@ -62,6 +62,8 @@
     <link rel="stylesheet" href="/static/css/normalize.css">
     <link rel="stylesheet" href="/static/css/responsive.css">
     <link rel="stylesheet" href="/static/css/main.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
 </head>
 
 <body th:id="'user-id_' + ${user.getId()}" data-spy="scroll" class="gray-bg-my-profile">
@@ -78,7 +80,7 @@
             <div id="smartwizard">
                 <ul class="steps">
                     <li>
-                        <a href="#step-1">Име на проекта
+                        <a href="#step-1">Основна информация
                             <br />
                             <small>Добави кратко и ясно име на проекта ти</small>
                         </a>
@@ -112,6 +114,13 @@
                             <i id="locationIcon" class="fa fa-location-arrow prefix fa-5x"></i>
                             <input id="location" type="text" class="form-control">
                             <label id="locationLabel" for="location">Град</label>
+                        </div>
+
+                        <div class="form-margins pretty p-switch p-slim" style="margin-top: 10px;">
+                            <input class="fund-me" type="checkbox" />
+                            <div class="state p-info">
+                                <label>Проектът ти нуждае ли се от финансиране?</label>
+                            </div>
                         </div>
                     </div>
                     <div id="step-2" class="">

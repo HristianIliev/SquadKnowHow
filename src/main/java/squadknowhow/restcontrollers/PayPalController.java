@@ -31,11 +31,13 @@ public class PayPalController {
   }
 
   @RequestMapping(value = "/completePayment", method = RequestMethod.POST, consumes = {"application/x-www-form-urlencoded;charset=UTF-8"})
-  public boolean completePayment(@RequestParam("paymentID") String paymentId, @RequestParam("payerID") String payerID) {
+  public boolean completePayment(@RequestParam("paymentID") String paymentId,
+                                 @RequestParam("payerID") String payerID,
+                                 @RequestParam("projectId") String projectId) {
     System.out.println("in completePayment");
     System.out.println(paymentId);
     System.out.println(payerID);
-    this.payPalService.completePayment(paymentId, payerID);
+    this.payPalService.completePayment(paymentId, payerID, Integer.parseInt(projectId));
     return true;
   }
 }

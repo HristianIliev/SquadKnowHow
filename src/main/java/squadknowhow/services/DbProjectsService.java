@@ -448,7 +448,7 @@ public class DbProjectsService implements IProjectsService {
     List<ProjectShort> projects = this.projectsShortRepository.getAll();
     projects = this.buildWhereClauses(projects, name, userCategory, city);
 
-    int numberOfPages = (int) Math.ceil(projects.size() / 20.0);
+    int numberOfPages = (int) Math.ceil(projects.size() / 12.0);
 
     return new ResponsePagination(numberOfPages, projects.size());
   }
@@ -458,8 +458,8 @@ public class DbProjectsService implements IProjectsService {
     List<ProjectShort> projects = this.projectsShortRepository.getAll();
     projects = this.buildWhereClauses(projects, name, userCategory, city);
 
-    int fromIndex = (page - 1) * 20;
-    int toIndex = fromIndex + 20;
+    int fromIndex = (page - 1) * 12;
+    int toIndex = fromIndex + 12;
 
     if (toIndex > projects.size()) {
       toIndex = projects.size();
@@ -506,6 +506,16 @@ public class DbProjectsService implements IProjectsService {
     projectToInsert.setTelephone(project.getTelephone());
 
     projectToInsert.setYoutubeLink(project.getYoutubeLink());
+
+    if (!project.isNeedsMoney()) {
+      projectToInsert.setNeedsMoney(false);
+      projectToInsert.setNeededMoney(0.0);
+    } else {
+      projectToInsert.setNeedsMoney(true);
+      projectToInsert.setNeededMoney(project.getNeededMoney());
+    }
+
+    projectToInsert.setReceivedMoney(0.0);
 
     this.projectsRepository.create(projectToInsert);
 

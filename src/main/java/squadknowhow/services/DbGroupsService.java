@@ -107,7 +107,7 @@ public class DbGroupsService implements IGroupsService {
             .filter(group -> group.getName().toLowerCase().contains(name.toLowerCase()))
             .collect(Collectors.toList());
 
-    int numberOfPages = (int) Math.ceil(groups.size() / 20.0);
+    int numberOfPages = (int) Math.ceil(groups.size() / 12.0);
 
     return new ResponsePagination(numberOfPages, groups.size());
   }
@@ -137,12 +137,12 @@ public class DbGroupsService implements IGroupsService {
             .filter(group -> group.getName().toLowerCase().contains(name.toLowerCase()))
             .collect(Collectors.toList());
 
-    int fromIndex = (page - 1) * 20;
+    int fromIndex = (page - 1) * 12;
     int toIndex;
-    if (groups.size() < 20) {
+    if (groups.size() < 12) {
       toIndex = groups.size();
     } else {
-      toIndex = fromIndex + 20;
+      toIndex = fromIndex + 12;
     }
 
     return groups.subList(fromIndex, toIndex);

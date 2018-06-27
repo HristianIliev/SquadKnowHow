@@ -204,6 +204,16 @@
                             </ul>
                         </div>
                         <div class="col-md-9 project-description">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" th:attr="aria-valuenow=${project.getPercentageReceived()}"
+                                    aria-valuemin="0" aria-valuemax="100" th:style="'width:' + ${project.getPercentageReceived()} + '%;text-align:center;'"
+                                    th:inline="text">[[${project.getPercentageReceived()}]]%</div>
+                            </div>
+                            <h4 style="margin-bottom:0px;" th:inline="text">
+                                Проектът се нуждае от [[${project.getNeededMoney()}]] EUR
+                            </h4>
+                            <span class="money-caption" th:inline="text">[[${project.getReceivedMoney()}]] EUR събрани</span>
+                            <hr class="divider">
                             <h4>
                                 Описание на проекта
                             </h4>

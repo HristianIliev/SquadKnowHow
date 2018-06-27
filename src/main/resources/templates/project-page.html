@@ -184,13 +184,14 @@
                 </div>
                 <div class="col-md-9 project-description">
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-                            aria-valuemax="100" style="width: 75%">75%</div>
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" th:attr="aria-valuenow=${project.getPercentageReceived()}"
+                            aria-valuemin="0" aria-valuemax="100" th:style="'width:' + ${project.getPercentageReceived()} + '%;text-align:center;'"
+                            th:inline="text">[[${project.getPercentageReceived()}]]%</div>
                     </div>
-                    <h4 style="margin-bottom:0px;">
-                        Проектът се нуждае от 1200 BGN
+                    <h4 style="margin-bottom:0px;" th:inline="text">
+                        Проектът се нуждае от [[${project.getNeededMoney()}]] EUR
                     </h4>
-                    <span class="money-caption">8,134 лв. събрани</span>
+                    <span class="money-caption" th:inline="text">[[${project.getReceivedMoney()}]] EUR събрани</span>
                     <hr class="divider">
                     <h3>
                         Описание на проекта
@@ -317,9 +318,13 @@
                 var EXECUTE_URL = '/api/completePayment';
 
                 // Set up the data you need to pass to your server
+                var arr = window.location.pathname.split("/");
+                var projectId = arr[arr.length - 1];
+
                 var data = {
                     paymentID: data.paymentID,
-                    payerID: data.payerID
+                    payerID: data.payerID,
+                    projectId: projectId
                 };
 
                 console.log(data);
@@ -328,6 +333,12 @@
                 return paypal.request.post(EXECUTE_URL, data)
                     .then(function (res) {
                         console.log('Payment Complete!');
+                        iziToast.success({
+                            title: "ОК!",
+                            message: "Вие успешно финансирахте този проект!",
+                            position: "topRight"
+                        });
+                        location.reload();
                     });
             }
 

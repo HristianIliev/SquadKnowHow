@@ -113,6 +113,12 @@ public class Project implements Model {
   private List<TodoListEntry> listEntries;
   @Column(name = "telephone")
   private String telephone;
+  @Column(name = "needed_money")
+  private double neededMoney;
+  @Column(name = "received_money")
+  private double receivedMoney;
+  @Column(name = "needs_money")
+  private boolean needsMoney;
 
   public Project() {
 
@@ -478,5 +484,37 @@ public class Project implements Model {
             + getGoal2() + ", goal3=" + goal3 + ", githubPage="
             + githubPage + ", city=" + city + ", projectNeeds="
             + projectNeeds + ", members=" + members + ", visits=" + visits + "]";
+  }
+
+  public double getNeededMoney() {
+    return neededMoney;
+  }
+
+  public void setNeededMoney(double neededMoney) {
+    this.neededMoney = neededMoney;
+  }
+
+  public double getReceivedMoney() {
+    return receivedMoney;
+  }
+
+  public void setReceivedMoney(double receivedMoney) {
+    this.receivedMoney = receivedMoney;
+  }
+
+  public boolean isNeedsMoney() {
+    return needsMoney;
+  }
+
+  public void setNeedsMoney(boolean needsMoney) {
+    this.needsMoney = needsMoney;
+  }
+
+  @JsonIgnore
+  public double getPercentageReceived() {
+    double decimal = this.getReceivedMoney() / this.getNeededMoney();
+    double percentage = decimal * 100;
+    String rounded = String.format("%.2f", percentage);
+    return Double.parseDouble(rounded);
   }
 }

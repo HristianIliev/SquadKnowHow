@@ -45,7 +45,7 @@ function initialiseProjectPage() {
       window.location.href = "/profile";
     }
 
-    window.location.href = "/user/" + result.projectMembers[i].id;
+    window.location.href = "/user/" + userIdToSend;
   });
 
   $("#join-project").click(function() {

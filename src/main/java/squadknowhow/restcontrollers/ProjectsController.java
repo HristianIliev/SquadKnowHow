@@ -98,7 +98,8 @@ public class ProjectsController {
   @ResponseBody
   public ResponseProjectId createProject(@RequestBody Project project,
                                          @RequestParam("creatorId") int creatorId) {
-    System.out.println(project.getTelephone());
+    System.out.println(project.isNeedsMoney());
+    System.out.println(project.getNeededMoney());
     return this.projectsService.createProject(project, creatorId);
   }
 

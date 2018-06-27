@@ -134,8 +134,8 @@ public class DbProfileService implements IProfileService {
             skills,
             interests);
 
-    int fromIndex = (page - 1) * 20;
-    int toIndex = fromIndex + 20;
+    int fromIndex = (page - 1) * 12;
+    int toIndex = fromIndex + 12;
 
     if (toIndex > users.size()) {
       toIndex = users.size();
@@ -168,7 +168,7 @@ public class DbProfileService implements IProfileService {
     List<UserShort> users = this.usersShortRepository.getAll();
     users = this.buildWhereClauses(users, name, userCategory, city, skills, interests);
 
-    int numberOfPages = (int) Math.ceil(users.size() / 20.0);
+    int numberOfPages = (int) Math.ceil(users.size() / 12.0);
 
     return new ResponsePagination(numberOfPages, users.size());
   }

@@ -20,7 +20,9 @@ function getPages(name) {
     method: "GET",
     success: function(result) {
       if (result.numberOfPages !== 0) {
-        $(".card-title-people").text("Групи от потребители: " + result.numberOfEntries);
+        $(".card-title-people").text(
+          "Групи от потребители: " + result.numberOfEntries
+        );
         $("#pagination-groups").remove();
         $(".pagination-box").append(
           $("<div/>")
@@ -153,9 +155,7 @@ function populateGroups(result) {
                                       .addClass("has-right-border")
                                       .addClass("col-md-6")
                                       .append(
-                                        $("<h4/>").text(
-                                          groups[i].membersCount
-                                        )
+                                        $("<h4/>").text(groups[i].membersCount)
                                       )
                                       .append($("<p/>").text("Участващи"))
                                   )
@@ -163,7 +163,9 @@ function populateGroups(result) {
                                     $("<div/>")
                                       .addClass("stat")
                                       .addClass("col-md-6")
-                                      .append($("<h4/>").text(groups[i].projectsCount))
+                                      .append(
+                                        $("<h4/>").text(groups[i].projectsCount)
+                                      )
                                       .append($("<p/>").text("Проекти"))
                                   )
                               )

@@ -1,0 +1,21 @@
+{
+  "name": "public",
+  "authors": [
+    "Hristian Iliev <hristian00i@abv.bg>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-labelauty": "labelauty#^1.1.4",
+    "bootstrap-fileinput": "^4.4.7"
+  }
+}

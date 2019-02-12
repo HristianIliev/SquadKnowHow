@@ -1,0 +1,72 @@
+.upper-wrapper {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #DEDEDE;
+    padding: 20px;
+}
+
+.section-title {
+    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+}
+
+.section-title-2 {
+    font-weight: bold;
+    font-size: 14px;
+    color: black;
+}
+
+.review-wrapper {
+    border-bottom: 1px solid #DEDEDE;
+    margin-right: 30px;
+    padding-top: 32px;
+    border-bottom: 1px solid #DEDEDE;
+    padding-bottom: 32px;
+    padding-left: 30px;
+    justify-content: space-between;
+    display: flex;
+}
+
+.review-title {
+    cursor: pointer;
+    color: #139ff0;
+    font-size: 20px;
+    margin-bottom: 4px;
+    line-height: 22px;
+    font-weight: 400;
+}
+
+.review-title:hover {
+    text-decoration: underline;
+}
+
+.review-image {
+    margin-right: 20px;
+    top: 29px;
+    left: 0;
+    width: 80px;
+    height: 100px;
+    border-radius: 5px;
+    border: 1px solid #DEDEDE;
+}
+
+.review-description {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
+
+.review-writer {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.review-activities {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}

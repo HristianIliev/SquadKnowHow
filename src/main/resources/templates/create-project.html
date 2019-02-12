@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html class="no-js" lang="bg" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="Hristian Iliev" />
+  <meta name="keywords" content="Squad,Team,Organize" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Създай проект - SquadKnowHow</title>
+
+  <!-- Tab-icon -->
+  <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png" />
+  <link rel="shortcut icon" type="image/ico" href="/static/images/favicon.ico" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+
+  <link rel="stylesheet" href="/static/css/themify-icons.css" />
+
+  <!-- Animations -->
+  <link rel="stylesheet" href="/static/css/animate.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+  <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
+
+  <!-- Material-design-bootstrap -->
+  <link rel="stylesheet" href="/static/css/mdb.min.css" />
+
+  <!-- Popups -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css" /> -->
+
+  <!-- Wizard-with-steps -->
+  <link rel="stylesheet" href="/static/css/smart_wizard_theme_arrows.css" type="text/css" />
+  <link rel="stylesheet" href="/static/css/smart_wizard.css" type="text/css" />
+
+  <!-- Radio-buttons -->
+  <link rel="stylesheet" href="/static/css/switchery.css" />
+
+  <!-- Popups -->
+  <link rel="stylesheet" href="/static/css/iziToast.min.css" />
+
+  <!-- Jquery-UI -->
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+
+  <!-- Uploader-for-pictures -->
+  <link rel="stylesheet" href="/static/css/fine-uploader-gallery-create-project.css" />
+
+  <!-- Notifications -->
+  <link rel="stylesheet" href="/static/css/notifications.css" />
+
+  <!-- Model Dialogs -->
+  <link rel="stylesheet" href="/static/css/vex.css" />
+  <link rel="stylesheet" href="/static/css/vex-theme-default.css" />
+
+  <!-- Editor -->
+  <!-- <link rel="stylesheet" href="/static/css/froala_style.min.css" />
+  <link rel="stylesheet" href="/static/css/froala_editor.pkgd.min.css" /> -->
+  <link rel="stylesheet" href="/static/css/spell_checker.min.css" />
+  <link rel="stylesheet" href="/static/css/embedly.min.css" />
+
+  <!-- Main-css -->
+  <link rel="stylesheet" href="/static/css/normalize.css" />
+  <link rel="stylesheet" href="/static/css/responsive.css" />
+  <link rel="stylesheet" href="/static/css/main.css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css" />
+
+  <link rel="stylesheet" href="/static/css/footer-distributed.css" />
+
+  <style>
+    @media (max-width: 1100px) {
+        .card-for-bg {
+          margin-right: 30px;
+          margin-left: 30px;
+        }
+        .form-margins {
+          margin-right: 50px;
+          margin-left: 50px;
+        }
+      }
+
+      @media (max-width: 1199px) and (min-width: 1100px) {
+        .card-for-bg {
+          margin-right: 50px;
+          margin-left: 50px;
+        }
+      }
+
+      @media (max-width: 1281px) and (min-width: 1200px) {
+        .card-for-bg {
+          margin-right: 115px;
+          margin-left: 115px;
+        }
+      }
+
+      @media (max-width: 1369px) and (min-width: 1282px) {
+        .card-for-bg {
+          margin-right: 150px;
+          margin-left: 150px;
+        }
+      }
+
+      @media (max-width: 1441px) and (min-width: 1370px) {
+        .card-for-bg {
+          margin-right: 175px;
+          margin-left: 175px;
+        }
+      }
+
+      @media(max-width: 1600px) and (min-width: 1500px){
+        .card-for-bg{
+          margin-right: 245px;
+    margin-left: 245px;
+        }
+      }
+
+      #map {
+        height: 500px;
+        margin-top: 20px;
+        border-radius: 4px;
+        box-shadow: 0 7px 15px rgba(0, 9, 128, 0.05),
+          0 12px 28px rgba(0, 9, 128, 0.075);
+      }
+    </style>
+
+  <link rel="stylesheet" href="/static/css/jQuery-modal-custom-css.css" />
+
+  <script src="https://cdn.rawgit.com/icons8/titanic/master/dist/js/titanic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.5.9/bodymovin.min.js"></script>
+
+  <link rel="stylesheet" href="/static/css/sweetAlert2.css" />
+
+  <link rel="stylesheet" href="/static/css/videoCall.css" />
+
+  <style>
+    .ui-widget.ui-widget-content {
+        z-index: 9999;
+      }
+      .sk-wave {
+        /* margin: 40px auto; */
+        margin-top: auto;
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%, 0);
+        z-index: 99999;
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        font-size: 10px;
+      }
+
+      .sk-wave .sk-rect {
+        margin: 0 3px 0 0;
+        background-color: white;
+        height: 100%;
+        width: 7px;
+        display: inline-block;
+        -webkit-animation: sk-waveStretchDelay 1.2s infinite ease-in-out;
+        animation: sk-waveStretchDelay 1.2s infinite ease-in-out;
+      }
+
+      .sk-wave .sk-rect1 {
+        -webkit-animation-delay: -1.2s;
+        animation-delay: -1.2s;
+      }
+
+      .sk-wave .sk-rect2 {
+        -webkit-animation-delay: -1.1s;
+        animation-delay: -1.1s;
+      }
+
+      .sk-wave .sk-rect3 {
+        -webkit-animation-delay: -1s;
+        animation-delay: -1s;
+      }
+
+      .sk-wave .sk-rect4 {
+        -webkit-animation-delay: -0.9s;
+        animation-delay: -0.9s;
+      }
+
+      .sk-wave .sk-rect5 {
+        -webkit-animation-delay: -0.8s;
+        animation-delay: -0.8s;
+      }
+
+      @media (max-width: 1019px){
+.notifications .counter {
+    right: 4px;
+    top: -5px;
+}
+      }
+
+      @-webkit-keyframes sk-waveStretchDelay {
+        0%,
+        40%,
+        100% {
+          -webkit-transform: scaleY(0.4);
+          transform: scaleY(0.4);
+        }
+        20% {
+          -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+        }
+      }
+
+      @keyframes sk-waveStretchDelay {
+        0%,
+        40%,
+        100% {
+          -webkit-transform: scaleY(0.4);
+          transform: scaleY(0.4);
+        }
+        20% {
+          -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+        }
+      }
+
+      .nice-select{
+        line-height: 1.8!important;
+        margin-left: 10px;
+        height: 27px !important;
+      }
+
+      .qq-gallery .qq-thumbnail-wrapper {
+    width: 100%;
+}
+
+.qq-gallery .qq-upload-list li {
+    border: 1px solid #c5c5c5;
+}
+    </style>
+
+  <link rel="stylesheet" href="/static/css/headerSignedInRegulator.css">
+
+  <link rel="stylesheet" href="/static/css/create-project-regulator.css">
+
+  <link rel="stylesheet" href="/static/css/nice-select.css" />
+
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css">
+</head>
+
+<body th:id="'user-id_' + ${user.getId()}" data-spy="scroll" class="gray-bg-my-profile">
+  <!-- Loading-indicator -->
+  <div th:replace="fragments/preloader :: preloader"></div>
+
+  <div class="page-wrapper">
+    <div id="for-sweet">
+      <div th:replace="fragments/headerSignedIn :: header('projects')"></div>
+
+      <!-- Wizard-for-creating -->
+      <div class="card card-for-bg">
+        <div class="card-body">
+          <div id="smartwizard">
+            <ul class="steps">
+              <li>
+                <a href="#step-1">Основна информация <br />
+                  <small>Добави основната информация за проекта</small>
+                </a>
+              </li>
+              <li>
+                <a href="#step-2">Детайли <br />
+                  <small>Опиши своя проект</small>
+                </a>
+              </li>
+              <li>
+                <a href="#step-3">Снимки <br />
+                  <small>Добави снимки</small>
+                </a>
+              </li>
+            </ul>
+
+            <div>
+              <div id="step-1" class="">
+                <div class="md-form form-lg form-margins">
+                  <i id="projectNameIcon" class="fa fa-buysellads prefix fa-7x"></i>
+                  <input id="projectName" type="text" class="form-control" />
+                  <label id="projectNameLabel" for="projectName">Име на проекта ти*</label>
+                  <small id="projectNameHelp" class="form-text text-muted">
+                    Минимум 5 символа.
+                  </small>
+                </div>
+
+                <!--
+                    <div class="md-form form-lg form-margins">
+                        <i id="locationIcon" class="fa fa-location-arrow prefix fa-5x"></i>
+                        <input id="location" type="text" class="form-control">
+                        <label id="locationLabel" for="location">Град</label>
+                    </div>
+                  -->
+
+                <div class="form-margins pretty p-switch p-slim fund-me-div" style="margin-top: 10px;">
+                  <input class="fund-me" type="checkbox" />
+                  <div class="state p-info">
+                    <label><span class="hide-mobile">Проектът ти нуждае ли се от </span>финансиране?</label>
+                  </div>
+                </div>
+
+                <form class="form-margins searchService" role="form" action="#" method="POST">
+                  <input id="arena-address" placeholder="Въведи местоположение" type="text" class="form-control searchedCity"
+                    style="margin-bottom: 10px; margin-top: 10px;" aria-describedby="searchServiceHelp" />
+                  <span id="searchServiceHelp" class="form-text text-muted">След като маркерът за местополоение се
+                    покаже можеш
+                    просто да го местиш за да покажеш адреса</span>
+                  <div id="map"></div>
+                </form>
+              </div>
+              <div id="step-2" class="">
+                <div class="form-margins">
+                  Проектът ти се нуждае от:
+                  <div class="checkbox-padding needsProgrammer">
+                    <input id="needsProgrammer" type="checkbox" class="js-switch" />
+                    <span class="checkbox-label-box">Програмист</span>
+                  </div>
+                  <div class="checkbox-padding needsDesigner">
+                    <input id="needsDesigner" type="checkbox" class="js-switch" />
+                    <span class="checkbox-label-box">Дизайнер</span>
+                  </div>
+                  <div class="checkbox-padding needsEngineer">
+                    <input id="needsEngineer" type="checkbox" class="js-switch" />
+                    <span class="checkbox-label-box">Инженер</span>
+                  </div>
+                  <div class="checkbox-padding needsWriter">
+                    <input id="needsWriter" type="checkbox" class="js-switch" />
+                    <span class="checkbox-label-box">Писател</span>
+                  </div>
+                  <div class="checkbox-padding needsScientist">
+                    <input id="needsScientist" type="checkbox" class="js-switch" />
+                    <span class="checkbox-label-box">Учен</span>
+                  </div>
+                  <div class="checkbox-padding needsMusician">
+                    <input id="needsMusician" type="checkbox" class="js-switch" />
+                    <span class="checkbox-label-box">Музикант</span>
+                  </div>
+                  <div class="checkbox-padding needsFilmmaker">
+                    <input id="needsFilmmaker" type="checkbox" class="js-switch" />
+                    <span class="checkbox-label-box">Режисьор</span>
+                  </div>
+                  <div class="checkbox-padding needsProductManager">
+                    <input id="needsProductManager" type="checkbox" class="js-switch" />
+                    <span class="checkbox-label-box">Прод. мен.</span>
+                  </div>
+                  <div class="checkbox-padding needsArtist">
+                    <input id="needsArtist" type="checkbox" class="js-switch" />
+                    <span class="checkbox-label-box">Артист</span>
+                  </div>
+                  <div class="md-form form-lg">
+                    <textarea id="textareaBasic" aria-describedby="passwordHelpBlockMD"></textarea>
+                    <!--
+                        <textarea id="textareaBasic" type="text" class="form-control md-textarea" rows="9" aria-describedby="passwordHelpBlockMD"></textarea>
+                      -->
+                    <label id="textareaBasicLabel" for="textareaBasic"></label>
+                    <small id="passwordHelpBlockMD" class="form-text text-muted">
+                      Тук можеш да опишеш какво представлява проекта ти, защо
+                      го създаваш и с какво ти е нужна помощ. Колкото
+                      по-подробно е описанието, толкова по-лесно ще намериш
+                      свои сътрудници по проекта. Минимум 150 символа.
+                    </small>
+                  </div>
+
+                  <div class="md-form form-lg">
+                    <i id="projectGoalsIcon" class="fa fa-flag-checkered prefix fa-7x"></i>
+                    <input type="text" id="projectGoals" class="form-control" aria-describedby="passwordHelpBlockMD" />
+                    <label id="projectGoalsLabel" for="projectGoals">Крайните цели на проекта*</label>
+                    <small id="passwordHelpBlockMD" class="form-text text-muted">
+                      Тук можеш да опишеш какви са крайните цели на твоя
+                      проект.
+                    </small>
+                  </div>
+                  <div class="md-form form-lg">
+                    <input type="text" id="projectGoals2" class="form-control" />
+                    <label for="projectGoals2">Крайните цели на проекта</label>
+                  </div>
+                  <div class="md-form form-lg">
+                    <input type="text" id="projectGoals3" class="form-control" />
+                    <label for="projectGoals3">Крайните цели на проекта</label>
+                  </div>
+                  <div class="md-form form-lg">
+                    <i class="fa fa-github-alt prefix fa-7x"></i>
+                    <input type="text" id="github-page" class="form-control" />
+                    <label for="github-page">Github страница на проекта</label>
+                  </div>
+                </div>
+              </div>
+              <div id="step-3" class="">
+                <div class="form-margins">
+                  <i class="fa fa-expand prefix fa-7x"></i> Препоръчително е
+                  главната снимка да е 1920px широка на 1080px висока. <br />
+                  <i class="fa fa-image prefix fa-7x"></i> Трябва да има
+                  минимум две снимки. <br />
+                  <i class="fa fa-image prefix fa-7x"></i> Първата снимка,
+                  която качиш ще се използва за главна снимка на проекта.
+                  <div id="fine-uploader" style="margin-top: 15px; margin-bottom: 15px;"></div>
+                  <div class="md-form form-lg">
+                    <i class="fa fa-youtube prefix fa-7x"></i>
+                    <input type="text" id="video-of-project" class="form-control" />
+                    <label for="video-of-project">Линк към видео на проекта ти</label>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="md-form form-lg">
+                        <i class="fa fa-youtube prefix fa-7x"> </i>
+                        <input type="text" id="telephone" class="form-cntrol" />
+                        <label for="telephone">Телефонен номер на създателя (12 цифри)*</label>
+                        <small id="telephoneHelpBlock" class="form-text text-muted">
+                          Пример: +359884174487
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Wizard-for-creating -->
+
+      <a id="demo01" href="#animatedModal"></a>
+
+      <div id="animatedModal">
+        <div class="modal-wrapper">
+          <div id="agora_local" style="z-index: 9999; width:270px;height:171px;display: inline-block; position: absolute; bottom: 0; right: 0;margin-bottom: 10px; margin-right: 10px;"></div>
+          <div id="closebt-container" class="close-animatedModal">
+            <img id="close-the-modal" class="closebt" src="/static/img/closebt.svg" />
+          </div>
+          <div id="modal-container" class="call-modal-content">
+            <div id="video" style="display: flex;justify-content: center;flex-direction: column;flex-grow: 1;">
+              <img id="receiver" th:src="@{${user.getImage()}}" alt="" />
+              <p class="receiver-name">Hristian Iliev</p>
+              <p class="call-duration">Вмомента се звъни..</p>
+            </div>
+            <div class="call-controls">
+              <div id="stop-video" class="titanic titanic-stop" style="height: 50px;display: inline-block;margin-right: 40px;"
+                title="Натисни тази икона за да сппреш камерата"></div>
+              <div id="mute-mic" class="titanic titanic-no-mic" style="height: 50px;display: inline-block;" title="Натисни тази икона за да заглушиш микрофона"></div>
+              <div id="share-screen" class="titanic titanic-checkbox" style="height: 50px;display: inline-block;margin-left: 40px;"
+                title="Натисни тази икона за да споделиш екрана си"></div>
+              <span class="red-circle" style="display: flex; justify-content: center;margin-left: 40px">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATUSURBVHhe7ZtNiFVlHMZnFMLvD3KljsZQq1xI7mwjKuQiMHATggZtQmvXImkjI4jiJgjShTsrmFJXZa2C8gPNqXa5GQxBwlXqVOJnM/2ec5+5zL2j3HPec87cO+P/Bw/vef/3fZ/3fZ+ZOXPu1ekLgiAIgiAIgiAIgiAIgiCoi/Hx8YXoVfQm+gAdm5iY+Jr2Au0vtKPoJrqNHlu6Vm3UY857zjH0PpKXPBd6mbkBh1zOobahD9GX6Bp6Qr0W5O01vkBaU2sv83Z6Hza7GO3gLEdpr6JpYVF7hH5H36DP0EfobbSZlzehQa7X0K5E862Vrg2iTRrrOZorj2+RPB/xegvUFOrPXGpPb6DF3m5vwIbWoPfQ9+hBY9sN1Efn0SfoHUob0QueWjnyZp3X0LvoU3QRPdReJqF/H32HtOfVnjqzsI9VLL4fXULjja01v9qqHUJbUdfvSWxrEfvQj7L2pL01fyq4Fgp5H3rRU+qB9frRFhYaRs0fFa7/pdENfQ/tKg/vWbRH9roXnUb3dAbB9UM0zOUW1O/h1YH54Wwl4FrfaefQbtRb95QCcJQlPoPO8l/jdNn5DntINeD5Eqa6dwgFuc4vzRk413qdLTshZ9WZ/VJ5MNS3tr4yp1yqDDzXYv0W7RDSo85ldAPp2U+/sSVdq6bXNEZjd6K1tqkMPE/5rMMulQMjPTKIe2jA5WTY2wIHdhL9oc2WQR722kl3gZdJBp8BpLOKzS6nwYb6MbnijQ65XBimz2P+DqQH3DH5TUL/H5ofafWuInseRKupTXsORK97jMb+hPQLrAn9MfQ50rPoPC9fGOYP2U9nT/+FgsEuG/1Js8TlwjBfb8EyuBYj6GO6ei6c72GF0Vx52Etv8aY+Uo16WGGYrl8uOrN8drlcHCaP2GS/S0nIQ+Cje9d6lytH3lrDy024nITOLA/aEZeKwdztNriFSj0Qy0e4WztermyA+tDjlq22u5wfJv/gyQdcSsY+sypAgcUB+SgLl/LBhA2eeIdmucvJyEu4WzterooA9WmSMlAWG1zuDOOPetJxl0ohL+Fu7Xi5StYjgxPyoj3iUmcY/JsnbXWpFPIS7taOl6sqwG3yov3Vpc4wWM9mmrTUpVLIS7hbO16uqgCXykuZuNSZbHVwtzS2m5UBCtvl9/P4CNDYrniAfNvqA8iLLuvbOalvu8IHavfLi5fr3v49Xhu4ILksw6S+7VICbPHLi5fr3v49vvCBn4XtKvPrhJfr3v5J/W9NoC39eRseA/Yac6l2ur5/Bp/1JP3TY/ImtDg6Z68zLueGOS33pLwwp7v7Z/Ar6C9NrAK8btMM2j43zGu5J+WlJ/bPJH2A+RVq+QC0IHeZfwa9bNsZY7bvP+gF+Mon3QMDQ3hJ98AgCHoCfnyv6D7oblAUP0rM2FvAOYfziwBTcX4RYCrOLwJMxflFgKk4vwgwFecXAabi/CLAPJDTtD9/aMQ3PUBKtf2pxKyEdxsH9a6DYFr+H06WHribQVf/X0XvUA669HxDICsI47qCag9RNeFuMzzVPGeFX3q+IYh1TwtRfeHr9vDm3F8KlEKBtIeoaxPh5UHBtIWYEeEVQAFNhjiVCK8ACmpqiBFeAgpMwUV4JVBwEV4QBEEQBEEQBEEQ9BJ9ff8D34ntJUBajlQAAAAASUVORK5CYII=" />
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!--
+            <div class="modal-content">
+            </div>
+          -->
+      </div>
+    </div>
+
+    <div th:replace="fragments/footerSignedIn :: footer"></div>
+  </div>
+  <!-- -------------JS------------------- -->
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+  <!-- Popups -->
+  <!-- <script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script> -->
+
+  <!-- Bootstrap -->
+  <script src="/static/js/vendor/bootstrap.min.js"></script>
+
+  <!-- Material-design-bootsrap -->
+  <script type="text/javascript" src="/static/js-mdb/popper.min.js"></script>
+  <script type="text/javascript" src="/static/js-mdb/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/static/js-mdb/mdb.min.js"></script>
+
+  <!-- Popups -->
+  <script src="/static/js/iziToast.min.js" type="text/javascript"></script>
+
+  <!-- Radio-buttons -->
+  <script src="/static/js/switchery.js"></script>
+
+  <!-- Jquery-ui -->
+  <script src="/static/js/jquery-ui.min.js"></script>
+
+  <!-- Uploader-for-pictures -->
+  <script src="/static/js/fine-uploader.core.min.js"></script>
+  <script src="/static/js/jquery.fine-uploader.js"></script>
+  <script type="text/template" id="qq-template">
+    <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="Пусни файловете тук">
+          <div class="qq-upload-drop-area-selector qq-upload-drop-area" qq-hide-dropzone>
+              <span class="qq-upload-drop-area-text-selector"></span>
+          </div>
+          <div class="qq-upload-button-selector qq-upload-button">
+              <div>Избери снимки за проекта</div>
+          </div>
+          <span class="qq-drop-processing-selector qq-drop-processing">
+              <span>Processing dropped files...</span>
+              <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+          </span>
+          <ul class="qq-upload-list-selector qq-upload-list" role="region" aria-live="polite" aria-relevant="additions removals">
+              <li>
+                  <span role="status" class="qq-upload-status-text-selector qq-upload-status-text"></span>
+                  <div class="qq-progress-bar-container-selector qq-progress-bar-container">
+                      <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-progress-bar-selector qq-progress-bar"></div>
+                  </div>
+                  <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+                  <div class="qq-thumbnail-wrapper">
+                      <img class="qq-thumbnail-selector" qq-max-size="120" qq-server-scale>
+                  </div>
+                  <button type="button" class="qq-upload-cancel-selector qq-upload-cancel">X</button>
+                  <button type="button" class="qq-upload-retry-selector qq-upload-retry">
+                      <span class="qq-btn qq-retry-icon" aria-label="Retry"></span>
+                      Retry
+                  </button>
+
+                  <div class="qq-file-info">
+                      <div class="qq-file-name">
+                          <span class="qq-upload-file-selector qq-upload-file"></span>
+                          <span class="qq-edit-filename-icon-selector qq-btn qq-edit-filename-icon" aria-label="Edit filename"></span>
+                      </div>
+                      <input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
+                      <span class="qq-upload-size-selector qq-upload-size"></span>
+                      <button type="button" class="qq-btn qq-upload-delete-selector qq-upload-delete">
+                          <span class="qq-btn qq-delete-icon" aria-label="Delete"></span>
+                      </button>
+                      <button type="button" class="qq-btn qq-upload-pause-selector qq-upload-pause">
+                          <span class="qq-btn qq-pause-icon" aria-label="Pause"></span>
+                      </button>
+                      <button type="button" class="qq-btn qq-upload-continue-selector qq-upload-continue">
+                          <span class="qq-btn qq-continue-icon" aria-label="Continue"></span>
+                      </button>
+                  </div>
+              </li>
+          </ul>
+
+          <dialog class="qq-alert-dialog-selector">
+              <div class="qq-dialog-message-selector"></div>
+              <div class="qq-dialog-buttons">
+                  <button type="button" class="qq-cancel-button-selector">Close</button>
+              </div>
+          </dialog>
+
+          <dialog class="qq-confirm-dialog-selector">
+              <div class="qq-dialog-message-selector"></div>
+              <div class="qq-dialog-buttons">
+                  <button type="button" class="qq-cancel-button-selector">No</button>
+                  <button type="button" class="qq-ok-button-selector">Yes</button>
+              </div>
+          </dialog>
+
+          <dialog class="qq-prompt-dialog-selector">
+              <div class="qq-dialog-message-selector"></div>
+              <input type="text">
+              <div class="qq-dialog-buttons">
+                  <button type="button" class="qq-cancel-button-selector">Cancel</button>
+                  <button type="button" class="qq-ok-button-selector">Ok</button>
+              </div>
+          </dialog>
+      </div>
+    </script>
+
+  <!-- Wizard-with-steps -->
+  <script type="text/javascript" src="/static/js/jquery.smartWizard.min.js"></script>
+
+  <!-- Modal-dialog -->
+  <script src="/static/js/vex.combined.min.js"></script>
+  <script>
+    vex.defaultOptions.className = "vex-theme-default";
+  </script>
+
+  <!-- Editor -->
+  <!-- <script src="/static/js/froala_editor.pkgd.min.js"></script> -->
+  <!-- <script src="/static/js/spell_checker.min.js"></script>
+  <script src="/static/js/image_aviary.min.js"></script>
+  <script src="/static/js/embedly.min.js"></script>
+  <script src="/static/js/file.min.js"></script> -->
+  <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=1khodv3pt82ph2yokwbs92ujrb3cpbp92eeed86xo772qdxt"></script>
+  <!-- Initialize the editor. -->
+  <script src="/static/js/create-project-configurator.js">
+  </script>
+
+  <script src="/static/js/jquery.nice-select.min.js"></script>
+
+  <script src="/static/js/jquery-ui.min.js"></script>
+
+  <!-- Main-JS -->
+  <script src="/static/js/create-project.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjJimoTORP3LAM9lx8aasMG5_1dlNgrGI&libraries=places&language=bg&callback=initMap"
+    async defer></script>
+  <script src="/static/js/vendor.js"></script>
+  <script src="/static/js/notifications.js"></script>
+
+  <!-- <script src="/static/js/headerSignedInRegulator.js"></script> -->
+
+  <script src="/static/js/easytimer.min.js"></script>
+  <script src="/static/js/animatedModal.min.js"></script>
+  <script>
+    var titanic = new Titanic({
+      hover: true,
+      click: true
+    });
+    $("#demo01").animatedModal();
+  </script>
+  <script src="https://cdn.agora.io/sdk/web/AgoraRTCSDK-2.4-latest.js"></script>
+  <script src="/static/js/sweetAlert2.all.min.js"></script>
+  <script src="/static/js/callChecker.js"></script>
+
+  <script src="https://cdn.cai.tools.sap/webchat/webchat.js" channelId="5c13beea-6178-4523-aa4d-2e49f614dc4b" token="439d116772c7aa7ecd9184cc95c5ef21"
+    id="recast-webchat"></script>
+</body>
+
+</html>

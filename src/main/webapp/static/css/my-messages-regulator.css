@@ -1,0 +1,45 @@
+@media(max-width: 992px) {
+    #myList {
+        padding-right: 35px;
+    }
+
+    #myList2 {
+        padding-right: 35px;
+    }
+
+    #received-messages-content {
+        padding-right: 35px;
+        padding-left: 35px;
+    }
+
+    #sent-messages-content {
+        padding-right: 35px;
+        padding-left: 35px;
+    }
+}
+
+@media(max-width: 578px) {
+    .phonering-alo-phone {
+        margin-right: 105px;
+    }
+}
+
+@media(max-width: 550px) {
+    .card-messages {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media(max-width: 505px) {
+    .footer-distributed {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+}
+
+@media(max-width: 350px) {
+    .phonering-alo-phone {
+        margin-right: 75px;
+    }
+}

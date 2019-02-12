@@ -1,0 +1,60 @@
+@media(max-width: 1440px) {
+    .adjust-col {
+        width: 33.33333333%;
+    }
+}
+
+@media(max-width: 1130px) {
+    .adjust-col {
+        width: 50%;
+    }
+}
+
+@media(max-width: 800px) {
+    .adjust-col {
+        width: 100%;
+    }
+}
+
+@media(max-width: 500px) {
+    #btn-search-user-name {
+        margin-left: 10px;
+    }
+
+    #search-user-name {
+        margin-left: 0px !important;
+        width: 100% !important;
+    }
+}
+
+@media(max-width: 450px) {
+    .change-mobile {
+        display: flex;
+        justify-content: center;
+    }
+
+    .card-deck {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .hide-mobile {
+        display: none;
+    }
+}
+
+@media(max-width: 375px) {
+    .card-deck {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .front {
+        height: auto;
+    }
+
+    .footer-distributed{
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+}

@@ -1,0 +1,53 @@
+.project-cover-photo {
+  height: 450px;
+  width: 100%;
+}
+
+.project-cover-photo-container {
+  padding-left: 35px;
+  padding-bottom: 50px;
+}
+
+.smaller-picture {
+  border: none;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 135.67px;
+  margin-bottom: 10px;
+}
+
+.project-title {
+  text-align: center;
+  margin-top: 10px;
+  color: rgb(109, 109, 109);
+}
+
+.smaller-collumn {
+  padding-left: 35px;
+  padding-bottom: 50px;
+}
+
+.heart {
+  width: 100px;
+  height: 100px;
+  background: url("https://cssanimation.rocks/images/posts/steps/heart.png")
+    no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+  transition: background-position 1s steps(28);
+  transition-duration: 0s;
+  float: right;
+  display: inline-block;
+}
+.heart.is-active {
+  transition-duration: 1s;
+  background-position: -2800px 0;
+}
+.stage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,40 @@
+.card .footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-top: 0px;
+}
+
+.informations-holder {
+    /* margin-top: 30px; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.sub-informations-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.sub1-informations-holder {
+    display: flex;
+    align-items: flex-end;
+    color: #656969;
+    font-size: 12px;
+}
+
+.information-by {
+    font-size: 12px;
+    color: #656969;
+}
+
+.project-creator-name-link {
+    color: #2196f3;
+    cursor: pointer;
+}
+
+.project-creator-name-link:hover {
+    text-decoration: underline;
+}

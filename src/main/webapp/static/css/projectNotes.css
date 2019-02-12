@@ -1,0 +1,96 @@
+.note-btn__uLJR {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 35px;
+  height: 50px;
+  background: #90a4ae;
+  color: white;
+  position: fixed;
+  right: 0;
+  top: 225px;
+  z-index: 2;
+  opacity: 0.25;
+  border-radius: 3px 0 0 3px;
+  cursor: pointer;
+  -webkit-transition: 0.3s all;
+  -o-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+.note-btn__uLJR svg {
+  width: 20px;
+  height: 20px;
+}
+
+.icon__3Su4 {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+.note-btn__uLJR:hover {
+  opacity: 0.7;
+}
+
+.note-editor-wrapper {
+  max-width: 90%;
+  width: 600px;
+  top: 220px;
+  height: 400px;
+  right: 0;
+  position: fixed;
+  -webkit-transition: -webkit-transform ease-in-out 0.3s;
+  transition: -webkit-transform ease-in-out 0.3s;
+  -o-transition: transform ease-in-out 0.3s;
+  transition: transform ease-in-out 0.3s;
+  transition: transform ease-in-out 0.3s, -webkit-transform ease-in-out 0.3s;
+  z-index: 5;
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+.note-editor-wrapper[status="entered"],
+.note-editor-wrapper[status="entering"] {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.fr-wrapper {
+  flex-grow: 1;
+}
+
+#notesEditor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.close-container {
+  width: 100% !important;
+  justify-content: flex-end;
+  align-items: center;
+  height: 38px;
+  display: flex;
+  float: right;
+  margin-right: 10px;
+}
+
+.close-editor {
+  margin-right: 10px !important;
+  cursor: pointer !important;
+  font-weight: 900 !important;
+  font-family: Font Awesome\ 5 Free !important;
+}
+
+#mceu_13-body {
+  display: flex;
+}

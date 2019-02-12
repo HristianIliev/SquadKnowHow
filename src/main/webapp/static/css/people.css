@@ -1,0 +1,37 @@
+.dropdown-item-filter {
+  font-size: 15px;
+}
+
+.card {
+  margin: 25px;
+  background-color: white;
+}
+
+.has-right-border {
+  border-right: 1px solid rgb(155, 154, 154);
+}
+
+.card-title-people {
+  padding-top: 20px;
+  color: rgb(133, 131, 131);
+}
+
+.card-deck {
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+.img-fluid {
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+}
+
+.content-rotating {
+  position: relative;
+}
+
+.content-footer {
+  position: absolute;
+  bottom: 0px;
+}

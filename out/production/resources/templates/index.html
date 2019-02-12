@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html class="no-js" lang="bg" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+<script>
+  window.addEventListener("load", function() {
+      window.cookieconsent.initialise({
+        palette: {
+          popup: {
+            background: "#1d8a8a"
+          },
+          button: {
+            background: "#62ffaa"
+          }
+        },
+        theme: "edgeless",
+        content: {
+          message:
+            "Този уебсайт използва бисквитки за да осигурно възможно най - доброто му използване",
+          dismiss: "Разбрах!",
+          link: "Разбери повече"
+        }
+      });
+    });
+  </script>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="Hristian Iliev" />
+  <meta name="keywords" content="Squad,Team,Organize" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Title -->
+  <title>SquadKnowHow</title>
+  <!-- Place favicon.ico in the root directory -->
+  <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png" />
+  <link rel="shortcut icon" type="image/ico" href="/static/images/favicon.ico" />
+  <!-- Plugin-CSS -->
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="/static/css/themify-icons.css" />
+  <link rel="stylesheet" href="/static/css/magnific-popup.css" />
+  <link rel="stylesheet" href="/static/css/animate.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+    crossorigin="anonymous" />
+  <!-- Main-Stylesheets -->
+  <link rel="stylesheet" href="/static/css/normalize.css" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="stylesheet" href="/static/css/responsive.css" />
+  <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
+
+  <link rel="stylesheet" href="/static/css/iziToast.min.css" />
+
+  <!--[if lt IE 9]>
+      <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <!--
+      <style>
+          @media(max-width: 1050px) and (min-width: 1023px) {
+              .navbar-brand {
+                  margin-left: 260px;
+              }
+              .regulator {
+                  margin-right: 20px;
+              }
+          }
+      </style>
+    -->
+
+  <link rel="stylesheet" href="/static/css/headerHomeRegulator.css" />
+
+  <link rel="stylesheet" href="/static/css/3dcarousel.css" />
+
+  <link href="/static/css/rotating-card.css" rel="stylesheet" />
+
+  <style>
+    @media (min-width: 740px){
+.my-custom-container {
+    width: 736px;
+}
+}
+
+@media (min-width: 992px){
+.my-custom-container {
+    width: 956px;
+}
+}
+
+    @media (min-width: 1170px){
+.my-custom-container {
+    width: 1156px;
+}
+    }
+  </style>
+
+  <link rel="stylesheet" href="/static/css/aos.css">
+</head>
+
+<body data-spy="scroll" data-target="#primary-menu">
+  <div th:replace="fragments/preloader :: preloader"></div>
+
+  <!-- Mainmenu-area -->
+  <div th:replace="fragments/header-home :: header"></div>
+  <!-- Mainmenu-area -->
+
+  <!-- Header-area -->
+  <header class="header-area overlay full-height relative v-center" id="home-page">
+    <div class="absolute anlge-bg" style="background: url(/static/images/angle-bg.png) no-repeat scroll center bottom / 100% auto;"></div>
+    <div class="container">
+      <div class="row v-center">
+        <div data-aos="fade-right" data-aos-duration="950" class="my-col-sm col-sm-7 col-md-7 header-text">
+          <h2 class="my-h2-sm">
+            Намери екип за своя стартиращ проект само с един клик!
+          </h2>
+          <p class="my-h2-sm regulated-font-size">
+            Направи си профил и регистрирай своите интереси и предпочитания.
+            Започни да търсиш отбор за проекта си лесно и удобно!
+          </p>
+          <div class="my-h2-sm">
+            <a href="/sign-in" class="button white">Вход</a>
+            <button id="register-speech" type="button" class="button white" data-toggle="modal" data-target="#registerModal">
+              Регистрирай се
+            </button>
+          </div>
+        </div>
+        <div data-aos="fade-left" data-aos-duration="750" class="my-col-image-sm col-sm-5 col-md-5 text-right regulated">
+          <img class="header-photo" src="/static/images/header-photo.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Header-area/ -->
+
+  <section data-aos="zoom-in-up" data-aos-duration="500" class="gray-bg section-padding" id="feature-page">
+    <div class="container container-functions">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+          <div class="page-title">
+            <h2>специални функции</h2>
+            <p>
+              Платформата SquadKnowHow ти предоставя голям набор от функции,
+              които да олеснят процеа на създаване и реализиране на какъвто и
+              да е проект
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6">
+          <div class="box">
+            <div class="box-icon">
+              <img src="/static/images/portfolio-icon-1.png" alt="" />
+            </div>
+            <h3>Сподели своята идея</h3>
+            <p>Представи идеята си по най-иновативния начин</p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+          <div class="box">
+            <div class="box-icon">
+              <img src="/static/images/portfolio-icon-2.png" alt="" />
+            </div>
+            <h3>Сформирай отбор</h3>
+            <p>
+              Избирай измежду огромен запас от различни специалисти във всяка
+              област
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+          <div class="box">
+            <div class="box-icon">
+              <img src="/static/images/portfolio-icon-3.png" alt="" />
+            </div>
+            <h3>Стартирай група</h3>
+            <p>
+              Групите в SquadKnowHow предоставят възможност на твоята общност
+              да се обедини и да реализира проекти.
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+          <div class="box">
+            <div class="box-icon">
+              <img src="/static/images/portfolio-icon-4.png" alt="" />
+            </div>
+            <h3>Реализирай проекта си</h3>
+            <p>
+              Работи в екип със своя отбор и виж как проектът ти се реализира
+              по бърз и лесен начин
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="overlay price-area section-padding" id="price-page">
+    <div data-aos="flip-left" data-aos-duration="500" class="container most-followed-project-container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+          <div class="page-title">
+            <h2>Най - следени проекти</h2>
+            <p>
+              Тук са показани 5-те най - популярни и следени от потребителите проекта.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-right: 0px; margin-left: 0px;margin-top: 60px;">
+        <div id="container-3d-carousel" class="container-3d-carousel">
+          <div class="button-3d-carousel" onclick="shiftLeft()">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 224 224" style=" fill:#000000;">
+              <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+                stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                <path d="M0,224v-224h224v224z" fill="none"></path>
+                <g fill="#ffffff">
+                  <g id="surface1">
+                    <path d="M133.21875,29.96875l-77,77l-4.8125,5.03125l4.8125,5.03125l77,77l10.0625,-10.0625l-71.96875,-71.96875l71.96875,-71.96875z"></path>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <div id="cards_wrapper" class="cards-wrapper">
+            <ul class="cards__container">
+              <li class="box-3d-carousel">
+                <div class="card-container manual-flip" style="height: 100%;">
+                  <div class="card">
+                    <div class="front">
+                      <a class="should-send-project-id" th:href="'/project/' + ${project4.getId()}">
+                        <div class="cover-rotating">
+                          <img th:src="@{${project4.getCover()}}" alt="SquadKnowHow" />
+                        </div>
+                      </a>
+                      <div class="content-rotating">
+                        <div class="main">
+                          <a th:id="'card-name_' + ${project4.getId()}" th:href="'/project/' + ${project4.getId()}"
+                            class="should-send-project-id name card-name" th:text="${project4.getName()}" style="color: black;"></a>
+                          <p class="text-center" th:inline="text">
+                            <i class="fas fa-map-marker-alt fa-2x"></i>
+                            [[${project4.getCity()}]]
+                            <span th:inline="text" style="display: block;font-weight: 700;font-size: 15px;margin-top: 10px;">[[${project4.getCreatorName()}]]</span>
+                            <span th:inline="text" style="font-size: 15px;"><i class="far fa-heart"></i>
+                              [[${project4.getFavoritedUsers().size()}]]</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="box-3d-carousel">
+                <div class="card-container manual-flip" style="height: 100%;">
+                  <div class="card">
+                    <div class="front">
+                      <a class="should-send-project-id" th:href="'/project/' + ${project2.getId()}">
+                        <div class="cover-rotating">
+                          <img th:src="@{${project2.getCover()}}" alt="SquadKnowHow" />
+                        </div>
+                      </a>
+                      <div class="content-rotating">
+                        <div class="main">
+                          <a th:id="'card-name_' + ${project2.getId()}" th:href="'/project/' + ${project2.getId()}"
+                            class="should-send-project-id name card-name" th:text="${project2.getName()}" style="color: black;"></a>
+                          <p class="text-center" th:inline="text">
+                            <i class="fas fa-map-marker-alt fa-2x"></i>
+                            [[${project2.getCity()}]]
+                            <span th:inline="text" style="display: block;font-weight: 700;font-size: 15px;margin-top: 10px;">[[${project2.getCreatorName()}]]</span>
+                            <span th:inline="text" style="font-size: 15px;"><i class="far fa-heart"></i>
+                              [[${project2.getFavoritedUsers().size()}]]</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="box-3d-carousel">
+                <div class="card-container manual-flip" style="height: 100%;">
+                  <div class="card">
+                    <div class="front">
+                      <a class="should-send-project-id" th:href="'/project/' + ${project1.getId()}">
+                        <div class="cover-rotating">
+                          <img th:src="@{${project1.getCover()}}" alt="SquadKnowHow" />
+                        </div>
+                      </a>
+                      <div class="content-rotating">
+                        <div class="main">
+                          <a th:id="'card-name_' + ${project1.getId()}" th:href="'/project/' + ${project1.getId()}"
+                            class="should-send-project-id name card-name" th:text="${project1.getName()}" style="color: black;"></a>
+                          <p class="text-center" th:inline="text">
+                            <i class="fas fa-map-marker-alt fa-2x"></i>
+                            [[${project1.getCity()}]]
+                            <span th:inline="text" style="display: block;font-weight: 700;font-size: 15px;margin-top: 10px;">[[${project1.getCreatorName()}]]</span>
+                            <span th:inline="text" style="font-size: 15px;"><i class="far fa-heart"></i>
+                              [[${project1.getFavoritedUsers().size()}]]</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="box-3d-carousel">
+                <div class="card-container manual-flip" style="height: 100%;">
+                  <div class="card">
+                    <div class="front">
+                      <a class="should-send-project-id" th:href="'/project/' + ${project3.getId()}">
+                        <div class="cover-rotating">
+                          <img th:src="@{${project3.getCover()}}" alt="SquadKnowHow" />
+                        </div>
+                      </a>
+                      <div class="content-rotating">
+                        <div class="main">
+                          <a th:id="'card-name_' + ${project3.getId()}" th:href="'/project/' + ${project3.getId()}"
+                            class="should-send-project-id name card-name" th:text="${project3.getName()}" style="color: black;"></a>
+                          <p class="text-center" th:inline="text">
+                            <i class="fas fa-map-marker-alt fa-2x"></i>
+                            [[${project3.getCity()}]]
+                            <span th:inline="text" style="display: block;font-weight: 700;font-size: 15px;margin-top: 10px;">[[${project3.getCreatorName()}]]</span>
+                            <span th:inline="text" style="font-size: 15px;"><i class="far fa-heart"></i>
+                              [[${project3.getFavoritedUsers().size()}]]</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="box-3d-carousel">
+                <div class="card-container manual-flip" style="height: 100%;">
+                  <div class="card">
+                    <div class="front">
+                      <a class="should-send-project-id" th:href="'/project/' + ${project5.getId()}">
+                        <div class="cover-rotating">
+                          <img th:src="@{${project5.getCover()}}" alt="SquadKnowHow" />
+                        </div>
+                      </a>
+                      <div class="content-rotating">
+                        <div class="main">
+                          <a th:id="'card-name_' + ${project5.getId()}" th:href="'/project/' + ${project5.getId()}"
+                            class="should-send-project-id name card-name" th:text="${project5.getName()}" style="color: black;"></a>
+                          <p class="text-center" th:inline="text">
+                            <i class="fas fa-map-marker-alt fa-2x"></i>
+                            [[${project5.getCity()}]]
+                            <span th:inline="text" style="display: block;font-weight: 700;font-size: 15px;margin-top: 10px;">[[${project5.getCreatorName()}]]</span>
+                            <span th:inline="text" style="font-size: 15px;"><i class="far fa-heart"></i>
+                              [[${project5.getFavoritedUsers().size()}]]</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="button-3d-carousel" onclick="shiftRight()">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 224 224" style=" fill:#000000;">
+              <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+                stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                <path d="M0,224v-224h224v224z" fill="none"></path>
+                <g fill="#ffffff">
+                  <g id="surface1">
+                    <path d="M90.78125,29.96875l-10.0625,10.0625l71.96875,71.96875l-71.96875,71.96875l10.0625,10.0625l77,-77l4.8125,-5.03125l-4.8125,-5.03125z"></path>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding gray-bg" id="blog-page" style="padding: 60px 0px !important;">
+    <div data-aos="fade-right" data-aos-duration="500" class="container my-custom-container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <h2 style="text-align:center; margin-bottom: 1.75rem; color: #515656;font-size: 30px;font-weight: 600;">Намери
+            стартъпи</h2>
+          <form action="#" method="POST" class="searchProjects" style="justify-content: center;display: flex;">
+            <input id="find-startup-input" class="input form-control searchedCity" name="city" placeholder="Въведи град"
+              style="width: 353px;font-weight: 500;height: 40px !important; padding: 8px 1rem;line-height: 18px;color: #708198;margin-bottom: 0px;transition: background-color 0.25s ease-out, box-shadow 0.25s ease-out;">
+
+            <button type="submit" class="btn btn-block ui-gradient-green shadow-md searchProjects" style='margin-left: 30px;width: 160px;font-family: "Source Sans Pro", sans-serif;border-radius: 50rem;margin-top: 0px !important;box-shadow: 0 3px 5px rgba(0, 9, 128, 0.05), 0 4px 10px rgba(0, 9, 128, 0.035), inset 0 1px 1px rgba(255, 255, 255, 0.1), inset 0 -1px 1px rgba(0, 0, 0, 0.075);color: #FFF;background: linear-gradient(45deg, #8089ff 0%, #54ceff 100%);font-size: 18px;'>Намери
+              стартъп</button>
+          </form>
+        </div>
+        <div class="col-md-12">
+          <div id="map" style="height: 500px;margin-top: 20px;border-radius: 4px; box-shadow: rgba(0, 9, 128, 0.05) 0px 7px 15px, rgba(0, 9, 128, 0.075) 0px 12px 28px;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sky-bg section-padding service_page overlay" id="service-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div data-aos="fade-up-right" data-aos-duration="500" id="caption_slide" class="carousel slide caption-slider" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+              <div class="item active row">
+                <div class="v-center">
+                  <div class="col-xs-12 col-md-6">
+                    <div class="caption-title" data-animation="animated fadeInUp">
+                      <h2>Започни с регистрацията</h2>
+                    </div>
+                    <div class="caption-desc" data-animation="animated fadeInUp">
+                      <p>
+                        В тази начална стъпка можеш да предоставиш личните си
+                        данни, да изложиш своите интереси, предишни работни
+                        места и проекти, а също и твоите умения. Колкото по
+                        подробни са твоите данни толкова по-лесно ще се
+                        ориентира бъдещия ти екип
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-xs-6 col-md-3">
+                    <div class="caption-photo one" data-animation="animated fadeInRight">
+                      <img src="/static/images/registration1.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="col-xs-6 col-md-3">
+                    <div class="caption-photo two" data-animation="animated fadeInRight">
+                      <img src="/static/images/registration2.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item row">
+                <div class="v-center">
+                  <div class="col-xs-12 col-md-6">
+                    <div class="caption-title" data-animation="animated fadeInUp">
+                      <h2>Разглеждай проекти</h2>
+                    </div>
+                    <div class="caption-desc" data-animation="animated fadeInUp">
+                      <p>
+                        В секцията "Проекти" можеш да разглеждаш всички вече
+                        съществуващи проекти. Имаш възможността да ги
+                        филтрираш по място, тип търсещи партньори и име. Лесно
+                        можеш да намериш идеалният проект за твоята сфера на
+                        умения и интереси.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-xs-6 col-md-3">
+                    <div class="caption-photo one" data-animation="animated fadeInRight">
+                      <img src="/static/images/projects1.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="col-xs-6 col-md-3">
+                    <div class="caption-photo two" data-animation="animated fadeInRight">
+                      <img src="/static/images/projects2.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item row">
+                <div class="v-center">
+                  <div class="col-xs-12 col-md-6">
+                    <div class="caption-title" data-animation="animated fadeInUp">
+                      <h2>Бързо и лесно намери партньори</h2>
+                    </div>
+                    <div class="caption-desc" data-animation="animated fadeInUp">
+                      <p>
+                        В секцията "Търсещи" можеш много лесно и бързо да
+                        намериш потребители, които искат да започнат да
+                        проект. Можеш да и филтрираш по име, сфера на умения,
+                        местоживеене, умения и интереси, за да сформираш
+                        перфектния екип за твоя старт-ъп!
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-xs-6 col-md-3">
+                    <div class="caption-photo one" data-animation="animated fadeInRight">
+                      <img src="/static/images/users1.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="col-xs-6 col-md-3">
+                    <div class="caption-photo two" data-animation="animated fadeInRight">
+                      <img src="/static/images/users2.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item row">
+                <div class="v-center">
+                  <div class="col-xs-12 col-md-6">
+                    <div class="caption-title" data-animation="animated fadeInUp">
+                      <h2>Групите</h2>
+                    </div>
+                    <div class="caption-desc" data-animation="animated fadeInUp">
+                      <p>
+                        Групите са страхотна възможност да намериш партньори
+                        със сходни интереси, които са готови да ти помогнат
+                        или дадът съвет за твоя стартиращ проект. Можеш да
+                        немериш всички групи в секцията "Групи".
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-xs-6 col-md-3">
+                    <div class="caption-photo one" data-animation="animated fadeInRight">
+                      <img src="/static/images/groups1.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="col-xs-6 col-md-3">
+                    <div class="caption-photo two" data-animation="animated fadeInRight">
+                      <img src="/static/images/groups2.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Indicators -->
+            <ol class="carousel-indicators caption-indector">
+              <li data-target="#caption_slide" data-slide-to="0" class="active">
+                <strong>Регистрацията </strong>е основната стъпка.
+              </li>
+              <li data-target="#caption_slide" data-slide-to="1">
+                <strong>Разглеждай </strong>вече съществуващите проекти.
+              </li>
+              <li data-target="#caption_slide" data-slide-to="2">
+                <strong>Потребители </strong> - възможни партньори.
+              </li>
+              <li data-target="#caption_slide" data-slide-to="3">
+                <strong>Групи </strong>от хора със сходни виждания.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gray-bg section-padding" id="faq-page">
+    <div data-aos="fade-up" data-aos-duration="500" class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+          <div class="page-title">
+            <h2>Често задавани въпроси</h2>
+            <p>
+              Тук ще откриеш едни от най-често задаваните въпроси свързани с
+              платформата и нейното използване.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+          <div class="panel-group" id="accordion">
+            <div class="panel">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true">Трябва ли да
+                  съм пълнолетен за да използвам платформата?</a>
+              </h4>
+              <div id="collapse1" class="panel-collapse collapse in">
+                <p>
+                  Не, не е задължително потребителите на сайта да са
+                  пълнолетни.
+                </p>
+              </div>
+            </div>
+            <div class="panel">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Защо не мога да достъпя страниците
+                  на потребителите,
+                  проектите и групите в сайта?</a>
+              </h4>
+              <div id="collapse2" class="panel-collapse collapse">
+                <p>
+                  Регистрацията е задължителна стъпка ако искате да достъпите
+                  тази информация. След като се регистрирате и успешно влезете
+                  в профила си ще можете бепроблемно да използвате пълния
+                  набор от функционалности на сайта.
+                </p>
+              </div>
+            </div>
+            <div class="panel">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Как да създам собствен стартиращ
+                  проект?</a>
+              </h4>
+              <div id="collapse3" class="panel-collapse collapse">
+                <p>
+                  За да започнете нов проект е задължително първо да сте
+                  влезли във собствения си профил. След това можете да отидете
+                  в секцията "Проекти" и да натиснете бутоне "Започни нов
+                  проект" при което ще бъдете пренасочени към страница, която
+                  ще ви упъти при създаването на нов проект.
+                </p>
+              </div>
+            </div>
+            <div class="panel">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Бих искал да се свържа с някой от
+                  потребителите. Как да го
+                  направя?</a>
+              </h4>
+              <div id="collapse4" class="panel-collapse collapse">
+                <p>
+                  След като влезете в профила си ще имате достъп до списъкът
+                  от потребители в тази платформа. След като достъпите някой
+                  от профилите на потребилите ще видите бутон "Изпрати
+                  съобщение". След като изпратите своето съобщение
+                  потребителят ще може да достъпи това съобщение от менчто
+                  "Моите съобщения" и да тоговори ако желае.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-area relative sky-bg" id="contact-page">
+    <div class="absolute footer-bg" style="background: url(/static/images/angle-bg.png) no-repeat scroll center bottom / 100% auto;"></div>
+    <div data-aos="fade-up" data-aos-duration="500" class="footer-top">
+      <div class="container regulated-container my-regulated-container-sm my-regulated-container-mobile-view">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+            <div class="page-title">
+              <h2>Изпрати своето запитване</h2>
+              <p>
+                Ще се постараем да отговорим възможно най-бързо и в рамките на
+                един ден на запитването ти. Контактът с потребителите стои на
+                първо място за нас.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-8" style="float: right;">
+            <form action="#" method="POST" class="contact-form">
+              <div class="form-double">
+                <input type="text" id="contact-name" name="name" placeholder="Твоето име" class="form-control" required="required" />
+                <input type="email" id="contact-email" name="email" class="form-control" placeholder="E-mail адрес"
+                  required="required" />
+              </div>
+              <input type="text" id="contact-subject" name="subject" class="form-control" placeholder="Тема на съобщението" />
+              <textarea id="contact-message" name="message" rows="5" class="form-control" placeholder="Съобщението ти"
+                required="required"></textarea>
+              <button type="sibmit" class="button finish-contact">Изпрати</button>
+            </form>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <address class="side-icon-boxes">
+              <div class="side-icon-box">
+                <div class="side-icon">
+                  <img src="/static/images/phone-arrow.png" alt="" />
+                </div>
+                <p>
+                  <strong>Телефон: </strong>
+                  <a href="callto:8801812726495">+359884174488</a>
+                </p>
+              </div>
+              <div class="side-icon-box">
+                <div class="side-icon">
+                  <img src="/static/images/mail-arrow.png" alt="" />
+                </div>
+                <p>
+                  <strong>E-mail: </strong>
+                  <a href="mailto:youremail@example.com">squadknowhow@abv.bg</a>
+                  <br />
+                  <a href="mailto:youremail@example.com">squadknowhow@gmail.com</a>
+                </p>
+              </div>
+            </address>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div data-aos="fade-up" data-aos-duration="500" class="footer-middle">
+      <div class="container regulated-container my-regulated-container-mobile-view">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 pull-right">
+            <ul class="social-menu text-right x-left">
+              <li>
+                <a href="#"> <i class="ti-facebook"></i> </a>
+              </li>
+              <li>
+                <a href="#"> <i class="ti-twitter"></i> </a>
+              </li>
+              <li>
+                <a href="#"> <i class="ti-google"></i> </a>
+              </li>
+              <li>
+                <a href="#"> <i class="ti-linkedin"></i> </a>
+              </li>
+              <li>
+                <a href="#"> <i class="ti-github"></i> </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <p>
+              Можеш да откриеш страницата ни, а също и отворената ни
+              документация и код на следните социални мрежи
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <p>&copy;2018 SquadKnowHow</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!--
+      <div class="alert alert-danger fade show v-center" role="alert">
+          This is a danger alert—check it out!
+      </div>
+    -->
+
+  <!-- Modal for registration -->
+  <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header sky-bg">
+          <h4 class="modal-title" id="exampleModalLabel">
+            Какви са твоите способности?
+          </h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body gray-bg section-padding-modal">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-4 ">
+                <div class="box-reg">
+                  <div class="box-icon-reg">
+                    <i class="fa fa-laptop fa-5x"></i>
+                  </div>
+                  <h3>Програмист</h3>
+                  <p>Софтуер!</p>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-4">
+                <div class="box-reg">
+                  <div class="box-icon-reg">
+                    <i class="fa fa-cogs fa-5x"></i>
+                  </div>
+                  <h3>Инженер</h3>
+                  <p>Цивилен, електрически, строителен...</p>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-4">
+                <div class="box-reg">
+                  <div class="box-icon-reg">
+                    <i class="fa fa-edit fa-5x"></i>
+                  </div>
+                  <h3>Дизайнер</h3>
+                  <p>Графичен, звуков, продуктов...</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-4">
+                <div class="box-reg">
+                  <div class="box-icon-reg">
+                    <i class="fa fa-flask fa-5x"></i>
+                  </div>
+                  <h3>Учен</h3>
+                  <p>Физик, биолог, химик...</p>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-4">
+                <div class="box-reg">
+                  <div class="box-icon-reg">
+                    <i class="fa fa-music fa-5x"></i>
+                  </div>
+                  <h3>Музикант</h3>
+                  <p>Продуцент, певец, изпълнител...</p>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-4">
+                <div class="box-reg">
+                  <div class="box-icon-reg">
+                    <i class="fa fa-paint-brush fa-5x"></i>
+                  </div>
+                  <h3>Артист</h3>
+                  <p>Илустратор, художник, актьор...</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-4">
+                <div class="box-reg">
+                  <div class="box-icon-reg">
+                    <i class="fa fa-book fa-5x"></i>
+                  </div>
+                  <h3>Писател</h3>
+                  <p>Журналист, новелист, редактор...</p>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-4">
+                <div class="box-reg">
+                  <div class="box-icon-reg">
+                    <i class="fa fa-film fa-5x"></i>
+                  </div>
+                  <h3>Режисьор</h3>
+                  <p>Директор, статист, оператор...</p>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-4">
+                <div class="box-reg">
+                  <div class="box-icon-reg">
+                    <i class="fa fa-address-card fa-5x"></i>
+                  </div>
+                  <h3>Продуктов мениджър</h3>
+                  <p>Организира изработката на продукта</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer sky-bg">
+          <button type="button" class="btn btn-secondary button white my-button-register-mobile" data-dismiss="modal">
+            Затвори
+          </button>
+          <a id="proceed-btn" type="button" class="btn btn-primary button white" href="/register">Продължи напред</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vendor-JS -->
+  <script src="/static/js/vendor/jquery-1.12.4.min.js"></script>
+  <script src="/static/js/vendor/bootstrap.min.js"></script>
+  <!-- Plugin-JS -->
+  <script src="/static/js/owl.carousel.min.js"></script>
+  <script src="/static/js/contact-form.js"></script>
+  <script src="/static/js/jquery.parallax-1.1.3.js"></script>
+  <script src="/static/js/scrollUp.min.js"></script>
+  <script src="/static/js/magnific-popup.min.js"></script>
+  <!-- Main-active-JS -->
+  <script src="/static/js/aos.js"></script>
+  <script src="/static/js/main.js"></script>
+  <script src="/static/js/notify.js"></script>
+  <script src="/static/js/iziToast.min.js" type="text/javascript"></script>
+  <script src="/static/js/h-main.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/speechkitt.min.js"></script>
+  <script>
+    if (annyang) {
+      var commands = {
+        здравей: function () {
+          var audio = new Audio("/static/audio/greeting.mp3");
+          audio.play();
+        },
+        спри: function () {
+          var audio = new Audio("/static/audio/goodbye.mp3");
+          audio.play();
+          SpeechKITT.abortRecognition();
+        },
+        "изключи се": function () {
+          var audio = new Audio("/static/audio/goodbye.mp3");
+          audio.play();
+          SpeechKITT.abortRecognition();
+        },
+        "отвори начало": function () {
+          window.location.href = "/home";
+        },
+        "отвори търсещи": function () {
+          window.location.href = "/people";
+        },
+        "отвори проекти": function () {
+          window.location.href = "/projects";
+        },
+        "отвори групи": function () {
+          window.location.href = "/groups";
+        },
+        "кажи здравей за демото": function () {
+          var audio = new Audio("/static/audio/greeting.mp3");
+          audio.play();
+        },
+        "регистрирай се": function () {
+          $("#register-speech").trigger("click");
+        },
+        вход: function () {
+          window.location.href = "/sign-in";
+        },
+        "отиди на функции": function () {
+          window.location.replace("#feature-page");
+        },
+        "отиди на начало": function () {
+          window.location.replace("#home-page");
+        },
+        "отиди на как работи": function () {
+          window.location.replace("#service-page");
+        },
+        "отиди на въпроси": function () {
+          window.location.replace("#faq-page");
+        },
+        "отиди на контакти": function () {
+          window.location.replace("#contact-page");
+        },
+        "кажи здравей за демото": function () {
+          var audio = new Audio("/static/audio/greeting.mp3");
+          audio.play();
+        }
+      };
+
+      var goToFunc = function (segment) {
+        alert(segment);
+      };
+
+      annyang.addCommands(commands);
+      annyang.addCallback("resultNoMatch", function () {
+        iziToast.warning({
+          title: "Грешка",
+          message: "Не успях да идентифицирам казаното от вас",
+          position: "topRight"
+        });
+      });
+
+      annyang.setLanguage("bg");
+
+      SpeechKITT.annyang();
+
+      SpeechKITT.setStylesheet(
+        "//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/themes/flat.css"
+      );
+
+      SpeechKITT.vroom();
+    }
+  </script>
+
+  <script type="text/javascript" src="/static/js/jquery.touchSwipe.min.js"></script>
+
+  <script>
+    $(".container-3d-carousel").swipe({
+      //Generic swipe handler for all directions
+      swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
+        if (direction === 'right') {
+          shiftRight();
+        } else if (direction === 'left') {
+          shiftLeft();
+        }
+      }
+    });
+
+    function shiftLeft() {
+      const boxes = document.querySelectorAll(".box-3d-carousel");
+      const tmpNode = boxes[0];
+      boxes[0].className = "box-3d-carousel move-out-from-left";
+
+      setTimeout(function () {
+        if (boxes.length > 5) {
+          tmpNode.classList.add("box--hide");
+          boxes[5].className = "box-3d-carousel move-to-position5-from-left";
+        }
+        boxes[1].className = "box-3d-carousel move-to-position1-from-left";
+        boxes[2].className = "box-3d-carousel move-to-position2-from-left";
+        boxes[3].className = "box-3d-carousel move-to-position3-from-left";
+        boxes[4].className = "box-3d-carousel move-to-position4-from-left";
+        boxes[0].remove();
+
+        document.querySelector(".cards__container").appendChild(tmpNode);
+      }, 500);
+    }
+
+    function shiftRight() {
+      const boxes = document.querySelectorAll(".box-3d-carousel");
+      boxes[4].className = "box-3d-carousel move-out-from-right";
+      setTimeout(function () {
+        const noOfCards = boxes.length;
+        if (noOfCards > 4) {
+          boxes[4].className = "box-3d-carousel box--hide";
+        }
+
+        const tmpNode = boxes[noOfCards - 1];
+        tmpNode.classList.remove("box--hide");
+        boxes[noOfCards - 1].remove();
+        let parentObj = document.querySelector(".cards__container");
+        parentObj.insertBefore(tmpNode, parentObj.firstChild);
+        tmpNode.className = "box-3d-carousel move-to-position1-from-right";
+        boxes[0].className = "box-3d-carousel move-to-position2-from-right";
+        boxes[1].className = "box-3d-carousel move-to-position3-from-right";
+        boxes[2].className = "box-3d-carousel move-to-position4-from-right";
+        boxes[3].className = "box-3d-carousel move-to-position5-from-right";
+      }, 500);
+    }
+    $(document).ready(function () {
+      var showing = false;
+      $(".navbar-toggle").click(function () {
+        if (showing == false) {
+          $(".mainmenu-area.affix-top").attr(
+            "style",
+            "background-color: #138fc2;"
+          );
+          showing = true;
+        } else {
+          $(".mainmenu-area.affix-top").attr("style", "");
+          showing = false;
+        }
+      });
+    });
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="/static/js/map-landing.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjJimoTORP3LAM9lx8aasMG5_1dlNgrGI&libraries=places&language=bg&callback=initMap"
+    async defer></script>
+
+  <script src="https://cdn.cai.tools.sap/webchat/webchat.js" channelId="5c13beea-6178-4523-aa4d-2e49f614dc4b" token="439d116772c7aa7ecd9184cc95c5ef21"
+    id="recast-webchat"></script>
+
+
+  <!-- <script>
+    AOS.init();
+  </script> -->
+</body>
+
+</html>

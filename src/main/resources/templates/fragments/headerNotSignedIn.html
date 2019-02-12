@@ -1,0 +1,71 @@
+<!doctype html>
+<html class="no-js" lang="bg">
+
+<head>
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body data-spy="scroll" class="gray-bg-people">
+    <div id="main-nav" class="mainmenu-area" style="background-color: #138fc2;" data-offset-top="100" th:fragment="header(activeTab)">
+        <div class="container animated fadeInDown wow regulated-font-size changeBelow1280-2" style="width: 100%;display: flex;justify-content: space-evenly">
+            <div class="navbar-header changeBelow1280-3" style="display: flex;justify-content: center;">
+                <div>
+                    <img class="logo-image width100" src="/static/images/logo3.png" alt="squadknowhow logo" style="margin-top: 5px;height: 83px;padding-bottom: 5px;">
+                    <a href="/" class="navbar-brand logo logo-text">
+                        <h2>squadknowhow</h2>
+                    </a>
+                </div>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-menu">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+            <nav class="collapse navbar-collapse" id="primary-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/home">
+                            <i class="fas fa-home"></i> Начало</a>
+                    </li>
+                    <li>
+                        <a href="/home">
+                            <i class="fas fa-code"></i> Функции</a>
+                    </li>
+                    <li>
+                        <a href="/home">
+                            <i class="fas fa-info"></i> Как работи?</a>
+                    </li>
+                    <li>
+                        <a href="/home">
+                            <i class="fas fa-question"></i> Въпроси</a>
+                    </li>
+                    <li>
+                        <a href="/home">
+                            <i class="fas fa-phone"></i> Контакти</a>
+                    </li>
+                    <li th:classappend="${activeTab == 'people' ? 'active' : ''}">
+                        <a href="/people">
+                            <i class="fas fa-users"></i> Търсещи</a>
+                    </li>
+                    <li th:classappend="${activeTab == 'projects' ? 'active' : ''}">
+                        <a href="/projects">
+                            <i class="fas fa-list-ul"></i> Проекти</a>
+                    </li>
+                    <li th:classappend="${activeTab == 'groups' ? 'active' : ''}">
+                        <a href="/groups" class="has-divider">
+                            <i class="fas fa-expand"></i> Групи</a>
+                    </li>
+                    <li class="sign-in-li">
+                        <button id="nav-button" class="navbar-button white-button-with-border-sign-in">Вход</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</body>
+
+</html>

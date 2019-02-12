@@ -1,0 +1,547 @@
+.phone-container {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.phonering-alo-phone {
+  margin-left: 55px;
+  margin-right: 275px;
+  /* padding-right: 50px; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  /* width: 100%; */
+  height: 100%;
+}
+
+.phonering-alo-phone.phonering-alo-static {
+  opacity: 0.6;
+}
+
+.phonering-alo-phone.phonering-alo-hover,
+.phonering-alo-phone:hover {
+  opacity: 1;
+}
+
+.phonering-alo-ph-circle {
+  width: 100px;
+  height: 100px;
+  top: 20px;
+  left: 20px;
+  /* position: absolute; */
+  background-color: transparent;
+  border-radius: 100% !important;
+  border: 2px solid rgba(30, 30, 30, 0.4);
+  border: 2px solid #bfebfc 9;
+  opacity: 0.1;
+  -webkit-animation: phonering-alo-circle-anim 3.2s infinite ease-in-out;
+  animation: phonering-alo-circle-anim 3.2s infinite ease-in-out;
+  transition: all 3.5s;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+.phonering-alo-phone.phonering-alo-active .phonering-alo-ph-circle {
+  -webkit-animation: phonering-alo-circle-anim 3.1s infinite ease-in-out !important;
+  animation: phonering-alo-circle-anim 3.1s infinite ease-in-out !important;
+}
+
+.phonering-alo-phone.phonering-alo-static .phonering-alo-ph-circle {
+  -webkit-animation: phonering-alo-circle-anim 2.2s infinite ease-in-out !important;
+  animation: phonering-alo-circle-anim 2.2s infinite ease-in-out !important;
+}
+
+.phonering-alo-phone.phonering-alo-hover .phonering-alo-ph-circle,
+.phonering-alo-phone:hover .phonering-alo-ph-circle {
+  border-color: #00aff2;
+  opacity: 0.5;
+}
+
+.phonering-alo-phone.phonering-alo-green.phonering-alo-hover
+  .phonering-alo-ph-circle,
+.phonering-alo-phone.phonering-alo-green:hover .phonering-alo-ph-circle {
+  border-color: #75eb50;
+  border-color: #baf5a7;
+  opacity: 0.5;
+}
+
+.phonering-alo-phone.phonering-alo-green .phonering-alo-ph-circle {
+  border-color: #00aff2;
+  border-color: white;
+  opacity: 0.5;
+}
+
+.phonering-alo-phone.phonering-alo-gray.phonering-alo-hover
+  .phonering-alo-ph-circle,
+.phonering-alo-phone.phonering-alo-gray:hover .phonering-alo-ph-circle {
+  border-color: #ccc;
+  opacity: 0.5;
+}
+
+.phonering-alo-phone.phonering-alo-gray .phonering-alo-ph-circle {
+  border-color: #75eb50;
+  opacity: 0.5;
+}
+
+.phonering-alo-ph-circle-fill {
+  margin-left: -95px;
+  width: 90px;
+  height: 90px;
+  /* top: 50px;
+  left: 50px;
+  position: absolute; */
+  background-color: #000;
+  border-radius: 100% !important;
+  border: 2px solid transparent;
+  -webkit-animation: phonering-alo-circle-fill-anim 2.3s infinite ease-in-out;
+  animation: phonering-alo-circle-fill-anim 2.3s infinite ease-in-out;
+  transition: all 3.5s;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+.phonering-alo-phone.phonering-alo-active .phonering-alo-ph-circle-fill {
+  -webkit-animation: phonering-alo-circle-fill-anim 1.7s infinite ease-in-out !important;
+  animation: phonering-alo-circle-fill-anim 1.7s infinite ease-in-out !important;
+}
+
+.phonering-alo-phone.phonering-alo-static .phonering-alo-ph-circle-fill {
+  -webkit-animation: phonering-alo-circle-fill-anim 2.3s infinite ease-in-out !important;
+  animation: phonering-alo-circle-fill-anim 2.3s infinite ease-in-out !important;
+  opacity: 0 !important;
+}
+
+.phonering-alo-phone.phonering-alo-hover .phonering-alo-ph-circle-fill,
+.phonering-alo-phone:hover .phonering-alo-ph-circle-fill {
+  background-color: rgba(0, 175, 242, 0.5);
+  background-color: #00aff2 9;
+  opacity: 0.75 !important;
+}
+
+.phonering-alo-phone.phonering-alo-green.phonering-alo-hover
+  .phonering-alo-ph-circle-fill,
+.phonering-alo-phone.phonering-alo-green:hover .phonering-alo-ph-circle-fill {
+  background-color: rgba(117, 235, 80, 0.5);
+  background-color: #baf5a7 9;
+  opacity: 0.75 !important;
+}
+
+.phonering-alo-phone.phonering-alo-green .phonering-alo-ph-circle-fill {
+  background-color: rgba(0, 175, 242, 0.5);
+  background-color: #a6e3fa 9;
+}
+
+.phonering-alo-phone.phonering-alo-gray.phonering-alo-hover
+  .phonering-alo-ph-circle-fill,
+.phonering-alo-phone.phonering-alo-gray:hover .phonering-alo-ph-circle-fill {
+  background-color: rgba(204, 204, 204, 0.5);
+  background-color: #ccc 9;
+  opacity: 0.75 !important;
+}
+
+.phonering-alo-phone.phonering-alo-gray .phonering-alo-ph-circle-fill {
+  background-color: rgba(117, 235, 80, 0.5);
+  opacity: 0.75 !important;
+}
+
+.phonering-alo-ph-img-circle {
+  margin-left: -75px;
+  width: 60px;
+  height: 60px;
+  /* top: 70px;
+  left: 70px;
+  position: absolute; */
+  background: rgba(30, 30, 30, 0.1)
+    url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABNmlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjarY6xSsNQFEDPi6LiUCsEcXB4kygotupgxqQtRRCs1SHJ1qShSmkSXl7VfoSjWwcXd7/AyVFwUPwC/0Bx6uAQIYODCJ7p3MPlcsGo2HWnYZRhEGvVbjrS9Xw5+8QMUwDQCbPUbrUOAOIkjvjB5ysC4HnTrjsN/sZ8mCoNTIDtbpSFICpA/0KnGsQYMIN+qkHcAaY6addAPAClXu4vQCnI/Q0oKdfzQXwAZs/1fDDmADPIfQUwdXSpAWpJOlJnvVMtq5ZlSbubBJE8HmU6GmRyPw4TlSaqo6MukP8HwGK+2G46cq1qWXvr/DOu58vc3o8QgFh6LFpBOFTn3yqMnd/n4sZ4GQ5vYXpStN0ruNmAheuirVahvAX34y/Axk/96FpPYgAAACBjSFJNAAB6JQAAgIMAAPn/AACA6AAAUggAARVYAAA6lwAAF2/XWh+QAAAB/ElEQVR42uya7W3CMBCG31QM4A1aNggTlG6QbpBMkHYC1AloJ4BOABuEDcgGtBOETnD9c1ERCH/lwxeaV8oPFGP86Hy+DxMREW5Bd7gRjSDSNGn4/RiAOvm8C0ZCRD5PSkQVXSr1nK/xE3mcWimA1ZV3JYBZCIO4giQANoYxMwYS6+xKY4lT5dJPreWZY+uspqSCKPYN27GJVBDXheVSQe494ksiEWTuMXcu1dld9SARxDX1OAJ4lgjy4zDnFsC076A4adEiRwAZg4hOUSpNoCsBPDGM+HqkNGynYBCuILuWj+dgWysGsNe8nwL4GsrW0m2fxZBq9rW0rNcX5MOQ9eZD8JFahcG5g/iKT671alGAYQggpYWvpEPYWrU/HDTOfeRIX0q2SL3QN4tGhZJukVobQyXYWw7WtLDKDIuM+ZSzscyCE9PCy5IttCvnZNaeiGLNHKuz8ZVh/MXTVu/1xQKmIqLEAuJ0fNo3iG5B51oSkeKnsBi/4bG9gYB/lCytU5G9DryFW+3Gm+JLwU7ehbJrwTjq4DJU8bHcVbEV9dXXqqP6uqO5e2/QZRYJpqu2IUAA4B3tXvx8hgKp05QZW6dJqrLTNkB6vrRURLRwPHqtYgkC3cLWQAcDQGGKH13FER/NATzi786+BPDNjm1dMkfjn2pGkBHkf4D8DgBJDuDHx9BN+gAAAABJRU5ErkJggg==)
+    no-repeat center center;
+  background-size: 50px;
+  border-radius: 100% !important;
+  border: 2px solid transparent;
+  -webkit-animation: phonering-alo-circle-img-anim 4s infinite ease-in-out;
+  animation: phonering-alo-circle-img-anim 13s infinite ease-in-out;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+.phonering-alo-ph-img-circle-video{
+  margin-left: -75px;
+  width: 60px;
+  height: 60px;
+  /* top: 70px;
+  left: 70px;
+  position: absolute; */
+  background: rgba(30, 30, 30, 0.1)
+    url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOUSURBVGhD7ZhLSFVRFIY1NSUqkyiMalhBYQMHjZxkNnFQhNCDCkICkWgQEUFBo+g1KIWeQtDAgb2ohKCaRNCgsGEQmQ572QOpVLLSvrX3f7GL3jwvvV64H/ysfdbe6797ec4953oK8uTJMz2Mjo7OQhUhNEelMwM2VDYyMnIJDTEOBTWvUK2ssgsbadO+IkH9AFoju+zAPurYxIjfUnSweEoolG1yYFyK8UTX9b+qZF0PMRHwaiZM9Dlp0hYzw6JCzJrQS8YzFvY3hO6gKm19DOYL0TW3MkegEftupd8oyO/x07kFjXxE89WG+04801zOwd4b1YZr5L/PAOYH0bAOZxTsq0VtuEsrIyxsJRQT56FOnw0G640P6IdSiYP3RbWRuREW/SKUaZmduSo/kxnWPEcH0AoOS1RqnzGX3AbUij65xQmAV6BGjCVaZo2s19Q4mOtGm7XUQdrO5FJi2v2f4wXkTyD7Q8UCj8kbMVhoT90aYj3q9tl0yD8glMvLNnmU+IL4x+YNxt/QLbTJfSgwrkVftCQS1AdrZDIwekgoMh/GO9FnP5MZ1jxBy1WzFg1oKjTUxm8EEztD7kwwPuazwWC93QTc05nYoHRoqE2kEfedIO5QKhTU9aKF8rDLMzTUxWsEgy7VljOe9HLKBLXnzYdYrVQokmjkoNUSjygVCeqH0WJ5vVY6MNTEbmSV1RK7lIoMHnvldU6pwMRuBGajIox++8Po4HHZ9kHcp1RgYjVCcZ/qKn0mHvjdNT/iFqUCE7eRQdWV+0w88OswP+IupQITqxGRepL3+8PosJnT5kU8pFRgYjeCwUbV3vCZ6ODl/tMj3lQqMEk0krr/1ysVCep7CSXEUvTdZ4NDTexGvhLcr1rGj302PNRulUeTUqGI3YiByRmrJy5Db5UODDVt+nz7X+W9z4aDukQasWdInXkwXo0Cv+di7RWCPYvsNdR1l4wAtfEbEf2YVcungnEL+umnxsPcG7RN6+011Ck3ERG8EmvEzOwd03bZ2dlZhBrRBXQPtaOTyP7DLNYaewcQ+UykwCO5RlJg+gitk+2EsMze3jejd74qHlPSSArMe5BdYvtRA9qNDqPbKNE3KvhNXSPTSVojHPQpn3Ow9+NqwzXSrnwuUqM2XCMrUeQ3GdmCPXeqhTFI2jumnLnE2Ot9gvsFPg4m7OWa3RqvMrZftTNK7KsDnUXul3eePHny5MkyBQV/AeCRbg3kR4fDAAAAAElFTkSuQmCC)
+    no-repeat center center;
+  background-size: 40px;
+  border-radius: 100% !important;
+  border: 2px solid transparent;
+  -webkit-animation: phonering-alo-circle-img-anim 4s infinite ease-in-out;
+  animation: phonering-alo-circle-img-anim 10s infinite ease-in-out;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+/* #phonering-alo-videoIcon .phonering-alo-ph-img-circle{
+  background: rgba(30, 30, 30, 0.1)
+    url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFOSURBVEhL7ZVBKwVRHMWnt7DETvZKkaSIjyCbJytlr2z0yidQFhYsJWWtl5JPQPK2SrGxU7KzfAt6acbv6DT1eo9G12VzT/3m3v+5d85/ppm6WVJSVOV5Pgt7RVGchkDGPsw79nuxsQ6v0OTm3RDIOIE3WHH812LTPWy5DBZZm/Dgskc84DDrq9r4DjP2g0XWNOQuS9FwALsBL9CSUTCZ8nqwlKVMl8qv4a3BozmHuI2ZL8It6C0b2HrrDYjXmPES2rBDOeRlrUdvfAijtkvhxW3sskep8a83RjVbXYremPEOlmyXwoveeBvaTK8YF7wcv7HnI3AAOjjOYBz+7ufCG4MmdECfoCVTR2K1M7SCyJqDjssu4evcv4DPxpoc85B9/8KfSBlkHcG1rb5ifUKXSXgW3HgTAhlPzqr26dg4CHVuXg9kGcoDISnpH5RlH+fr9xvsiVX8AAAAAElFTkSuQmCC)
+    no-repeat center center;
+  background-size: 50px;
+} */
+
+.phonering-alo-phone.phonering-alo-active .phonering-alo-ph-img-circle {
+  -webkit-animation: phonering-alo-circle-img-anim 1s infinite ease-in-out !important;
+  animation: phonering-alo-circle-img-anim 1s infinite ease-in-out !important;
+}
+
+.phonering-alo-phone.phonering-alo-static .phonering-alo-ph-img-circle {
+  -webkit-animation: phonering-alo-circle-img-anim 0 infinite ease-in-out !important;
+  animation: phonering-alo-circle-img-anim 0 infinite ease-in-out !important;
+}
+
+.phonering-alo-phone.phonering-alo-hover .phonering-alo-ph-img-circle,
+.phonering-alo-phone:hover .phonering-alo-ph-img-circle {
+  background-color: #00aff2;
+}
+
+.phonering-alo-phone.phonering-alo-green.phonering-alo-hover
+  .phonering-alo-ph-img-circle,
+.phonering-alo-phone.phonering-alo-green:hover .phonering-alo-ph-img-circle {
+  background-color: rgb(57, 190, 185);
+  background-color: #75eb50 9;
+}
+
+.phonering-alo-phone.phonering-alo-green .phonering-alo-ph-img-circle {
+  background-color: #00aff2;
+  background-color: #00aff2 9;
+}
+
+.phonering-alo-phone.phonering-alo-gray.phonering-alo-hover
+  .phonering-alo-ph-img-circle,
+.phonering-alo-phone.phonering-alo-gray:hover .phonering-alo-ph-img-circle {
+  background-color: #ccc;
+}
+
+.phonering-alo-phone.phonering-alo-gray .phonering-alo-ph-img-circle {
+  background-color: rgb(57, 190, 185);
+}
+
+/*  */
+.phonering-alo-phone.phonering-alo-active .phonering-alo-ph-img-circle-video {
+  -webkit-animation: phonering-alo-circle-img-anim 1s infinite ease-in-out !important;
+  animation: phonering-alo-circle-img-anim 1s infinite ease-in-out !important;
+}
+
+.phonering-alo-phone.phonering-alo-static .phonering-alo-ph-img-circle-video {
+  -webkit-animation: phonering-alo-circle-img-anim 0 infinite ease-in-out !important;
+  animation: phonering-alo-circle-img-anim 0 infinite ease-in-out !important;
+}
+
+.phonering-alo-phone.phonering-alo-hover .phonering-alo-ph-img-circle-video,
+.phonering-alo-phone:hover .phonering-alo-ph-img-circle-video {
+  background-color: #00aff2;
+}
+
+.phonering-alo-phone.phonering-alo-green.phonering-alo-hover
+  .phonering-alo-ph-img-circle-video,
+.phonering-alo-phone.phonering-alo-green:hover .phonering-alo-ph-img-circle-video {
+  background-color: rgb(57, 190, 185);
+  background-color: #75eb50 9;
+}
+
+.phonering-alo-phone.phonering-alo-green .phonering-alo-ph-img-circle-video {
+  background-color: #00aff2;
+  background-color: #00aff2 9;
+}
+
+.phonering-alo-phone.phonering-alo-gray.phonering-alo-hover
+  .phonering-alo-ph-img-circle-video,
+.phonering-alo-phone.phonering-alo-gray:hover .phonering-alo-ph-img-circle-video {
+  background-color: #ccc;
+}
+
+.phonering-alo-phone.phonering-alo-gray .phonering-alo-ph-img-circle-video {
+  background-color: rgb(57, 190, 185);
+}
+
+@-webkit-keyframes phonering-alo-circle-anim {
+  0% {
+    -webkit-transform: rotate(0) scale(0.5) skew(1deg);
+    -webkit-opacity: 0.1;
+  }
+
+  30% {
+    -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+    -webkit-opacity: 0.5;
+  }
+
+  100% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+    -webkit-opacity: 0.1;
+  }
+}
+
+@-webkit-keyframes phonering-alo-circle-fill-anim {
+  0% {
+    -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+    opacity: 0.2;
+  }
+
+  50% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+    opacity: 0.2;
+  }
+
+  100% {
+    -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+    opacity: 0.2;
+  }
+}
+
+@-webkit-keyframes phonering-alo-circle-img-anim {
+  0% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+  }
+
+  10% {
+    -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+  }
+
+  20% {
+    -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+  }
+
+  30% {
+    -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+  }
+
+  40% {
+    -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+  }
+}
+
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    -ms-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    -ms-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+
+@-webkit-keyframes fadeOutRight {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    -ms-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes fadeOutRight {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    -ms-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@-webkit-keyframes phonering-alo-circle-anim {
+  0% {
+    -webkit-transform: rotate(0) scale(0.5) skew(1deg);
+    transform: rotate(0) scale(0.5) skew(1deg);
+    opacity: 0.1;
+  }
+
+  30% {
+    -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+    transform: rotate(0) scale(0.7) skew(1deg);
+    opacity: 0.5;
+  }
+
+  100% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+    transform: rotate(0) scale(1) skew(1deg);
+    opacity: 0.1;
+  }
+}
+
+@keyframes phonering-alo-circle-anim {
+  0% {
+    -webkit-transform: rotate(0) scale(0.5) skew(1deg);
+    transform: rotate(0) scale(0.5) skew(1deg);
+    opacity: 0.1;
+  }
+
+  30% {
+    -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+    transform: rotate(0) scale(0.7) skew(1deg);
+    opacity: 0.5;
+  }
+
+  100% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+    transform: rotate(0) scale(1) skew(1deg);
+    opacity: 0.1;
+  }
+}
+
+@-webkit-keyframes phonering-alo-circle-fill-anim {
+  0% {
+    -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+    transform: rotate(0) scale(0.7) skew(1deg);
+    opacity: 0.2;
+  }
+
+  50% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+    transform: rotate(0) scale(1) skew(1deg);
+    opacity: 0.2;
+  }
+
+  100% {
+    -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+    transform: rotate(0) scale(0.7) skew(1deg);
+    opacity: 0.2;
+  }
+}
+
+@keyframes phonering-alo-circle-fill-anim {
+  0% {
+    -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+    transform: rotate(0) scale(0.7) skew(1deg);
+    opacity: 0.2;
+  }
+
+  50% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+    transform: rotate(0) scale(1) skew(1deg);
+    opacity: 0.2;
+  }
+
+  100% {
+    -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+    transform: rotate(0) scale(0.7) skew(1deg);
+    opacity: 0.2;
+  }
+}
+
+@-webkit-keyframes phonering-alo-circle-img-anim {
+  0% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+    transform: rotate(0) scale(1) skew(1deg);
+  }
+
+  10% {
+    -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+    transform: rotate(-25deg) scale(1) skew(1deg);
+  }
+
+  20% {
+    -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+    transform: rotate(25deg) scale(1) skew(1deg);
+  }
+
+  30% {
+    -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+    transform: rotate(-25deg) scale(1) skew(1deg);
+  }
+
+  40% {
+    -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+    transform: rotate(25deg) scale(1) skew(1deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+    transform: rotate(0) scale(1) skew(1deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+    transform: rotate(0) scale(1) skew(1deg);
+  }
+}
+
+@keyframes phonering-alo-circle-img-anim {
+  0% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+    transform: rotate(0) scale(1) skew(1deg);
+  }
+
+  10% {
+    -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+    transform: rotate(-25deg) scale(1) skew(1deg);
+  }
+
+  20% {
+    -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+    transform: rotate(25deg) scale(1) skew(1deg);
+  }
+
+  30% {
+    -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+    transform: rotate(-25deg) scale(1) skew(1deg);
+  }
+
+  40% {
+    -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+    transform: rotate(25deg) scale(1) skew(1deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+    transform: rotate(0) scale(1) skew(1deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+    transform: rotate(0) scale(1) skew(1deg);
+  }
+}

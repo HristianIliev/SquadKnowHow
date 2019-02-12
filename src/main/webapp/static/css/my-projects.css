@@ -1,0 +1,209 @@
+.profile-picture {
+  padding: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.picture-navbar {
+  margin: 10px;
+  margin-bottom: 0px;
+  border-radius: 50%;
+  display: inline-block;
+  height: 80px;
+  overflow: hidden;
+  width: 80px;
+  cursor: pointer;
+}
+
+.picture-navbar img {
+  background: none repeat scroll 0 0 #ffffff;
+  width: 100%;
+}
+
+.bg-my-messages {
+  background-color: #c7e1f1;
+}
+
+.column-container {
+  margin-top: 60px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.list-projects {
+  -webkit-padding-start: 0px;
+  list-style-type: none;
+  padding-bottom: 25px;
+}
+
+.project-card {
+  -webkit-box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  border-radius: 2.5px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.brace {
+  width: auto;
+  min-width: 35px;
+  padding-bottom: 20px;
+  font-size: 2em;
+  line-height: 2em;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 15px 15px;
+  border: none;
+  background-color: transparent;
+  background-image: radial-gradient(circle at 0 0,
+    rgba(255, 255, 255, 0) 14.5px,
+    #fff 15.5px,
+    #fff 19.5px,
+    rgba(255, 255, 255, 0) 20.5px),
+    radial-gradient(circle at 35px 0,
+    rgba(255, 255, 255, 0) 14.5px,
+    #fff 15.5px,
+    #fff 19.5px,
+    rgba(255, 255, 255, 0) 20.5px);
+  background-size: 35px 20px;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  text-transform: lowercase;
+  font-style: italic;
+  color: #fff;
+  -webkit-filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.15));
+}
+
+.brace:before {
+  width: 50%;
+  border-top: 5px solid #fff;
+  border-left: 1px solid transparent;
+  /* play with this until you like the look of it */
+  border-top-left-radius: 20% 30px;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: -15px;
+  box-sizing: border-box;
+  margin-top: -5px;
+}
+
+.brace:after {
+  width: 50%;
+  border-top: 5px solid #fff;
+  border-right: 1px solid transparent;
+  /* play with this until you like the look of it */
+  border-top-right-radius: 20% 30px;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: -15px;
+  box-sizing: border-box;
+  margin-top: -5px;
+}
+
+.project-icon {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 15px;
+  color: #138fc2;
+}
+
+.card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container-buttons {
+  display: inline-block;
+}
+
+.container-buttons button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-right: 15px;
+  padding-left: 15px;
+  font-size: 14px;
+}
+
+.button-primary {
+  margin-right: 10px;
+  display: block;
+  background-color: #138fc2;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  border: none;
+  -webkit-box-shadow: 2px 5px 20px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 5px 20px -5px rgba(0, 0, 0, 0.4);
+}
+
+.button-primary-white-bg {
+  background-color: white;
+  color: #138fc2;
+  border: 2px solid #138fc2;
+}
+
+.button-caution-white-bg {
+  background-color: white;
+  color: #ff4351;
+  border: 2px solid #ff4351 !important;
+  line-height: inherit;
+}
+
+.button-caution-white-bg:hover,
+.button-caution-white-bg:focus {
+  background-color: #ff4351 !important;
+  color: white !important;
+  border: 2px solid #ff4351 !important;
+}
+
+.button-primary-white-bg:hover,
+.button-primary-white-bg:focus {
+  background-color: #138fc2 !important;
+  color: white !important;
+  border: 2px solid #138fc2 !important;
+}
+
+.button-primary:hover {
+  background-color: white;
+  color: #138fc2;
+}
+
+.button-caution {
+  margin-right: 10px;
+  display: block;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  border: none;
+  -webkit-box-shadow: 2px 5px 20px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 5px 20px -5px rgba(0, 0, 0, 0.4);
+}
+
+.button-caution:hover {
+  background-color: white;
+  color: rgb(226, 58, 58);
+  border: 1px solid rgb(226, 58, 58);
+}
+
+.project-name:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -1,0 +1,13 @@
+.btn-send-message-container {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  margin-right: 0px;
+  /* position: relative; */
+}
+
+.btn-send-message {
+  /* position: absolute;
+    right: 0; */
+  /* float: right; */
+}

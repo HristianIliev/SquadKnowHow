@@ -1,0 +1,187 @@
+.first-div-xs {
+    /* display: inline-block; */
+}
+
+.second-div-xs {
+    /* display: inline-block; */
+}
+
+@media(max-width: 1680px) and (min-width: 1440px) {
+    .content {
+        /* margin-top: 10px; */
+        position: relative;
+    }
+
+    .footer {
+        padding: 0px;
+    }
+}
+
+@media(max-width: 1530px) {
+    .changeBelow {
+        width: 33.33333333%;
+    }
+}
+
+@media(max-width: 1440px) and (min-width: 1000px) {
+    .regulated-col {
+        width: 25%;
+    }
+
+    .regulated-col-2 {
+        width: 25%;
+    }
+}
+
+@media(max-width: 1415px) and (min-width: 1400px) {
+    #search-by-city {
+        width: 75%;
+    }
+}
+
+@media(max-width: 1260px) {
+    .changeBelow {
+        width: 50%;
+    }
+}
+
+@media(max-width: 1205px) {
+    .btn-dropdown-for {
+        padding-right: 0px;
+        width: 23%;
+
+    }
+
+    .btn-search-user-name-text {
+        display: none;
+    }
+
+    .md-form {
+        display: flex;
+    }
+
+    #search-user-name {
+        width: 100%;
+    }
+
+    .form-city {
+        margin-right: 5px;
+    }
+
+    .form-skills {
+        margin-right: 10px;
+    }
+}
+
+@media(max-width: 1024px) {
+    .btn-dropdown-for {
+        padding-right: 0px;
+        width: 23%;
+    }
+
+    .btn-search-user-name-text {
+        display: none;
+    }
+
+    .md-form {
+        display: flex;
+    }
+
+    #search-user-name {
+        width: 100%;
+    }
+
+    .form-city {
+        margin-right: 5px;
+    }
+
+    .form-skills {
+        margin-right: 10px;
+    }
+}
+
+@media(max-width: 1000px) {
+    .form-city {
+        margin-right: 0px;
+    }
+
+    .form-skills {
+        margin-right: 0px;
+    }
+
+    .navbar-search-people {
+        height: auto;
+    }
+
+    .should-be-flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .first-div-xs {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .second-div-xs {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    #dropdown-filter {
+        width: auto;
+    }
+
+    .btn-dropdown-for {
+        width: 50%;
+    }
+
+    #dropdown-filter {
+        width: 100%;
+    }
+}
+
+@media(max-width: 804px) {
+    .changeBelow {
+        width: 100%;
+    }
+}
+
+@media(max-width: 600px) {
+    .form-city {
+        padding-left: 0px !important;
+    }
+}
+
+@media(max-width: 500px) {
+    .second-div-xs {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .regulated-padding {
+        align-self: center !important;
+        width: 80% !important;
+    }
+}
+
+@media(max-width: 470px) {
+    .card-deck {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+@media(max-width: 500px) {
+    .footer-distributed {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+}
+
+@media(max-width: 350px) {
+    #adjust-position {
+        margin-left: 0px;
+    }
+}

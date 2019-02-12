@@ -1,0 +1,165 @@
+@media(max-width: 1440px) {
+    .adjust-col {
+        width: 33.3333%;
+    }
+}
+
+@media(max-width: 1215px) {
+    #search-user-name {
+        width: 60%;
+    }
+
+    #adjust-margin {
+        display: flex;
+    }
+
+    .btn-search-user-name-text {
+        display: none;
+    }
+}
+
+@media(max-width: 1100px) {
+    .adjust-col {
+        width: 50%;
+    }
+}
+
+@media(max-width: 1024px) {
+    .btn-search-user-name-text {
+        display: none;
+    }
+
+    #search-user-name {
+        width: 60px;
+    }
+
+    #adjust-margin {
+        display: flex;
+    }
+}
+
+@media(max-height: 900px) {
+    #map {
+        height: 360px;
+    }
+}
+
+@media(max-height: 760px) {
+    #map {
+        height: 340px;
+    }
+}
+
+@media(max-width: 991px) {
+    .navbar-search-people {
+        height: auto;
+    }
+
+    .div-xs {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .second-div-xs {
+        display: flex;
+        justify-content: center;
+    }
+
+    .third-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .fa-map-pin {
+        margin-left: 10px;
+    }
+
+    .map-label {
+        margin-left: 5px;
+    }
+
+    #dropdown-filter {
+        width: 100%;
+    }
+
+    #search-user-name {
+        width: 100% !important;
+    }
+
+    .adjust-col {
+        float: left;
+    }
+}
+
+@media(max-width: 768px) {
+    .lower-mobile {
+        display: flex !important;
+    }
+}
+
+@media(max-width: 720px) {
+    .adjust-col {
+        width: 100%;
+    }
+
+    .card-deck {
+        padding-left: 85px;
+        padding-right: 85px;
+    }
+}
+
+@media(max-width: 540px) {
+    .card-deck {
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+}
+
+@media(max-width: 454px) {
+    .card-deck {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media(max-width: 425px) {
+    .adjust-col {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+
+    .content-rotating {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+
+    .footer-distributed {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    .hide-mobile {
+        display: none;
+    }
+
+    #search-user-name {
+        margin-left: 0px !important;
+    }
+
+    #search-by-city {
+        width: 100%;
+    }
+
+    .lower-mobile {
+        width: 150px;
+        display: flex !important;
+        justify-content: center;
+    }
+}
+
+@media(max-width: 400px) {
+    .dropdown-menu {
+        left: -15px !important;
+    }
+}

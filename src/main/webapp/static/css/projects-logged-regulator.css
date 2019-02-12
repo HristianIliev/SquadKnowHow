@@ -1,0 +1,176 @@
+.mt10 {
+    margin-top: 10px;
+}
+
+@media(max-width: 1440px) {
+    .changeCol {
+        width: 33.333333%;
+    }
+}
+
+@media(min-width: 1100px) and (max-width: 1130px) {
+    .should-remove {
+        display: none;
+    }
+}
+
+@media(max-width: 1100px) and (min-width: 900px) {
+    .first-form {
+        width: 33.33333%;
+    }
+
+    .second-form {
+        width: 41.66666667%;
+    }
+
+    .changeCol {
+        width: 50%;
+    }
+}
+
+@media(max-height: 900px) {
+    #map {
+        height: 360px;
+    }
+}
+
+@media(max-height: 760px) {
+    #map {
+        height: 340px;
+    }
+}
+
+@media(max-width: 1020px) {
+    #notifications-dropdown-menu {
+        position: absolute;
+    }
+
+    .changeCol {
+        float: left;
+        width: 50%;
+    }
+}
+
+@media(max-width: 991px) {
+    .should-remove {
+        display: none;
+    }
+
+    .navbar-search-people {
+        height: auto;
+    }
+
+    .div-xs {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .second-div-xs {
+        display: flex;
+        justify-content: center;
+    }
+
+    .third-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .fa-map-pin {
+        margin-left: 10px;
+    }
+
+    .map-label {
+        margin-left: 5px;
+    }
+
+    #dropdown-filter {
+        width: 100%;
+    }
+
+    #search-user-name {
+        width: 100% !important;
+    }
+
+    .adjust-col {
+        float: left;
+    }
+}
+
+@media(max-width: 800px) {
+    .changeCol {
+        width: 100%;
+    }
+}
+
+@media(max-width: 768px) {
+    .lower-mobile {
+        display: flex !important;
+    }
+}
+
+@media(max-width: 720px) {
+    .adjust-col {
+        width: 100%;
+    }
+
+    .card-deck {
+        padding-left: 85px;
+        padding-right: 85px;
+    }
+}
+
+@media(max-width: 540px) {
+    .card-deck {
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+}
+
+@media(max-width: 454px) {
+    .card-deck {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media(max-width: 425px) {
+    .changeCol {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+
+    .content-rotating {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+
+    .footer-distributed {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    .hide-mobile {
+        display: none;
+    }
+
+    #search-user-name {
+        margin-left: 0px !important;
+    }
+
+    #search-by-city {
+        width: 100%;
+    }
+
+    .lower-mobile {
+        width: 150px;
+        display: flex !important;
+        justify-content: center;
+    }
+}
+
+@media(max-width: 400px) {
+    .dropdown-menu {
+        left: -15px !important;
+    }
+}

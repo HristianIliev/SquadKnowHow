@@ -1,0 +1,16 @@
+@media(max-width: 1020px) {
+    #register-caption {
+        display: none;
+    }
+
+    .gray-bg {
+        display: flex;
+        justify-content: center;
+    }
+
+    .form-register-design {
+        padding-left: 15px;
+        padding-right: 15px;
+        max-width: 400px;
+    }
+}

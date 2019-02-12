@@ -1,0 +1,23 @@
+.soft-skills-wrapper {
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+.soft-skill {
+    padding-top: 10px;
+    border-bottom: 1px solid #DEDEDE;
+    display: flex;
+    align-items: center;
+}
+
+.soft-skill-image {
+    margin-right: 10px;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+}
+
+.soft-skill-information {
+    width: 100%;
+}

@@ -1,0 +1,35 @@
+@media(max-width: 1170px) {
+    .cd-timeline__content {
+        word-break: break-all;
+    }
+
+    .changeHere {
+        line-height: 43.8px;
+    }
+}
+
+@media(max-width: 768px) {
+    .cd-timeline__content>h2 {
+        font-size: 25px;
+    }
+
+    .createUpdateBtn {
+        border-color: #387ae2;
+        background-color: #387ae2;
+        color: white !important;
+        font-size: 15px !important;
+        transition: 0.5s;
+    }
+}
+
+@media(max-width: 450px) {
+    .project-description {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 30px;
+    }
+
+    .project--description-ribbon {
+        flex-direction: column;
+    }
+}

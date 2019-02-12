@@ -1,0 +1,1233 @@
+<!doctype html>
+<html class="no-js" lang="bg" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Hristian Iliev">
+    <meta name="keywords" content="Squad,Team,Organize">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>Създаден проект - SquadKnowHow</title>
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png">
+    <link rel="shortcut icon" type="image/ico" href="/static/images/favicon.ico" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Plugin-CSS -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/themify-icons.css">
+    <link rel="stylesheet" href="/static/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
+    <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- Material Design Bootstrap -->
+    <link href="/static/css/mdb.min.css" rel="stylesheet">
+
+    <!-- Main-Stylesheets -->
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-light_blue.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/static/css/notifications.css">
+    <link rel="stylesheet" href="/static/css/normalize.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <link rel="stylesheet" href="/static/css/project-page-admin.css">
+    <link rel="stylesheet" href="/static/css/my-profile.css">
+
+    <link rel="stylesheet" href="/static/css/groups.css">
+
+    <link rel="stylesheet" href="/static/css/project-page.css">
+
+    <link href='/static/css/rotating-card.css' rel='stylesheet' />
+
+    <link href="/static/css/lightbox.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/iziToast.min.css">
+
+    <link rel="stylesheet" href="/static/css/animate.css">
+
+    <link rel="stylesheet" href="/static/css/jquery-confirm.min.css">
+
+    <link type="text/html" href="https://unpkg.com/tippy.js@2.3.0/dist/">
+
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/vex.css" />
+    <link rel="stylesheet" href="/static/css/vex-theme-os.css" />
+    <link rel="stylesheet" href="/static/css/vex-theme-wireframe.css" />
+    <link rel="stylesheet" href="/static/css/vex-theme-plain.css" />
+    <link rel="stylesheet" href="/static/css/vex-theme-top.css" />
+    <link rel="stylesheet" href="/static/css/vex-theme-flat-attack.css" />
+    <link rel="stylesheet" href="/static/css/vex-theme-default.css" />
+
+    <link rel="stylesheet" href="/static/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="/static/css/lobilist.min.css">
+
+    <link rel="stylesheet" href="/static/css/froala_style.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="/static/js/moment.js"></script>
+    <script src="/static/js/fullcalendar.min.js"></script>
+    <script src="/static/js/locale-all.js"></script>
+    <link rel="stylesheet" href="/static/css/fullcalendar.min.css">
+    <link rel="stylesheet" href="/static/css/pricingTable.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha18/js/tempusdominus-bootstrap-4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha18/css/tempusdominus-bootstrap-4.min.css" />
+
+    <script src="https://cdn.rawgit.com/icons8/titanic/master/dist/js/titanic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.5.9/bodymovin.min.js"></script>
+
+    <style>
+        @media(max-width: 1281px) {
+            .card-smth {
+                margin-left: 25px;
+                margin-right: 25px;
+            }
+        }
+
+        @media(max-width: 1441px) and (min-width: 1281px) {
+            .card-smth {
+                margin-left: 45px;
+                margin-right: 45px;
+            }
+        }
+
+        .fc-week-number {
+            width: 24px !important;
+        }
+
+        .fc-day-grid-container {
+            height: 976px !important;
+        }
+
+        .fc-rigid {
+            height: 162px !important;
+        }
+
+        .c-content-contact-1 {
+            width: 100%;
+            position: relative;
+            margin-bottom: 70px;
+        }
+
+        .c-content-contact-1>.row .c-body {
+            position: relative;
+            z-index: 100;
+            background: #fff;
+            margin: 40px 40px 40px 0;
+            padding: 60px 40px;
+        }
+
+        .c-content-contact-1>.row .c-body>.c-section {
+            margin-bottom: 15px;
+            text-align: right;
+        }
+
+        .c-content-contact-1>.row .c-body>.c-section>h3 {
+            font-size: 26px;
+            margin: 0 0 30px;
+            text-transform: uppercase;
+        }
+
+        .c-content-contact-1>.row .c-body>.c-section>.c-content-label {
+            display: inline;
+            padding: 3px 7px;
+            color: #fff;
+        }
+
+        .bg-blue {
+            background: #3598dc !important;
+        }
+
+        .uppercase {
+            text-transform: uppercase !important;
+        }
+
+        .c-content-contact-1>.row .c-body>.c-section>p {
+            margin-top: 20px;
+        }
+
+        .c-content-contact-1>.row .c-body>.c-section>p {
+            font-size: 16px;
+            line-height: 24px;
+            color: #7f8c97;
+            font-weight: 300;
+        }
+
+        .c-content-contact-1-gmap {
+            display: block;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            position: absolute;
+            width: 100%;
+        }
+    </style>
+
+    <link rel="stylesheet" href="/static/css/footer-distributed.css">
+
+    <link rel="stylesheet" href="/static/css/jQuery-modal-custom-css.css" />
+
+    <link rel="stylesheet" href="/static/css/sweetAlert2.css" />
+
+    <link rel="stylesheet" href="/static/css/videoCall.css" />
+
+    <style>
+        .ui-widget.ui-widget-content {
+            z-index: 9999;
+        }
+
+        .sk-wave {
+            /* margin: 40px auto; */
+            margin-top: auto;
+            position: fixed;
+            left: 50%;
+            transform: translate(-50%, 0);
+            z-index: 99999;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .sk-wave .sk-rect {
+            margin: 0 3px 0 0;
+            background-color: white;
+            height: 100%;
+            width: 7px;
+            display: inline-block;
+            -webkit-animation: sk-waveStretchDelay 1.2s infinite ease-in-out;
+            animation: sk-waveStretchDelay 1.2s infinite ease-in-out;
+        }
+
+        .sk-wave .sk-rect1 {
+            -webkit-animation-delay: -1.2s;
+            animation-delay: -1.2s;
+        }
+
+        .sk-wave .sk-rect2 {
+            -webkit-animation-delay: -1.1s;
+            animation-delay: -1.1s;
+        }
+
+        .sk-wave .sk-rect3 {
+            -webkit-animation-delay: -1s;
+            animation-delay: -1s;
+        }
+
+        .sk-wave .sk-rect4 {
+            -webkit-animation-delay: -0.9s;
+            animation-delay: -0.9s;
+        }
+
+        .sk-wave .sk-rect5 {
+            -webkit-animation-delay: -0.8s;
+            animation-delay: -0.8s;
+        }
+
+        @-webkit-keyframes sk-waveStretchDelay {
+
+            0%,
+            40%,
+            100% {
+                -webkit-transform: scaleY(0.4);
+                transform: scaleY(0.4);
+            }
+
+            20% {
+                -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+            }
+        }
+
+        @keyframes sk-waveStretchDelay {
+
+            0%,
+            40%,
+            100% {
+                -webkit-transform: scaleY(0.4);
+                transform: scaleY(0.4);
+            }
+
+            20% {
+                -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+            }
+        }
+
+        button.print-button {
+            width: 100px;
+            height: 100px;
+        }
+
+        button.print-button:focus {
+            outline: none;
+        }
+
+        span.print-icon,
+        span.print-icon::before,
+        span.print-icon::after,
+        button.print-button:hover .print-icon::after {
+            border: solid 4px #333;
+        }
+
+        span.print-icon::after {
+            border-width: 2px;
+        }
+
+        button.print-button {
+            position: relative;
+            padding: 0;
+            border: 0;
+
+            border: none;
+            background: transparent;
+        }
+
+        span.print-icon,
+        span.print-icon::before,
+        span.print-icon::after,
+        button.print-button:hover .print-icon::after {
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+
+        span.print-icon {
+            position: relative;
+            display: inline-block;
+            padding: 0;
+            margin-top: 20%;
+
+            width: 60%;
+            height: 35%;
+            background: #fff;
+            border-radius: 20% 20% 0 0;
+        }
+
+        span.print-icon::before {
+            content: " ";
+            position: absolute;
+            bottom: 100%;
+            left: 12%;
+            right: 12%;
+            height: 110%;
+
+            transition: height .2s .15s;
+        }
+
+        span.print-icon::after {
+            content: " ";
+            position: absolute;
+            top: 55%;
+            left: 12%;
+            right: 12%;
+            height: 0%;
+            background: #fff;
+            background-repeat: no-repeat;
+            background-size: 70% 90%;
+            background-position: center;
+            background-image: linear-gradient(to top,
+                #fff 0, #fff 14%,
+                #333 14%, #333 28%,
+                #fff 28%, #fff 42%,
+                #333 42%, #333 56%,
+                #fff 56%, #fff 70%,
+                #333 70%, #333 84%,
+                #fff 84%, #fff 100%);
+
+            transition: height .2s, border-width 0s .2s, width 0s .2s;
+        }
+
+        button.print-button:hover {
+            cursor: pointer;
+        }
+
+        button.print-button:hover .print-icon::before {
+            height: 0px;
+            transition: height .2s;
+        }
+
+        button.print-button:hover .print-icon::after {
+            height: 120%;
+            transition: height .2s .15s, border-width 0s .16s;
+        }
+    </style>
+
+    <link rel="stylesheet" href="/static/css/projectNotes.css">
+    <!-- 
+    <link href="https://cdn.jsdelivr.net/npm/froala-editor@2.9.0/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/froala-editor@2.9.0/css/froala_style.min.css" rel="stylesheet" type="text/css" /> -->
+
+    <link rel="stylesheet" href="/static/css/headerSignedInRegulator.css">
+
+    <link rel="stylesheet" href="/static/css/project-page-admin-regulator.css">
+
+    <link rel="stylesheet" href="/static/css/fab.css">
+
+    <style>
+        .cd-timeline__date{
+                font-size: 16px !important;
+    font-weight: 400 !important;
+        }
+
+        .cd-timeline__content > h2 {
+            font-size: 20px !important;
+            font-weight: 400 !important;
+        }
+
+        .cd-timeline__content > p {
+            font-size: 16px !important;
+            font-weight: 400 !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="/static/css/sweetAlert2.css" />
+    
+    <link rel="stylesheet" href="/static/css/updates_commentsRegulator.css">
+</head>
+
+<body th:id="'user-id_' + ${user.getId()}" data-spy="scroll" class="gray-bg-my-profile">
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v3.1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    <div th:replace="fragments/preloader :: preloader"></div>
+
+    <div class="page-wrapper">
+        <div id="for-sweet">
+
+            <div th:replace="fragments/headerSignedIn :: header('projects')">
+            </div>
+
+            <div class="note-btn__uLJR" title="Бележки">
+                <svg viewBox="0 0 24 24" width="1em" height="1em" class="icon__3Su4">
+                    <path fill-rule="evenodd" d="M4 8l6-6h8c1.1 0 2 .9 2 2v16c0 1.1-.89 2-1.99 2H6c-1.1 0-2-.9-2-2V8zm14.01 12V4H11v5H6v11h12.01z"></path>
+                </svg>
+            </div>
+            <div class="note-editor-wrapper">
+                <div id="notesEditor">
+
+                </div>
+            </div>
+
+            <div class="card card-smth">
+                <div class="card-body animated zoomIn wow">
+                    <ul class="nav nav-pills mb-3 nav-fill nav-justified" id="pills-tab" role="tablist">
+                        <li class="nav-item active my-active unstyled">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+                                aria-controls="pills-home" aria-selected="true">
+                                <i class="fa fa-info-circle"></i> Проект</a>
+                        </li>
+                        <li class="nav-item unstyled">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+                                aria-controls="pills-profile" aria-selected="false">
+                                <i class="fas fa-unlock-alt"></i> Панел на създателя</a>
+                        </li>
+                        <li class="nav-item unstyled">
+                            <a class="nav-link" id="pills-calendar-tab" data-toggle="pill" href="#pills-calendar" role="tab"
+                                aria-controls="pills-calendar" aria-selected="false">
+                                <i class="far fa-calendar-alt"></i> Календар със събитията</a>
+                        </li>
+                        <li class="nav-item unstyled">
+                            <a class="nav-link" id="pills-pricing-tab" data-toggle="pill" href="#pills-pricing" role="tab"
+                                aria-controls="pills-pricing" aria-selected="false">
+                                <i class="fas fa-dollar-sign"></i> Промотиране </a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane active animated fadeInUp" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
+                            style="margin-right: 15px;">
+                            <div class="row">
+                                <div class="col-md-12 project-title">
+                                    <h1 id="project-name" class="project-name-for-note" th:text="${project.getName()}"></h1>
+                                </div>
+                                <div class="col-sm-6 col-md-6 project-cover-photo-container">
+                                    <a id="project-cover-photo-a" th:href="${project.getCover()}" data-lightbox="image-1"
+                                        data-title="My caption">
+                                        <img id="project-cover-photo-img" class="project-cover-photo z-depth-3 img-thumbnail"
+                                            data-lightbox="image-1" data-title="Заглавна снимка" th:src="@{${project.getCover()}}"
+                                            alt="">
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-2 col-md-2 project-picture-1">
+                                    <a id="project-picture-1-a" th:href="${project.getPicture1()}" data-lightbox="image-1"
+                                        data-title="My caption">
+                                        <img id="project-picture-1-img" class="z-depth-3 img-thumbnail smaller-picture"
+                                            data-lightbox="image-1" data-title="My caption" th:src="@{${project.getPicture1()}}"
+                                            alt="">
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-2 col-md-2 project-picture-2" th:if="${project.getPicture2() != null}">
+                                    <a th:href="${project.getPicture2()}" data-lightbox="image-1" data-title="My caption">
+                                        <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture2()}}"
+                                            alt="" data-lightbox="image-1" data-title="My caption">
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-2 col-md-2 project-picture-3" th:if="${project.getPicture3() != null}">
+                                    <a th:href="${project.getPicture3()}" data-lightbox="image-1" data-title="My caption">
+                                        <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture3()}}"
+                                            alt="" data-lightbox="image-1" data-title="My caption">
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-2 col-md-2 project-picture-4" th:if="${project.getPicture4() != null}">
+                                    <a th:href="${project.getPicture4()}" data-lightbox="image-1" data-title="My caption">
+                                        <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture4()}}"
+                                            alt="" data-lightbox="image-1" data-title="My caption">
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-2 col-md-2 project-picture-5" th:if="${project.getPicture5() != null}">
+                                    <a th:href="${project.getPicture5()}" data-lightbox="image-1" data-title="My caption">
+                                        <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture5()}}"
+                                            alt="" data-lightbox="image-1" data-title="My caption">
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-2 col-md-2 project-picture-6" th:if="${project.getPicture6() != null}">
+                                    <a th:href="${project.getPicture6()}" data-lightbox="image-1" data-title="My caption">
+                                        <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture6()}}"
+                                            alt="" data-lightbox="image-1" data-title="My caption">
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-2 col-md-2 project-picture-7" th:if="${project.getPicture7() != null}">
+                                    <a th:href="${project.getPicture7()}" data-lightbox="image-1" data-title="My caption">
+                                        <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture7()}}"
+                                            alt="" data-lightbox="image-1" data-title="My caption">
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-2 col-md-2 project-picture-8" th:if="${project.getPicture8() != null}">
+                                    <a th:href="${project.getPicture8()}" data-lightbox="image-1" data-title="My caption">
+                                        <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture8()}}"
+                                            alt="" data-lightbox="image-1" data-title="My caption">
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-2 col-md-2 project-picture-9" th:if="${project.getPicture9() != null}">
+                                    <a th:href="${project.getPicture9()}" data-lightbox="image-1" data-title="My caption">
+                                        <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture9()}}"
+                                            alt="" data-lightbox="image-1" data-title="My caption">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 smaller-collumn">
+                                    <hr class="divider">
+                                    <h4 class="header-text-finance">Проектът се нуждае от:</h4>
+                                    <ul class="project-needs">
+                                        <span th:if="${project.getProjectNeeds().size() == 0}">Този проект не се нуждае
+                                            от
+                                            други
+                                            хора
+                                        </span>
+                                        <li th:each="projectNeed: ${project.getProjectNeeds()}" th:inline="text">
+                                            [[${projectNeed.getName()}]] <span th:id="${project.getWantedMemberId(projectNeed.getName())}" class="span-link" th:if="${project.isThereWantedParameters(projectNeed.getName())}">изискв. <i class="fas fa-external-link-alt"></i></span>
+                                        </li>
+                                    </ul>
+                                    <hr class="divider">
+                                    <h4 class="header-text-finance">Работещи по проекта:</h4>
+                                    <ul class="project-members">
+                                        <li th:each="member: ${project.getMembers()}">
+                                            <a th:id="'profile-id_' + ${member.getId()}" class="about-a should-send-profile-id"
+                                                th:href="'/user/' + ${member.getId()}" th:text="${member.getFirstName()} + ' ' + ${member.getLastName()}"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-9 project-description">
+                                    <div class="project--description-ribbon">
+                                        <div id="project-description-ribbon" class="active-project-ribbon"><span>Описание</span></div>
+                                        <div id="project-updates-ribbon"><span>Новости<span class="count-ribbon"
+                                                    th:text="${project.getUpdates().size()}"></span></span></div>
+                                        <div id="project-comments-ribbon"><span>Коментари <a class="count-ribbon" th:href="${pageUrl} + '#disqus_thread'" th:attr="data-disqus-identifier=${pageIdentifier}"></a></span></div>
+                                    </div>
+                                    <div class="project-description-tab-ribbon">
+                                        <div class="progress" th:if="${project.isNeedsMoney()}">
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                                th:attr="aria-valuenow=${project.getPercentageReceived()}"
+                                                aria-valuemin="0" aria-valuemax="100" th:style="'width:' + ${project.getPercentageReceived()} + '%;text-align:center;'"
+                                                th:inline="text">[[${project.getPercentageReceived()}]]%</div>
+                                        </div>
+                                        <h4 style="margin-bottom:0px;" th:inline="text" th:if="${project.isNeedsMoney()}">
+                                            Проектът се нуждае от [[${project.getNeededMoney()}]] USD
+                                        </h4>
+                                        <span class="money-caption" th:inline="text" th:if="${project.isNeedsMoney()}">[[${project.getReceivedMoney()}]]
+                                            USD събрани</span>
+                                        <hr class="divider" th:if="${project.isNeedsMoney()}">
+                                        <h4>
+                                            Описание на проекта:
+                                        </h4>
+                                        <div th:utext="${project.getDescription()}" class="fr-view"></div>
+                                        <hr class="divider">
+                                        <h4>
+                                            Цели на проекта:
+                                        </h4>
+                                        <ul class="project-goals">
+                                            <li th:text="${project.getGoal1()}">
+                                            </li>
+                                            <li th:if="${project.getGoal2().length() != 0}" th:text="${project.getGoal2()}">
+                                            </li>
+                                            <li th:if="${project.getGoal3().length() != 0}" th:text="${project.getGoal3()}">
+                                            </li>
+                                        </ul>
+                                        <hr class="divider" th:if="${project.getGithubPage().length() != 0}">
+                                        <h4 th:if="${project.getGithubPage().length() != 0}">Github страница:</h4>
+                                        <a th:if="${project.getGithubPage().length() != 0}" th:href="${project.getGithubPage()}"
+                                            class="about-a" th:text="${project.getGithubPage()}"></a>
+                                        <hr class="divider" th:if="${project.getYoutubeLink().length() != 0}">
+                                        <h4 class="project-video-link" th:if="${project.getYoutubeLink().length() != 0}">
+                                            Линк към видео на проекта:
+                                        </h4>
+                                        <a th:if="${project.getYoutubeLink().length() != 0}" th:href="${project.getYoutubeLink()}"
+                                            th:text="${project.getYoutubeLink()}" class="about-a" style="margin-bottom: 20px;"></a>
+                                        <div class="c-content-contact-1 c-opt-1" style="margin-top: 20px;height: 615px;width: 99%;">
+                                            <div data-auto-height=".c-height" class="row" style="padding-right: 15px;">
+                                                <div class="col-lg-8 col-md-6 c-desktop"></div>
+                                                <div class="col-lg-4 col-md-6">
+                                                    <div class="c-body">
+                                                        <div class="c-section">
+                                                            <h3 th:text="${project.getName()}">SAMPLE NAME</h3>
+                                                        </div>
+                                                        <div class="c-section">
+                                                            <div class="c-content-label uppercase bg-blue">Адрес</div>
+                                                            <p class="arena-address"></p>
+                                                        </div>
+                                                        <div class="c-section">
+                                                            <div class="c-content-label uppercase bg-blue">Контакти</div>
+                                                            <p>
+                                                                <strong>Телефон:</strong>
+                                                                <span th:inline="text">[[${project.getTelephone()}]]</span>
+                                                            </p>
+                                                        </div>
+                                                        <!---->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="map" class="c-content-contact-1-gmap" style="width: 100%; height: 615px; margin-bottom: 40px; overflow: hidden;">
+                                            </div>
+                                        </div>
+                                        <button class="print-button" style="float: right;" onclick="window.print()"><span
+                                                class="print-icon"></span></button>
+                                        <a th:href="'/presentation/' + ${project.getId()}">
+                                            <div class="titanic titanic-broken-link" title="Натисни тази икона за да видиш презентацията за този проект"
+                                                style="cursor:pointer; padding-bottom: 10px; margin-right: 20px;float: right;display: inline-block;height: 100px;"></div>
+                                        </a>
+                                    </div>
+                                    <div class="project-updates-tab-ribbon" style="display: none;">
+                                        <div class="project-timeline">
+                                            <section class="cd-timeline js-cd-timeline">
+                                                <div class="cd-timeline__container">
+                                                    <div class="cd-timeline__block js-cd-block" th:each="update: ${updates}"
+                                                        th:if="${update.getType() != 'Initial update'}">
+                                                        <div th:if="${update.getType() == 'green'}" class="cd-timeline__img cd-timeline__img--picture js-cd-img animated bounceIn">
+                                                            <img src="/static/images/cd-icon-picture.svg" alt="Picture">
+                                                        </div>
+                                                        <div th:if="${update.getType() == 'red'}" class="cd-timeline__img cd-timeline__img--movie js-cd-img animated bounceIn">
+                                                            <img src="/static/images/cd-icon-movie.svg" alt="Picture">
+                                                        </div>
+                                                        <div th:if="${update.getType() == 'yellow'}" class="cd-timeline__img cd-timeline__img--location js-cd-img animated bounceIn">
+                                                            <img src="/static/images/cd-icon-location.svg" alt="Picture">
+                                                        </div>
+
+                                                        <div class="cd-timeline__content js-cd-content animated fadeInLeft">
+                                                            <h2 th:text="${update.getTitle()}"></h2>
+                                                            <p th:text="${update.getContent()}"></p>
+                                                            <span class="cd-timeline__date" th:text="${update.getUpdateDate()}"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="cd-timeline__block js-cd-block blockBefore" >
+                                                        <div class="cd-timeline__img js-cd-img animated bounceIn addPictureButton changeHere">
+                                                            <i class="fas fa-plus" style="cursor: pointer;"></i>
+                                                        </div>
+
+                                                        <div class="cd-timeline__content js-cd-content animated fadeInLeft">
+                                                            <input type="text" class="form-control newUpdateTitle" placeholder="Име">
+                                                            <div class="form-group">
+                                                                    <textarea class="form-control rounded-0 newUpdateContent" id="exampleFormControlTextarea2" rows="3" placeholder="Съдържание"></textarea>
+                                                            </div>
+                                                            <input class="cd-timeline__date form-control newUpdateDate" style="padding-left: 10px;padding-right: 10px;" placeholder="Дата (ММ/ДД/ГГГГ ЧЧ:ММ)"></input>
+                                                            <a class="cd-timeline__read-more createUpdateBtn">Създай</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                            <div class="timeline-launched-project">
+                                                <div style="text-align: center;">
+                                                    <span class="timeline-date-launched" th:text="${project.getProjectLaunchedDate()}">January
+                                                        4, 2019</span>
+                                                    <div class="timeline-label">
+                                                        Проектът е създаден
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-comments-tab-ribbon" style="display: none;">
+                                        <div id="disqus_thread"></div>
+                                        <script th:inline="javascript">
+                                            var disqus_config = function () {
+                    this.page.url = [[${pageUrl}]];
+                    this.page.identifier = [[${pageIdentifier}]];
+                    this.page.title = [[${pageTitle}]];
+                  };
+                  
+                  (function() { // DON'T EDIT BELOW THIS LINE
+                  var d = document, s = d.createElement('script');
+                  s.src = 'https://squadknowhow.disqus.com/embed.js';
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+                  })();
+                                        </script>
+                                        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments
+                                                powered by Disqus.</a></noscript>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane animated fadeInUp" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            <div class="row regulate-this-mobile">
+                                <div class="col-md-12 project-title">
+                                    <div id="project-name" style="align-items: center;display: flex;justify-content: center;">
+                                        <span style="font-size: 2em;">Панел на създателя</span>
+                                        <div class='titanic titanic-shopping' style="float: right; display: inline-block; height: 70px; margin-right: 50px; cursor: pointer;"
+                                            title="Натисни тази икона за да пуснеш правата за този проект на търг"></div>
+                                    </div>
+                                </div>
+                                <div id="visits-box-container" class="col-md-4 visits-box">
+                                    <div style="width: 100%; height: 100%" id="highcharts-box"></div>
+                                </div>
+                                <div class="col-md-7 project-members-table-box" style="margin-bottom: 90px;">
+                                    <table class="table table-hover table-responsive-md w-auto table-striped table-bordered">
+                                        <div class="view gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+                                            <div>
+                                            </div>
+                                            <a href="" class="white-text mx-3">Участници в проекта</a>
+                                            <div>
+                                            </div>
+                                        </div>
+                                        <thead class=" light-blue lighten-2">
+                                            <tr>
+                                                <th class="white-text fsmr">#</th>
+                                                <th class="white-text fsmr">
+                                                    <i class="fas fa-user fa-lg pr-2" aria-hidden="true"></i> Име</th>
+                                                <th class="white-text fsmr">
+                                                    <i class="fa fa-address-card fa-lg pr-2" aria-hidden="true"></i>
+                                                    Фамилия</th>
+                                                <th class="white-text fsmr">
+                                                    <i class="fas fa-magic fa-lg pr-2" aria-hidden="true"></i> Умения</th>
+                                                <th class="white-text fsmr">
+                                                    <i class="fas fa-at fa-lg pr-2" aria-hidden="true"></i> Е-майл</th>
+                                            </tr>
+                                        </thead>
+                                        <!--Table head-->
+                                        <!--Table body-->
+                                        <tbody class="project-members-table">
+                                            <tr th:each="member,iter : ${project.getMembers()}">
+                                                <th class="fsmr" scope="row" th:text="${iter.index + 1}">
+                                                </th>
+                                                <td class="fsmr" th:text="${member.getFirstName()}">
+                                                </td>
+                                                <td class="fsmr" th:text="${member.getLastName()}">
+                                                </td>
+                                                <td class="fsmr" th:text="${member.getSkillset().getName()}">
+                                                </td>
+                                                <td class="fsmr" th:if="${member.getId() == user.getId()}">
+                                                    Ти
+                                                </td>
+                                                <td class="fsmr" th:if="${member.getId() != user.getId()}">
+                                                    <a class="about-a" th:href="'mailto:' + ${member.getEmail()}"
+                                                        th:text="${member.getEmail()}"></a>
+                                                    <i class="fas fa-pencil-alt ml-1 trigger-modal" th:id="${member.getId()}"
+                                                        title="Натисни тази икона за да напишеш съобщение до потребителя"></input>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <!--Table body-->
+
+                                    </table>
+                                    <!--Table-->
+                                </div>
+                                <div class="col-md-12 button-container" style="display: flex;justify-content: space-evenly;align-items: center;">
+                                    <button id="button-send-all-message" type="button" class="button-send-all button-outline button-outline-2px">
+                                        <i class="fa fa-comments"></i> Изпрати съобщение на всички</button>
+                                    <button type="button" class="button-schedule-a-meeting button-outline button-outline-2px">
+                                        <i class="far fa-clock"></i> Насрочи събитие</button>
+                                    <div class="fb-share-button" data-href="http://squad-knowhow.herokuapp.com/home"
+                                        data-layout="button_count" data-size="large" data-mobile-iframe="true"><a
+                                            target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2Fproject-admin%2F78&amp;src=sdkpreparse"
+                                            class="fb-xfbml-parse-ignore">Сподели</a></div>
+                                </div>
+                                <div class="col-md-5 advices-project-box">
+                                    <h3 class="card-title-people text-center" style="color: rgb(109, 109, 109);">Съвети
+                                        към
+                                        проекта</h3>
+                                    <h5 class="card-sub-title text-center">Тук ще намериш съветите по проекта, които са
+                                        дадени
+                                        от
+                                        други потребители разгледали твоя проект</h5>
+                                    <ul class="demo-list-three mdl-list advices-list scrollbar advices-project-list">
+                                        <h4 class="text-center" th:if="${project.getAdvices().size() == 0}">
+                                            За момента няма никакви съвети -_-
+                                        </h4>
+                                        <li style="overflow-y:scroll;" th:each="advice: ${project.getAdvices()}" class="mdl-list__item mdl-list__item--three-line">
+                                            <span class="mdl-list__item-primary-content">
+                                                <i class="material-icons mdl-list__item-avatar">person</i>
+                                                <span th:id="'profile-id_' + ${advice.getSender().getId()}" class="should-send-profile-id">
+                                                    <b th:inline="text">
+                                                        <span class="blue-text-my" th:inline="text">[[${advice.getSender().getFirstName()}]]</span>:
+                                                        [[${advice.getTitle()}]]
+                                                    </b>
+                                                </span>
+                                                <span class="mdl-list__item-text-body" th:text="${advice.getContent()}">
+                                                </span>
+                                            </span>
+                                            <span class="mdl-list__item-secondary-content" th:text="${advice.getTimestamp()}">
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-7 questions-project-box">
+                                    <h3 class="card-title-people text-center" style="color: rgb(109, 109, 109);">Въпроси
+                                        към
+                                        проекта</h3>
+                                    <h5 class="card-sub-title text-center">Тук ще намериш въпроси по проекта, зададени
+                                        от
+                                        заинтерсовани
+                                        по проекта потребители, които може би искат да се включат в него
+                                        <i class="em em-wink"></i>
+                                    </h5>
+                                    <ul class="demo-list-three mdl-list advices-list scrollbar questions-project-list">
+                                        <h4 class="text-center" th:if="${project.getQuestions().size() == 0}">
+                                            За момента няма никакви въпроси -_-
+                                        </h4>
+                                        <li style="overflow-y: scroll;" th:each="question: ${project.getQuestions()}" class="mdl-list__item mdl-list__item--three-line">
+                                            <span class="mdl-list__item-primary-content">
+                                                <i class="material-icons mdl-list__item-avatar">person</i>
+                                                <span th:id="'profile-id-quest_' + ${question.getSender().getId()}"
+                                                    class="should-send-profile-id">
+                                                    <b th:inline="text">
+                                                        <span class="blue-text-my" th:inline="text">[[${question.getSender().getFirstName()}]]</span>:
+                                                        [[${question.getTitle()}]]
+                                                    </b>
+                                                </span>
+                                                <!-- <a>
+                                            <b th:inline="text">
+                                                <a class="blue-text-my" th:if="${user.getId() == question.getSender().getId()}"
+                                                    href="/my-profile">[[${question.getSender().getFirstName()}]]</a>
+                                                <a class="blue-text-my" th:if="${user.getId() != question.getSender().getId()}"
+                                                    th:href="'/user/' + ${question.getSender().getId()}">[[${question.getSender().getFirstName()}]]</a>:
+                                                [[${question.getTitle()}]]</b> -->
+                                                <span class="mdl-list__item-text-body" th:text="${question.getContent()}">
+                                                </span>
+                                            </i>
+                                            </span>
+                                            <span class="mdl-list__item-secondary-content needs-reg" th:inline="text">
+                                                [[${question.getTimestamp()}]]
+                                                <br>
+                                                <br>
+                                                <i class="trigger-modal fas fa-reply fa-2x" th:id="${question.getSender().getId()}"
+                                                    title="Натисни тази икона за да отговориш на този въпрос"></i>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-12 lobilist" style="height: auto; max-height: 10000px;"></div>
+                            </div>
+                        </div>
+                        <div class="tab-pane animated fadeInUp" id="pills-calendar" role="tabpanel" aria-labelledby="pills-calendar-tab">
+                            <div id='calendar'></div>
+                        </div>
+                        <div class="tab-pane animated fadeInUp" id="pills-pricing" role="tabpanel" aria-labelledby="pills-pricing-tab">
+                            <div class="row promoting-container-mobile" style="margin-right: 70px;margin-left: 70px;">
+                                <div class="col-md-12">
+                                    <span class="badge badge-pill cyan">1</span> Промотирай обявата си и достигни до
+                                    повече
+                                    потребители
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="panel pricing-table">
+                                        <div class="pricing-plan">
+                                            <img src="https://s22.postimg.cc/8mv5gn7w1/paper-plane.png" alt="" class="pricing-img">
+                                            <h2 class="pricing-header">Bronze</h2>
+                                            <ul class="pricing-features">
+                                                <li class="pricing-features-item"><img src="data:image/png;base64,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">3
+                                                    дни промо опция ТОП обява</li>
+                                                <li class="pricing-features-item" style="height: 100px">Без място на
+                                                    главната
+                                                    страница в сайта</li>
+                                            </ul>
+                                            <span class="pricing-price">$4.8</span>
+                                            <a href="#" class="pricing-button">Купи</a>
+                                        </div>
+
+                                        <div class="pricing-plan">
+                                            <img src="https://s28.postimg.cc/ju5bnc3x9/plane.png" alt="" class="pricing-img">
+                                            <h2 class="pricing-header">Silver</h2>
+                                            <ul class="pricing-features">
+                                                <li class="pricing-features-item"><img src="data:image/png;base64,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">7
+                                                    дни промо опция ТОП обява</li>
+                                                <li class="pricing-features-item" style="height: 100px">Без място на
+                                                    главната
+                                                    страница в сайта</li>
+                                            </ul>
+                                            <span class="pricing-price">$9.6</span>
+                                            <a href="#" class="pricing-button is-featured">Купи</a>
+                                        </div>
+
+                                        <div class="pricing-plan">
+                                            <img src="https://s21.postimg.cc/tpm0cge4n/space-ship.png" alt="" class="pricing-img">
+                                            <h2 class="pricing-header">Gold</h2>
+                                            <ul class="pricing-features">
+                                                <li class="pricing-features-item"><img src="data:image/png;base64,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">30
+                                                    дни промо опция ТОП обява</li>
+                                                <li class="pricing-features-item"><img src="data:image/png;base64,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"
+                                                        style="width:50px; height: 50px;">Гарантирано
+                                                    място на първата страница</li>
+                                            </ul>
+                                            <span class="pricing-price">$25.9</span>
+                                            <a href="#" class="pricing-button">Купи</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12" style="font-size: 25px;margin-right: 15px;text-align: right;margin-bottom: 20px;margin-top: 30px;">
+                                    <span>Крайна сума с ДДС: <span class="priceToPay">$9.6</span></span>
+                                </div>
+                                <div class="col-md-12" style="text-align: right;display: flex;flex-direction: column;">
+                                    <span style="font-size: 20px">Плати с PayPal</span>
+                                    <div id="promote-button" type="button" style="margin-bottom: 10px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a id="demo01" href="#animatedModal"></a>
+
+            <div id="animatedModal">
+                <div class="modal-wrapper">
+                    <div id="agora_local" style="z-index: 9999; width:270px;height:171px;display: inline-block; position: absolute; bottom: 0; right: 0;margin-bottom: 10px; margin-right: 10px;"></div>
+                    <div id="closebt-container" class="close-animatedModal">
+                        <img id="close-the-modal" class="closebt" src="/static/img/closebt.svg" />
+                    </div>
+                    <div id="modal-container" class="call-modal-content">
+                        <div id="video" style="display: flex;justify-content: center;flex-direction: column;flex-grow: 1;">
+                            <img id="receiver" th:src="@{${user.getImage()}}" alt="" />
+                            <p class="receiver-name">Hristian Iliev</p>
+                            <p class="call-duration">Вмомента се звъни..</p>
+                        </div>
+                        <div class="call-controls">
+                            <div id="stop-video" class="titanic titanic-stop" style="height: 50px;display: inline-block;margin-right: 40px;"
+                                title="Натисни тази икона за да сппреш камерата"></div>
+                            <div id="mute-mic" class="titanic titanic-no-mic" style="height: 50px;display: inline-block;"
+                                title="Натисни тази икона за да заглушиш микрофона"></div>
+                            <div id="share-screen" class="titanic titanic-checkbox" style="height: 50px;display: inline-block;margin-left: 40px;"
+                                title="Натисни тази икона за да споделиш екрана си"></div>
+                            <span class="red-circle" style="display: flex; justify-content: center;margin-left: 40px">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATUSURBVHhe7ZtNiFVlHMZnFMLvD3KljsZQq1xI7mwjKuQiMHATggZtQmvXImkjI4jiJgjShTsrmFJXZa2C8gPNqXa5GQxBwlXqVOJnM/2ec5+5zL2j3HPec87cO+P/Bw/vef/3fZ/3fZ+ZOXPu1ekLgiAIgiAIgiAIgiAIgiCoi/Hx8YXoVfQm+gAdm5iY+Jr2Au0vtKPoJrqNHlu6Vm3UY857zjH0PpKXPBd6mbkBh1zOobahD9GX6Bp6Qr0W5O01vkBaU2sv83Z6Hza7GO3gLEdpr6JpYVF7hH5H36DP0EfobbSZlzehQa7X0K5E862Vrg2iTRrrOZorj2+RPB/xegvUFOrPXGpPb6DF3m5vwIbWoPfQ9+hBY9sN1Efn0SfoHUob0QueWjnyZp3X0LvoU3QRPdReJqF/H32HtOfVnjqzsI9VLL4fXULjja01v9qqHUJbUdfvSWxrEfvQj7L2pL01fyq4Fgp5H3rRU+qB9frRFhYaRs0fFa7/pdENfQ/tKg/vWbRH9roXnUb3dAbB9UM0zOUW1O/h1YH54Wwl4FrfaefQbtRb95QCcJQlPoPO8l/jdNn5DntINeD5Eqa6dwgFuc4vzRk413qdLTshZ9WZ/VJ5MNS3tr4yp1yqDDzXYv0W7RDSo85ldAPp2U+/sSVdq6bXNEZjd6K1tqkMPE/5rMMulQMjPTKIe2jA5WTY2wIHdhL9oc2WQR722kl3gZdJBp8BpLOKzS6nwYb6MbnijQ65XBimz2P+DqQH3DH5TUL/H5ofafWuInseRKupTXsORK97jMb+hPQLrAn9MfQ50rPoPC9fGOYP2U9nT/+FgsEuG/1Js8TlwjBfb8EyuBYj6GO6ei6c72GF0Vx52Etv8aY+Uo16WGGYrl8uOrN8drlcHCaP2GS/S0nIQ+Cje9d6lytH3lrDy024nITOLA/aEZeKwdztNriFSj0Qy0e4WztermyA+tDjlq22u5wfJv/gyQdcSsY+sypAgcUB+SgLl/LBhA2eeIdmucvJyEu4WzterooA9WmSMlAWG1zuDOOPetJxl0ohL+Fu7Xi5StYjgxPyoj3iUmcY/JsnbXWpFPIS7taOl6sqwG3yov3Vpc4wWM9mmrTUpVLIS7hbO16uqgCXykuZuNSZbHVwtzS2m5UBCtvl9/P4CNDYrniAfNvqA8iLLuvbOalvu8IHavfLi5fr3v49Xhu4ILksw6S+7VICbPHLi5fr3v49vvCBn4XtKvPrhJfr3v5J/W9NoC39eRseA/Yac6l2ur5/Bp/1JP3TY/ImtDg6Z68zLueGOS33pLwwp7v7Z/Ar6C9NrAK8btMM2j43zGu5J+WlJ/bPJH2A+RVq+QC0IHeZfwa9bNsZY7bvP+gF+Mon3QMDQ3hJ98AgCHoCfnyv6D7oblAUP0rM2FvAOYfziwBTcX4RYCrOLwJMxflFgKk4vwgwFecXAabi/CLAPJDTtD9/aMQ3PUBKtf2pxKyEdxsH9a6DYFr+H06WHribQVf/X0XvUA669HxDICsI47qCag9RNeFuMzzVPGeFX3q+IYh1TwtRfeHr9vDm3F8KlEKBtIeoaxPh5UHBtIWYEeEVQAFNhjiVCK8ACmpqiBFeAgpMwUV4JVBwEV4QBEEQBEEQBEEQ9BJ9ff8D34ntJUBajlQAAAAASUVORK5CYII=" />
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!--
+            <div class="modal-content">
+            </div>
+          -->
+            </div>
+        </div>
+
+        <div th:replace="fragments/footerSignedIn :: footer"></div>
+    </div>
+
+    <div class="zoom">
+        <a class="zoom-fab zoom-btn-large" id="zoomBtn"><i class="fas fa-list-ul"></i></a>
+        <ul class="zoom-menu">
+            <li><a class="zoom-fab zoom-btn-sm zoom-btn-report scale-transition scale-out" title="Генерирай презентация"><i
+                        class="fas fa-edit"></i></a></li>
+        </ul>
+        <!-- <div class="zoom-card scale-transition scale-out">
+          <ul class="zoom-card-content">
+            <li>Content 1</li>
+            <li>Content 2</li>
+            <li>Content 3</li>
+            <li>Content 4</li>
+            <li>Content 5</li>
+          </ul>
+        </div> -->
+    </div>
+
+
+    <script>
+        var titanic = new Titanic({
+            hover: true,
+            click: true
+        });
+    </script>
+    <script>
+        jq = jQuery.noConflict(false);
+
+        var projectId = sessionStorage.getItem("projectId");
+
+        jq(document).ready(function () {
+            jq("#calendar").fullCalendar({
+                header: {
+                    left: "prev,next today",
+                    center: "title",
+                    right: "month,agendaWeek,agendaDay,listMonth"
+                },
+                locale: "bg",
+                buttonIcons: false, // show the prev/next text
+                weekNumbers: true,
+                navLinks: true, // can click day/week names to navigate views
+                editable: true,
+                eventLimit: true,
+                // defaultView: "agendaDay",
+                themeSystem: "bootstrap4",
+                events: "/api/getEvents?projectId=" + projectId,
+                eventDrop: function (event, delta, revertFunc) {
+                    jq.ajax({
+                        url: "/api/updateEvent",
+                        method: "POST",
+                        data: JSON.stringify({
+                            id: event.id,
+                            title: event.title,
+                            start: event.start,
+                            end: event.end,
+                            allDay: event.allDay
+                        }),
+                        contentType: "application/json",
+                        success: function (result) {
+                            if (!result.successfull) {
+                                revertFunc();
+                            }
+                        }
+                    });
+                },
+                eventResize: function (event, delta, revertFunc) {
+                    jq.ajax({
+                        url: "/api/updateEvent",
+                        method: "POST",
+                        data: JSON.stringify({
+                            id: event.id,
+                            title: event.title,
+                            start: event.start,
+                            end: event.end,
+                            allDay: event.allDay
+                        }),
+                        contentType: "application/json",
+                        success: function (result) {
+                            if (!result.successfull) {
+                                revertFunc();
+                            }
+                        }
+                    });
+                },
+                eventRender: function (event, element) {
+                    element.append("<span class='closeon'>X</span>");
+                    element.find(".closeon").click(function () {
+                        jq.ajax({
+                            url: "/api/deleteEvent?eventId=" + event.id,
+                            method: "DELETE",
+                            success: function (result) {
+                                if (result.successfull) {
+                                    jq('#calendar').fullCalendar('removeEvents',
+                                        event.id);
+                                }
+                            }
+                        });
+
+                    });
+                }
+            });
+        });
+
+        jq(".button-schedule-a-meeting").click(function (e) {
+            todayDateString = new Date().toJSON().slice(0, 10);
+            currentTimeString = Date.now();
+            vex.dialog.open({
+                message: "Състави своята среща или събитие:",
+                input: [
+                    '<input id="new-event-title" name="title" type="text" placeholder="Име на събитието" required />',
+                    '<div class="vex-custom-field-wrapper">',
+                    '<label for="date">Стартираща дата(mm/dd/yyyy)</label>',
+                    '<div class="vex-custom-input-wrapper">',
+                    '<input name="date" type="date" value="' + todayDateString + '" required />',
+                    "</div>",
+                    "</div>",
+                    '<div class="vex-custom-field-wrapper">',
+                    '<label for="time">Час за стартиране на събитието(Опционално)</label>',
+                    '<div class="vex-custom-input-wrapper">',
+                    '<input name="time" type="time" value="' + currentTimeString + '" />',
+                    "</div>",
+                    "</div>",
+                    '<div class="vex-custom-field-wrapper">',
+                    '<label for="dateEnd">Приключваща дата(Опционално)</label>',
+                    '<div class="vex-custom-input-wrapper">',
+                    '<input name="dateEnd" type="date" value="' + todayDateString + '"/>',
+                    "</div>",
+                    "</div>"
+                ].join(""),
+                buttons: [
+                    jq.extend({}, vex.dialog.buttons.YES, {
+                        text: "Изпрати"
+                    }),
+                    jq.extend({}, vex.dialog.buttons.NO, {
+                        text: "Затвори"
+                    })
+                ],
+                callback: function (data) {
+                    if (!data) {
+                        console.log("Cancelled");
+                    } else {
+                        console.log("Title:", data.title, "StartDate:", data.date, "StartTime:",
+                            data.time, "EndDate:", data.dateEnd);
+
+                        var start = start = data.date;;
+                        var allDay = true;
+                        if (typeof data.time !== 'undefined') {
+                            allDay = false;
+                            start = data.date + " " + data.time;
+                        }
+
+                        jq.ajax({
+                            url: "/api/createEvent?projectId=" + projectId,
+                            method: "POST",
+                            data: JSON.stringify({
+                                title: data.title,
+                                start: start,
+                                end: data.dateEnd,
+                                allDay: allDay
+                            }),
+                            contentType: "application/json",
+                            success: function (result) {
+                                jq("#calendar").fullCalendar('renderEvent', result);
+                            }
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+    <script src="/static/js/vendor/bootstrap.min.js"></script>
+    <!--Plugin-JS-->
+    <script src="/static/js/owl.carousel.min.js"></script>
+    <script src="/static/js/contact-form.js"></script>
+    <script src="/static/js/jquery.parallax-1.1.3.js"></script>
+    <script src="/static/js/scrollUp.min.js"></script>
+    <script src="/static/js/magnific-popup.min.js"></script>
+    
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="/static/js-mdb/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/static/js-mdb/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="/static/js-mdb/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="/static/js-mdb/mdb.min.js"></script>
+    <!--Main-active-JS-->
+    <script src="https://unpkg.com/tippy.js@2.3.0/dist/tippy.all.min.js"></script>
+    <script src="/static/js/notify.js"></script>
+    <script src="/static/js/iziToast.min.js" type="text/javascript"></script>
+    <script src="/static/js/h-main.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-confirm.min.js"></script>
+    <script src="/static/js/vex.combined.min.js"></script>
+    <script>
+        vex.defaultOptions.className = 'vex-theme-default'
+    </script>
+    <script src="/static/js/wow.min.js"></script>
+    <script>
+            $(document).ready(function () {
+                // $(".disqus-comment-count").text($(".disqus-comment-count").text().substring(0, $(".disqus-comment-count").text().indexOf(" ") + 1));
+                new WOW().init({
+                    mobile: true
+                });
+            })
+        </script>
+    <script src="/static/js/jquery-ui.min.js"></script>
+    <script src="/static/js/jquery.ui.touch-punch-improved.js"></script>
+    <script src="/static/js/lobilist.min.js"></script>
+    <script src="/static/js/moment.1.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+    <script src="/static/js/fab.js"></script>
+
+    <script src="/static/js/sweetAlert2.all.min.js"></script>
+
+    <script src="/static/js/project-page-admin.js"></script>
+
+    <script src="/static/js/lightbox.js"></script>
+
+    <script type="text/javascript">
+        $().ready(function () {
+            $('[rel="tooltip"]').tooltip();
+
+        });
+
+        function rotateCard(btn) {
+            var $card = $(btn).closest('.card-container');
+            console.log($card);
+            if ($card.hasClass('hover')) {
+                $card.removeClass('hover');
+            } else {
+                $card.addClass('hover');
+            }
+        }
+    </script>
+
+    <!-- <script src="/static/js/checkout.4.0.204.min.js"></script> -->
+    <script src="https://www.paypalobjects.com/api/checkout.js" data-version-4></script>
+    <script src="/static/js/paypal-checkout-promo.js"></script>
+
+    <script src="/static/js/dropdown.js"></script>
+    <script src="/static/js/vendor.js"></script>
+
+    <script src="/static/js/material.min.js"></script>
+    <script src="/static/js/notifications.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjJimoTORP3LAM9lx8aasMG5_1dlNgrGI&language=bg&libraries=places&callback=initMap"
+        async defer></script>
+
+    <!-- <script src="/static/js/headerSignedInRegulator.js"></script> -->
+    <script src="/static/js/easytimer.min.js"></script>
+    <script src="/static/js/animatedModal.min.js"></script>
+    <script>
+        $("#demo01").animatedModal();
+    </script>
+    <script src="https://cdn.agora.io/sdk/web/AgoraRTCSDK-2.4-latest.js"></script>
+    <script src="/static/js/sweetAlert2.all.min.js"></script>
+    <script src="/static/js/callChecker.js"></script>
+
+    <!-- Include Editor JS files. -->
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@2.9.0/js/froala_editor.pkgd.min.js"></script> -->
+    <script src='https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=1khodv3pt82ph2yokwbs92ujrb3cpbp92eeed86xo772qdxt'></script>
+
+    <!-- Initialize the editor. -->
+    <script src="/static/js/projectNotes.js">
+    </script>
+
+    <script id="dsq-count-scr" src="//squadknowhow.disqus.com/count.js" async></script>
+
+    <script src="/static/js/setUpWantedMembers.js"></script>
+</body>
+
+</html>

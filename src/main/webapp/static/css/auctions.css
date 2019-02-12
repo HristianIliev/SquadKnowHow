@@ -1,0 +1,169 @@
+.auction-picture {
+  width: 100%;
+  height: 250px;
+  cursor: pointer;
+}
+.auction-description {
+  margin-top: 20px;
+}
+.auction-title {
+  cursor: pointer;
+  color: #0654ba;
+}
+.auction-title:hover {
+  text-decoration: underline;
+}
+.auction-item-description {
+  margin-bottom: 15px;
+}
+.secondary-info {
+  color: #767676;
+}
+.auction-item-price {
+  color: #333;
+  font-size: 20px;
+}
+.controls-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.nice-select {
+  margin-right: 10px;
+}
+.item-icon {
+  height: 40px;
+  width: 40px;
+}
+.auction-divider {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
+}
+.titanic path {
+  fill: #bb3636;
+  stroke: #bb3636;
+}
+#follow-button {
+  color: #3399ff;
+  font-family: "Helvetica";
+  font-size: 10pt;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #3399ff;
+  border-radius: 3px;
+  width: 85px;
+  height: 30px;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  cursor: hand;
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes follow-animation {
+  from {
+    background: white;
+    color: #3399ff;
+    width: 85px;
+    left: 50px;
+  }
+  to {
+    background: #2eb82e;
+    border-color: #2eb82e;
+    color: #ffffff;
+    width: 120px;
+    left: 35px;
+  }
+}
+@-webkit-keyframes unfollow-animation {
+  from {
+    background: #2eb82e;
+    color: #ffffff;
+    width: 120px;
+    left: 35px;
+  }
+  to {
+    background: white;
+    border-color: #3399ff;
+    color: #3399ff;
+    width: 85px;
+    left: 50px;
+  }
+}
+
+/* Standard syntax */
+@keyframes follow-animation {
+  from {
+    background: white;
+    color: #3399ff;
+    width: 85px;
+    left: 50px;
+  }
+  to {
+    background: #2eb82e;
+    border-color: #2eb82e;
+    color: #ffffff;
+    width: 120px;
+    left: 35px;
+  }
+}
+@keyframes unfollow-animation {
+  from {
+    background: #2eb82e;
+    color: #ffffff;
+    width: 120px;
+    left: 35px;
+  }
+  to {
+    background: white;
+    border-color: #3399ff;
+    color: #3399ff;
+    width: 85px;
+    left: 50px;
+  }
+}
+
+input {
+  -webkit-appearance: none;
+}
+
+input:after {
+  color: #3399ff;
+  font-family: "Helvetica";
+  font-size: 10pt;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #3399ff;
+  border-radius: 3px;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  cursor: hand;
+  display: inline-block;
+  text-align: center;
+  padding: 5px 15px;
+
+  content: "Следвай";
+  -webkit-animation: unfollow-animation 0.3s
+    cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-fill-mode: forwards;
+  animation: unfollow-animation 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-fill-mode: forwards;
+}
+
+input:checked:after {
+  content: "Последвано";
+  -webkit-animation: follow-animation 0.3s
+    cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-fill-mode: forwards;
+  animation: follow-animation 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-fill-mode: forwards;
+}
+.red-text{
+  color: red;
+}

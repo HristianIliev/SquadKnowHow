@@ -1,0 +1,49 @@
+@media(max-width: 1334px) and (min-width: 1020px) {
+    #first-proceed-btn {
+        margin-left: 10px !important;
+    }
+
+    .mt-4 {
+        display: flex !important;
+    }
+}
+
+@media(max-width: 325px) {
+    #first-proceed-btn {
+        margin-left: 10px !important;
+    }
+
+    .mt-4 {
+        display: flex !important;
+    }
+}
+
+@media(max-height: 680px) {
+    #register-caption {
+        height: 855px;
+    }
+}
+
+@media(max-height: 580px) {
+    #register-caption {
+        height: 955px;
+    }
+}
+
+@media(max-height: 475px) {
+    #register-caption {
+        height: 1055px;
+    }
+}
+
+@media(max-height: 380px) {
+    #register-caption {
+        height: 1155px;
+    }
+}
+
+@media(max-height: 280px) {
+    #register-caption {
+        height: 1255px;
+    }
+}

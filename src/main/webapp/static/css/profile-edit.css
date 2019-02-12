@@ -1,0 +1,295 @@
+.profile-edit-container {
+    display: flex;
+    padding: 15px;
+}
+
+.profile-edit-container {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 992px) {
+    .profile-edit-container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .profile-edit-container {
+        width: 1170px;
+    }
+}
+
+@media (max-width: 991px) {
+    .profile-edit-container {
+        flex-direction: column;
+        /* width: 100%; */
+        /* max-width: none !important; */
+        margin: 0 !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .profile-sidebar {
+        width: 100% !important;
+        margin: 0;
+    }
+}
+
+.profile-sidebar {
+    flex-grow: 0.00;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-right: 20px;
+}
+
+.profile-content {
+    flex-grow: 1;
+    /* overflow: hidden; */
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-box {
+    background-color: white;
+    box-shadow: 0 2px 3px 2px rgba(0, 0, 0, .03);
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-radius: 2px;
+}
+
+.profile-sidebar-portlet {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0 0 !important;
+}
+
+.profile-userpic {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.profile-userpic img {
+    margin-right: auto;
+    margin-left: auto;
+    float: none;
+    width: 150px;
+    height: 150px;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+}
+
+.my-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+  }
+
+.profile-usertitle {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-usertitle-name {
+    text-align: center;
+    color: #5a7391;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+.profile-usertitle-job {
+    text-align: center;
+    text-transform: uppercase;
+    color: #5b9bd1;
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 7px;
+}
+
+.underbox-profile {
+    padding: 12px 5px 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 3px 2px rgba(0, 0, 0, .03);
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-radius: 2px;
+}
+
+.profile-stat {
+    padding-bottom: 20px;
+    margin-bottom: 0px;
+    border-bottom: none;
+    margin-top: 10px;
+}
+
+.profile-stat-title {
+    color: #7f90a4;
+    font-size: 25px;
+    text-align: center;
+}
+
+.uppercase {
+    text-transform: uppercase !important;
+}
+
+.profile-stat-text {
+    color: #5b9bd1;
+    font-size: 11px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.portlet-light-bordered {
+    border-radius: 2px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 3px 2px rgba(0, 0, 0, .03);
+    padding: 12px 20px 15px;
+    background-color: #fff;
+    border: 1px solid #e7ecf1 !important;
+}
+
+.portlet-title {
+    padding: 0;
+    min-height: 48px;
+    border-bottom: 1px solid #eef1f5;
+    margin-bottom: 10px;
+    border-radius: 2px 2px 0 0;
+}
+
+.portlet-title-caption {
+    color: #666;
+    padding: 10px 0;
+    float: left;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 18px;
+}
+
+.caption-subject {
+    font-size: 16px;
+}
+
+.font-dark {
+    color: #2f353b !important;
+}
+
+.bold {
+    font-weight: 700 !important;
+}
+
+.form-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-buttons {
+    text-align: right;
+}
+
+.profile-edit-button-green {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1), 0 1px 2px rgba(0, 0, 0, .18);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+    padding: 8px 14px 7px;
+    color: #FFF;
+    background-color: #32c5d2;
+    border-color: #32c5d2;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.profile-edit-button-green:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .2), 0 3px 6px rgba(0, 0, 0, .26);
+    color: #FFF;
+    background-color: #26a1ab;
+    border-color: #2499a3;
+}
+
+.profile-edit-button-red {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1), 0 1px 2px rgba(0, 0, 0, .18);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+    padding: 8px 14px 7px;
+    color: #FFF;
+    background-color: #ff3547;
+    border-color: #ff3547;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.profile-edit-button-red:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .2), 0 3px 6px rgba(0, 0, 0, .26);
+    color: #FFF;
+    background-color: #e41223;
+    border-color: #e41223;
+}
+
+.custom-select {
+    border-radius: 4px;
+    height: auto;
+    display: inline-block;
+    width: 100%;
+    padding: .375rem 1.75rem .375rem .75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    vertical-align: middle;
+    /* background: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e) no-repeat right .75rem center/8px 10px; */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.custom-select:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(128, 189, 255, .5);
+}
+
+.img-upload {
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.img-upload:hover {
+    filter: brightness(0.5); 
+}

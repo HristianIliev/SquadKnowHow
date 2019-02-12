@@ -1,0 +1,247 @@
+/* Medium Layout: 1280px. */
+@media (max-width: 992px) {
+  .side-icon-boxes {
+    padding-top: 30px;
+  }
+}
+
+@media (max-width: 440px) {
+  #caption_slide {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .my-regulated-container-mobile-view {
+    padding-left: 50px;
+    padding-right: 20px;
+  }
+
+  .my-regulated-container-mobile-view-2 {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+
+@media (max-width: 360px) {
+  .my-button-register-mobile {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 350px) {
+  .my-regulated-container-sm {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 540px) {
+  .carousel-indicators {
+    flex-direction: column;
+  }
+
+  .caption-slider .carousel-indicators li {
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 650px) {
+  .header-text {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+
+  .my-h2-sm {
+    text-align: center;
+  }
+
+  .my-col-image-sm {
+    padding-top: 20px;
+    padding-left: 140px;
+    padding-right: 140px;
+  }
+
+  .regulated-font-size {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 650px) {
+  .header-text {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+
+  .my-h2-sm {
+    text-align: center;
+  }
+
+  .my-col-image-sm {
+    padding-top: 20px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .regulated-font-size {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .container {
+    width: auto;
+  }
+}
+
+@media (max-width: 767px) {
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+}
+
+/* Tablet Layout: 768px. */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .mainmenu-area #primary-menu > ul > li > a {
+    padding: 30px 12px;
+  }
+
+  .header-area {
+    padding-top: 80px;
+  }
+
+  .price-table,
+  .box {
+    padding: 30px 15px;
+  }
+
+  .price-table.active {
+    padding: 50px 15px;
+  }
+
+  .single-team {
+    margin-bottom: 30px;
+  }
+
+  .side-icon-boxes {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 1344px) {
+  .changeBelow1280 {
+    width: 100%;
+  }
+}
+
+/* Mobile Layout: 320px. */
+
+@media only screen and (max-width: 1019px) {
+  .navbar-brand {
+    float: right;
+  }
+
+  .logo-text {
+    display: block;
+  }
+
+  .logo-image {
+    content: url("/static/images/logo3.png");
+  }
+
+  .changeBelow1280-1 {
+    display: flex;
+    justify-content: space-between !important;
+  }
+
+  .navbar-nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .changeBelow1280 {
+    flex-direction: column;
+  }
+
+  body {
+    font-size: 13px;
+  }
+
+  .header-area {
+    padding-top: 120px;
+    padding-bottom: 60px;
+    height: auto;
+  }
+
+  .page-title h2,
+  .header-text h2 {
+    font-size: 20px;
+  }
+
+  .mainmenu-area .navbar-toggle {
+    margin-top: 20px;
+  }
+
+  .mainmenu-area .navbar-toggle .icon-bar {
+    background-color: #ffffff;
+  }
+
+  .mainmenu-area #primary-menu {
+    background-color: #138fc2;
+  }
+
+  .mainmenu-area #primary-menu ul {
+    overflow-y: auto;
+    max-height: 70vh;
+    margin: 0;
+  }
+
+  .mainmenu-area #primary-menu > ul > li > a {
+    padding: 15px;
+    overflow: hidden;
+    font-size: 17.5px;
+  }
+
+  .box {
+    padding: 30px 15px;
+  }
+
+  .box .box-icon {
+    height: auto;
+  }
+
+  .single-blog,
+  .single-team,
+  .price-table.active {
+    margin-top: 30px;
+  }
+
+  .form-double input {
+    width: 100%;
+  }
+
+  .footer-top {
+    margin-bottom: 50px;
+  }
+
+  .x-left {
+    text-align: left;
+  }
+
+  .mainmenu-area .logo {
+    margin-left: 15px;
+  }
+}
+
+/* Wide Mobile Layout: 480px. */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+}

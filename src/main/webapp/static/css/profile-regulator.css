@@ -1,0 +1,209 @@
+.reviews-container-media {
+    margin-right: 25px;
+}
+
+@media(max-width: 1859px) {
+    .test-div {
+        margin-right: 20px;
+        width: 30.333333333%;
+    }
+}
+
+@media(max-width: 1800px) {
+    .row-for-informations {
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+}
+
+@media(max-width: 1225px) {
+    .reviews-container-media {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media(max-width: 1210px) {
+    .reviews-container {
+        max-width: 1000px;
+        width: 100%
+    }
+}
+
+@media(max-width: 1200px) {
+    .about-list-1 {
+        padding-left: 20px;
+    }
+
+    .profile-location {
+        padding-left: 0px;
+    }
+
+    .profile-name {
+        display: block;
+    }
+
+    .btn-send-message-container {
+        margin-top: -40px;
+    }
+
+    .needsChange {
+        width: 100%;
+        padding-right: 100px;
+        padding-left: 100px;
+    }
+}
+
+@media(max-width: 1110px) {
+    .reviews-container {
+        max-width: 950px;
+        width: 100%;
+    }
+}
+
+@media(max-width: 1020px) {
+    .mobile-view-2 {
+        padding-right: 100px;
+        padding-left: 100px;
+        flex-direction: column;
+    }
+
+    .collumn-profile {
+        width: 100% !important;
+    }
+
+    .test-div {
+        margin-bottom: 20px;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    .reviews-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .reviews-container-media {
+        align-self: center !important;
+        margin-bottom: 20px;
+    }
+
+    .soft-skills-container-2 {
+        align-self: center !important;
+    }
+}
+
+@media(max-width: 900px) {
+    .mobile-view-2 {
+        padding-right: 50px;
+        padding-left: 50px;
+        flex-direction: column;
+    }
+
+    .needsChange {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media(max-width: 800px) {
+    .mobile-view-2 {
+        padding-right: 10px;
+        padding-left: 10px;
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 768px) {
+    .front-group {
+        height: auto !important;
+    }
+
+    .nav-justified>li>a {
+        margin-bottom: 0px;
+    }
+}
+
+@media(max-width: 700px) {
+    #profile-name {
+        text-align: center;
+    }
+
+    .profile-location {
+        text-align: center;
+    }
+
+    #profile-occupation {
+        text-align: center;
+    }
+
+    .profile-location {
+        display: block !important;
+    }
+
+    .btn-send-message-container {
+        display: block !important;
+        position: static;
+        margin-top: 0px;
+    }
+
+    .reviews-container-media {
+        width: 90% !important;
+    }
+
+    .card-smth {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .mobile-information-part {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media(max-width: 550px) {
+    .rgbr {
+        color: #5dc26a;
+        padding-left: 5px;
+        margin-right: 5px;
+        margin-left: 0px;
+        font-weight: 700;
+        font-size: 18px;
+        border-left: 2px solid #5dc26a;
+    }
+
+    .profile-rating {
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 540px) {
+    .profile-location {
+        padding-left: 5px;
+    }
+
+    .badge-pill {
+        margin-left: 0px !important;
+    }
+
+    .test-div {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .progress {
+        margin-left: 0px !important;
+    }
+
+    .fa-question-circle {
+        margin-left: 0px !important;
+    }
+}
+
+@media(max-width: 505px) {
+    .footer-distributed {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+}

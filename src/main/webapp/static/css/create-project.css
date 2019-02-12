@@ -1,0 +1,68 @@
+.card-for-bg {
+  margin-top: 35px;
+  margin-right: 275px;
+  margin-left: 275px;
+  background-color: white;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.form-margins {
+  margin-right: 100px;
+  margin-left: 100px;
+}
+
+.checkbox-padding {
+  margin-bottom: 10px;
+}
+
+/* These are for the single examle */
+.preview-img {
+  width: 64px;
+  height: 64px;
+}
+
+form {
+  border: solid #f7f7f9 !important;
+  padding: 1.5rem;
+}
+
+form.active {
+  border-color: red !important;
+}
+
+form .progress {
+  height: 38px;
+}
+
+.dm-uploader {
+  border: 0.25rem dashed #a5a5c7;
+}
+.dm-uploader.active {
+  border-color: red;
+
+  border-style: solid;
+}
+
+.btn-secondary {
+  font-size: 14px;
+  background-color: #138fc2 !important;
+  color: #fff !important;
+}
+
+.btn-group .btn + .btn {
+  margin-left: 5px;
+}
+
+.btn-group .btn {
+  margin: 4px;
+}
+
+.btn-info {
+  font-size: 14px;
+  background-color: #138fc2 !important;
+  color: #fff !important;
+}

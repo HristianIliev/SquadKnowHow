@@ -1,0 +1,155 @@
+.navbar-brand {
+    float: right;
+}
+
+.show-mobile {
+    display: none;
+}
+
+@media(max-width: 1368px) and (min-width: 1350px) {
+    #primary-menu {
+        padding-right: 0px;
+    }
+}
+
+@media(max-width: 1355px) {
+    .logo-text {
+        display: none;
+    }
+
+    .logo-image {
+        content: url("/static/images/logo2.png");
+    }
+
+    .logo-image {
+        width: 90px;
+    }
+
+    .logo-image {
+        margin-top: 5px;
+        height: 83px;
+    }
+}
+
+@media(max-width: 1289px) {
+    .changeBelowRes {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+@media(max-width: 1100px) {
+    .changeBelowRes {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+
+    .logo-image {
+        width: 80px;
+    }
+}
+
+@media(max-width: 1019px) {
+    #notifications-dropdown-menu {
+        right: 0;
+        left: auto;
+        color: #212529;
+        text-align: left;
+        list-style: none;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 0.25rem;
+        margin: 0.125rem 0 0;
+        font-size: 14px;
+    }
+
+    .nav .open>a:focus,
+    .nav .open>a:hover {
+        background-color: transparent;
+        border-color: #337ab7;
+    }
+
+    .navbar-nav>li>a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .container>.navbar-collapse {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+    .mobile-view {
+        display: flex;
+    }
+
+    .container>.navbar-header {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+    .changeBelowRes {
+        flex-direction: column;
+    }
+
+    .hide-mobile {
+        display: none !important;
+    }
+
+    .show-mobile {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .navbar-right {
+        margin-right: 0px;
+    }
+
+    .picture-navbar {
+        margin-top: 0px;
+    }
+
+    .logo-text {
+        display: block;
+    }
+
+    .logo-image {
+        content: url("/static/images/logo3.png");
+    }
+}
+
+@media(max-width: 767px) {
+    #dropdown-profile-image {
+        transform: translate3d(-70px, 93px, 0px) !important;
+        color: #212529;
+        text-align: left;
+        list-style: none;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 0.25rem;
+        margin: 0.125rem 0 0;
+        font-size: 14px;
+        min-width: 15rem;
+    }
+}
+
+@media(max-width: 630px) {
+
+    .navbar-brand {
+        display: none;
+    }
+}
+
+@media(max-width: 460px) {
+    #notifications-dropdown-menu {
+        min-width: 210px !important;
+    }
+}

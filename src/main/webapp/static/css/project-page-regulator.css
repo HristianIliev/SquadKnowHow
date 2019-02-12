@@ -1,0 +1,211 @@
+@media(max-width: 1680px) {
+    .c-content-contact-1>.row .c-body {
+        padding: 60px 20px;
+    }
+}
+
+@media(max-width: 1440px) {
+    .smaller-collumn {
+        width: 33.333333%;
+    }
+
+    .project-description {
+        width: 66.66666667%;
+    }
+
+    #send-question {
+        margin-top: 10px;
+        display: block;
+    }
+
+    .c-content-contact-1>.row .c-body {
+        padding: 20px 10px;
+    }
+}
+
+@media(max-width: 1200px) and (min-width: 926px) {
+    .col-lg-4 {
+        width: 41.66666667%;
+    }
+
+    .col-lg-8 {
+        width: 58.33333333%;
+    }
+
+    .c-content-contact-1>.row .c-body {
+        padding: 20px 20px;
+        margin: 60px 5px 40px 0;
+    }
+}
+
+@media(max-width: 1100px) {
+    .smaller-collumn {
+        padding-left: 35px;
+    }
+}
+
+@media(max-width: 992px) {
+    .smaller-collumn {
+        display: flex;
+        width: 100%;
+        padding-left: 35px;
+        /* padding-right: 35px; */
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .header-text-finance {
+        text-align: center;
+        margin-top: 20px !important;
+    }
+
+    .paypal-button {
+        display: flex;
+        justify-content: center;
+    }
+
+    #join-project {
+        margin-right: 200px;
+        margin-left: 200px;
+    }
+
+    #send-question {
+        margin-top: 20px !important;
+        margin-right: 200px;
+        margin-left: 200px;
+    }
+
+    #send-advice {
+        margin-top: 20px !important;
+        margin-right: 200px;
+        margin-left: 200px;
+    }
+
+    .project-needs {
+        padding-left: 0px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .project-needs>li {
+        display: inline-block;
+        text-align: center;
+    }
+
+    .project-members {
+        list-style: none;
+        padding-left: 0px;
+        text-align: center;
+    }
+
+    .project-description {
+        width: 100%;
+        padding-right: 35px;
+        padding-left: 50px;
+    }
+
+    .progress {
+        margin-right: 0px;
+    }
+
+    .c-body {
+        width: 41%;
+        margin-right: 40px !important;
+        margin-top: 60px !important;
+    }
+
+    .col-lg-4 {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .hide-mobile-2 {
+        display: none;
+    }
+}
+
+@media(max-width: 768px) {
+    .col-sm-2 {
+        padding-left: 35px;
+    }
+
+    .smaller-picture {
+        height: auto;
+    }
+
+    #project-cover-photo-img {
+        height: auto;
+    }
+
+    #join-project {
+        margin-top: 10px;
+        margin-right: 100px;
+        margin-left: 100px;
+    }
+
+    #send-question {
+        margin-right: 100px;
+        margin-left: 100px;
+    }
+
+    #send-advice {
+        margin-right: 100px;
+        margin-left: 100px;
+    }
+}
+
+@media(max-width: 600px) {
+    #project-name {
+        flex-direction: column !important;
+    }
+}
+
+@media(max-width: 540px) {
+    #join-project {
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+
+    #send-question {
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+
+    #send-advice {
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+
+    .about-a {
+        font-size: 10px;
+    }
+}
+
+@media(max-width: 440px) {
+    #join-project {
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    #send-question {
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    #send-advice {
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    .c-body {
+        display: none;
+    }
+}
+
+@media(max-width: 505px) {
+    .footer-distributed {
+        padding-right: 30px !important;
+        padding-left: 30px !important;
+    }
+}

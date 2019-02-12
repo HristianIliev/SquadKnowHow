@@ -1,6 +1,8 @@
 package squadknowhow.restcontrollers;
 
+import java.security.Principal;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import squadknowhow.contracts.IAuctionsService;
+import squadknowhow.contracts.IProfileService;
 import squadknowhow.dbmodels.Auction;
 import squadknowhow.request.models.Amount;
 import squadknowhow.request.models.AuctionData;
@@ -21,10 +24,13 @@ import squadknowhow.response.models.ResponsePagination;
 @RequestMapping("/api")
 public class AuctionsController {
   private final IAuctionsService auctionsService;
+  private final IProfileService profileService;
 
   @Autowired
-  public AuctionsController(IAuctionsService auctionsService) {
+  public AuctionsController(IAuctionsService auctionsService,
+                            IProfileService profileService) {
     this.auctionsService = auctionsService;
+    this.profileService = profileService;
   }
 
   @RequestMapping(value = "/getAuctions", method = RequestMethod.GET)

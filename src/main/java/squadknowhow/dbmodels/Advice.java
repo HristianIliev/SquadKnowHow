@@ -74,8 +74,8 @@ public class Advice implements Model {
     return timestamp;
   }
 
-  public void setTimestamp(final String tmestamp) {
-    this.timestamp = tmestamp;
+  public void setTimestamp(final String timestamp) {
+    this.timestamp = timestamp;
   }
 
   public User getSender() {

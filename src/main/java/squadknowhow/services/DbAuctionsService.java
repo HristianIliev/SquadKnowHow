@@ -157,7 +157,7 @@ public class DbAuctionsService implements IAuctionsService {
   }
 
   @Override
-  public boolean startFollowingAuction(int auctionId, int userId) {
+  public boolean startFollowingAuction(int auctionId, int userId, String email) {
     if (!this.idValidator.isValid(auctionId)) {
       throw new InvalidParameterException("AuctionId is not valid");
     } else if (!this.idValidator.isValid(userId)) {
@@ -166,6 +166,10 @@ public class DbAuctionsService implements IAuctionsService {
 
     Auction auction = this.auctionsRepository.getById(auctionId);
     User user = this.usersRepository.getById(userId);
+    if (user.getId() != this.getUserByEmail(email).getId()) {
+      throw new InvalidParameterException("Unauthorised operation done by user with email " + email);
+    }
+
     if (this.isUserAlreadyFollowing(auction, user)) {
       return false;
     }
@@ -184,8 +188,16 @@ public class DbAuctionsService implements IAuctionsService {
     return true;
   }
 
+  private User getUserByEmail(String email) {
+    return usersRepository.getAll()
+            .stream()
+            .filter(u -> u.getEmail().equals(email))
+            .findFirst()
+            .orElse(null);
+  }
+
   @Override
-  public boolean stopFollowingAuction(int auctionId, int userId) {
+  public boolean stopFollowingAuction(int auctionId, int userId, String email) {
     if (!this.idValidator.isValid(auctionId)) {
       throw new InvalidParameterException("AuctionId is not valid");
     } else if (!this.idValidator.isValid(userId)) {
@@ -194,6 +206,9 @@ public class DbAuctionsService implements IAuctionsService {
 
     Auction auction = this.auctionsRepository.getById(auctionId);
     User user = this.usersRepository.getById(userId);
+    if (user.getId() != this.getUserByEmail(email).getId()) {
+      throw new InvalidParameterException("Unauthorised operation done by user with email " + email);
+    }
 
     auction.getUsersWatching().remove(user);
     user.getWatchedAuctions().remove(auction);
@@ -206,13 +221,17 @@ public class DbAuctionsService implements IAuctionsService {
 
   // Returns the auctions that the user is following
   @Override
-  public List<Integer> getFollowingAuctions(int userId) {
+  public List<Integer> getFollowingAuctions(int userId, String email) {
     if (!this.idValidator.isValid(userId)) {
       throw new InvalidParameterException("UserId is not valid");
     }
 
     List<Integer> result = new ArrayList<>();
     User user = this.usersRepository.getById(userId);
+    if (user.getId() != this.getUserByEmail(email).getId()) {
+      throw new InvalidParameterException("Unauthorised operation done by user with email " + email);
+    }
+
     for (int i = 0; i < user.getWatchedAuctions().size(); i++) {
       result.add(user.getWatchedAuctions().get(i).getId());
     }
@@ -240,19 +259,21 @@ public class DbAuctionsService implements IAuctionsService {
   }
 
   @Override
-  public boolean createBid(int userId, int auctionId, double amount) {
+  public boolean createBid(int userId, int auctionId, double amount, String email) {
     Auction auction = this.auctionsRepository.getById(auctionId);
     if (!this.idValidator.isValid(userId)) {
       throw new InvalidParameterException("UserId is not valid");
     } else if (!this.idValidator.isValid(auctionId)) {
       throw new InvalidParameterException("AuctionId is not valid");
-    } else if (amount < auction.getMaxBid()
-            && auction.getBids().size() != 0) {
-      throw new InvalidParameterException(
-              "The amount of the bid must be bigger than the max bid");
+    } else if (amount < auction.getMaxBid() && auction.getBids().size() != 0) {
+      throw new InvalidParameterException("The amount of the bid must be bigger than the max bid");
     }
 
     User user = this.usersRepository.getById(userId);
+    if (user.getId() != this.getUserByEmail(email).getId()) {
+      throw new InvalidParameterException("Unauthorised operation done by user with email " + email);
+    }
+
     if (user.getMoney() < amount) {
       return false;
     }
@@ -372,7 +393,7 @@ public class DbAuctionsService implements IAuctionsService {
   // Does the same but with buy now feature.
   // That's why it reuses finishAuction() method.
   @Override
-  public boolean buyNowAuction(int userId, int auctionId) {
+  public boolean buyNowAuction(int userId, int auctionId, String email) {
     if (!this.idValidator.isValid(auctionId)) {
       throw new InvalidParameterException("AuctionId is not valid");
     } else if (!this.idValidator.isValid(userId)) {
@@ -380,6 +401,10 @@ public class DbAuctionsService implements IAuctionsService {
     }
 
     User user = this.usersRepository.getById(userId);
+    if (user.getId() != this.getUserByEmail(email).getId()) {
+      throw new InvalidParameterException("Unauthorised operation done by user with email " + email);
+    }
+
     Auction auction = this.auctionsRepository.getById(auctionId);
     if (user.getMoney() < auction.getBuyMeNow()) {
       return false;

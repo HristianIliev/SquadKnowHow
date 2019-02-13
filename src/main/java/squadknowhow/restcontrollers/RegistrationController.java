@@ -44,9 +44,8 @@ public class RegistrationController {
 
   @RequestMapping(value = "/checkIfPassIsCorrect", method = RequestMethod.GET)
   @ResponseBody
-  public boolean checkIfPassIsCorrect(
-          @RequestParam("id") int id,
-          @RequestParam("password") String password) {
+  public boolean checkIfPassIsCorrect(@RequestParam("id") int id,
+                                      @RequestParam("password") String password) {
     return this.registrationService.checkIfPassIsCorrect(id, password);
   }
 
@@ -69,20 +68,19 @@ public class RegistrationController {
 
   @RequestMapping(value = "/uploadProfilePicture", method = RequestMethod.POST)
   @ResponseBody
-  public ResponseUpload uploadProfilePicture(
-          @RequestParam("qqfile") MultipartFile file,
-          @RequestParam("qquuid") String uuid,
-          @RequestParam("qqfilename") String fileName,
-          @RequestParam(value = "qqpartindex",
-                  required = false,
-                  defaultValue = "-1") int partIndex,
-          @RequestParam(value = "qqtotalparts",
-                  required = false,
-                  defaultValue = "-1") int totalParts,
-          @RequestParam(value = "qqtotalfilesize",
-                  required = false,
-                  defaultValue = "-1") long totalFileSize,
-          @RequestParam("id") int id) throws IOException {
+  public ResponseUpload uploadProfilePicture(@RequestParam("qqfile") MultipartFile file,
+                                             @RequestParam("qquuid") String uuid,
+                                             @RequestParam("qqfilename") String fileName,
+                                             @RequestParam(value = "qqpartindex",
+                                                     required = false,
+                                                     defaultValue = "-1") int partIndex,
+                                             @RequestParam(value = "qqtotalparts",
+                                                     required = false,
+                                                     defaultValue = "-1") int totalParts,
+                                             @RequestParam(value = "qqtotalfilesize",
+                                                     required = false,
+                                                     defaultValue = "-1") long totalFileSize,
+                                             @RequestParam("id") int id) throws IOException {
     return this.registrationService.uploadImage(file, id);
   }
 

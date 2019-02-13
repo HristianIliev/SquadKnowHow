@@ -162,6 +162,7 @@ $(document).ready(function() {
                 message: "Вие успешно направихте залагане",
                 position: "topRight"
               });
+              location.reload();
             } else if (result === "false" || result === false) {
               iziToast.warning({
                 title: "Грешка!",

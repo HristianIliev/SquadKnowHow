@@ -21,33 +21,28 @@ public class CalendarEventsController {
   private final ICalendarEventsService calendarEventsService;
 
   @Autowired
-  public CalendarEventsController(
-          final ICalendarEventsService calendarEventsServiceDependency) {
+  public CalendarEventsController(ICalendarEventsService calendarEventsServiceDependency) {
     this.calendarEventsService = calendarEventsServiceDependency;
   }
 
   @RequestMapping(value = "/getEvents", method = RequestMethod.GET)
-  public List<CalendarEvent> getEvents(
-          final @RequestParam("projectId") int projectId) {
+  public List<CalendarEvent> getEvents(@RequestParam("projectId") int projectId) {
     return this.calendarEventsService.getEvents(projectId);
   }
 
   @RequestMapping(value = "/createEvent", method = RequestMethod.POST)
-  public CalendarEvent createEvent(
-          final @RequestParam("projectId") int projectId,
-          final @RequestBody CalendarEvent calendarEvent) {
+  public CalendarEvent createEvent(@RequestParam("projectId") int projectId,
+                                   @RequestBody CalendarEvent calendarEvent) {
     return this.calendarEventsService.createEvent(projectId, calendarEvent);
   }
 
   @RequestMapping(value = "/updateEvent", method = RequestMethod.POST)
-  public ResponseSuccessful updateEvent(
-          final @RequestBody CalendarEvent calendarEvent) {
+  public ResponseSuccessful updateEvent(@RequestBody CalendarEvent calendarEvent) {
     return this.calendarEventsService.updateEvent(calendarEvent);
   }
 
   @RequestMapping(value = "/deleteEvent", method = RequestMethod.DELETE)
-  public ResponseSuccessful deleteEvent(
-          final @RequestParam("eventId") int eventId) {
+  public ResponseSuccessful deleteEvent(@RequestParam("eventId") int eventId) {
     return this.calendarEventsService.deleteEvent(eventId);
   }
 }

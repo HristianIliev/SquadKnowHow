@@ -15,8 +15,7 @@ public class TodoListEntriesController {
   private final ITodoListEntriesService todoListEntriesService;
 
   @Autowired
-  public TodoListEntriesController(
-          ITodoListEntriesService todoListEntriesService) {
+  public TodoListEntriesController(ITodoListEntriesService todoListEntriesService) {
     this.todoListEntriesService = todoListEntriesService;
   }
 
@@ -31,14 +30,12 @@ public class TodoListEntriesController {
   }
 
   @RequestMapping(value = "/markListItemAsDone", method = RequestMethod.GET)
-  public boolean markListItemAsDone(
-          @RequestParam("itemTitle") String itemTitle) {
+  public boolean markListItemAsDone(@RequestParam("itemTitle") String itemTitle) {
     return this.todoListEntriesService.markListItemAsDone(itemTitle);
   }
 
   @RequestMapping(value = "/markListItemAsUndone", method = RequestMethod.GET)
-  public boolean markListItemAsUndone(
-          @RequestParam("itemTitle") String itemTitle) {
+  public boolean markListItemAsUndone(@RequestParam("itemTitle") String itemTitle) {
     return this.todoListEntriesService.markListItemAsUndone(itemTitle);
   }
 }

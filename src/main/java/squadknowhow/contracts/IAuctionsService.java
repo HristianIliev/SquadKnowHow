@@ -14,21 +14,21 @@ public interface IAuctionsService {
   ResponseCreateAuction createAuction(
           AuctionData auctionData) throws ParseException;
 
-  boolean startFollowingAuction(int auctionId, int userId);
+  boolean startFollowingAuction(int auctionId, int userId, String email);
 
-  boolean stopFollowingAuction(int auctionId, int userId);
+  boolean stopFollowingAuction(int auctionId, int userId, String email);
 
-  List<Integer> getFollowingAuctions(int userId);
+  List<Integer> getFollowingAuctions(int userId, String email);
 
   Auction getAuction(int id);
 
   String getEndDate(int id);
 
-  boolean createBid(int userId, int auctionId, double amount);
+  boolean createBid(int userId, int auctionId, double amount, String email);
 
   boolean finishAuction(int id, boolean isItFromBuyNow, int buyNowId);
 
-  boolean buyNowAuction(int userId, int auctionId);
+  boolean buyNowAuction(int userId, int auctionId, String email);
 
   Auction deleteAuction(int auctionId);
 

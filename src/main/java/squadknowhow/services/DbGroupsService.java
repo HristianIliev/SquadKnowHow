@@ -50,9 +50,7 @@ public class DbGroupsService implements IGroupsService {
   public ResponseGroupId createGroup(Group group, int creatorId) {
     if (!this.groupsValidator.isValid(group)) {
       throw new InvalidParameterException("Group is not valid");
-    }
-
-    if (!this.idValidator.isValid(creatorId)) {
+    } else if (!this.idValidator.isValid(creatorId)) {
       throw new InvalidParameterException("CreatorId is not valid");
     }
 

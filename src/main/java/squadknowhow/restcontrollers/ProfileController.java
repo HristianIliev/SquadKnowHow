@@ -36,8 +36,7 @@ public class ProfileController {
   @RequestMapping(value = "/changeImage", method = RequestMethod.POST)
   @ResponseBody
   public boolean changeImage(@RequestParam("id") int id,
-                             @RequestBody RequestBase64 base64)
-          throws IOException {
+                             @RequestBody RequestBase64 base64) throws IOException {
     return this.profileService.changeImage(id, base64);
   }
 
@@ -136,13 +135,12 @@ public class ProfileController {
 
   @RequestMapping(value = "/users")
   @ResponseBody
-  public ResponseUsers getUsers(
-          @RequestParam("page") int page,
-          @RequestParam("name") String name,
-          @RequestParam("userCategory") String userCategory,
-          @RequestParam("city") String city,
-          @RequestParam("skills") String skills,
-          @RequestParam("languages") String languages) {
+  public ResponseUsers getUsers(@RequestParam("page") int page,
+                                @RequestParam("name") String name,
+                                @RequestParam("userCategory") String userCategory,
+                                @RequestParam("city") String city,
+                                @RequestParam("skills") String skills,
+                                @RequestParam("languages") String languages) {
     return new ResponseUsers(this.profileService.getUsers(page,
             name,
             userCategory,
@@ -153,12 +151,11 @@ public class ProfileController {
 
   @RequestMapping(value = "/getPeoplePages")
   @ResponseBody
-  public ResponsePagination getPeoplePages(
-          @RequestParam("name") String name,
-          @RequestParam("userCategory") String userCategory,
-          @RequestParam("city") String city,
-          @RequestParam("skills") String skills,
-          @RequestParam("languages") String languages) {
+  public ResponsePagination getPeoplePages(@RequestParam("name") String name,
+                                           @RequestParam("userCategory") String userCategory,
+                                           @RequestParam("city") String city,
+                                           @RequestParam("skills") String skills,
+                                           @RequestParam("languages") String languages) {
     return this.profileService.getPeoplePages(name,
             userCategory,
             city,

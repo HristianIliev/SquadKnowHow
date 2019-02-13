@@ -53,11 +53,9 @@ public class TagsController {
     return this.tagsService.getEmployedBy(term);
   }
 
-  @RequestMapping(value = "/checkIfNeedsAreCorrect",
-          method = RequestMethod.POST)
+  @RequestMapping(value = "/checkIfNeedsAreCorrect", method = RequestMethod.POST)
   @ResponseBody
-  public boolean checkIfNeedsAreCorrect(
-          @RequestBody List<Parameter> parameters) {
+  public boolean checkIfNeedsAreCorrect(@RequestBody List<Parameter> parameters) {
     return this.tagsService.checkIfTagsAreCorrect(parameters);
   }
 }

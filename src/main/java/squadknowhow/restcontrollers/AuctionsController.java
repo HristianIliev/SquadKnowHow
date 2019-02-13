@@ -1,10 +1,5 @@
 package squadknowhow.restcontrollers;
 
-import java.security.Principal;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,24 +8,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import squadknowhow.contracts.IAuctionsService;
-import squadknowhow.contracts.IProfileService;
 import squadknowhow.dbmodels.Auction;
 import squadknowhow.request.models.Amount;
 import squadknowhow.request.models.AuctionData;
 import squadknowhow.response.models.ResponseCreateAuction;
 import squadknowhow.response.models.ResponsePagination;
 
+import java.security.Principal;
+import java.text.ParseException;
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class AuctionsController {
   private final IAuctionsService auctionsService;
-  private final IProfileService profileService;
 
   @Autowired
-  public AuctionsController(IAuctionsService auctionsService,
-                            IProfileService profileService) {
+  public AuctionsController(IAuctionsService auctionsService) {
     this.auctionsService = auctionsService;
-    this.profileService = profileService;
   }
 
   @RequestMapping(value = "/getAuctions", method = RequestMethod.GET)
@@ -48,30 +43,31 @@ public class AuctionsController {
 
   @RequestMapping(value = "/createAuction", method = RequestMethod.POST)
   @ResponseBody
-  public ResponseCreateAuction createAuction(
-          @RequestBody AuctionData auctionData) throws ParseException {
+  public ResponseCreateAuction createAuction(@RequestBody AuctionData auctionData) throws ParseException {
     return this.auctionsService.createAuction(auctionData);
   }
 
   @RequestMapping(value = "/startFollowingAuction", method = RequestMethod.GET)
   @ResponseBody
   public boolean startFollowingAuction(@RequestParam("auctionId") int auctionId,
-                                       @RequestParam("userId") int userId) {
-    return this.auctionsService.startFollowingAuction(auctionId, userId);
+                                       @RequestParam("userId") int userId,
+                                       Principal principal) {
+    return this.auctionsService.startFollowingAuction(auctionId, userId, principal.getName());
   }
 
   @RequestMapping(value = "/stopFollowingAuction", method = RequestMethod.GET)
   @ResponseBody
   public boolean stopFollowingAuction(@RequestParam("auctionId") int auctionId,
-                                      @RequestParam("userId") int userId) {
-    return this.auctionsService.stopFollowingAuction(auctionId, userId);
+                                      @RequestParam("userId") int userId,
+                                      Principal principal) {
+    return this.auctionsService.stopFollowingAuction(auctionId, userId, principal.getName());
   }
 
   @RequestMapping(value = "/getFollowingAuctions", method = RequestMethod.GET)
   @ResponseBody
-  public List<Integer> getFollowingAuctions(
-          @RequestParam("userId") int userId) {
-    return this.auctionsService.getFollowingAuctions(userId);
+  public List<Integer> getFollowingAuctions(@RequestParam("userId") int userId,
+                                            Principal principal) {
+    return this.auctionsService.getFollowingAuctions(userId, principal.getName());
   }
 
   @RequestMapping(value = "/getEndDate", method = RequestMethod.GET)
@@ -84,11 +80,9 @@ public class AuctionsController {
   @ResponseBody
   public boolean createBid(@RequestParam("userId") int userId,
                            @RequestParam("auctionId") int auctionId,
-                           @RequestBody Amount amount) {
-    System.out.println(amount.getAmount());
-    return this.auctionsService.createBid(userId,
-            auctionId,
-            amount.getAmount());
+                           @RequestBody Amount amount,
+                           Principal principal) {
+    return this.auctionsService.createBid(userId, auctionId, amount.getAmount(), principal.getName());
   }
 
   @RequestMapping(value = "/finishAuction", method = RequestMethod.GET)
@@ -98,8 +92,9 @@ public class AuctionsController {
 
   @RequestMapping(value = "/buyNowAuction", method = RequestMethod.GET)
   public boolean buyNowAuction(@RequestParam("userId") int userId,
-                               @RequestParam("auctionId") int auctionId) {
-    return this.auctionsService.buyNowAuction(userId, auctionId);
+                               @RequestParam("auctionId") int auctionId,
+                               Principal principal) {
+    return this.auctionsService.buyNowAuction(userId, auctionId, principal.getName());
   }
 
   @RequestMapping(value = "/deleteAuction", method = RequestMethod.DELETE)

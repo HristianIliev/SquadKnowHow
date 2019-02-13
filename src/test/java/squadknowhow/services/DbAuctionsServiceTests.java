@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
@@ -12,7 +11,6 @@ import org.mockito.junit.MockitoRule;
 import squadknowhow.contracts.IRepository;
 import squadknowhow.dbmodels.Auction;
 import squadknowhow.dbmodels.Bid;
-import squadknowhow.dbmodels.City;
 import squadknowhow.dbmodels.Message;
 import squadknowhow.dbmodels.Notification;
 import squadknowhow.dbmodels.Project;
@@ -26,6 +24,8 @@ import squadknowhow.utils.validators.base.IValidator;
 import java.security.InvalidParameterException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
@@ -188,8 +188,11 @@ public class DbAuctionsServiceTests {
     expectedEx.expectMessage("AuctionId is not valid");
     int auctionId = 0;
     int userId = 1;
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
 
-    sut.startFollowingAuction(auctionId, userId);
+    sut.startFollowingAuction(auctionId, userId, email);
   }
 
   @Test
@@ -198,8 +201,73 @@ public class DbAuctionsServiceTests {
     expectedEx.expectMessage("UserId is not valid");
     int auctionId = 1;
     int userId = 0;
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
 
-    sut.startFollowingAuction(auctionId, userId);
+    sut.startFollowingAuction(auctionId, userId, email);
+  }
+
+  @Test
+  public void startFollowingAuction_whenThePrincipalIsDifferent_shouldThrowInvalidParamtereException(){
+    expectedEx.expect(InvalidParameterException.class);
+    expectedEx.expectMessage("Unauthorised operation done by user with email testemail@abv.bg");
+    int auctionId = 1;
+    int userId = 1;
+    Auction auction = new Auction();
+    auction.setId(auctionId);
+    User user = new User();
+    user.setId(1);
+    List<User> users = new ArrayList<>();
+    users.add(user);
+    auction.setUsersWatching(users);
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    principal.setId(2);
+    when(this.auctionsRepostiory.getById(auctionId)).thenReturn(auction);
+    when(this.usersRepository.getById(userId)).thenReturn(user);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
+
+    sut.startFollowingAuction(auctionId, userId, email);
+  }
+
+  @Test
+  public void stopFollowingAuction_whenThePrincipalIsDifferent_shouldThrowInvalidParamtereException(){
+    expectedEx.expect(InvalidParameterException.class);
+    expectedEx.expectMessage("Unauthorised operation done by user with email testemail@abv.bg");
+    int auctionId = 1;
+    int userId = 1;
+    Auction auction = new Auction();
+    auction.setId(auctionId);
+    User user = new User();
+    user.setId(1);
+    List<User> users = new ArrayList<>();
+    users.add(user);
+    auction.setUsersWatching(users);
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    principal.setId(2);
+    when(this.auctionsRepostiory.getById(auctionId)).thenReturn(auction);
+    when(this.usersRepository.getById(userId)).thenReturn(user);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
+
+    sut.stopFollowingAuction(auctionId, userId, email);
+  }
+
+  @Test
+  public void getFollowingAuctions_whenThePrincipalIsDifferent_shouldThrowInvalidParamtereException(){
+    expectedEx.expect(InvalidParameterException.class);
+    expectedEx.expectMessage("Unauthorised operation done by user with email testemail@abv.bg");
+    int userId = 1;
+    User user = new User();
+    user.setId(1);
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    principal.setId(2);
+    when(this.usersRepository.getById(userId)).thenReturn(user);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
+
+    sut.getFollowingAuctions(userId, email);
   }
 
   @Test
@@ -213,10 +281,14 @@ public class DbAuctionsServiceTests {
     List<User> users = new ArrayList<>();
     users.add(user);
     auction.setUsersWatching(users);
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    principal.setId(1);
     when(this.auctionsRepostiory.getById(auctionId)).thenReturn(auction);
     when(this.usersRepository.getById(userId)).thenReturn(user);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
 
-    boolean actual = sut.startFollowingAuction(auctionId, userId);
+    boolean actual = sut.startFollowingAuction(auctionId, userId, email);
 
     Assert.assertFalse(actual);
   }
@@ -231,10 +303,14 @@ public class DbAuctionsServiceTests {
     user.setId(userId);
     auction.setUsersWatching(new ArrayList<>());
     user.setWatchedAuctions(new ArrayList<>());
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    principal.setId(userId);
     when(this.auctionsRepostiory.getById(auctionId)).thenReturn(auction);
     when(this.usersRepository.getById(userId)).thenReturn(user);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
 
-    boolean actual = sut.startFollowingAuction(auctionId, userId);
+    boolean actual = sut.startFollowingAuction(auctionId, userId, email);
 
     Assert.assertTrue(actual);
   }
@@ -245,8 +321,11 @@ public class DbAuctionsServiceTests {
     expectedEx.expectMessage("AuctionId is not valid");
     int auctionId = 0;
     int userId = 1;
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
 
-    sut.stopFollowingAuction(auctionId, userId);
+    sut.stopFollowingAuction(auctionId, userId, email);
   }
 
   @Test
@@ -255,8 +334,11 @@ public class DbAuctionsServiceTests {
     expectedEx.expectMessage("UserId is not valid");
     int auctionId = 1;
     int userId = 0;
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
 
-    sut.stopFollowingAuction(auctionId, userId);
+    sut.stopFollowingAuction(auctionId, userId, email);
   }
 
   @Test
@@ -267,10 +349,13 @@ public class DbAuctionsServiceTests {
     auction.setUsersWatching(new ArrayList<>());
     User user = new User();
     user.setWatchedAuctions(new ArrayList<>());
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
     when(this.auctionsRepostiory.getById(auctionId)).thenReturn(auction);
     when(this.usersRepository.getById(userId)).thenReturn(user);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
 
-    boolean actual = sut.stopFollowingAuction(auctionId, userId);
+    boolean actual = sut.stopFollowingAuction(auctionId, userId, email);
 
     Assert.assertTrue(actual);
   }
@@ -280,8 +365,11 @@ public class DbAuctionsServiceTests {
     expectedEx.expect(InvalidParameterException.class);
     expectedEx.expectMessage("UserId is not valid");
     int userId = 0;
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
 
-    sut.getFollowingAuctions(userId);
+    sut.getFollowingAuctions(userId, email);
   }
 
   @Test
@@ -293,9 +381,12 @@ public class DbAuctionsServiceTests {
     auction.setId(2);
     auctions.add(auction);
     user.setWatchedAuctions(auctions);
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
     when(this.usersRepository.getById(userId)).thenReturn(user);
 
-    List<Integer> actual = sut.getFollowingAuctions(userId);
+    List<Integer> actual = sut.getFollowingAuctions(userId, email);
 
     Assert.assertEquals(Integer.valueOf(2), actual.get(0));
   }
@@ -349,8 +440,11 @@ public class DbAuctionsServiceTests {
     int userId = 0;
     int auctionId = 1;
     double amount = 0.0;
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
 
-    sut.createBid(userId, auctionId, amount);
+    sut.createBid(userId, auctionId, amount, email);
   }
 
   @Test
@@ -360,8 +454,11 @@ public class DbAuctionsServiceTests {
     int userId = 1;
     int auctionId = 0;
     double amount = 0.0;
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
 
-    sut.createBid(userId, auctionId, amount);
+    sut.createBid(userId, auctionId, amount, email);
   }
 
   @Test
@@ -377,9 +474,12 @@ public class DbAuctionsServiceTests {
     bid.setAmount(1.24);
     bids.add(bid);
     auction.setBids(bids);
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
     when(this.auctionsRepostiory.getById(auctionId)).thenReturn(auction);
 
-    sut.createBid(userId, auctionId, amount);
+    sut.createBid(userId, auctionId, amount, email);
   }
 
   @Test
@@ -395,12 +495,41 @@ public class DbAuctionsServiceTests {
     auction.setBids(bids);
     User user = new User();
     user.setMoney(1.22);
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
     when(this.usersRepository.getById(userId)).thenReturn(user);
     when(this.auctionsRepostiory.getById(auctionId)).thenReturn(auction);
 
-    boolean actual = sut.createBid(userId, auctionId, amount);
+    boolean actual = sut.createBid(userId, auctionId, amount, email);
 
     Assert.assertFalse(actual);
+  }
+
+  @Test
+  public void createBid_whenPrincipalIsNotTheSame_shouldReturnTrue() {
+    expectedEx.expect(InvalidParameterException.class);
+    expectedEx.expectMessage("Unauthorised operation done by user with email testemail@abv.bg");
+    int userId = 1;
+    int auctionId = 1;
+    double amount = 1.23;
+    Auction auction = new Auction();
+    List<Bid> bids = new ArrayList<>();
+    Bid bid = new Bid();
+    bid.setAmount(1.22);
+    bids.add(bid);
+    auction.setBids(bids);
+    User user = new User();
+    user.setMoney(1.22);
+    user.setId(2);
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    principal.setId(3);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
+    when(this.usersRepository.getById(userId)).thenReturn(user);
+    when(this.auctionsRepostiory.getById(auctionId)).thenReturn(auction);
+
+    sut.createBid(userId, auctionId, amount, email);
   }
 
   @Test
@@ -416,10 +545,13 @@ public class DbAuctionsServiceTests {
     auction.setBids(bids);
     User user = new User();
     user.setMoney(1.24);
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
     when(this.usersRepository.getById(userId)).thenReturn(user);
     when(this.auctionsRepostiory.getById(auctionId)).thenReturn(auction);
 
-    boolean actual = sut.createBid(userId, auctionId, amount);
+    boolean actual = sut.createBid(userId, auctionId, amount, email);
 
     Assert.assertTrue(actual);
   }
@@ -503,8 +635,11 @@ public class DbAuctionsServiceTests {
     expectedEx.expectMessage("UserId is not valid");
     int userId = 0;
     int auctionId = 1;
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
 
-    sut.buyNowAuction(userId, auctionId);
+    sut.buyNowAuction(userId, auctionId, email);
   }
 
   @Test
@@ -513,8 +648,11 @@ public class DbAuctionsServiceTests {
     expectedEx.expectMessage("AuctionId is not valid");
     int userId = 1;
     int auctionId = 0;
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
 
-    sut.buyNowAuction(userId, auctionId);
+    sut.buyNowAuction(userId, auctionId, email);
   }
 
   @Test
@@ -525,12 +663,36 @@ public class DbAuctionsServiceTests {
     user.setMoney(20.24);
     Auction auction = new Auction();
     auction.setBuyMeNow(20.25);
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
     when(this.usersRepository.getById(userId)).thenReturn(user);
     when(this.auctionsRepostiory.getById(auctionId)).thenReturn(auction);
 
-    boolean actual = sut.buyNowAuction(userId, auctionId);
+    boolean actual = sut.buyNowAuction(userId, auctionId, email);
 
     Assert.assertFalse(actual);
+  }
+
+  @Test
+  public void buyNowAuction_whenThePrincipalIsNotTheSame_shouldReturnFalse() {
+    expectedEx.expect(InvalidParameterException.class);
+    expectedEx.expectMessage("Unauthorised operation done by user with email testemail@abv.bg");
+    int userId = 1;
+    int auctionId = 1;
+    User user = new User();
+    user.setMoney(20.24);
+    user.setId(1);
+    Auction auction = new Auction();
+    auction.setBuyMeNow(20.25);
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    principal.setId(2);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
+    when(this.usersRepository.getById(userId)).thenReturn(user);
+    when(this.auctionsRepostiory.getById(auctionId)).thenReturn(auction);
+
+    sut.buyNowAuction(userId, auctionId, email);
   }
 
   @Test
@@ -545,12 +707,16 @@ public class DbAuctionsServiceTests {
     auction.setCreatorId(2);
     auction.setProjectId(3);
     auction.setBids(new ArrayList<>());
+    String email = "testemail@abv.bg";
+    User principal = new User(email);
+    principal.setId(2);
+    when(this.usersRepository.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(principal)));
     when(this.projectsRepository.getById(3)).thenReturn(new Project(new ArrayList<>()));
     when(this.usersRepository.getById(2)).thenReturn(user);
     when(this.usersRepository.getById(userId)).thenReturn(user);
     when(this.auctionsRepostiory.getById(auctionId)).thenReturn(auction);
 
-    boolean actual = sut.buyNowAuction(userId, auctionId);
+    boolean actual = sut.buyNowAuction(userId, auctionId, email);
 
     Assert.assertTrue(actual);
   }

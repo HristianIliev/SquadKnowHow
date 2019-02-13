@@ -19,7 +19,6 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/api")
 public class ExternalAPIsController {
-  //  TWILIO IMPLEMENTATION
   private final ExternalAPIsService externalAPIsService;
 
   @Autowired
@@ -32,17 +31,13 @@ public class ExternalAPIsController {
 
   @RequestMapping(value = "/sendVerificationSMS", method = RequestMethod.GET)
   @ResponseBody
-  public int sendVerificationSMSAndEmail(@RequestParam("telephone")
-                                                 String telephone,
-                                         @RequestParam("userId") int userId)
-          throws MessagingException {
-    System.out.println(telephone);
+  public int sendVerificationSMSAndEmail(@RequestParam("telephone") String telephone,
+                                         @RequestParam("userId") int userId) throws MessagingException {
     return this.externalAPIsService.sendSMSAndEmail(telephone, userId);
   }
 
   @RequestMapping(value = "/checkVerificationCode", method = RequestMethod.GET)
-  public boolean checkVerificationCode(@RequestParam("code") String code)
-          throws IOException, NexmoClientException {
+  public boolean checkVerificationCode(@RequestParam("code") String code) throws IOException, NexmoClientException {
     AuthMethod auth = new TokenAuthMethod("33048940", "LQBuODK2rXh2LWzW");
     NexmoClient client = new NexmoClient(auth);
 

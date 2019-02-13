@@ -1,10 +1,5 @@
 package squadknowhow.restcontrollers;
 
-//import com.froala.editor.File;
-//import com.froala.editor.Image;
-//import com.froala.editor.file.FileOptions;
-//import com.google.gson.Gson;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -74,8 +69,7 @@ public class ProjectsController {
 
   @RequestMapping(value = "/getProjectImages", method = RequestMethod.GET)
   @ResponseBody
-  public List<FineUploaderImage> getProjectImages(
-          @RequestParam("id") int projectId) {
+  public List<FineUploaderImage> getProjectImages(@RequestParam("id") int projectId) {
     return this.projectsService.getProjectImages(projectId);
   }
 
@@ -99,8 +93,7 @@ public class ProjectsController {
 
   @RequestMapping(value = "/getProjectInformation", method = RequestMethod.GET)
   @ResponseBody
-  public Project getProjectInformation(
-          @RequestParam("projectId") int projectId) {
+  public Project getProjectInformation(@RequestParam("projectId") int projectId) {
     return this.projectsService.getProjectById(projectId);
   }
 
@@ -120,10 +113,9 @@ public class ProjectsController {
 
   @RequestMapping(value = "/deleteProject", method = RequestMethod.POST)
   @ResponseBody
-  public ResponseSuccessful deleteProject(
-          @RequestParam("projectId") int projectId,
-          @RequestParam("isCompleted") boolean isCompleted,
-          @RequestBody List<DeleteProjectInfo> deleteProjectInfos) {
+  public ResponseSuccessful deleteProject(@RequestParam("projectId") int projectId,
+                                          @RequestParam("isCompleted") boolean isCompleted,
+                                          @RequestBody List<DeleteProjectInfo> deleteProjectInfos) {
     return this.projectsService.deleteProject(projectId,
             deleteProjectInfos,
             isCompleted);
@@ -131,18 +123,16 @@ public class ProjectsController {
 
   @RequestMapping(value = "/getProjectsOfUser", method = RequestMethod.GET)
   @ResponseBody
-  public UserProjects getProjectsOfUser(
-          @RequestParam("userId") int userId) {
+  public UserProjects getProjectsOfUser(@RequestParam("userId") int userId) {
     return this.projectsService.getProjectsOfUser(userId);
   }
 
   @RequestMapping(value = "/addProjectMember")
   @ResponseBody
-  public ResponseSuccessful addProjectMember(
-          @RequestParam("projectName") String projectName,
-          @RequestParam("newMemberId") int newMemberId,
-          @RequestParam("messageId") int messageId,
-          @RequestParam("isInvite") boolean isInvite) {
+  public ResponseSuccessful addProjectMember(@RequestParam("projectName") String projectName,
+                                             @RequestParam("newMemberId") int newMemberId,
+                                             @RequestParam("messageId") int messageId,
+                                             @RequestParam("isInvite") boolean isInvite) {
     return this.projectsService.addProjectMember(projectName,
             newMemberId,
             messageId,
@@ -151,12 +141,11 @@ public class ProjectsController {
 
   @RequestMapping(value = "/sendRejectMessage")
   @ResponseBody
-  public ResponseSuccessful sendRejectMessage(
-          @RequestParam("newMemberId") int newMemberId,
-          @RequestParam("projectName") String projectName,
-          @RequestParam("messageId") int messageId,
-          @RequestParam("creatorId") int creatorId,
-          @RequestParam("isInvite") boolean isInvite) {
+  public ResponseSuccessful sendRejectMessage(@RequestParam("newMemberId") int newMemberId,
+                                              @RequestParam("projectName") String projectName,
+                                              @RequestParam("messageId") int messageId,
+                                              @RequestParam("creatorId") int creatorId,
+                                              @RequestParam("isInvite") boolean isInvite) {
     return this.projectsService.sendRejectMessage(newMemberId,
             projectName,
             messageId,
@@ -166,10 +155,9 @@ public class ProjectsController {
 
   @RequestMapping(value = "/sendMessageForApproval")
   @ResponseBody
-  public ResponseSuccessful sendMessageForApproval(
-          @RequestParam("projectId") int projectId,
-          @RequestParam("newMemberId") int newMemberId,
-          @RequestParam("creatorId") int creatorId) {
+  public ResponseSuccessful sendMessageForApproval(@RequestParam("projectId") int projectId,
+                                                   @RequestParam("newMemberId") int newMemberId,
+                                                   @RequestParam("creatorId") int creatorId) {
     return this.projectsService.sendMessageForApproval(projectId,
             newMemberId,
             creatorId);
@@ -177,18 +165,16 @@ public class ProjectsController {
 
   @RequestMapping(value = "/sendInviteMessage")
   @ResponseBody
-  public ResponseSuccessful sendInviteMessage(
-          @RequestParam("projectId") int projectId,
-          @RequestParam("recipient") int recipient,
-          @RequestParam("sender") int sender) {
+  public ResponseSuccessful sendInviteMessage(@RequestParam("projectId") int projectId,
+                                              @RequestParam("recipient") int recipient,
+                                              @RequestParam("sender") int sender) {
     return this.projectsService.sendInviteMessage(projectId, recipient, sender);
   }
 
   @RequestMapping(value = "/createProject", method = RequestMethod.POST)
   @ResponseBody
-  public ResponseProjectId createProject(
-          @RequestBody CreateProject project,
-          @RequestParam("creatorId") int creatorId) {
+  public ResponseProjectId createProject(@RequestBody CreateProject project,
+                                         @RequestParam("creatorId") int creatorId) {
     System.out.println(project.getCity());
     System.out.println(project.getLatitude());
     System.out.println(project.getLongitude());
@@ -197,20 +183,19 @@ public class ProjectsController {
 
   @RequestMapping(value = "/uploadProjectPicture", method = RequestMethod.POST)
   @ResponseBody
-  public ResponseUpload uploadProjectPicture(
-          @RequestParam("qqfile") MultipartFile file,
-          @RequestParam("qquuid") String uuid,
-          @RequestParam("qqfilename") String fileName,
-          @RequestParam(value = "qqpartindex",
-                  required = false,
-                  defaultValue = "-1") int partIndex,
-          @RequestParam(value = "qqtotalparts",
-                  required = false,
-                  defaultValue = "-1") int totalParts,
-          @RequestParam(value = "qqtotalfilesize",
-                  required = false,
-                  defaultValue = "-1") long totalFileSize,
-          @RequestParam("id") int id) throws IOException {
+  public ResponseUpload uploadProjectPicture(@RequestParam("qqfile") MultipartFile file,
+                                             @RequestParam("qquuid") String uuid,
+                                             @RequestParam("qqfilename") String fileName,
+                                             @RequestParam(value = "qqpartindex",
+                                                     required = false,
+                                                     defaultValue = "-1") int partIndex,
+                                             @RequestParam(value = "qqtotalparts",
+                                                     required = false,
+                                                     defaultValue = "-1") int totalParts,
+                                             @RequestParam(value = "qqtotalfilesize",
+                                                     required = false,
+                                                     defaultValue = "-1") long totalFileSize,
+                                             @RequestParam("id") int id) throws IOException {
     System.out.println(fileName);
     if (!fileName.equals("0")) {
       return this.projectsService.uploadPictures(file, id, fileName);
@@ -221,14 +206,13 @@ public class ProjectsController {
 
   @RequestMapping(value = "/getProjectPages")
   @ResponseBody
-  public ResponsePagination getProjectPages(
-          @RequestParam("name") String name,
-          @RequestParam("userCategory") String userCategory,
-          @RequestParam("city") String city,
-          @RequestParam("isByMap") boolean isByMap,
-          @RequestParam("latitude") double latitude,
-          @RequestParam("longitude") double longitude,
-          @RequestParam("radius") int radius) {
+  public ResponsePagination getProjectPages(@RequestParam("name") String name,
+                                            @RequestParam("userCategory") String userCategory,
+                                            @RequestParam("city") String city,
+                                            @RequestParam("isByMap") boolean isByMap,
+                                            @RequestParam("latitude") double latitude,
+                                            @RequestParam("longitude") double longitude,
+                                            @RequestParam("radius") int radius) {
     return this.projectsService.getProjectsPages(name,
             userCategory,
             city,
@@ -240,31 +224,28 @@ public class ProjectsController {
 
   @RequestMapping(value = "/projects")
   @ResponseBody
-  public ResponseProjects getProjects(
-          @RequestParam("page") int page,
-          @RequestParam("name") String name,
-          @RequestParam("userCategory") String userCategory,
-          @RequestParam("city") String city,
-          @RequestParam("isByMap") boolean isByMap,
-          @RequestParam("latitude") double latitude,
-          @RequestParam("longitude") double longitude,
-          @RequestParam("radius") int radius) {
-    return new ResponseProjects(
-            this.projectsService.getProjects(page,
-                    name,
-                    userCategory,
-                    city,
-                    isByMap,
-                    latitude,
-                    longitude,
-                    radius));
+  public ResponseProjects getProjects(@RequestParam("page") int page,
+                                      @RequestParam("name") String name,
+                                      @RequestParam("userCategory") String userCategory,
+                                      @RequestParam("city") String city,
+                                      @RequestParam("isByMap") boolean isByMap,
+                                      @RequestParam("latitude") double latitude,
+                                      @RequestParam("longitude") double longitude,
+                                      @RequestParam("radius") int radius) {
+    return new ResponseProjects(this.projectsService.getProjects(page,
+            name,
+            userCategory,
+            city,
+            isByMap,
+            latitude,
+            longitude,
+            radius));
   }
 
 
   @RequestMapping(value = "/checkProjectName")
   @ResponseBody
-  public ResponseCheckProjectName checkProjectName(
-          @RequestParam("name") String name) {
+  public ResponseCheckProjectName checkProjectName(@RequestParam("name") String name) {
     return this.projectsService.checkProjectName(name);
   }
 
@@ -276,9 +257,8 @@ public class ProjectsController {
 
   @RequestMapping(value = "/sendMessageToAllMembers",
           method = RequestMethod.POST)
-  public ResponseSuccessful sendMessageToAllMembers(
-          @RequestParam("projectId") int projectId,
-          @RequestBody SentMessage message) {
+  public ResponseSuccessful sendMessageToAllMembers(@RequestParam("projectId") int projectId,
+                                                    @RequestBody SentMessage message) {
     return this.projectsService.sendMessageToAllMembers(projectId, message);
   }
 
@@ -300,9 +280,8 @@ public class ProjectsController {
   @RequestMapping(value = "/getAvailableProjectsForInvite",
           method = RequestMethod.GET)
   @ResponseBody
-  public List<ProjectWithName> getAvailableProjectsForInvite(
-          @RequestParam("ownerId") int ownerId,
-          @RequestParam("skillset") String skillset) {
+  public List<ProjectWithName> getAvailableProjectsForInvite(@RequestParam("ownerId") int ownerId,
+                                                             @RequestParam("skillset") String skillset) {
     return this.projectsService.getAvailableProjectsForInvite(ownerId,
             skillset);
   }
@@ -355,9 +334,8 @@ public class ProjectsController {
 
   @RequestMapping(value = "/addPowerpointEmbedCode", method = RequestMethod.GET)
   @ResponseBody
-  public boolean addPowerpointEmbedCode(
-          @RequestParam("projectId") int projectId,
-          @RequestParam("link") String link) {
+  public boolean addPowerpointEmbedCode(@RequestParam("projectId") int projectId,
+                                        @RequestParam("link") String link) {
     return this.projectsService.addPowerpointEmbedCode(projectId, link);
   }
 

@@ -26,6 +26,7 @@ import squadknowhow.dbmodels.User;
 import squadknowhow.response.models.PaymentID;
 
 import java.net.URI;
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -35,8 +36,7 @@ import java.util.Map;
 @Service
 public class PayPalService {
   private static final String CLIENT_ID = System.getenv("PayPal_CLIENT_ID");
-  private static final String CLIENT_SECRET =
-          System.getenv("PayPal_CLIENT_SECRET");
+  private static final String CLIENT_SECRET = System.getenv("PayPal_CLIENT_SECRET");
 
   private static final String ACCOUNT_SID = System.getenv("ACCOUNT_SID");
   private static final String AUTH_TOKEN = System.getenv("AUTH_TOKEN");
@@ -57,12 +57,6 @@ public class PayPalService {
   }
 
   public PaymentID createPayment(double amount2, boolean isToPromote) {
-//    if (isToPromote) {
-//      amount2 /= 2;
-//    }
-
-    System.out.println(CLIENT_ID);
-    System.out.println(CLIENT_SECRET);
     // Set payer details
     Payer payer = new Payer();
     payer.setPaymentMethod("paypal");
@@ -118,10 +112,7 @@ public class PayPalService {
     }
   }
 
-  public void completePayment(String paymentID,
-                              String payerID,
-                              int projectID,
-                              int userId) {
+  public void completePayment(String paymentID, String payerID, int projectID, int userId, String email) {
     Payment payment = new Payment();
     payment.setId(paymentID);
 
@@ -131,6 +122,10 @@ public class PayPalService {
       Payment createdPayment = payment.execute(context, paymentExecution);
 
       User backer = this.usersRepository.getById(userId);
+      if (backer.getId() != this.getUserByEmail(email).getId()) {
+        throw new InvalidParameterException("Unauthorised operation done by user with email " + email);
+      }
+
       List<Project> backedProjects = backer.getBackedProjects();
 
       Project project = this.projectsRepository.getById(projectID);
@@ -168,18 +163,19 @@ public class PayPalService {
     }
   }
 
-  public void completePaymentToPromote(String paymentId,
-                                       String payerID,
-                                       int projectID,
-                                       int planId) {
+  public void completePaymentToPromote(String paymentId, String payerID, int projectID, int planId, String email) {
     Payment payment = new Payment();
     payment.setId(paymentId);
 
     PaymentExecution paymentExecution = new PaymentExecution();
     paymentExecution.setPayerId(payerID);
     try {
-      Payment createdPayment = payment.execute(context, paymentExecution);
       Project project = this.projectsRepository.getById(projectID);
+      if (project.getCreator() != this.getUserByEmail(email).getId()) {
+        throw new InvalidParameterException("Unauthorised operation done by user with email " + email);
+      }
+
+      Payment createdPayment = payment.execute(context, paymentExecution);
 
       if (planId == 0) {
         project.setDaysTop(3);
@@ -218,9 +214,12 @@ public class PayPalService {
     System.out.println(call.getSid());
   }
 
-  public boolean retrieveMoney(int id,
-                               double amount) throws PayPalRESTException {
+  public boolean retrieveMoney(int id, double amount, String email) throws PayPalRESTException {
     User user = this.usersRepository.getById(id);
+    if (user.getId() != this.getUserByEmail(email).getId()) {
+      throw new InvalidParameterException("Unauthorised operation done by user with email " + email);
+    }
+
     if (amount <= 1 || amount > user.getMoney()) {
       return false;
     }
@@ -264,7 +263,7 @@ public class PayPalService {
     return true;
   }
 
-  public void addFunds(String paymentId, String payerID, int userId) {
+  public void addFunds(String paymentId, String payerID, int userId, String email) {
     Payment payment = new Payment();
     payment.setId(paymentId);
 
@@ -274,6 +273,9 @@ public class PayPalService {
       Payment createdPayment = payment.execute(context, paymentExecution);
 
       User user = this.usersRepository.getById(userId);
+      if (user.getId() != this.getUserByEmail(email).getId()) {
+        throw new InvalidParameterException("Unauthorised operation done by user with email " + email);
+      }
 
       double paid = Double.parseDouble(createdPayment.getTransactions().get(0)
               .getAmount().getDetails().getSubtotal());
@@ -285,5 +287,13 @@ public class PayPalService {
     } catch (PayPalRESTException e) {
       System.err.println(e.getDetails());
     }
+  }
+
+  private User getUserByEmail(String email) {
+    return usersRepository.getAll()
+            .stream()
+            .filter(u -> u.getEmail().equals(email))
+            .findFirst()
+            .orElse(null);
   }
 }

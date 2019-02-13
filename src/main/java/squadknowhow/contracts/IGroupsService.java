@@ -14,8 +14,7 @@ import java.util.List;
 public interface IGroupsService {
   ResponseGroupId createGroup(Group group, int creatorId);
 
-  ResponseUpload uploadImage(MultipartFile multipart,
-                             int id) throws IOException;
+  ResponseUpload uploadImage(MultipartFile multipart, int id) throws IOException;
 
   Group getGroupById(int id);
 

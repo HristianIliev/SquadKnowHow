@@ -1,6 +1,7 @@
 package squadknowhow.restcontrollers;
 
 import java.io.IOException;
+import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,26 +33,24 @@ public class GroupsController {
   @ResponseBody
   public ResponseGroupId createGroup(@RequestBody Group group,
                                      @RequestParam("creatorId") int creatorId) {
-    System.out.println(group.getName());
     return this.groupsService.createGroup(group, creatorId);
   }
 
   @RequestMapping(value = "/uploadLogoPicture", method = RequestMethod.POST)
   @ResponseBody
-  public ResponseUpload uploadGroupLogo(
-          @RequestParam("qqfile") MultipartFile file,
-          @RequestParam("qquuid") String uuid,
-          @RequestParam("qqfilename") String fileName,
-          @RequestParam(value = "qqpartindex",
-                  required = false,
-                  defaultValue = "-1") int partIndex,
-          @RequestParam(value = "qqtotalparts",
-                  required = false,
-                  defaultValue = "-1") int totalParts,
-          @RequestParam(value = "qqtotalfilesize",
-                  required = false,
-                  defaultValue = "-1") long totalFileSize,
-          @RequestParam("id") int id) throws IOException {
+  public ResponseUpload uploadGroupLogo(@RequestParam("qqfile") MultipartFile file,
+                                        @RequestParam("qquuid") String uuid,
+                                        @RequestParam("qqfilename") String fileName,
+                                        @RequestParam(value = "qqpartindex",
+                                                required = false,
+                                                defaultValue = "-1") int partIndex,
+                                        @RequestParam(value = "qqtotalparts",
+                                                required = false,
+                                                defaultValue = "-1") int totalParts,
+                                        @RequestParam(value = "qqtotalfilesize",
+                                                required = false,
+                                                defaultValue = "-1") long totalFileSize,
+                                        @RequestParam("id") int id) throws IOException {
     return this.groupsService.uploadImage(file, id);
   }
 
@@ -69,8 +68,7 @@ public class GroupsController {
 
   @RequestMapping(value = "/checkGroupName")
   @ResponseBody
-  public ResponseCheckGroupName checkGroupName(
-          @RequestParam("name") String name) {
+  public ResponseCheckGroupName checkGroupName(@RequestParam("name") String name) {
     return this.groupsService.checkGroupName(name);
   }
 

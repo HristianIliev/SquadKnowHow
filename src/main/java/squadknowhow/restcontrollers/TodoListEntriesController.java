@@ -20,8 +20,8 @@ public class TodoListEntriesController {
   }
 
   @RequestMapping(value = "/deleteItem", method = RequestMethod.DELETE)
-  public boolean deleteItem(@RequestParam("itemId") int itemId) {
-    return this.todoListEntriesService.deleteItem(itemId);
+  public boolean deleteItem(@RequestParam("itemTitle") String itemTitle) {
+    return this.todoListEntriesService.deleteItem(itemTitle);
   }
 
   @RequestMapping(value = "/createItem", method = RequestMethod.POST)

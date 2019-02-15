@@ -189,7 +189,8 @@ public class User implements Model {
   private boolean activated;
   @Column(name = "activation_key")
   private String activationKey;
-
+  @Column(name = "dateCreated")
+  private String dateCreated;
 
   public User() {
 
@@ -930,5 +931,13 @@ public class User implements Model {
             ", activated=" + activated +
             ", activationKey='" + activationKey + '\'' +
             '}';
+  }
+
+  public String getDateCreated() {
+    return dateCreated;
+  }
+
+  public void setDateCreated(String dateCreated) {
+    this.dateCreated = dateCreated;
   }
 }

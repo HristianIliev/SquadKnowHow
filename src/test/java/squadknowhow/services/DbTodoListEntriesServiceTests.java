@@ -18,6 +18,8 @@ import squadknowhow.utils.validators.base.IValidator;
 
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.isA;
@@ -49,21 +51,21 @@ public class DbTodoListEntriesServiceTests {
   }
 
   @Test
-  public void deleteItem_whenItemIdIsLessThan2_shouldThrowInvalidParameterException() {
+  public void deleteItem_whenItemTitleIsEmpty_shouldThrowInvalidParameterException() {
     expectedEx.expect(InvalidParameterException.class);
-    expectedEx.expectMessage("ItemId is not valid");
-    int itemId = 0;
+    expectedEx.expectMessage("ItemTitle is not valid");
+    String itemTitle = "";
 
-    sut.deleteItem(itemId);
+    sut.deleteItem(itemTitle);
   }
 
   @Test
   public void deleteItem_whenItemIdIsValid_shouldReturnTrue() {
-    int itemId = 1;
-    when(this.todoListEntriesRepositoryMock.getById(itemId)).thenReturn(new TodoListEntry());
+    String itemTitle = "test";
+    when(this.todoListEntriesRepositoryMock.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(new TodoListEntry(itemTitle))));
     when(this.todoListEntriesRepositoryMock.delete(isA(TodoListEntry.class))).thenReturn(null);
 
-    boolean actual = sut.deleteItem(itemId);
+    boolean actual = sut.deleteItem(itemTitle);
 
     Assert.assertTrue(actual);
   }
@@ -93,6 +95,18 @@ public class DbTodoListEntriesServiceTests {
     ListEntry listEntry = new ListEntry("valid", 0);
 
     sut.createItem(listEntry);
+  }
+
+  @Test
+  public void createItem_whenParametersAreValidButThereIsAlreadyAnItemWithTheSameName_shouldReturnTrue() {
+    ListEntry listEntry = new ListEntry("valid", 1);
+    when(this.todoListEntriesRepositoryMock.getAll()).thenReturn(new ArrayList<>(Collections.singletonList(new TodoListEntry("valid"))));
+    when(this.projestRepositoryMock.getById(1)).thenReturn(null);
+    when(this.todoListEntriesRepositoryMock.create(isA(TodoListEntry.class))).thenReturn(null);
+
+    boolean actual = sut.createItem(listEntry);
+
+    Assert.assertFalse(actual);
   }
 
   @Test

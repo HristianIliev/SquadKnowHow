@@ -28,7 +28,7 @@ public interface IProfileService extends UserDetailsService {
                            String userCategory,
                            String city,
                            String skills,
-                           String interests);
+                           String interests, String sortBy);
 
   User getUserByEmail(String email);
 
@@ -36,7 +36,7 @@ public interface IProfileService extends UserDetailsService {
                                     String userCategory,
                                     String city,
                                     String skills,
-                                    String interests);
+                                    String interests, String sortBy);
 
   Skill getSkill(String skillName);
 

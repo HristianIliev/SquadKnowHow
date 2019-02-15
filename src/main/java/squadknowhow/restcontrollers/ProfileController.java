@@ -97,8 +97,7 @@ public class ProfileController {
 
   @RequestMapping(value = "/deleteNotification", method = RequestMethod.DELETE)
   @ResponseBody
-  public ResponseSuccessful deleteNotification(
-          @RequestParam("notificationId") int notificationId) {
+  public ResponseSuccessful deleteNotification(@RequestParam("notificationId") int notificationId) {
     return this.profileService.deleteNotification(notificationId);
   }
 
@@ -110,8 +109,7 @@ public class ProfileController {
 
   @RequestMapping(value = "/deleteMessage", method = RequestMethod.DELETE)
   @ResponseBody
-  public ResponseSuccessful deleteMessage(
-          @RequestParam("messageId") int messageId) {
+  public ResponseSuccessful deleteMessage(@RequestParam("messageId") int messageId) {
     return this.profileService.deleteMessage(messageId);
   }
 
@@ -140,13 +138,10 @@ public class ProfileController {
                                 @RequestParam("userCategory") String userCategory,
                                 @RequestParam("city") String city,
                                 @RequestParam("skills") String skills,
-                                @RequestParam("languages") String languages) {
-    return new ResponseUsers(this.profileService.getUsers(page,
-            name,
-            userCategory,
-            city,
-            skills,
-            languages));
+                                @RequestParam("languages") String languages,
+                                @RequestParam("sortBy") String sortBy) {
+    System.out.println(sortBy);
+    return new ResponseUsers(this.profileService.getUsers(page, name, userCategory, city, skills, languages, sortBy));
   }
 
   @RequestMapping(value = "/getPeoplePages")
@@ -155,12 +150,9 @@ public class ProfileController {
                                            @RequestParam("userCategory") String userCategory,
                                            @RequestParam("city") String city,
                                            @RequestParam("skills") String skills,
-                                           @RequestParam("languages") String languages) {
-    return this.profileService.getPeoplePages(name,
-            userCategory,
-            city,
-            skills,
-            languages);
+                                           @RequestParam("languages") String languages,
+                                           @RequestParam("sortBy") String sortBy) {
+    return this.profileService.getPeoplePages(name, userCategory, city, skills, languages, sortBy);
   }
 
   @RequestMapping(value = "/tourCompleted", method = RequestMethod.GET)

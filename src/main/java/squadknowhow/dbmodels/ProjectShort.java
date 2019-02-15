@@ -18,6 +18,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -189,4 +190,14 @@ public class ProjectShort implements Model {
 
     return users.get(0).getFirstName();
   }
+
+  public static final Comparator<ProjectShort> TOP_PROJECTS_FIRST = (o1, o2) -> {
+    if (o1.isTopProject && !o2.isTopProject) {
+      return 1;
+    } else if (!o1.isTopProject && o2.isTopProject) {
+      return -1;
+    } else {
+      return 0;
+    }
+  };
 }

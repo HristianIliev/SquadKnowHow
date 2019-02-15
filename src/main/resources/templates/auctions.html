@@ -145,6 +145,10 @@
           transform: scaleY(1);
         }
       }
+
+      .nice-select{
+        margin-top: 10px;
+      }
     </style>
 
   <link rel="stylesheet" href="/static/css/headerSignedInRegulator.css">
@@ -160,10 +164,10 @@
       <div th:replace="fragments/headerSignedIn :: header('auctions')"></div>
       <div id="card-auctions" class="card pagination-box card-messages">
         <div class="card-body">
-          <h2 class="card-title-people text-center"></h2>
-          <div class="controls-container">
-            <span style="margin-right: 10px;margin-left: 5px;">Подреди по: </span>
-            <select id="sort-select">
+          <div class="card-header-holder">
+            <div class="empty-flex-item"></div>
+            <h2 class="card-title-people text-center"></h2>
+            <select id="sort-select" class="nice-select-with-regpa">
               <option value="timeAsc">Оставащо време - възх.</option>
               <option value="timeDesc">Оставащо време - низх.</option>
               <option value="priceAsc">Цена - възх.</option>

@@ -104,8 +104,7 @@ public class DbAuctionsService implements IAuctionsService {
   }
 
   @Override
-  public ResponseCreateAuction createAuction(
-          AuctionData auctionData) throws ParseException {
+  public ResponseCreateAuction createAuction(AuctionData auctionData) throws ParseException {
     if (this.isEndDateBeforeNow(auctionData.getEndDate(),
             auctionData.getEndHour())) {
       return new ResponseCreateAuction(1);

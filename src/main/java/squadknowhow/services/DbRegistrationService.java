@@ -30,6 +30,7 @@ import java.math.BigInteger;
 import java.security.InvalidParameterException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -304,8 +305,11 @@ public class DbRegistrationService implements IRegistrationService {
     userToInsert.setRecommendations(0);
     userToInsert.setImage("/static/all-images/Portrait_Placeholder.png");
     userToInsert.setActivated(false);
-    userToInsert.setActivationKey(
-            this.createActivationKey(userToInsert.getEmail()));
+    userToInsert.setActivationKey(this.createActivationKey(userToInsert.getEmail()));
+    Date now = new Date();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+    userToInsert.setDateCreated(sdf.format(now));
 
     this.usersRepository.create(userToInsert);
 

@@ -2717,3 +2717,23 @@ header h1 {
   left: 10px !important;
   bottom: 10px !important;
 }
+
+.card-header-holder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media(max-width: 985px) {
+  .card-header-holder {
+    flex-direction: column;
+  }
+
+  .nice-select-with-regpa {
+    margin-right: 0px !important;
+  }
+}
+
+.empty-flex-item {
+  width: 205px;
+}

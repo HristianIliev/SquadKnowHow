@@ -8,7 +8,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="p795tZJ1gyB8fNgkFhsZHKBtbAGiQEtpwP47bRSATrc" />
-  
+
   <!-- Title -->
   <title>Търсещи - SquadKnowHow</title>
   <!-- Place favicon.ico in the root directory -->
@@ -48,6 +48,8 @@
 
   <link rel="stylesheet" href="/static/css/headerNotSignedInRegulator.css">
 
+  <link rel="stylesheet" href="/static/css/nice-select.css" />
+
   <link rel="stylesheet" href="/static/css/people-regulator.css">
   <!--[if lt IE 9]>
       <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -69,6 +71,11 @@
       box-shadow: 0 3px 6px rgba(0,0,0,.2), 0 3px 6px rgba(0,0,0,.26);
       background-color: #45c0e8!important;
     }
+
+    .nice-select{
+        margin-top: 10px;
+        margin-right: 10px;
+      }
     </style>
 </head>
 
@@ -160,10 +167,15 @@
       <div class="card pagination-box">
         <!-- Card content -->
         <div class="card-body">
-          <h2 class="card-title-people text-center">
-            Хора търсещи партньори за проект
-          </h2>
-          <hr />
+          <div class="card-header-holder">
+            <div class="empty-flex-item"></div>
+            <h2 class="card-title-people text-center"></h2>
+            <select id="sort-select" class="nice-select-with-regpa">
+              <option value="dateCreationDesc">Дата на създ.</option>
+              <option value="ratingAsc">Рейтинг</option>
+              <option value="recommendationsAsc">Препоръки</option>
+            </select>
+          </div>
           <div class="row">
             <!-- Card group -->
             <div class="card-deck"></div>
@@ -203,6 +215,8 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/speechkitt.min.js"></script>
 
   <script src="/static/js/jquery.barrating.min.js"></script>
+
+  <script src="/static/js/jquery.nice-select.min.js"></script>
 
   <script src="/static/js/people.js"></script>
 

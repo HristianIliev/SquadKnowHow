@@ -32,13 +32,19 @@ public class DbTodoListEntriesService implements ITodoListEntriesService {
   }
 
   @Override
-  public boolean deleteItem(int itemId) {
-    if (!this.idValidator.isValid(itemId)) {
-      throw new InvalidParameterException("ItemId is not valid");
+  public boolean deleteItem(String itemTitle) {
+    if (itemTitle.isEmpty()) {
+      throw new InvalidParameterException("ItemTitle is not valid");
     }
 
-    this.todoListEntriesRepository
-            .delete(this.todoListEntriesRepository.getById(itemId));
+    TodoListEntry item = this.todoListEntriesRepository.getAll().stream()
+            .filter(it -> it.getTitle().equals(itemTitle))
+            .findFirst()
+            .orElse(null);
+    if (item != null) {
+      this.todoListEntriesRepository.delete(item);
+    }
+
     return true;
   }
 
@@ -50,6 +56,10 @@ public class DbTodoListEntriesService implements ITodoListEntriesService {
       throw new InvalidParameterException("ProjectId is not valid");
     }
 
+    if (isThereTodoListEntryWithThisTitle(todoListEntry.getTitle())) {
+      return false;
+    }
+
     TodoListEntry todoListEntryToInsert = new TodoListEntry();
     todoListEntryToInsert.setTitle(todoListEntry.getTitle());
     todoListEntryToInsert.setDescription(todoListEntry.getDescription());
@@ -58,6 +68,19 @@ public class DbTodoListEntriesService implements ITodoListEntriesService {
     todoListEntryToInsert.setProject(
             this.projectsRepository.getById(todoListEntry.getProjectId()));
     this.todoListEntriesRepository.create(todoListEntryToInsert);
+    return true;
+  }
+
+  private boolean isThereTodoListEntryWithThisTitle(String title) {
+    TodoListEntry item = this.todoListEntriesRepository.getAll().stream()
+            .filter(it -> it.getTitle().equals(title))
+            .findFirst()
+            .orElse(null);
+
+    if (item == null) {
+      return false;
+    }
+
     return true;
   }
 

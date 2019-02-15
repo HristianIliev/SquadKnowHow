@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import squadknowhow.contracts.IProfileService;
 import squadknowhow.contracts.IRepository;
+import squadknowhow.dbmodels.Auction;
 import squadknowhow.dbmodels.City;
 import squadknowhow.dbmodels.Interest;
 import squadknowhow.dbmodels.Message;
@@ -126,7 +127,7 @@ public class DbProfileService implements IProfileService {
                                   String userCategory,
                                   String city,
                                   String skills,
-                                  String languages) {
+                                  String languages, String sortBy) {
     List<UserShort> users = this.usersShortRepository.getAll();
     users = this.buildWhereClauses(users,
             name,
@@ -134,6 +135,21 @@ public class DbProfileService implements IProfileService {
             city,
             skills,
             languages);
+
+    switch (sortBy) {
+      case "dateCreationDesc":
+        users.sort(UserShort.DATECREATED_DESC_COMPARATOR);
+        break;
+      case "ratingAsc":
+        users.sort(UserShort.RATING_ASC_COMPARATOR);
+        break;
+      case "recommendationsAsc":
+        users.sort(UserShort.RECOMMENDATIONS_ASC_COMPARATOR);
+        break;
+      default:
+        users.sort(UserShort.DATECREATED_DESC_COMPARATOR);
+        break;
+    }
 
     // 12 entries in one page
     int fromIndex = (page - 1) * PAGE_LENGTH;
@@ -174,7 +190,7 @@ public class DbProfileService implements IProfileService {
                                            String userCategory,
                                            String city,
                                            String skills,
-                                           String languages) {
+                                           String languages, String sortBy) {
     List<UserShort> users = this.usersShortRepository.getAll();
     users = this.buildWhereClauses(users,
             name,
@@ -182,6 +198,21 @@ public class DbProfileService implements IProfileService {
             city,
             skills,
             languages);
+
+    switch (sortBy) {
+      case "dateCreationDesc":
+        users.sort(UserShort.DATECREATED_DESC_COMPARATOR);
+        break;
+      case "ratingAsc":
+        users.sort(UserShort.RATING_ASC_COMPARATOR);
+        break;
+      case "recommendationsAsc":
+        users.sort(UserShort.RECOMMENDATIONS_ASC_COMPARATOR);
+        break;
+      default:
+        users.sort(UserShort.DATECREATED_DESC_COMPARATOR);
+        break;
+    }
 
     int numberOfPages = (int) Math.ceil(users.size() / PAGE_LENGTH_DOUBLE);
 

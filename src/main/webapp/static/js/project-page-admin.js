@@ -104,8 +104,7 @@ $(document).ready(function () {
         })
       ],
       callback: function (data) {
-        if (!data) {
-        } else {
+        if (!data) {} else {
           var link = data.embed;
 
           $.ajax({
@@ -242,8 +241,7 @@ function initialiseProjectPage() {
             })
           ],
           callback: function (data) {
-            if (!data) {
-            } else {
+            if (!data) {} else {
 
               var dt = new Date();
               var timestamp =
@@ -330,8 +328,7 @@ function initialiseProjectPage() {
             })
           ],
           callback: function (data) {
-            if (!data) {
-            } else {
+            if (!data) {} else {
               var buyMeNow;
               if (typeof data.buyMeNow === "undefined") {
                 buyMeNow = 0;
@@ -617,11 +614,15 @@ function setUpTODOList(result) {
       items: []
     }],
     afterItemDelete: function (list, item) {
+      console.log(item);
       $.ajax({
-        url: "/api/deleteItem?itemId=" + item.id,
+        url: "/api/deleteItem?itemTitle=" + item.title,
         method: "DELETE",
         success: function (result) {
-          if (result) {}
+          if ($(".lobilist-items > li").length == 0) {
+            $(".lobilist-body").attr("style", "display: flex;flex-direction: column;");
+            $(".lobilist-items").after('<span id="lobilist-empty-msg" style="text-align: center;font-size: 25px;margin-bottom: 10px;color: rgb(109, 109, 109);">Все още няма добавени задачи</span>');
+          }
         }
       });
     },
@@ -630,9 +631,7 @@ function setUpTODOList(result) {
         .parent()
         .parent()
         .attr("data-id");
-      var itemTitle = $(
-        "li[data-id='" + itemId + "'] > .lobilist-item-title"
-      ).text();
+      var itemTitle = $("li[data-id='" + itemId + "'] > .lobilist-item-title").text();
       $.ajax({
         url: "/api/markListItemAsDone?itemTitle=" + itemTitle,
         method: "GET",
@@ -646,9 +645,7 @@ function setUpTODOList(result) {
         .parent()
         .parent()
         .attr("data-id");
-      var itemTitle = $(
-        "li[data-id='" + itemId + "'] > .lobilist-item-title"
-      ).text();
+      var itemTitle = $("li[data-id='" + itemId + "'] > .lobilist-item-title").text();
       $.ajax({
         url: "/api/markListItemAsUndone?itemTitle=" + itemTitle,
         method: "GET",
@@ -656,6 +653,9 @@ function setUpTODOList(result) {
           if (result) {}
         }
       });
+    },
+    afterItemAdd: function (list, item) {
+      $("#lobilist-empty-msg").remove();
     }
   });
 
@@ -675,7 +675,13 @@ function setUpTODOList(result) {
         }),
         contentType: "application/json",
         success: function (result) {
-          if (result) {}
+          if (result == false || result == "false") {
+            iziToast.error({
+              title: "Грешка",
+              message: "Това име вече е заето",
+              position: "topRight"
+            });
+          }
         }
       });
     }
@@ -694,6 +700,9 @@ function setUpTODOList(result) {
           done: listEntries[i].done
         });
       }
+    } else {
+      $(".lobilist-body").attr("style", "display: flex;flex-direction: column;");
+      $(".lobilist-items").after('<span id="lobilist-empty-msg" style="text-align: center;font-size: 25px;margin-bottom: 10px;color: rgb(109, 109, 109);">Все още няма добавени задачи</span>');
     }
   }
 }
@@ -715,8 +724,7 @@ $("#button-send-all-message").click(function (e) {
       })
     ],
     callback: function (data) {
-      if (!data) {
-      } else {
+      if (!data) {} else {
         instance.html(
           '<i class="fa fa-comments"></i> Изпрати съобщение на всички <i class="fas fa-circle-notch fa-spin"></i>'
         );

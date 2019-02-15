@@ -1006,6 +1006,8 @@ public class DbProjectsService implements IProjectsService {
             longitude,
             radius);
 
+    projects.sort(ProjectShort.TOP_PROJECTS_FIRST);
+
     int fromIndex = (page - 1) * PAGE_LENGTH;
     int toIndex = fromIndex + PAGE_LENGTH;
 

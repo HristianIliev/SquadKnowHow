@@ -248,6 +248,7 @@ public class DbProfileServiceTests {
     user.setSkillset(new UserCategory(userCategory));
     user.setCity(new City(city));
     user.setActivated(true);
+    user.setDateCreated("2018-10-12 15:16");
     List<Skill> skills2 = new ArrayList<>();
     skills2.add(new Skill(skills));
     user.setSkills(skills2);
@@ -256,13 +257,15 @@ public class DbProfileServiceTests {
     user.setLanguages(languages2);
     expected.add(user);
     when(this.usersShortRepository.getAll()).thenReturn(expected);
+    String sortBy = "test";
 
     List<UserShort> actual = sut.getUsers(page,
             name,
             userCategory,
             city,
             skills,
-            languages);
+            languages,
+            sortBy);
 
     Assert.assertEquals(expected, actual);
   }
@@ -293,14 +296,17 @@ public class DbProfileServiceTests {
     languages2.add(new Language("languages3"));
     user.setLanguages(languages2);
     expected.add(user);
+    user.setDateCreated("2018-10-12 15:16");
     when(this.usersShortRepository.getAll()).thenReturn(expected);
+    String sortBy = "test";
 
     List<UserShort> actual = sut.getUsers(page,
             name,
             userCategory,
             city,
             skills,
-            languages);
+            languages,
+            sortBy);
 
     Assert.assertEquals(expected, actual);
   }
@@ -347,14 +353,18 @@ public class DbProfileServiceTests {
     languages3.add(new Language("languages2"));
     languages3.add(new Language("languages3"));
     user2.setLanguages(languages3);
+    user2.setDateCreated("2018-10-12 15:16");
+    user.setDateCreated("2018-10-12 15:16");
     users.add(user2);
+    String sortBy = "test";
     when(this.usersShortRepository.getAll()).thenReturn(users);
 
     ResponsePagination actual = sut.getPeoplePages(name,
             userCategory,
             city,
             skills,
-            interests);
+            interests,
+            sortBy);
 
     Assert.assertEquals(expected, actual);
   }

@@ -14,6 +14,10 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -68,6 +72,10 @@ public class UserShort implements Model {
   private List<Language> languages;
   @Column(name = "activated")
   private boolean activated;
+  @Column(name = "dateCreated")
+  private String dateCreated;
+  @Column(name = "recommendations")
+  private int recommendations;
 
   @Override
   public int getId() {
@@ -181,5 +189,63 @@ public class UserShort implements Model {
 
   public void setActivated(boolean activated) {
     this.activated = activated;
+  }
+
+  public static final Comparator<UserShort> DATECREATED_DESC_COMPARATOR = (o1, o2) -> {
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+    Date first = new Date();
+    Date second = new Date();
+
+    try {
+      first = sdf.parse(o1.getDateCreated());
+      second = sdf.parse(o2.getDateCreated());
+    } catch (ParseException e) {
+      e.printStackTrace();
+    }
+
+    if (first.before(second)) {
+      return 1;
+    } else if (first.after(second)) {
+      return -1;
+    } else {
+      return 0;
+    }
+  };
+
+  public static final Comparator<UserShort> RATING_ASC_COMPARATOR = (o1, o2) -> {
+    if (o1.getRating() > o2.getRating()) {
+      return 1;
+    } else if (o1.getRating() < o2.getRating()) {
+      return -1;
+    } else {
+      return 0;
+    }
+  };
+
+  public static final Comparator<UserShort> RECOMMENDATIONS_ASC_COMPARATOR = (o1, o2) -> {
+    if (o1.getRecommendations() > o2.getRecommendations()) {
+      return 1;
+    } else if (o1.getRecommendations() < o2.getRecommendations()) {
+      return -1;
+    } else {
+      return 0;
+    }
+  };
+
+  public String getDateCreated() {
+    return dateCreated;
+  }
+
+  public void setDateCreated(String dateCreated) {
+    this.dateCreated = dateCreated;
+  }
+
+  public int getRecommendations() {
+    return recommendations;
+  }
+
+  public void setRecommendations(int recommendations) {
+    this.recommendations = recommendations;
   }
 }

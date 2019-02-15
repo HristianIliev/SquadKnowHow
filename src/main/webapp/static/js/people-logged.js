@@ -166,6 +166,19 @@ var id = $("body")
 //   sendGetPages($("#search-by-city").val(), skillToSend, interestToSend);
 // });
 
+$("#sort-select").niceSelect();
+
+$("#sort-select").on("change", function (e) {
+  var skillToSend = $("#skilled-in")
+    .val()
+    .substring(0, $("#skilled-in").val().length - 2);
+  var interestToSend = $("#interested-in")
+    .val()
+    .substring(0, $("#interested-in").val().length - 2);
+
+  sendGetPages($("#search-by-city").val(), skillToSend, interestToSend);
+});
+
 $(function () {
   function split(val) {
     return val.split(/,\s*/);
@@ -341,12 +354,14 @@ function getPages(name, userCategory, city, skill, interest) {
       "&skills=" +
       skill +
       "&languages=" +
-      interest,
+      interest +
+      "&sortBy=" +
+      $("#sort-select").val(),
     method: "GET",
     success: function (result) {
       if (result.numberOfPages !== 0) {
         $(".card-title-people").text(
-          "Хора търсещи партньори за проект: " + result.numberOfEntries
+          "Потребители: " + result.numberOfEntries
         );
         $("#pagination-people").remove();
         $(".pagination-box").append(
@@ -402,7 +417,9 @@ function getUsers(name, userCategory, city, skill, interest) {
       "&skills=" +
       skill +
       "&languages=" +
-      interest,
+      interest +
+      "&sortBy=" +
+      $("#sort-select").val(),
     method: "GET",
     success: function (result) {
       populateUsers(result);

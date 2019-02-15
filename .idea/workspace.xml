@@ -2,30 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59602243-1f34-401f-9618-ce8bc5462a69" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/squadknowhow/services/DbTODOListEntriesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/squadknowhow/services/DbTODOListEntriesService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/contracts/IProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/contracts/IProfileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/contracts/ITodoListEntriesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/contracts/ITodoListEntriesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/ProjectShort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/ProjectShort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/UserShort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/UserShort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/restcontrollers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/restcontrollers/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/restcontrollers/TodoListEntriesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/restcontrollers/TodoListEntriesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbAuctionsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbAuctionsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProfileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProjectsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProjectsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbRegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbRegistrationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbTodoListEntriesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbTodoListEntriesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/auctions.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/auctions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/people-logged.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/people-logged.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/people.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/people.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/people-logged.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/people-logged.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/people.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/people.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/project-page-admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/project-page-admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/squadknowhow/services/DbProfileServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/squadknowhow/services/DbProfileServiceTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/squadknowhow/services/DbTodoListEntriesServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/squadknowhow/services/DbTodoListEntriesServiceTests.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -154,7 +132,7 @@
           <entry key="dummy" value="102" />
           <entry key="gradle" value="157" />
           <entry key="html" value="113" />
-          <entry key="java" value="97602" />
+          <entry key="java" value="97603" />
           <entry key="properties" value="45" />
           <entry key="txt" value="55" />
           <entry key="xml" value="134" />
@@ -164,7 +142,7 @@
         <counts>
           <entry key="Groovy" value="157" />
           <entry key="HTML" value="113" />
-          <entry key="JAVA" value="97602" />
+          <entry key="JAVA" value="97603" />
           <entry key="PLAIN_TEXT" value="157" />
           <entry key="Properties" value="45" />
           <entry key="XML" value="134" />
@@ -195,11 +173,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProfileService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="230" column="29" lean-forward="true" selection-start-line="230" selection-start-column="29" selection-end-line="230" selection-end-column="29" />
+            <state relative-caret-position="232">
+              <caret line="245" column="17" selection-start-line="245" selection-start-column="17" selection-end-line="245" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -213,11 +191,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/UserShort.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="201" column="43" lean-forward="true" selection-start-line="201" selection-start-column="43" selection-end-line="201" selection-end-column="43" />
+            <state relative-caret-position="439">
+              <caret line="207" column="16" lean-forward="true" selection-start-line="207" selection-start-column="16" selection-end-line="207" selection-end-column="16" />
               <folding>
                 <element signature="e#5052#5053#0" expanded="true" />
                 <element signature="e#5080#5081#0" expanded="true" />
@@ -827,9 +805,9 @@
         <option value="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbAuctionsService.java" />
         <option value="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbRegistrationService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/UserShort.java" />
-        <option value="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProfileService.java" />
         <option value="$PROJECT_DIR$/src/test/java/squadknowhow/services/DbProfileServiceTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProfileService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/UserShort.java" />
       </list>
     </option>
   </component>
@@ -1003,7 +981,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SearchEverywhereHistoryKey" value="Froala&#9;null&#9;null" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550238415902" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550239253441" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/checkstyle-config.xml" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -1037,7 +1015,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.squadknowhow.services in SquadKnowHow_test">
+  <component name="RunManager" selected="Application.SquadKnowHowApplication">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -1162,8 +1140,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.squadknowhow.services in SquadKnowHow_test" />
         <item itemvalue="Application.SquadKnowHowApplication" />
+        <item itemvalue="JUnit.squadknowhow.services in SquadKnowHow_test" />
         <item itemvalue="JUnit.DbRegistrationServiceTests.checkIfPassIsCorrect_whenParametersAreValid_shouldReturnTrue" />
         <item itemvalue="JUnit.DbProjectsServiceTests.createProject_whenParametersAreValidAndProjectNeedsMoney_shouldSetCityAndProjectNeedsAndReturnResponseProjectIdWithTheIdOfTheCreatedProject" />
         <item itemvalue="JUnit.DbGroupsServiceTests.createGroup_whenParametersAreValid_shouldReturnResponseGroupIdWithTheInsertedGroupsId" />
@@ -1228,7 +1206,7 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.92827445" visible="true" weight="0.15884861" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.92827445" visible="true" weight="0.15884861" />
       <window_info id="Structure" order="1" sideWeight="0.5010395" side_tool="true" weight="0.21055438" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1237,7 +1215,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.07172557" side_tool="true" weight="0.21055438" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32952183" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33367983" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33367983" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991684" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1638,10 +1616,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/squadknowhow/services/DbProfileServiceTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="351" column="46" lean-forward="true" selection-start-line="351" selection-start-column="46" selection-end-line="351" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProfileService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="245" column="17" selection-start-line="245" selection-start-column="17" selection-end-line="245" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/UserShort.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="201" column="43" lean-forward="true" selection-start-line="201" selection-start-column="43" selection-end-line="201" selection-end-column="43" />
+        <state relative-caret-position="439">
+          <caret line="207" column="16" lean-forward="true" selection-start-line="207" selection-start-column="16" selection-end-line="207" selection-end-column="16" />
           <folding>
             <element signature="e#5052#5053#0" expanded="true" />
             <element signature="e#5080#5081#0" expanded="true" />
@@ -1652,20 +1644,6 @@
             <element signature="e#5874#5875#0" expanded="true" />
             <element signature="e#5922#5923#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/squadknowhow/services/DbProfileServiceTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="351" column="46" lean-forward="true" selection-start-line="351" selection-start-column="46" selection-end-line="351" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProfileService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="230" column="29" lean-forward="true" selection-start-line="230" selection-start-column="29" selection-end-line="230" selection-end-column="29" />
         </state>
       </provider>
     </entry>

@@ -205,9 +205,9 @@ public class UserShort implements Model {
     }
 
     if (first.before(second)) {
-      return 1;
-    } else if (first.after(second)) {
       return -1;
+    } else if (first.after(second)) {
+      return 1;
     } else {
       return 0;
     }

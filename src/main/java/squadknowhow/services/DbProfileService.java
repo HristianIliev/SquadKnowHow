@@ -241,7 +241,6 @@ public class DbProfileService implements IProfileService {
     return new UserInformation(true, user.getFirstName());
   }
 
-  // Sends an email
   @Override
   public boolean contact(String name,
                          String email,

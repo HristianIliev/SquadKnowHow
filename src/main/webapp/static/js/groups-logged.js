@@ -73,14 +73,6 @@ if (annyang) {
       audio.play();
     },
     "търси *name": function (name) {
-      $("#search-user-name").val(name);
-      var skillToSend = $("#skilled-in")
-        .val()
-        .substring(0, $("#skilled-in").val().length - 2);
-      var interestToSend = $("#interested-in")
-        .val()
-        .substring(0, $("#interested-in").val().length - 2);
-      sendGetPages($("#search-by-city").val(), skillToSend, interestToSend);
     }
   };
 

@@ -73,9 +73,6 @@ if (annyang) {
     "отиди на контакти": function () {
       window.location.replace("/home");
     },
-    "мими": function () {
-      alert("Обичам те");
-    },
     "благодаря ви за вниманието": function () {
       var audio2 = new Audio("/static/audio/endDemo.mp3");
       audio2.play();

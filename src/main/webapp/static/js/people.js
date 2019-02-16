@@ -36,6 +36,12 @@ if (annyang) {
       audio.play();
       SpeechKITT.abortRecognition();
     },
+    "отвори моят профил": function () {
+      window.location.href = "/profile";
+    },
+    "отвори търгове": function () {
+      window.location.href = "/auctions";
+    },
     "отвори начало": function () {
       window.location.href = "/home";
     },
@@ -70,12 +76,27 @@ if (annyang) {
     "отиди на контакти": function () {
       window.location.replace("/home");
     },
-    "мими": function () {
-      alert("Обичам те");
-    },
     "кажи здравей за демото": function () {
       var audio = new Audio("/static/audio/greeting.mp3");
       audio.play();
+    },
+    "търси за *skillset": function (skillset) {
+      var value = skillset;
+
+      var skillToSend = $("#skilled-in")
+        .val()
+        .substring(0, $("#skilled-in").val().length - 2);
+      var interestToSend = $("#interested-in")
+        .val()
+        .substring(0, $("#interested-in").val().length - 2);
+
+      var text = $(".dropdown-item").text() + "";
+      if (text.toLowerCase().includes(value.toLowerCase())) {
+        $("#dropdown-filter").text("Търси за: " + value);
+        sendGetPages($("#search-by-city").val(), skillToSend, interestToSend);
+      } else {
+        alert("Не съществува такава категория");
+      }
     },
     "търси *name": function (name) {
       $("#search-user-name").val(name);
@@ -86,6 +107,16 @@ if (annyang) {
         .val()
         .substring(0, $("#interested-in").val().length - 2);
       sendGetPages($("#search-by-city").val(), skillToSend, interestToSend);
+    },
+    "живеещ в *city": function (city) {
+      var skillToSend = $("#skilled-in")
+        .val()
+        .substring(0, $("#skilled-in").val().length - 2);
+      var interestToSend = $("#interested-in")
+        .val()
+        .substring(0, $("#interested-in").val().length - 2);
+      $("#search-by-city").val(city);
+      sendGetPages(city, skillToSend, interestToSend);
     }
   };
 

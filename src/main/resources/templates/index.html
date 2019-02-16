@@ -405,7 +405,8 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-          <div data-aos="fade-up-right" data-aos-duration="500" id="caption_slide" class="carousel slide caption-slider" data-ride="carousel">
+          <div data-aos="fade-up-right" data-aos-duration="500" id="caption_slide" class="carousel slide caption-slider"
+            data-ride="carousel">
             <div class="carousel-inner" role="listbox">
               <div class="item active row">
                 <div class="v-center">
@@ -861,11 +862,11 @@
   <script>
     if (annyang) {
       var commands = {
-        здравей: function () {
+        "здравей": function () {
           var audio = new Audio("/static/audio/greeting.mp3");
           audio.play();
         },
-        спри: function () {
+        "спри": function () {
           var audio = new Audio("/static/audio/goodbye.mp3");
           audio.play();
           SpeechKITT.abortRecognition();
@@ -874,6 +875,12 @@
           var audio = new Audio("/static/audio/goodbye.mp3");
           audio.play();
           SpeechKITT.abortRecognition();
+        },
+        "отвори моят профил": function () {
+          window.location.href = "/profile";
+        },
+        "отвори търгове": function () {
+          window.location.href = "/auctions";
         },
         "отвори начало": function () {
           window.location.href = "/home";
@@ -894,7 +901,7 @@
         "регистрирай се": function () {
           $("#register-speech").trigger("click");
         },
-        вход: function () {
+        "вход": function () {
           window.location.href = "/sign-in";
         },
         "отиди на функции": function () {

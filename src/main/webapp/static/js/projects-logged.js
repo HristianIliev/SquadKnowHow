@@ -224,11 +224,11 @@ function stripHtml(html) {
 
 if (annyang) {
   var commands = {
-    здравей: function () {
+    "здравей": function () {
       var audio = new Audio("/static/audio/greeting.mp3");
       audio.play();
     },
-    спри: function () {
+    "спри": function () {
       var audio = new Audio("/static/audio/goodbye.mp3");
       audio.play();
       SpeechKITT.abortRecognition();
@@ -260,7 +260,7 @@ if (annyang) {
       var audio = new Audio("/static/audio/greeting.mp3");
       audio.play();
     },
-    вход: function () {
+    "вход": function () {
       window.location.href = "/sign-in";
     },
     "отиди на функции": function () {
@@ -277,9 +277,6 @@ if (annyang) {
     },
     "отиди на контакти": function () {
       window.location.replace("/home");
-    },
-    мими: function () {
-      alert("Обичам те");
     },
     "кажи здравей за демото": function () {
       var audio = new Audio("/static/audio/greeting.mp3");

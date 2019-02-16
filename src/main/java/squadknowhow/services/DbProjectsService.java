@@ -2619,16 +2619,12 @@ public class DbProjectsService implements IProjectsService {
         result.setKind(kind);
         break;
       case "normal-advice":
-        result.setContent(senderFirstName + " "
-                + senderLastName
-                + ", ти изпрати съвет относно \""
+        result.setContent(" ти изпрати съвет относно \""
                 + projectName + "\".");
         result.setKind(kind);
         break;
       case "normal-question":
-        result.setContent(senderFirstName + " "
-                + senderLastName
-                + ", те попита въпрос относно \""
+        result.setContent(" те попита въпрос относно \""
                 + projectName + "\".");
         result.setKind(kind);
         break;

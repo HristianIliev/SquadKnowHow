@@ -235,6 +235,12 @@ if (annyang) {
       audio.play();
       SpeechKITT.abortRecognition();
     },
+    "отвори моят профил": function () {
+      window.location.href = "/profile";
+    },
+    "отвори търгове": function () {
+      window.location.href = "/auctions";
+    },
     "отвори начало": function () {
       window.location.href = "/home";
     },
@@ -268,9 +274,6 @@ if (annyang) {
     },
     "отиди на контакти": function () {
       window.location.replace("/home");
-    },
-    "мими": function () {
-      alert("Обичам те");
     },
     "кажи здравей за демото": function () {
       var audio = new Audio("/static/audio/greeting.mp3");

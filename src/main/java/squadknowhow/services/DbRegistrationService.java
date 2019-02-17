@@ -190,8 +190,7 @@ public class DbRegistrationService implements IRegistrationService {
     List<Company> alreadyUsedCompanies = new ArrayList<>();
     for (int i = 0; i < tags.getInterests().size(); i++) {
       if (tags.getPreviousEmployment().get(i).getName() != null
-              && !Objects.equals(
-              tags.getPreviousEmployment().get(i).getName(), "")) {
+              && !Objects.equals(tags.getPreviousEmployment().get(i).getName(), "")) {
         Company company = this.getCompany(tags.getPreviousEmployment().get(i));
         if (company == null) {
           return false;
@@ -256,8 +255,7 @@ public class DbRegistrationService implements IRegistrationService {
     for (int i = 0; i < newUser.getInterests().size(); i++) {
       if (newUser.getInterests().get(i).getName() != null
               && !Objects.equals(newUser.getInterests().get(i).getName(), "")) {
-        Interest interestToInsert = this.getInterest(
-                newUser.getInterests().get(i));
+        Interest interestToInsert = this.getInterest(newUser.getInterests().get(i));
         interestsToInsert.add(interestToInsert);
       }
     }
@@ -268,10 +266,8 @@ public class DbRegistrationService implements IRegistrationService {
     for (int i = 0; i < newUser.getLanguages().size(); i++) {
       System.out.println(newUser.getLanguages().get(i).getName());
       if (newUser.getLanguages().get(i).getName() != null
-              && !Objects.equals(
-              newUser.getLanguages().get(i).getName(), "")) {
-        Language languageToInsert = this.getLanguage(
-                newUser.getLanguages().get(i));
+              && !Objects.equals(newUser.getLanguages().get(i).getName(), "")) {
+        Language languageToInsert = this.getLanguage(newUser.getLanguages().get(i));
         languagesToInsert.add(languageToInsert);
       }
     }
@@ -281,10 +277,8 @@ public class DbRegistrationService implements IRegistrationService {
     List<Company> previousEmploymentToInsert = new ArrayList<>();
     for (int i = 0; i < newUser.getInterests().size(); i++) {
       if (newUser.getPreviousEmployment().get(i).getName() != null
-              && !Objects.equals(
-              newUser.getPreviousEmployment().get(i).getName(), "")) {
-        Company companyToInsert = this.getCompany(
-                newUser.getPreviousEmployment().get(i));
+              && !Objects.equals(newUser.getPreviousEmployment().get(i).getName(), "")) {
+        Company companyToInsert = this.getCompany(newUser.getPreviousEmployment().get(i));
         previousEmploymentToInsert.add(companyToInsert);
       }
     }
@@ -313,8 +307,7 @@ public class DbRegistrationService implements IRegistrationService {
 
     this.usersRepository.create(userToInsert);
 
-    this.sendActivationEmail(userToInsert.getEmail(),
-            userToInsert.getActivationKey());
+    this.sendActivationEmail(userToInsert.getEmail(), userToInsert.getActivationKey());
 
     return new ResponseRegister(userToInsert.getId());
   }
@@ -389,18 +382,16 @@ public class DbRegistrationService implements IRegistrationService {
     props.put("mail.smtp.host", "smtp.gmail.com");
     props.put("mail.smtp.port", "587");
     props.put("mail.smtp.auth", "true");
-    Session session = Session
-            .getInstance(props, new javax.mail.Authenticator() {
-              protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(
-                        "hristian00i.dev@gmail.com",
-                        EMAIL_PASS);
-              }
-            });
+    Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+      protected PasswordAuthentication getPasswordAuthentication() {
+        return new PasswordAuthentication(
+                "hristian00i.dev@gmail.com",
+                EMAIL_PASS);
+      }
+    });
     try {
       MimeMessage msg = new MimeMessage(session);
-      String to = email;
-      InternetAddress[] address = InternetAddress.parse(to, true);
+      InternetAddress[] address = InternetAddress.parse(email, true);
       msg.setRecipients(javax.mail.Message.RecipientType.TO, address);
       msg.setSubject("Сменяне на парола");
       msg.setSentDate(new Date());
@@ -584,8 +575,7 @@ public class DbRegistrationService implements IRegistrationService {
     for (int i = 0; i < newInfo.getInterests().size(); i++) {
       if (newInfo.getInterests().get(i).getName() != null
               && !Objects.equals(newInfo.getInterests().get(i).getName(), "")) {
-        Interest interestToInsert = this.getInterest(
-                newInfo.getInterests().get(i));
+        Interest interestToInsert = this.getInterest(newInfo.getInterests().get(i));
         interestsToInsert.add(interestToInsert);
       }
     }
@@ -601,8 +591,7 @@ public class DbRegistrationService implements IRegistrationService {
       System.out.println(newInfo.getLanguages().get(i).getName());
       if (newInfo.getLanguages().get(i).getName() != null
               && !Objects.equals(newInfo.getLanguages().get(i).getName(), "")) {
-        Language languageToInsert = this.getLanguage(
-                newInfo.getLanguages().get(i));
+        Language languageToInsert = this.getLanguage(newInfo.getLanguages().get(i));
         languagesToInsert.add(languageToInsert);
       }
     }
@@ -616,10 +605,8 @@ public class DbRegistrationService implements IRegistrationService {
     List<Company> previousEmploymentToInsert = new ArrayList<>();
     for (int i = 0; i < newInfo.getInterests().size(); i++) {
       if (newInfo.getPreviousEmployment().get(i).getName() != null
-              && !Objects.equals(
-              newInfo.getPreviousEmployment().get(i).getName(), "")) {
-        Company companyToInsert = this.getCompany(
-                newInfo.getPreviousEmployment().get(i));
+              && !Objects.equals(newInfo.getPreviousEmployment().get(i).getName(), "")) {
+        Company companyToInsert = this.getCompany(newInfo.getPreviousEmployment().get(i));
         previousEmploymentToInsert.add(companyToInsert);
       }
     }

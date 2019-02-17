@@ -127,7 +127,8 @@ public class DbProfileService implements IProfileService {
                                   String userCategory,
                                   String city,
                                   String skills,
-                                  String languages, String sortBy) {
+                                  String languages,
+                                  String sortBy) {
     List<UserShort> users = this.usersShortRepository.getAll();
     users = this.buildWhereClauses(users,
             name,
@@ -172,8 +173,7 @@ public class DbProfileService implements IProfileService {
   }
 
   @Override
-  public UserDetails loadUserByUsername(
-          String username) throws UsernameNotFoundException {
+  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
     User user = this.getUserByEmail(username);
     if (!user.isActivated()) {
       throw new UsernameNotFoundException("Account not activated");
@@ -190,7 +190,8 @@ public class DbProfileService implements IProfileService {
                                            String userCategory,
                                            String city,
                                            String skills,
-                                           String languages, String sortBy) {
+                                           String languages,
+                                           String sortBy) {
     List<UserShort> users = this.usersShortRepository.getAll();
     users = this.buildWhereClauses(users,
             name,
@@ -445,8 +446,7 @@ public class DbProfileService implements IProfileService {
       throw new InvalidParameterException("Id is not valid");
     }
 
-    String path = FileUtils.convertToFilepathFromBase64(base64.getBase64(),
-            base64.getExtension());
+    String path = FileUtils.convertToFilepathFromBase64(base64.getBase64(), base64.getExtension());
 
     int indexOf = path.indexOf("/static");
     if (indexOf != -1) {

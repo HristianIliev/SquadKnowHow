@@ -21,7 +21,6 @@ public class LogoutSuccessHandler
                      Authentication authentication) {
     this.profileService.setOffline(authentication.getName());
 
-    new SecurityContextLogoutHandler()
-            .logout(request, response, authentication);
+    new SecurityContextLogoutHandler().logout(request, response, authentication);
   }
 }

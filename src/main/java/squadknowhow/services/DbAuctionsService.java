@@ -145,8 +145,7 @@ public class DbAuctionsService implements IAuctionsService {
     return new ResponseCreateAuction(2);
   }
 
-  private boolean isEndDateBeforeNow(String endDate,
-                                     String endHour) throws ParseException {
+  private boolean isEndDateBeforeNow(String endDate, String endHour) throws ParseException {
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
     Date now = new Date();
@@ -461,11 +460,7 @@ public class DbAuctionsService implements IAuctionsService {
 
 
   // Helper method to write a message
-  private Message writeMessage(String projectName,
-                               User sender,
-                               User recipient,
-                               String kind,
-                               double amount) {
+  private Message writeMessage(String projectName, User sender, User recipient, String kind, double amount) {
     Message result = new Message();
     result.setTimestamp(this.createTimestamp());
     result.setSender(sender);
@@ -500,10 +495,7 @@ public class DbAuctionsService implements IAuctionsService {
   }
 
   // Helper method to write a notification
-  private Notification writeNotification(String projectName,
-                                         User sender,
-                                         User recipient,
-                                         String kind) {
+  private Notification writeNotification(String projectName, User sender, User recipient, String kind) {
     Notification result = new Notification();
     result.setTimestamp(this.createTimestamp());
     result.setSender(sender);

@@ -13,8 +13,7 @@ public interface IRegistrationService {
 
   ResponseRegister attemptRegister(User newUser);
 
-  ResponseUpload uploadImage(MultipartFile multipart,
-                             int id) throws IOException;
+  ResponseUpload uploadImage(MultipartFile multipart, int id) throws IOException;
 
   boolean forgotPassword(String email);
 

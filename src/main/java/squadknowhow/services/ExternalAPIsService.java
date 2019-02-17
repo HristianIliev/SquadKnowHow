@@ -26,8 +26,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ExternalAPIsService {
   private static final String ACCOUNT_SID = System.getenv("ACCOUNT_SID");
   private static final String AUTH_TOKEN = System.getenv("AUTH_TOKEN");
-  private static final String FROM_NUMBER_TELEPHONE =
-          System.getenv("FROM_NUMBER");
+  private static final String FROM_NUMBER_TELEPHONE = System.getenv("FROM_NUMBER");
   private static final String EMAIL_PASS = System.getenv("EMAIL_PASS");
 
   private final IRepository<User> usersRepository;
@@ -50,8 +49,7 @@ public class ExternalAPIsService {
 
     if (!verification.isOk()) {
       try {
-        throw new Exception("Error requesting phone verification. "
-                + verification.getMessage());
+        throw new Exception("Error requesting phone verification. " + verification.getMessage());
       } catch (Exception e) {
         e.printStackTrace();
       }
@@ -65,8 +63,7 @@ public class ExternalAPIsService {
 
     if (!verification.isOk()) {
       try {
-        throw new Exception("Error verifying token. "
-                + verification.getMessage());
+        throw new Exception("Error verifying token. " + verification.getMessage());
       } catch (Exception e) {
         e.printStackTrace();
       }
@@ -116,8 +113,7 @@ public class ExternalAPIsService {
       msg.setRecipients(javax.mail.Message.RecipientType.TO, address);
       msg.setSubject("SquadKnowHow верификационен код");
       msg.setSentDate(new Date());
-      msg.setText("Твоят SquadKnowHow "
-              + "верификационен код е: " + randomNum);
+      msg.setText("Твоят SquadKnowHow " + "верификационен код е: " + randomNum);
       msg.setHeader("XPriority", "1");
       Transport.send(msg);
       System.out.println("Mail has been sent successfully");

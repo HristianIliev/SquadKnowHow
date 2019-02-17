@@ -72,13 +72,10 @@ public class RegisterWebController {
   }
 
   @GetMapping("/activation")
-  public String activation(@RequestParam(value = "activationKey",
-          required = false) String activationKey,
-                           Model model) {
+  public String activation(@RequestParam(value = "activationKey", required = false) String activationKey, Model model) {
     if (activationKey != null) {
       System.out.println("Activation key is " + activationKey);
-      model.addAttribute("successfullyActivated",
-              this.checkActivationKey(activationKey));
+      model.addAttribute("successfullyActivated", this.checkActivationKey(activationKey));
     }
 
     return "activation";

@@ -24,8 +24,7 @@ public class HomeWebController {
 
   @GetMapping("/")
   public String index(Model model) {
-    List<Project> favouriteProjects = this.projectsService
-            .getFavouriteProjects();
+    List<Project> favouriteProjects = this.projectsService.getFavouriteProjects();
     model.addAttribute("project1", favouriteProjects.get(0));
     model.addAttribute("project2", favouriteProjects.get(1));
     model.addAttribute("project3", favouriteProjects.get(2));
@@ -37,8 +36,7 @@ public class HomeWebController {
 
   @GetMapping("/home")
   public String home(Model model) {
-    List<Project> favouriteProjects = this.projectsService
-            .getFavouriteProjects();
+    List<Project> favouriteProjects = this.projectsService.getFavouriteProjects();
     model.addAttribute("project1", favouriteProjects.get(0));
     model.addAttribute("project2", favouriteProjects.get(1));
     model.addAttribute("project3", favouriteProjects.get(2));

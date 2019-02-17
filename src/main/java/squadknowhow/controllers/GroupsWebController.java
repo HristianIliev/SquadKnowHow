@@ -51,9 +51,7 @@ public class GroupsWebController {
   }
 
   @GetMapping("/group/{id}")
-  public String groupPage(@PathVariable("id") int id,
-                          Model model,
-                          Principal principal) {
+  public String groupPage(@PathVariable("id") int id, Model model, Principal principal) {
     User user = this.profileService.getUserByEmail(principal.getName());
     Group group = this.groupsService.getGroupById(id);
 

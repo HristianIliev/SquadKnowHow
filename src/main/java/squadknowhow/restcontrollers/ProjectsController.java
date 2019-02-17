@@ -52,14 +52,12 @@ public class ProjectsController {
 
   @RequestMapping(value = "/getPotentialCandidates", method = RequestMethod.GET)
   @ResponseBody
-  public IChatbotResponse getPotentialCandidates(
-          @RequestParam("projectName") String projectName) {
+  public IChatbotResponse getPotentialCandidates(@RequestParam("projectName") String projectName) {
     System.out.println(projectName);
     return this.projectsService.getPotentialCandidates(projectName);
   }
 
-  @RequestMapping(value = "/deleteProjectFile/{uuid}",
-          method = RequestMethod.DELETE)
+  @RequestMapping(value = "/deleteProjectFile/{uuid}", method = RequestMethod.DELETE)
   @ResponseBody
   public int deleteProjectFile(@RequestParam("id") int projectId,
                                @RequestParam("pictureNum") int pictureNum,
@@ -105,9 +103,8 @@ public class ProjectsController {
 
   @RequestMapping(value = "/removeProjectMember", method = RequestMethod.PUT)
   @ResponseBody
-  public ResponseSuccessful removeProjectMember(
-          @RequestParam("projectId") int projectId,
-          @RequestParam("memberId") int memberId) {
+  public ResponseSuccessful removeProjectMember(@RequestParam("projectId") int projectId,
+                                                @RequestParam("memberId") int memberId) {
     return this.projectsService.removeProjectMember(projectId, memberId);
   }
 
@@ -116,9 +113,7 @@ public class ProjectsController {
   public ResponseSuccessful deleteProject(@RequestParam("projectId") int projectId,
                                           @RequestParam("isCompleted") boolean isCompleted,
                                           @RequestBody List<DeleteProjectInfo> deleteProjectInfos) {
-    return this.projectsService.deleteProject(projectId,
-            deleteProjectInfos,
-            isCompleted);
+    return this.projectsService.deleteProject(projectId, deleteProjectInfos, isCompleted);
   }
 
   @RequestMapping(value = "/getProjectsOfUser", method = RequestMethod.GET)
@@ -133,10 +128,7 @@ public class ProjectsController {
                                              @RequestParam("newMemberId") int newMemberId,
                                              @RequestParam("messageId") int messageId,
                                              @RequestParam("isInvite") boolean isInvite) {
-    return this.projectsService.addProjectMember(projectName,
-            newMemberId,
-            messageId,
-            isInvite);
+    return this.projectsService.addProjectMember(projectName, newMemberId, messageId, isInvite);
   }
 
   @RequestMapping(value = "/sendRejectMessage")
@@ -146,11 +138,7 @@ public class ProjectsController {
                                               @RequestParam("messageId") int messageId,
                                               @RequestParam("creatorId") int creatorId,
                                               @RequestParam("isInvite") boolean isInvite) {
-    return this.projectsService.sendRejectMessage(newMemberId,
-            projectName,
-            messageId,
-            creatorId,
-            isInvite);
+    return this.projectsService.sendRejectMessage(newMemberId, projectName, messageId, creatorId, isInvite);
   }
 
   @RequestMapping(value = "/sendMessageForApproval")
@@ -213,13 +201,7 @@ public class ProjectsController {
                                             @RequestParam("latitude") double latitude,
                                             @RequestParam("longitude") double longitude,
                                             @RequestParam("radius") int radius) {
-    return this.projectsService.getProjectsPages(name,
-            userCategory,
-            city,
-            isByMap,
-            latitude,
-            longitude,
-            radius);
+    return this.projectsService.getProjectsPages(name, userCategory, city, isByMap, latitude, longitude, radius);
   }
 
   @RequestMapping(value = "/projects")
@@ -232,14 +214,7 @@ public class ProjectsController {
                                       @RequestParam("latitude") double latitude,
                                       @RequestParam("longitude") double longitude,
                                       @RequestParam("radius") int radius) {
-    return new ResponseProjects(this.projectsService.getProjects(page,
-            name,
-            userCategory,
-            city,
-            isByMap,
-            latitude,
-            longitude,
-            radius));
+    return new ResponseProjects(this.projectsService.getProjects(page, name, userCategory, city, isByMap, latitude, longitude, radius));
   }
 
 
@@ -255,8 +230,7 @@ public class ProjectsController {
     return this.projectsService.getProjectById(id);
   }
 
-  @RequestMapping(value = "/sendMessageToAllMembers",
-          method = RequestMethod.POST)
+  @RequestMapping(value = "/sendMessageToAllMembers", method = RequestMethod.POST)
   public ResponseSuccessful sendMessageToAllMembers(@RequestParam("projectId") int projectId,
                                                     @RequestBody SentMessage message) {
     return this.projectsService.sendMessageToAllMembers(projectId, message);
@@ -277,13 +251,11 @@ public class ProjectsController {
     return this.projectsService.editProject(project);
   }
 
-  @RequestMapping(value = "/getAvailableProjectsForInvite",
-          method = RequestMethod.GET)
+  @RequestMapping(value = "/getAvailableProjectsForInvite", method = RequestMethod.GET)
   @ResponseBody
   public List<ProjectWithName> getAvailableProjectsForInvite(@RequestParam("ownerId") int ownerId,
                                                              @RequestParam("skillset") String skillset) {
-    return this.projectsService.getAvailableProjectsForInvite(ownerId,
-            skillset);
+    return this.projectsService.getAvailableProjectsForInvite(ownerId, skillset);
   }
 
   @RequestMapping(value = "/reportProject", method = RequestMethod.GET)
@@ -307,8 +279,7 @@ public class ProjectsController {
 
   @RequestMapping(value = "/getChartData", method = RequestMethod.GET)
   @ResponseBody
-  public ResponseVisits getChartData(@RequestParam("projectId") int projectId)
-          throws ParseException {
+  public ResponseVisits getChartData(@RequestParam("projectId") int projectId) throws ParseException {
     return this.projectsService.getChartData(projectId, Calendar.getInstance());
   }
 
@@ -319,11 +290,7 @@ public class ProjectsController {
                                 @RequestParam("content") String content,
                                 @RequestParam("date") String date,
                                 @RequestParam("type") String type) {
-    return this.projectsService.createNewUpdate(projectId,
-            title,
-            content,
-            date,
-            type);
+    return this.projectsService.createNewUpdate(projectId, title, content, date, type);
   }
 
   @RequestMapping(value = "/getCoordinates", method = RequestMethod.GET)
@@ -354,8 +321,7 @@ public class ProjectsController {
 
   @RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
   @ResponseBody
-  public String handleTinyMCEUpload(
-          @RequestParam("files") MultipartFile files[]) throws IOException {
+  public String handleTinyMCEUpload(@RequestParam("files") MultipartFile files[]) throws IOException {
     System.out.println("uploading MultipartFile " + files.length);
     String filePath = FileUtils.convertToFilepath(files[0]);
 //    String result = uploadFilesFromTinyMCE("tinyMCE", files, false);

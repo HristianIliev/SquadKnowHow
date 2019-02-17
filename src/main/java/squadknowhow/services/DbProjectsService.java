@@ -156,8 +156,7 @@ public class DbProjectsService implements IProjectsService {
   }
 
   @Override
-  public ResponseVisits getChartData(int projectId,
-                                     Calendar calendar) throws ParseException {
+  public ResponseVisits getChartData(int projectId, Calendar calendar) throws ParseException {
     if (!this.idValidator.isValid(projectId)) {
       throw new InvalidParameterException("ProjectId is not valid");
     }
@@ -166,14 +165,13 @@ public class DbProjectsService implements IProjectsService {
     List<Visit> visits = project.getVisits();
     List<String> dates = new ArrayList<>();
     List<Integer> values = new ArrayList<>();
-//    Calendar calendar = Calendar.getInstance();
     for (int i = 0; i < 7; i++) {
       SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm");
       values.add(0);
       Date dateToAdd = calendar.getTime();
       dates.add(sdf.format(dateToAdd));
-      for (int j = 0; j < visits.size(); j++) {
-        Date date = sdf.parse(visits.get(j).getDate());
+      for (Visit visit : visits) {
+        Date date = sdf.parse(visit.getDate());
         Calendar visitDate = Calendar.getInstance();
         visitDate.setTime(date);
         if (calendar.get(Calendar.DAY_OF_YEAR)
@@ -194,10 +192,10 @@ public class DbProjectsService implements IProjectsService {
   public List<Coordinate> getCoordinates() {
     List<Project> projects = this.projectsRepository.getAll();
     List<Coordinate> coordinates = new ArrayList<>();
-    for (int i = 0; i < projects.size(); i++) {
-      coordinates.add(new Coordinate(projects.get(i).getLatitude(),
-              projects.get(i).getLongitude(),
-              projects.get(i).getName()));
+    for (Project project : projects) {
+      coordinates.add(new Coordinate(project.getLatitude(),
+              project.getLongitude(),
+              project.getName()));
     }
 
     return coordinates;
@@ -277,9 +275,8 @@ public class DbProjectsService implements IProjectsService {
                                 String type) {
 
     SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm");
-    Date dateTest = null;
     try {
-      dateTest = sdf.parse(date);
+      sdf.parse(date);
     } catch (ParseException e) {
       System.out.println("String is not valid date");
       return new Update(0);
@@ -1086,9 +1083,7 @@ public class DbProjectsService implements IProjectsService {
 
     this.projectsRepository.create(projectToInsert);
 
-    projectToInsert.setWantedMembers(
-            this.createWantedMembers(project.getParameters(),
-                    projectToInsert));
+    projectToInsert.setWantedMembers(this.createWantedMembers(project.getParameters(), projectToInsert));
 
     this.projectsRepository.update(projectToInsert);
 
@@ -1097,8 +1092,88 @@ public class DbProjectsService implements IProjectsService {
     return new ResponseProjectId(projectToInsert.getId());
   }
 
-  public List<WantedMember> createWantedMembers(List<Parameter> parameters,
-                                                Project project) {
+  private WantedMember setValuesOfWantedMember(Parameter parameter, WantedMember wantedMember) {
+    if (wantedMember == null) {
+      wantedMember = new WantedMember();
+    }
+
+    switch (parameter.getParamCategory()) {
+      case "skills":
+        for (int i = 0; i < parameter.getValues().size(); i++) {
+          Skill skillToInsert = this.getSkill(parameter.getValues().get(i));
+          List<Skill> skills = wantedMember.getSkills();
+          if (skills == null) {
+            skills = new ArrayList<>();
+          }
+
+          skills.add(skillToInsert);
+          wantedMember.setSkills(skills);
+        }
+        break;
+      case "languages":
+        for (int i = 0; i < parameter.getValues().size(); i++) {
+          Language languageToInsert = this.getLanguage(
+                  parameter.getValues().get(i));
+          List<Language> languages = wantedMember.getLanguages();
+          if (languages == null) {
+            languages = new ArrayList<>();
+          }
+
+          languages.add(languageToInsert);
+          wantedMember.setLanguages(languages);
+        }
+        break;
+      case "city":
+        for (int i = 0; i < parameter.getValues().size(); i++) {
+          City cityToInsert = this.getCity(
+                  parameter.getValues().get(i));
+          wantedMember.setCity(cityToInsert);
+        }
+        break;
+      case "education":
+        for (int i = 0; i < parameter.getValues().size(); i++) {
+          int educationToInsert = Integer.parseInt(
+                  parameter.getValues().get(i));
+          switch (educationToInsert) {
+            case 1:
+              wantedMember.setEducation("В училище");
+              break;
+            case 2:
+              wantedMember.setEducation("Професионален бакалавър");
+              break;
+            case 3:
+              wantedMember.setEducation("Бакалавър");
+              break;
+            case 4:
+              wantedMember.setEducation("Магистър");
+              break;
+            case 5:
+              wantedMember.setEducation("Доктор");
+              break;
+          }
+        }
+        break;
+    }
+
+    return wantedMember;
+  }
+
+  private List<WantedMember> finalizeSetupOfWantedMembers(WantedMember wantedMember, List<WantedMember> result, Project project, String userCategory) {
+    wantedMember.setUserCategory(this.getUserCategory(userCategory));
+    wantedMember.setProject(project);
+    result.add(wantedMember);
+
+    if (this.hasProjectWantedMember(project, userCategory)) {
+      this.removeWantedMember(project, userCategory);
+    }
+
+    this.wantedMembersRepository.create(wantedMember);
+
+    return result;
+  }
+
+  List<WantedMember> createWantedMembers(List<Parameter> parameters,
+                                         Project project) {
     System.out.println(project);
     List<WantedMember> result = new ArrayList<>();
     WantedMember programmer = null;
@@ -1111,751 +1186,107 @@ public class DbProjectsService implements IProjectsService {
     WantedMember productManager = null;
     WantedMember artist = null;
 
-    //region Filling WantedMembers
     for (Parameter parameter
             : parameters) {
       if (parameter.getValues().size() != 0) {
         switch (parameter.getCategory()) {
           case "programmer":
-            if (programmer == null) {
-              programmer = new WantedMember();
-            }
-
-            switch (parameter.getParamCategory()) {
-              case "skills":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  Skill skillToInsert = this.getSkill(
-                          parameter.getValues().get(i));
-                  List<Skill> skills = programmer.getSkills();
-                  if (skills == null) {
-                    skills = new ArrayList<>();
-                  }
-
-                  skills.add(skillToInsert);
-                  programmer.setSkills(skills);
-                }
-                break;
-              case "languages":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  Language languageToInsert = this.getLanguage(
-                          parameter.getValues().get(i));
-                  List<Language> languages = programmer.getLanguages();
-                  if (languages == null) {
-                    languages = new ArrayList<>();
-                  }
-
-                  languages.add(languageToInsert);
-                  programmer.setLanguages(languages);
-                }
-                break;
-              case "city":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  City cityToInsert = this.getCity(
-                          parameter.getValues().get(i));
-                  programmer.setCity(cityToInsert);
-                }
-                break;
-              case "education":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  int educationToInsert = Integer.parseInt(
-                          parameter.getValues().get(i));
-                  switch (educationToInsert) {
-                    case 1:
-                      programmer.setEducation("В училище");
-                      break;
-                    case 2:
-                      programmer.setEducation("Професионален"
-                              + " бакалавър");
-                      break;
-                    case 3:
-                      programmer.setEducation("Бакалавър");
-                      break;
-                    case 4:
-                      programmer.setEducation("Магистър");
-                      break;
-                    case 5:
-                      programmer.setEducation("Доктор");
-                      break;
-                  }
-                }
-                break;
-            }
-
+            programmer = this.setValuesOfWantedMember(parameter, programmer);
             break;
           case "designer":
-            if (designer == null) {
-              designer = new WantedMember();
-            }
-
-            switch (parameter.getParamCategory()) {
-              case "skills":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  Skill skillToInsert = this.getSkill(
-                          parameter.getValues().get(i));
-                  List<Skill> skills = designer.getSkills();
-                  if (skills == null) {
-                    skills = new ArrayList<>();
-                  }
-
-                  skills.add(skillToInsert);
-                  designer.setSkills(skills);
-                }
-                break;
-              case "languages":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  Language languageToInsert = this.getLanguage(
-                          parameter.getValues().get(i));
-                  List<Language> languages = designer.getLanguages();
-                  if (languages == null) {
-                    languages = new ArrayList<>();
-                  }
-
-                  languages.add(languageToInsert);
-                  designer.setLanguages(languages);
-                }
-                break;
-              case "city":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  City cityToInsert = this.getCity(
-                          parameter.getValues().get(i));
-                  designer.setCity(cityToInsert);
-                }
-                break;
-              case "education":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  int educationToInsert = Integer.parseInt(
-                          parameter.getValues().get(i));
-                  switch (educationToInsert) {
-                    case 1:
-                      designer.setEducation("В училище");
-                      break;
-                    case 2:
-                      designer.setEducation("Професионален"
-                              + " бакалавър");
-                      break;
-                    case 3:
-                      designer.setEducation("Бакалавър");
-                      break;
-                    case 4:
-                      designer.setEducation("Магистър");
-                      break;
-                    case 5:
-                      designer.setEducation("Доктор");
-                      break;
-                  }
-                }
-                break;
-            }
-
+            designer = this.setValuesOfWantedMember(parameter, designer);
             break;
           case "engineer":
-            if (engineer == null) {
-              engineer = new WantedMember();
-            }
-
-            switch (parameter.getParamCategory()) {
-              case "skills":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  Skill skillToInsert = this.getSkill(
-                          parameter.getValues().get(i));
-                  List<Skill> skills = engineer.getSkills();
-                  if (skills == null) {
-                    skills = new ArrayList<>();
-                  }
-
-                  skills.add(skillToInsert);
-                  engineer.setSkills(skills);
-                }
-                break;
-              case "languages":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  Language languageToInsert = this.getLanguage(
-                          parameter.getValues().get(i));
-                  List<Language> languages = engineer.getLanguages();
-                  if (languages == null) {
-                    languages = new ArrayList<>();
-                  }
-
-                  languages.add(languageToInsert);
-                  engineer.setLanguages(languages);
-                }
-                break;
-              case "city":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  City cityToInsert = this.getCity(
-                          parameter.getValues().get(i));
-                  engineer.setCity(cityToInsert);
-                }
-                break;
-              case "education":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  int educationToInsert = Integer.parseInt(
-                          parameter.getValues().get(i));
-                  switch (educationToInsert) {
-                    case 1:
-                      engineer.setEducation("В училище");
-                      break;
-                    case 2:
-                      engineer.setEducation("Професионален"
-                              + " бакалавър");
-                      break;
-                    case 3:
-                      engineer.setEducation("Бакалавър");
-                      break;
-                    case 4:
-                      engineer.setEducation("Магистър");
-                      break;
-                    case 5:
-                      engineer.setEducation("Доктор");
-                      break;
-                  }
-                }
-                break;
-            }
-
+            engineer = this.setValuesOfWantedMember(parameter, engineer);
             break;
           case "writer":
-            if (writer == null) {
-              writer = new WantedMember();
-            }
-
-            switch (parameter.getParamCategory()) {
-              case "skills":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  Skill skillToInsert = this.getSkill(
-                          parameter.getValues().get(i));
-                  List<Skill> skills = writer.getSkills();
-                  if (skills == null) {
-                    skills = new ArrayList<>();
-                  }
-
-                  skills.add(skillToInsert);
-                  writer.setSkills(skills);
-                }
-                break;
-              case "languages":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  Language languageToInsert = this.getLanguage(
-                          parameter.getValues().get(i));
-                  List<Language> languages = writer.getLanguages();
-                  if (languages == null) {
-                    languages = new ArrayList<>();
-                  }
-
-                  languages.add(languageToInsert);
-                  writer.setLanguages(languages);
-                }
-                break;
-              case "city":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  City cityToInsert = this.getCity(
-                          parameter.getValues().get(i));
-                  writer.setCity(cityToInsert);
-                }
-                break;
-              case "education":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  int educationToInsert = Integer.parseInt(
-                          parameter.getValues().get(i));
-                  switch (educationToInsert) {
-                    case 1:
-                      writer.setEducation("В училище");
-                      break;
-                    case 2:
-                      writer.setEducation("Професионален"
-                              + " бакалавър");
-                      break;
-                    case 3:
-                      writer.setEducation("Бакалавър");
-                      break;
-                    case 4:
-                      writer.setEducation("Магистър");
-                      break;
-                    case 5:
-                      writer.setEducation("Доктор");
-                      break;
-                  }
-                }
-                break;
-            }
-
+            writer = this.setValuesOfWantedMember(parameter, writer);
             break;
           case "scientist":
-            if (scientist == null) {
-              scientist = new WantedMember();
-            }
-
-            switch (parameter.getParamCategory()) {
-              case "skills":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  Skill skillToInsert = this.getSkill(
-                          parameter.getValues().get(i));
-                  List<Skill> skills = scientist.getSkills();
-                  if (skills == null) {
-                    skills = new ArrayList<>();
-                  }
-
-                  skills.add(skillToInsert);
-                  scientist.setSkills(skills);
-                }
-                break;
-              case "languages":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  Language languageToInsert = this.getLanguage(
-                          parameter.getValues().get(i));
-                  List<Language> languages = scientist.getLanguages();
-                  if (languages == null) {
-                    languages = new ArrayList<>();
-                  }
-
-                  languages.add(languageToInsert);
-                  scientist.setLanguages(languages);
-                }
-                break;
-              case "city":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  City cityToInsert = this.getCity(
-                          parameter.getValues().get(i));
-                  scientist.setCity(cityToInsert);
-                }
-                break;
-              case "education":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  int educationToInsert = Integer.parseInt(
-                          parameter.getValues().get(i));
-                  switch (educationToInsert) {
-                    case 1:
-                      scientist.setEducation("В училище");
-                      break;
-                    case 2:
-                      scientist.setEducation("Професионален"
-                              + " бакалавър");
-                      break;
-                    case 3:
-                      scientist.setEducation("Бакалавър");
-                      break;
-                    case 4:
-                      scientist.setEducation("Магистър");
-                      break;
-                    case 5:
-                      scientist.setEducation("Доктор");
-                      break;
-                  }
-                }
-                break;
-            }
-
+            scientist = this.setValuesOfWantedMember(parameter, scientist);
             break;
           case "musician":
-            if (musician == null) {
-              musician = new WantedMember();
-            }
-
-            switch (parameter.getParamCategory()) {
-              case "skills":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  Skill skillToInsert = this.getSkill(
-                          parameter.getValues().get(i));
-                  List<Skill> skills = musician.getSkills();
-                  if (skills == null) {
-                    skills = new ArrayList<>();
-                  }
-
-                  skills.add(skillToInsert);
-                  musician.setSkills(skills);
-                }
-                break;
-              case "languages":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  Language languageToInsert = this.getLanguage(
-                          parameter.getValues().get(i));
-                  List<Language> languages = musician.getLanguages();
-                  if (languages == null) {
-                    languages = new ArrayList<>();
-                  }
-
-                  languages.add(languageToInsert);
-                  musician.setLanguages(languages);
-                }
-                break;
-              case "city":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  City cityToInsert = this.getCity(
-                          parameter.getValues().get(i));
-                  musician.setCity(cityToInsert);
-                }
-                break;
-              case "education":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  int educationToInsert = Integer.parseInt(
-                          parameter.getValues().get(i));
-                  switch (educationToInsert) {
-                    case 1:
-                      musician.setEducation("В училище");
-                      break;
-                    case 2:
-                      musician.setEducation("Професионален"
-                              + " бакалавър");
-                      break;
-                    case 3:
-                      musician.setEducation("Бакалавър");
-                      break;
-                    case 4:
-                      musician.setEducation("Магистър");
-                      break;
-                    case 5:
-                      musician.setEducation("Доктор");
-                      break;
-                  }
-                }
-                break;
-            }
-
+            musician = this.setValuesOfWantedMember(parameter, musician);
             break;
           case "filmmaker":
-            if (filmmaker == null) {
-              filmmaker = new WantedMember();
-            }
-
-            switch (parameter.getParamCategory()) {
-              case "skills":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  Skill skillToInsert = this.getSkill(
-                          parameter.getValues().get(i));
-                  List<Skill> skills = filmmaker.getSkills();
-                  if (skills == null) {
-                    skills = new ArrayList<>();
-                  }
-
-                  skills.add(skillToInsert);
-                  filmmaker.setSkills(skills);
-                }
-                break;
-              case "languages":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  Language languageToInsert = this.getLanguage(
-                          parameter.getValues().get(i));
-                  List<Language> languages = filmmaker.getLanguages();
-                  if (languages == null) {
-                    languages = new ArrayList<>();
-                  }
-
-                  languages.add(languageToInsert);
-                  filmmaker.setLanguages(languages);
-                }
-                break;
-              case "city":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  City cityToInsert = this.getCity(
-                          parameter.getValues().get(i));
-                  filmmaker.setCity(cityToInsert);
-                }
-                break;
-              case "education":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  int educationToInsert = Integer.parseInt(
-                          parameter.getValues().get(i));
-                  switch (educationToInsert) {
-                    case 1:
-                      filmmaker.setEducation("В училище");
-                      break;
-                    case 2:
-                      filmmaker.setEducation("Професионален "
-                              + "бакалавър");
-                      break;
-                    case 3:
-                      filmmaker.setEducation("Бакалавър");
-                      break;
-                    case 4:
-                      filmmaker.setEducation("Магистър");
-                      break;
-                    case 5:
-                      filmmaker.setEducation("Доктор");
-                      break;
-                  }
-                }
-                break;
-            }
-
+            filmmaker = this.setValuesOfWantedMember(parameter, filmmaker);
             break;
           case "productManager":
-            if (productManager == null) {
-              productManager = new WantedMember();
-            }
-
-            switch (parameter.getParamCategory()) {
-              case "skills":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  Skill skillToInsert = this.getSkill(
-                          parameter.getValues().get(i));
-                  List<Skill> skills = productManager.getSkills();
-                  if (skills == null) {
-                    skills = new ArrayList<>();
-                  }
-
-                  skills.add(skillToInsert);
-                  productManager.setSkills(skills);
-                }
-                break;
-              case "languages":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  Language languageToInsert = this.getLanguage(
-                          parameter.getValues().get(i));
-                  List<Language> languages = productManager.getLanguages();
-                  if (languages == null) {
-                    languages = new ArrayList<>();
-                  }
-
-                  languages.add(languageToInsert);
-                  productManager.setLanguages(languages);
-                }
-                break;
-              case "city":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  City cityToInsert = this.getCity(
-                          parameter.getValues().get(i));
-                  productManager.setCity(cityToInsert);
-                }
-                break;
-              case "education":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  int educationToInsert = Integer.parseInt(
-                          parameter.getValues().get(i));
-                  switch (educationToInsert) {
-                    case 1:
-                      productManager.setEducation("В училище");
-                      break;
-                    case 2:
-                      productManager.setEducation("Професионален"
-                              + " бакалавър");
-                      break;
-                    case 3:
-                      productManager.setEducation("Бакалавър");
-                      break;
-                    case 4:
-                      productManager.setEducation("Магистър");
-                      break;
-                    case 5:
-                      productManager.setEducation("Доктор");
-                      break;
-                  }
-                }
-                break;
-            }
-
+            productManager = this.setValuesOfWantedMember(parameter, productManager);
             break;
           case "artist":
-            if (artist == null) {
-              artist = new WantedMember();
-            }
-
-            switch (parameter.getParamCategory()) {
-              case "skills":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  Skill skillToInsert = this.getSkill(
-                          parameter.getValues().get(i));
-                  List<Skill> skills = artist.getSkills();
-                  if (skills == null) {
-                    skills = new ArrayList<>();
-                  }
-
-                  skills.add(skillToInsert);
-                  artist.setSkills(skills);
-                }
-                break;
-              case "languages":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  Language languageToInsert = this.getLanguage(
-                          parameter.getValues().get(i));
-                  List<Language> languages = artist.getLanguages();
-                  if (languages == null) {
-                    languages = new ArrayList<>();
-                  }
-
-                  languages.add(languageToInsert);
-                  artist.setLanguages(languages);
-                }
-                break;
-              case "city":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  City cityToInsert = this.getCity(
-                          parameter.getValues().get(i));
-                  artist.setCity(cityToInsert);
-                }
-                break;
-              case "education":
-                for (int i = 0; i < parameter.getValues().size(); i++) {
-                  int educationToInsert = Integer.parseInt(
-                          parameter.getValues().get(i));
-                  switch (educationToInsert) {
-                    case 1:
-                      artist.setEducation("В училище");
-                      break;
-                    case 2:
-                      artist.setEducation("Професионален"
-                              + " бакалавър");
-                      break;
-                    case 3:
-                      artist.setEducation("Бакалавър");
-                      break;
-                    case 4:
-                      artist.setEducation("Магистър");
-                      break;
-                    case 5:
-                      artist.setEducation("Доктор");
-                      break;
-                  }
-                }
-                break;
-            }
-
+            artist = this.setValuesOfWantedMember(parameter, artist);
             break;
           default:
             break;
         }
-
       }
     }
-    //endregion
 
-    //region Finalizing setup of WantedMembers
     if (programmer != null && !programmer.isEmpty()) {
-      programmer.setUserCategory(this.getUserCategory("Програмист"));
-      programmer.setProject(project);
-      result.add(programmer);
-
-      if (this.hasProjectWantedMember(project, "Програмист")) {
-        this.removeWantedMember(project, "Програмист");
-      }
-
-      this.wantedMembersRepository.create(programmer);
+      this.finalizeSetupOfWantedMembers(programmer, result, project, "Програмист");
     } else {
       this.removeWantedMember(project, "Програмист");
     }
 
     if (designer != null && !designer.isEmpty()) {
-      designer.setUserCategory(this.getUserCategory("Дизайнер"));
-      designer.setProject(project);
-      result.add(designer);
-
-      if (this.hasProjectWantedMember(project, "Дизайнер")) {
-        this.removeWantedMember(project, "Дизайнер");
-      }
-
-      this.wantedMembersRepository.create(designer);
+      this.finalizeSetupOfWantedMembers(designer, result, project, "Дизайнер");
     } else {
       this.removeWantedMember(project, "Дизайнер");
     }
 
     if (engineer != null && !engineer.isEmpty()) {
-      engineer.setUserCategory(this.getUserCategory("Инженер"));
-      engineer.setProject(project);
-      result.add(engineer);
-
-      if (this.hasProjectWantedMember(project, "Инженер")) {
-        this.removeWantedMember(project, "Инженер");
-      }
-
-      this.wantedMembersRepository.create(engineer);
+      this.finalizeSetupOfWantedMembers(engineer, result, project, "Инженер");
     } else {
       this.removeWantedMember(project, "Инженер");
     }
 
     if (writer != null && !writer.isEmpty()) {
-      writer.setUserCategory(this.getUserCategory("Писател"));
-      writer.setProject(project);
-      result.add(writer);
-
-      if (this.hasProjectWantedMember(project, "Писател")) {
-        this.removeWantedMember(project, "Писател");
-      }
-
-      this.wantedMembersRepository.create(writer);
+      this.finalizeSetupOfWantedMembers(writer, result, project, "Писател");
     } else {
       this.removeWantedMember(project, "Писател");
     }
 
     if (scientist != null && !scientist.isEmpty()) {
-      scientist.setUserCategory(this.getUserCategory("Учен"));
-      scientist.setProject(project);
-      result.add(scientist);
-
-      if (this.hasProjectWantedMember(project, "Учен")) {
-        this.removeWantedMember(project, "Учен");
-      }
-
-      this.wantedMembersRepository.create(scientist);
+      this.finalizeSetupOfWantedMembers(scientist, result, project, "Учен");
     } else {
       this.removeWantedMember(project, "Учен");
     }
 
     if (musician != null && !musician.isEmpty()) {
-      musician.setUserCategory(this.getUserCategory("Музикант"));
-      musician.setProject(project);
-      result.add(musician);
-
-      if (this.hasProjectWantedMember(project, "Музикант")) {
-        this.removeWantedMember(project, "Музикант");
-      }
-
-      this.wantedMembersRepository.create(musician);
+      this.finalizeSetupOfWantedMembers(musician, result, project, "Музикант");
     } else {
       this.removeWantedMember(project, "Музикант");
     }
 
     if (filmmaker != null && !filmmaker.isEmpty()) {
-      filmmaker.setUserCategory(this.getUserCategory("Режисьор"));
-      filmmaker.setProject(project);
-      result.add(filmmaker);
-
-      if (this.hasProjectWantedMember(project, "Режисьор")) {
-        this.removeWantedMember(project, "Режисьор");
-      }
-
-      this.wantedMembersRepository.create(filmmaker);
+      this.finalizeSetupOfWantedMembers(filmmaker, result, project, "Режисьор");
     } else {
       this.removeWantedMember(project, "Режисьор");
     }
 
     if (productManager != null && !productManager.isEmpty()) {
-      productManager.setUserCategory(
-              this.getUserCategory("Продуктов мениджър"));
-      productManager.setProject(project);
-      result.add(productManager);
-
-      if (this.hasProjectWantedMember(project,
-              "Продуктов мениджър")) {
-        this.removeWantedMember(project, "Продуктов мениджър");
-      }
-
-      this.wantedMembersRepository.create(productManager);
+      this.finalizeSetupOfWantedMembers(productManager, result, project, "Продуктов мениджър");
     } else {
       this.removeWantedMember(project, "Продуктов мениджър");
     }
 
     if (artist != null && !artist.isEmpty()) {
-      artist.setUserCategory(this.getUserCategory("Артист"));
-      artist.setProject(project);
-      result.add(artist);
-
-      if (this.hasProjectWantedMember(project, "Артист")) {
-        this.removeWantedMember(project, "Артист");
-      }
-
-      this.wantedMembersRepository.create(artist);
+      this.finalizeSetupOfWantedMembers(artist, result, project, "Артист");
     } else {
       this.removeWantedMember(project, "Артист");
     }
-    //endregion
 
     return result;
   }
 
   private boolean hasProjectWantedMember(Project project, String category) {
-    for (WantedMember wantedMember
-            : project.getWantedMembers()) {
-      if (wantedMember.getUserCategory().getName().equals(category)) {
-        return true;
+    if (project.getWantedMembers() != null) {
+      for (WantedMember wantedMember
+              : project.getWantedMembers()) {
+        if (wantedMember.getUserCategory().getName().equals(category)) {
+          return true;
+        }
       }
     }
 
@@ -1865,10 +1296,8 @@ public class DbProjectsService implements IProjectsService {
   private WantedMember removeWantedMember(Project project, String category) {
     if (project.getWantedMembers() != null) {
       for (int i = 0; i < project.getWantedMembers().size(); i++) {
-        if (project.getWantedMembers().get(i)
-                .getUserCategory().getName().equals(category)) {
-          return this.wantedMembersRepository
-                  .delete(project.getWantedMembers().get(i));
+        if (project.getWantedMembers().get(i).getUserCategory().getName().equals(category)) {
+          return this.wantedMembersRepository.delete(project.getWantedMembers().get(i));
         }
       }
     }
@@ -2472,8 +1901,7 @@ public class DbProjectsService implements IProjectsService {
       newReview.setResponsibility(deleteProjectInfo.getResponsibility());
       newReview.setDescription(deleteProjectInfo.getReview());
       newReview.setTitle(projectToDelete.getName());
-      newReview.setWriter(this.usersRepository
-              .getById(projectToDelete.getCreator()));
+      newReview.setWriter(this.usersRepository.getById(projectToDelete.getCreator()));
       newReview.setUser(user);
       newReview.setRating(deleteProjectInfo.getRating());
       newReview.setActivities(deleteProjectInfo.getActivities());
@@ -2484,12 +1912,10 @@ public class DbProjectsService implements IProjectsService {
       user.setCommunication(sumCommunication / (user.getReviews().size() + 1));
       user.setInitiative(sumIniative / (user.getReviews().size() + 1));
       user.setLeadership(sumLeadership / (user.getReviews().size() + 1));
-      user.setResponsibility(sumResponsibility
-              / (user.getReviews().size() + 1));
+      user.setResponsibility(sumResponsibility / (user.getReviews().size() + 1));
       user.setInnovation(sumInnovation / (user.getReviews().size() + 1));
       user.setRating(sumRatings / (user.getReviews().size() + 1));
-      user.setJobsPercent((int) (((double) countCompleted
-              / (double) (user.getReviews().size() + 1)) * 100));
+      user.setJobsPercent((int) (((double) countCompleted / (double) (user.getReviews().size() + 1)) * 100));
 
       if (deleteProjectInfo.isRecommended()) {
         user.setRecommendations(user.getRecommendations() + 1);

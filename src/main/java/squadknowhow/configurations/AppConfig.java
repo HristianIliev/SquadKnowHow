@@ -69,9 +69,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IValidator<User> provideUsersValidator(
-          @Qualifier("PasswordValidator") IValidator<String> passwordValidator,
-          @Qualifier("EmailValidator") IValidator<String> emailValidator) {
+  IValidator<User> provideUsersValidator(@Qualifier("PasswordValidator") IValidator<String> passwordValidator,
+                                         @Qualifier("EmailValidator") IValidator<String> emailValidator) {
     return new UserValidator(passwordValidator, emailValidator);
   }
 
@@ -89,9 +88,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IValidator<EditedUser> provideEditedUserValidator(
-          @Qualifier("PasswordValidator") IValidator<String> passwordValidator,
-          @Qualifier("EmailValidator") IValidator<String> emailValidator) {
+  IValidator<EditedUser> provideEditedUserValidator(@Qualifier("PasswordValidator") IValidator<String> passwordValidator,
+                                                    @Qualifier("EmailValidator") IValidator<String> emailValidator) {
     return new EditedUserValidator(passwordValidator, emailValidator);
   }
 
@@ -121,10 +119,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<User> provideUsersGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<User> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<User> provideUsersGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<User> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(User.class);
 
     return repository;
@@ -132,10 +128,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<UserShort> provideUsersShortGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<UserShort> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<UserShort> provideUsersShortGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<UserShort> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(UserShort.class);
 
     return repository;
@@ -143,10 +137,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<TodoListEntry> provideTodoGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<TodoListEntry> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<TodoListEntry> provideTodoGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<TodoListEntry> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(TodoListEntry.class);
 
     return repository;
@@ -154,10 +146,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<CalendarEvent> provideCalendarEventsGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<CalendarEvent> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<CalendarEvent> provideCalendarEventsGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<CalendarEvent> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(CalendarEvent.class);
 
     return repository;
@@ -165,10 +155,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<Advice> provideAdvicesGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<Advice> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<Advice> provideAdvicesGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<Advice> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(Advice.class);
 
     return repository;
@@ -176,10 +164,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<WantedMember> provideWantedMembersGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<WantedMember> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<WantedMember> provideWantedMembersGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<WantedMember> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(WantedMember.class);
 
     return repository;
@@ -187,10 +173,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<Question> provideQuestionsGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<Question> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<Question> provideQuestionsGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<Question> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(Question.class);
 
     return repository;
@@ -198,10 +182,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<Update> provideUpdatesGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<Update> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<Update> provideUpdatesGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<Update> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(Update.class);
 
     return repository;
@@ -209,10 +191,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<City> provideCitiesGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<City> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<City> provideCitiesGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<City> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(City.class);
 
     return repository;
@@ -220,10 +200,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<Note> provideNotesGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<Note> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<Note> provideNotesGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<Note> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(Note.class);
 
     return repository;
@@ -231,10 +209,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<Company> provideCompaniesGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<Company> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<Company> provideCompaniesGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<Company> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(Company.class);
 
     return repository;
@@ -242,10 +218,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<Language> provideLanguagesGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<Language> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<Language> provideLanguagesGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<Language> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(Language.class);
 
     return repository;
@@ -253,10 +227,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<Group> provideGroupsGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<Group> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<Group> provideGroupsGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<Group> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(Group.class);
 
     return repository;
@@ -264,10 +236,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<Interest> provideInterestsGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<Interest> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<Interest> provideInterestsGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<Interest> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(Interest.class);
 
     return repository;
@@ -275,10 +245,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<Message> provideMessagesGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<Message> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<Message> provideMessagesGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<Message> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(Message.class);
 
     return repository;
@@ -286,10 +254,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<Notification> provideNotificationsGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<Notification> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<Notification> provideNotificationsGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<Notification> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(Notification.class);
 
     return repository;
@@ -297,10 +263,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<Project> provideProjectsGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<Project> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<Project> provideProjectsGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<Project> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(Project.class);
 
     return repository;
@@ -308,10 +272,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<Visit> provideVisitsGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<Visit> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<Visit> provideVisitsGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<Visit> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(Visit.class);
 
     return repository;
@@ -319,10 +281,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<ProjectShort> provideProjectsShortGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<ProjectShort> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<ProjectShort> provideProjectsShortGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<ProjectShort> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(ProjectShort.class);
 
     return repository;
@@ -330,10 +290,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<Skill> provideSkillsGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<Skill> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<Skill> provideSkillsGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<Skill> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(Skill.class);
 
     return repository;
@@ -341,10 +299,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<UserCategory> provideUserCategoriesGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<UserCategory> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<UserCategory> provideUserCategoriesGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<UserCategory> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(UserCategory.class);
 
     return repository;
@@ -352,10 +308,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<GroupShort> provideGroupsShortGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<GroupShort> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<GroupShort> provideGroupsShortGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<GroupShort> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(GroupShort.class);
 
     return repository;
@@ -363,10 +317,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<Auction> provideAuctionGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<Auction> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<Auction> provideAuctionGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<Auction> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(Auction.class);
 
     return repository;
@@ -374,10 +326,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<Bid> provideBidsGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<Bid> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<Bid> provideBidsGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<Bid> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(Bid.class);
 
     return repository;
@@ -385,10 +335,8 @@ public class AppConfig {
 
   @Bean
   @Autowired
-  IRepository<Review> provideReviewsGenericRepository(
-          SessionFactory sessionFactory) {
-    HibernateRepository<Review> repository =
-            new HibernateRepository<>(sessionFactory);
+  IRepository<Review> provideReviewsGenericRepository(SessionFactory sessionFactory) {
+    HibernateRepository<Review> repository = new HibernateRepository<>(sessionFactory);
     repository.setEntityClass(Review.class);
 
     return repository;

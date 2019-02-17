@@ -35,9 +35,7 @@ public class PeopleWebController {
   }
 
   @GetMapping("/user/{id}")
-  public String userProfile(@PathVariable("id") int id,
-                            Model model,
-                            Principal principal) {
+  public String userProfile(@PathVariable("id") int id, Model model, Principal principal) {
     User user = this.profileService.getUserByEmail(principal.getName());
     User profile = this.profileService.getUserById(id);
 
@@ -141,14 +139,10 @@ public class PeopleWebController {
     }
 
     model.addAttribute("user", user);
-    model.addAttribute("skills",
-            this.getCorrectString(user.getProfileSkills()));
-    model.addAttribute("interests",
-            this.getCorrectString(user.getProfileInterests()));
-    model.addAttribute("languages",
-            this.getCorrectString(user.getProfileLanguages()));
-    model.addAttribute("previousEmployment",
-            this.getCorrectString(user.getPreviousEmploymentString()));
+    model.addAttribute("skills", this.getCorrectString(user.getProfileSkills()));
+    model.addAttribute("interests", this.getCorrectString(user.getProfileInterests()));
+    model.addAttribute("languages", this.getCorrectString(user.getProfileLanguages()));
+    model.addAttribute("previousEmployment", this.getCorrectString(user.getPreviousEmploymentString()));
     model.addAttribute("hasImage", hasImage);
     model.addAttribute("isCreator", isCreator);
     model.addAttribute("city", city);
@@ -160,9 +154,7 @@ public class PeopleWebController {
   private String getCorrectString(String profileInfo) {
     if (profileInfo.equals("Няма въведени умения") ||
             profileInfo.equals("Няма въведени интереси") ||
-            profileInfo
-                    .equals("Няма предишни" +
-                            " работни места") ||
+            profileInfo.equals("Няма предишни работни места") ||
             profileInfo.equals("Няма въведени езици")) {
       return "";
     }

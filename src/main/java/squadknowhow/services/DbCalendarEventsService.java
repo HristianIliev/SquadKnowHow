@@ -20,12 +20,9 @@ public class DbCalendarEventsService implements ICalendarEventsService {
   private final IValidator<CalendarEvent> calendarEventValidator;
 
   @Autowired
-  public DbCalendarEventsService(IRepository<CalendarEvent>
-                                           calendarEventsRepository,
-                                 IValidator<Integer>
-                                         idValidator,
-                                 IValidator<CalendarEvent>
-                                           calendarEventValidator) {
+  public DbCalendarEventsService(IRepository<CalendarEvent> calendarEventsRepository,
+                                 IValidator<Integer> idValidator,
+                                 IValidator<CalendarEvent> calendarEventValidator) {
     this.calendarEventsRepository = calendarEventsRepository;
     this.idValidator = idValidator;
     this.calendarEventValidator = calendarEventValidator;
@@ -61,8 +58,7 @@ public class DbCalendarEventsService implements ICalendarEventsService {
       throw new InvalidParameterException("CalendarEvent is not valid");
     }
 
-    CalendarEvent calendarEventToUpdate = this.calendarEventsRepository
-            .getById(calendarEvent.getId());
+    CalendarEvent calendarEventToUpdate = this.calendarEventsRepository.getById(calendarEvent.getId());
     calendarEventToUpdate.setStart(calendarEvent.getStart());
     calendarEventToUpdate.setAllDay(calendarEvent.isAllDay());
     calendarEventToUpdate.setEnd(calendarEvent.getEnd());
@@ -77,8 +73,7 @@ public class DbCalendarEventsService implements ICalendarEventsService {
       throw new InvalidParameterException("ProjectId is not valid");
     }
 
-    this.calendarEventsRepository
-            .delete(this.calendarEventsRepository.getById(eventId));
+    this.calendarEventsRepository.delete(this.calendarEventsRepository.getById(eventId));
 
     return new ResponseSuccessful(true);
   }

@@ -72,8 +72,7 @@ public class DbGroupsService implements IGroupsService {
 
   // Uploads images path.
   @Override
-  public ResponseUpload uploadImage(MultipartFile multipart,
-                                    int id) throws IOException {
+  public ResponseUpload uploadImage(MultipartFile multipart, int id) throws IOException {
     if (!this.idValidator.isValid(id)) {
       throw new InvalidParameterException("Id is not valid");
     }

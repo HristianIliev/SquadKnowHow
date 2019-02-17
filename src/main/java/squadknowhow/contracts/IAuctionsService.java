@@ -11,8 +11,7 @@ import java.util.List;
 public interface IAuctionsService {
   List<Auction> getAuctions(String sortBy, int page);
 
-  ResponseCreateAuction createAuction(
-          AuctionData auctionData) throws ParseException;
+  ResponseCreateAuction createAuction(AuctionData auctionData) throws ParseException;
 
   boolean startFollowingAuction(int auctionId, int userId, String email);
 

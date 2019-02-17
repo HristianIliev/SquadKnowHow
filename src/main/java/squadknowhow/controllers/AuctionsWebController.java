@@ -38,16 +38,13 @@ public class AuctionsWebController {
   }
 
   @GetMapping("/auction/{id}")
-  public String auctionPage(@PathVariable("id") int id,
-                            Model model,
-                            Principal principal) {
+  public String auctionPage(@PathVariable("id") int id, Model model, Principal principal) {
     User user = this.profileService.getUserByEmail(principal.getName());
     Auction auction = this.auctionService.getAuction(id);
 
     boolean isOwner = this.isUserOwner(user, auction);
     boolean isMember = this.isUserMember(user, auction);
-    int workingOnProject = this.projectsService
-            .getWorkingOnProject(auction.getProjectId());
+    int workingOnProject = this.projectsService.getWorkingOnProject(auction.getProjectId());
     String sellerName = this.profileService.getUserName(auction.getCreatorId());
 
     model.addAttribute("user", user);
@@ -56,23 +53,19 @@ public class AuctionsWebController {
     model.addAttribute("isMember", isMember);
     model.addAttribute("workingOnProject", workingOnProject);
     model.addAttribute("sellerName", sellerName);
-    model.addAttribute("description",
-            this.projectsService.getDescription(auction.getProjectId()));
+    model.addAttribute("description", this.projectsService.getDescription(auction.getProjectId()));
 
     return "auction-page";
   }
 
   @GetMapping("/auction-admin/{id}")
-  public String auctionAdmin(@PathVariable("id") int id,
-                             Model model,
-                             Principal principal) {
+  public String auctionAdmin(@PathVariable("id") int id, Model model, Principal principal) {
     User user = this.profileService.getUserByEmail(principal.getName());
     Auction auction = this.auctionService.getAuction(id);
 
     boolean isOwner = this.isUserOwner(user, auction);
     boolean isMember = this.isUserMember(user, auction);
-    int workingOnProject = this.projectsService
-            .getWorkingOnProject(auction.getProjectId());
+    int workingOnProject = this.projectsService.getWorkingOnProject(auction.getProjectId());
     String sellerName = this.profileService.getUserName(auction.getCreatorId());
 
     model.addAttribute("user", user);
@@ -81,8 +74,7 @@ public class AuctionsWebController {
     model.addAttribute("isMember", isMember);
     model.addAttribute("workingOnProject", workingOnProject);
     model.addAttribute("sellerName", sellerName);
-    model.addAttribute("description",
-            this.projectsService.getDescription(auction.getProjectId()));
+    model.addAttribute("description", this.projectsService.getDescription(auction.getProjectId()));
 
     return "auction-page-admin";
   }

@@ -41,9 +41,7 @@ public class ProjectsWebController {
   }
 
   @GetMapping("/project/{id}")
-  public String projectPage(@PathVariable("id") int id,
-                            Model model,
-                            Principal principal) {
+  public String projectPage(@PathVariable("id") int id, Model model, Principal principal) {
     User user = this.profileService.getUserByEmail(principal.getName());
     Project project = this.projectsService.getProjectById(id);
 
@@ -99,9 +97,7 @@ public class ProjectsWebController {
   }
 
   @GetMapping("/project-admin/{id}")
-  public String projectAdmin(@PathVariable("id") int id,
-                             Model model,
-                             Principal principal) {
+  public String projectAdmin(@PathVariable("id") int id, Model model, Principal principal) {
     User user = this.profileService.getUserByEmail(principal.getName());
     Project project = this.projectsService.getProjectById(id);
 
@@ -179,9 +175,7 @@ public class ProjectsWebController {
   }
 
   @GetMapping("/edit-project/{id}")
-  public String editProject(@PathVariable("id") int id,
-                            Model model,
-                            Principal principal) {
+  public String editProject(@PathVariable("id") int id, Model model, Principal principal) {
     User user = this.profileService.getUserByEmail(principal.getName());
     Project project = this.projectsService.getProjectById(id);
 

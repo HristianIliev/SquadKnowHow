@@ -19,12 +19,10 @@ public class DbTodoListEntriesService implements ITodoListEntriesService {
   private final IRepository<TodoListEntry> todoListEntriesRepository;
 
   @Autowired
-  public DbTodoListEntriesService(IRepository<TodoListEntry>
-                                          todoListEntriesRepository,
+  public DbTodoListEntriesService(IRepository<TodoListEntry> todoListEntriesRepository,
                                   IRepository<Project> projectsRepository,
                                   IValidator<Integer> idValidator,
-                                  IValidator<ListEntry>
-                                          todoListEntryValidator) {
+                                  IValidator<ListEntry> todoListEntryValidator) {
     this.todoListEntriesRepository = todoListEntriesRepository;
     this.projectsRepository = projectsRepository;
     this.idValidator = idValidator;
@@ -65,8 +63,7 @@ public class DbTodoListEntriesService implements ITodoListEntriesService {
     todoListEntryToInsert.setDescription(todoListEntry.getDescription());
     todoListEntryToInsert.setDueDate(todoListEntry.getDueDate());
     todoListEntryToInsert.setDone(false);
-    todoListEntryToInsert.setProject(
-            this.projectsRepository.getById(todoListEntry.getProjectId()));
+    todoListEntryToInsert.setProject(this.projectsRepository.getById(todoListEntry.getProjectId()));
     this.todoListEntriesRepository.create(todoListEntryToInsert);
     return true;
   }

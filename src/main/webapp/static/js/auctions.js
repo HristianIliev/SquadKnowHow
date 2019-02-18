@@ -264,6 +264,7 @@ $(document).ready(function () {
                                         "id",
                                         "follow_" + result[i].id
                                       )
+                                      .addClass("followCheckbox")
                                       .text("+ Последвай")
                                     )
                                   )
@@ -295,8 +296,7 @@ $(document).ready(function () {
                               $.ajax({
                                 url: "/api/finishAuction?auctionId=" + auctionId,
                                 method: "GET",
-                                success: function () {
-                                }
+                                success: function () {}
                               });
                               $("#display_" + i).html(
                                 '<img class="item-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUSSURBVHhe7ZtvbBNlHMc7eWF4YYxKNL5TE40GNUZtt8QwNSFiBBeEGbnbkGTtwLBIzBYVDC6QLK2KDDFTWNTJ1la24trB2FAoo8PJpsPg/ii8sBrZvw5B3AZM2PDn/Y7nbne9p91Nr9vD8nySb9LdPf093+9369Yud7bpBgDSPL6Q6PYGm92+4AWUxxuKSF8LeI4sm50EAoE5UlC/VABQ5Q35cA1ZPvvweIPFE2GDY1LglmuSHk+U8BZZPrvYWlMz1+MLDmFI6cd+2O2ttZNTNnwsBR+5VkJwaHtj443k1OzB46vLVL/LvlAJOawiFeCeOF+XSQ6zyWPC6nnponOdQ3B+ni66AloVfvBpD00bdlT9oQRcv7NqDxmlgseU87iWNgMVvx96cIiuAvRERqUWR44rWwr/l7Q50KSESKZNFdUXyTiVTZ9VX6KtjRdtT1mC63y6kL+cjEsNdsG1SGp7nGqAiGaapo3l/t7XSnc+g9pY7uujraGJtqci9JYh5i8kdi0nzSE6T9I21opm2krR9tRKKuFn4tdapGYf0m70xMo1UFV/AMJt7TrRTFup+P0q9zbKXrTeHs/Ne5DYtg57jusF7SZFWz6U3rgZecdfRzVuhXA2DfSi9YZeiW3rsItOUbtJcdknZHs9FQ1NVPNWCGfTQC9ab+iV2LYOswWcHjwL2wIN1AD/Rziz58xZsosepgpARi9fgWhfDE7+3muJcBbOTARzBUw3vABeAC+AF6D1xgvgBfAC2C7g4tgodP4ZhcbeVln4GI/9V66bAvaeboHnD6+Hud6FYNu1QCc8liWdq+/5lqw2D/MF/DLcCwsOFBhCJ9JTX62D6HAfefbkMF1AJHYCbtu9mBo0mebtXgJHYx1kSnKYLQBf2zd/8Sw1oBnhc7vO/0qmJYbJAkbHL8M9tS9Rg01F9wVF+Hs88SdBhMkC3u3yUwOZ0ZzKTN3X73dXk6l0mCtg/J+rcHt1li6EGaXtyoQNx7fA1q5yXQl31GTBVWlmIpgroDn2oy6YGWH4t38ohZ/OtcrafGK77nzLYCeZboS5Ako6KnXmFd2S4BfiDZVPyoGV8O1nmsFev0q3xt3pJdONMFfA2tZSnXnUI/tyoS12BLKbinTH8Ufd3VGmhv9u8Ag8uu9l3RpUQVspmW6EuQJWflOiM4/feQyPAbvPHVNLwPDvdexQw+Oah+tydM9VhDMTwVwBhd+XGQJgaAyvlLAi8gZs6y5Xwx8bOAzzQ4LheYqK2svIdCPMFfDRqSA1xPKmQrUErVoGwnB/KPl7ho9Phch0I8wVgO/jaSFQ8SUc7T8E99ZmU9dq9dvIAJluhLkCEMf+1dQgKKWESP/XcPeXy6hrtMpoeIVMpcNkAQf72qlhFC0Ovwp37Zk8PCrcf5xMpcNkAYjQvJkaaCpK9ttfgdkC8L88yV4Kkyl9/xpT/ylitgBk6MoFeC78OjVgMi0Jvyk/1wxMF4DghyP802jmA9KdNUvltck+/MTDfAEKI2OXwBc9CC9GiuGBUC7c5F8kCx/jMX/0kLxmqlw3BaQKXgAvgBfAC9B64wXwAngBvABi2zrMXio7E8RfKusQ8pYS29ZBu1gaL1SOv3h5ukW7WNq+wjWf2LYWvBRduxGbcnYTu9aDNyNMdsPETAq9OcS8p4nd1IC3pci3p1AMzKhkT85lxGZqkW+aEvLXSo1XSJvrbmKabskeJC8Z2c5biT0Oh8PhmMNm+xfD36yEUJ6ReQAAAABJRU5ErkJggg=="> Приключил на ' +

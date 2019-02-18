@@ -3,6 +3,7 @@
 !gradle/wrapper/gradle-wrapper.jar
 /src/main/resources/hibernate.cfg.xml
 .env
+build.gradle
 db.sql
 Telerik Presentation.docx
 

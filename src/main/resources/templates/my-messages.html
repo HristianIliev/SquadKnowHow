@@ -373,6 +373,7 @@
     </script>
 
     <!-- Main-js -->
+    <script src="/static/js/animatedModal.min.js"></script>
     <script src="/static/js/my-messages.js"></script>
     <script src="/static/js/vendor.js"></script>
     <script src="/static/js/notifications.js"></script>
@@ -381,7 +382,7 @@
 
     <script src="/static/js/jquery-ui.min.js"></script>
     <script src="/static/js/easytimer.min.js"></script>
-    <script src="/static/js/animatedModal.min.js"></script>
+    
     <script src="https://cdn.agora.io/sdk/web/AgoraRTCSDK-2.4-latest.js"></script>
     <script>
         var indexOfUndescoreForUserId = $("body")
@@ -394,7 +395,10 @@
             hover: true,
             click: true
         });
-        $("#demo01").animatedModal();
+        // $(document).ready(function () {
+        //     $("#demo01").animatedModal();
+        // })
+
         var client = null;
         var audio = null;
         var localStream = null;

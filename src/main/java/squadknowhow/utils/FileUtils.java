@@ -5,25 +5,38 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Map;
 import java.util.Random;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.web.multipart.MultipartFile;
 
 public class FileUtils {
-  public static String convertToFilepath(
-          MultipartFile multipart) throws IOException {
+  private static final String CLOUDINARY_CLOUD_NAME = System.getenv("CLOUDINARY_CLOUD_NAME");
+  private static final String CLOUDINARY_API_KEY = System.getenv("CLOUDINARY_API_KEY");
+  private static final String CLOUDINARY_API_SECRET = System.getenv("CLOUDINARY_API_SECRET");
+
+  private static Cloudinary cloudinary;
+
+  static {
+    cloudinary = new Cloudinary(ObjectUtils.asMap(
+            "cloud_name", CLOUDINARY_CLOUD_NAME,
+            "api_key", CLOUDINARY_API_KEY,
+            "api_secret", CLOUDINARY_API_SECRET));
+  }
+
+  public static String convertToFilepath(MultipartFile multipart) throws IOException {
     if (multipart == null) {
       return "";
     }
 
-    String ext = multipart.getOriginalFilename()
-            .substring(multipart.getOriginalFilename().indexOf(".") + 1);
+    String ext = multipart.getOriginalFilename().substring(multipart.getOriginalFilename().indexOf(".") + 1);
     System.out.println(ext);
 
     File convFile = null;
-    String path = "./src/main/webapp/static/all-images/"
-            + getNameOfFile() + "." + ext;
+    String path = "./src/main/webapp/static/all-images/" + getNameOfFile() + "." + ext;
     convFile = new File(path);
     boolean resultCreate = convFile.createNewFile();
     if (resultCreate) {
@@ -35,24 +48,37 @@ public class FileUtils {
     FileOutputStream fos = new FileOutputStream(convFile);
     fos.write(multipart.getBytes());
     fos.close();
-    path = path.substring(path.indexOf("/static"));
-    return path;
+
+    File toUpload = new File(path);
+    Map uploadResult = cloudinary.uploader().upload(toUpload, ObjectUtils.emptyMap());
+    if (toUpload.delete()) {
+      System.out.println("Deleted file");
+    }
+
+    return uploadResult.get("url").toString();
+//    path = path.substring(path.indexOf("/static"));
+//    return path;
   }
 
   public static String convertToFilepathFromBase64(String base64Image,
-                                                   String extension)
-          throws IOException {
+                                                   String extension) throws IOException {
     base64Image = base64Image.substring(23);
     byte[] data = Base64.decodeBase64(base64Image);
-    String path = "./src/main/webapp/static/all-images/"
-            + getNameOfFile() + "." + extension;
+    String path = "./src/main/webapp/static/all-images/" + getNameOfFile() + "." + extension;
 
     try (OutputStream stream = new FileOutputStream(path)) {
       stream.write(data);
     }
 
-    path = path.substring(path.indexOf("/static"));
-    return path;
+    File toUpload = new File(path);
+    Map uploadResult = cloudinary.uploader().upload(toUpload, ObjectUtils.emptyMap());
+    if (toUpload.delete()) {
+      System.out.println("Deleted file");
+    }
+
+    return uploadResult.get("url").toString();
+//    path = path.substring(path.indexOf("/static"));
+//    return path;
   }
 
   private static String getNameOfFile() {
@@ -67,10 +93,20 @@ public class FileUtils {
     return salt.toString();
   }
 
-  public static boolean deleteFile(String path) {
-    File file = new File("./src/main/webapp" + path);
-
-    return file.delete();
+  public static void deleteFile(String path) {
+    try {
+      if (path != null) {
+        String[] tokens = path.split("/");
+        String path2 = tokens[tokens.length - 1];
+        String publicId = path2.substring(0, path2.length() - 4);
+        cloudinary.uploader().destroy(publicId, ObjectUtils.emptyMap());
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+//    File file = new File("./src/main/webapp" + path);
+//
+//    return file.delete();
   }
 
   public static byte[] toByteArray(File file) throws IOException {

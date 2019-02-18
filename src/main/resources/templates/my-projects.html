@@ -227,6 +227,12 @@
       <div th:replace="fragments/headerSignedIn :: header('my-projects')"></div>
 
       <div class="row column-container">
+        <div class="col-xs-12 col-sm-12 col-md-12 mb30">
+          <button id="start-a-project-btn" class="shouldSendId white-button-with-border button-white-bg button-outline"
+            data-toggle="modal" data-target="#newProjectModal">
+            <i class="fa fa-plus"></i> Започни проект
+          </button>
+        </div>
         <div class="col-sm-6 col-md-4">
           <div class="label">
             <h1 th:inline="text">

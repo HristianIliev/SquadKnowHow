@@ -976,7 +976,8 @@
 }
 
 @media (min-width: 1024px) {
-  #feature-page {
+  #feature-page, #blog-page, #faq-page {
+    background-color: white;
     background-position: top;
     background-size: 100%;
     background-repeat: repeat-y;

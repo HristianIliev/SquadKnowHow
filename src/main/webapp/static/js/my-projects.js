@@ -7,6 +7,10 @@ var id = $("body")
   .attr("id")
   .substring(indexOfUndescoreForUserId + 1);
 
+$("#start-a-project-btn").click(function () {
+  window.location.href = "/create-project";
+});
+
 getProjectsOfUser();
 
 function getProjectsOfUser() {

@@ -65,9 +65,6 @@ if (annyang) {
     "отиди на контакти": function () {
       window.location.replace("/home");
     },
-    "мими": function () {
-      alert("Обичам те");
-    },
     "кажи здравей за демото": function () {
       var audio = new Audio("/static/audio/greeting.mp3");
       audio.play();
@@ -228,7 +225,7 @@ function populateGroups(result) {
                   )
                   .append(
                     $("<a/>")
-                    .attr("href", "/group/")
+                    .attr("href", "/group/" + groups[i].id)
                     .append(
                       $("<div/>")
                       .addClass("mask")

@@ -448,11 +448,6 @@ public class DbProfileService implements IProfileService {
 
     String path = FileUtils.convertToFilepathFromBase64(base64.getBase64(), base64.getExtension());
 
-    int indexOf = path.indexOf("/static");
-    if (indexOf != -1) {
-      path = path.substring(path.indexOf("/static"));
-    }
-
     User user = this.usersRepository.getById(id);
 
     FileUtils.deleteFile(user.getImage());

@@ -88,10 +88,6 @@ public class DbRegistrationService implements IRegistrationService {
     }
 
     String path = FileUtils.convertToFilepath(multipart);
-    int indexOf = path.indexOf("/static");
-    if (indexOf != -1) {
-      path = path.substring(path.indexOf("/static"));
-    }
 
     User user = this.usersRepository.getById(id);
 
@@ -543,7 +539,7 @@ public class DbRegistrationService implements IRegistrationService {
         userToChange.setDegree("Доктор");
         break;
       default:
-        userToChange.setDegree("В училище");
+        userToChange.setDegree(null);
     }
 
     userToChange.setPersonalSite(newInfo.getPersonalSite());

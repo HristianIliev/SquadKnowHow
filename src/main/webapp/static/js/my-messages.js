@@ -445,6 +445,8 @@ $(".nav-item").click(function () {
   $(this).addClass("my-active");
 });
 
+$("#demo01").animatedModal();
+
 $(".preloader").fadeOut(500);
 
 $("#pills-home-tab").click(function (e) {

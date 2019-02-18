@@ -1338,11 +1338,6 @@ public class DbProjectsService implements IProjectsService {
 
     Project project = this.getProjectById(id);
 
-    int indexOf = path.indexOf("/static");
-    if (indexOf != -1) {
-      path = path.substring(path.indexOf("/static"));
-    }
-
     switch (fileName) {
       case "1":
         FileUtils.deleteFile(project.getPicture1());
@@ -1397,20 +1392,14 @@ public class DbProjectsService implements IProjectsService {
     }
 
     String path = FileUtils.convertToFilepath(multipart);
-    int indexOf = path.indexOf("/static");
-    if (indexOf != -1) {
-      path = path.substring(path.indexOf("/static"));
 
-      Project project = this.getProjectById(id);
+    Project project = this.getProjectById(id);
 
-      FileUtils.deleteFile(project.getCover());
-      project.setCover(path);
+    FileUtils.deleteFile(project.getCover());
+    project.setCover(path);
 
-      this.projectsRepository.update(project);
-      return new ResponseUpload(false);
-    }
-
-    return new ResponseUpload(true);
+    this.projectsRepository.update(project);
+    return new ResponseUpload(false);
   }
 
   @Override

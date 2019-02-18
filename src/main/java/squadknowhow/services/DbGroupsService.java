@@ -81,16 +81,10 @@ public class DbGroupsService implements IGroupsService {
 
     Group group = this.groupsRepository.getById(id);
 
-    int indexOf = path.indexOf("/static");
-    if (indexOf != -1) {
-      path = path.substring(indexOf);
-      group.setLogo(path);
-      this.groupsRepository.update(group);
+    group.setLogo(path);
+    this.groupsRepository.update(group);
 
-      return new ResponseUpload(false);
-    }
-
-    return new ResponseUpload(true);
+    return new ResponseUpload(false);
   }
 
   @Override

@@ -275,9 +275,9 @@
                                 <div class="form-group">
                                     <label for="education-profile" class="col-md-4 control-label" style="text-align:right;">Образование</label>
                                     <div class="col-md-8"><select name="education" id="education-profile" class="custom-select">
+                                            <option value="0" th:selected="${user.getEducationId() == 0}">Не е указано</option>
                                             <option value="1" th:selected="${user.getEducationId() == 1}">В училище</option>
-                                            <option value="2" th:selected="${user.getEducationId() == 2}">Професионален
-                                                бакалавър</option>
+                                            <option value="2" th:selected="${user.getEducationId() == 2}">Професионаленбакалавър</option>
                                             <option value="3" th:selected="${user.getEducationId() == 3}">Бакалавър</option>
                                             <option value="4" th:selected="${user.getEducationId() == 4}">Магистър</option>
                                             <option value="5" th:selected="${user.getEducationId() == 5}">Доктор</option>

@@ -107,52 +107,52 @@
 }
 
 .move-out-from-left {
-    animation: moveOutLeft 0.5s ease-in-out;
+    animation: moveOutLeft 1s ease-in-out;
 }
 
 .move-out-from-right {
-    animation: moveOutRight 0.5s ease-in-out;
+    animation: moveOutRight 1s ease-in-out;
 }
 
 .move-to-position5-from-left {
-    animation: moveToP5Left 0.5s ease-in-out;
+    animation: moveToP5Left 1s ease-in-out;
 }
 
 .move-to-position4-from-left {
-    animation: moveToP4Left 0.5s ease-in-out;
+    animation: moveToP4Left 1s ease-in-out;
 }
 
 .move-to-position3-from-left {
-    animation: moveToP3Left 0.5s ease-in-out;
+    animation: moveToP3Left 1s ease-in-out;
 }
 
 .move-to-position2-from-left {
-    animation: moveToP2Left 0.5s ease-in-out;
+    animation: moveToP2Left 1s ease-in-out;
 }
 
 
 .move-to-position1-from-left {
-    animation: moveToP1Left 0.5s ease-in-out;
+    animation: moveToP1Left 1s ease-in-out;
 }
 
 .move-to-position5-from-right {
-    animation: moveToP5Right 0.5s ease-in-out;
+    animation: moveToP5Right 1s ease-in-out;
 }
 
 .move-to-position4-from-right {
-    animation: moveToP4Right 0.5s ease-in-out;
+    animation: moveToP4Right 1s ease-in-out;
 }
 
 .move-to-position3-from-right {
-    animation: moveToP3Right 0.5s ease-in-out;
+    animation: moveToP3Right 1s ease-in-out;
 }
 
 .move-to-position2-from-right {
-    animation: moveToP2Right 0.5s ease-in-out;
+    animation: moveToP2Right 1s ease-in-out;
 }
 
 .move-to-position1-from-right {
-    animation: moveToP1Right 0.5s ease-in-out;
+    animation: moveToP1Right 1s ease-in-out;
 }
 
 @keyframes moveOutLeft {

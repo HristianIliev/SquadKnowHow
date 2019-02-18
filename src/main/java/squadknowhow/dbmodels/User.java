@@ -544,7 +544,12 @@ public class User implements Model {
 
   @JsonIgnore
   public int getEducationId() {
-    switch (this.getDegree()) {
+    String degree = this.getDegree();
+    if (degree == null) {
+      return 0;
+    }
+
+    switch (degree) {
       case "В училище":
         return 1;
       case "Професионален бакалавър":

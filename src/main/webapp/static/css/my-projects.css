@@ -26,8 +26,12 @@
   background-color: #c7e1f1;
 }
 
+.mb30 {
+  margin-bottom: 30px;
+}
+
 .column-container {
-  margin-top: 60px;
+  margin-top: 30px;
   margin-left: 100px;
   margin-right: 100px;
 }

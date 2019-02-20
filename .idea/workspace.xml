@@ -3,9 +3,45 @@
   <component name="ChangeListManager">
     <list default="true" id="59602243-1f34-401f-9618-ce8bc5462a69" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/utils/FileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/people-logged.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/people-logged.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/people.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/people.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/people.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/people.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/activation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/activation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/auction-page-admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/auction-page-admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/auction-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/auction-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/auctions.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/auctions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create-group.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create-group.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create-project.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create-project.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/forgot-password.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/forgot-password.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/group-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/group-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/groups-logged.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/groups-logged.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/groups.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/groups.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/my-messages.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/my-messages.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/my-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/my-profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/my-projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/my-projects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/notes.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/notes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/people-logged.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/people-logged.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/people.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/people.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/presentation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/presentation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/profile-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/profile-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/project-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/project-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/project-page-admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/project-page-admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/project-page-member.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/project-page-member.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/project-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/project-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/projects-logged.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/projects-logged.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/projects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register-artist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register-artist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register-designer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register-designer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register-developer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register-developer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register-engineer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register-engineer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register-filmmaker.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register-filmmaker.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register-musician.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register-musician.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register-product-manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register-product-manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register-scientist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register-scientist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register-writer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register-writer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reset-password.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reset-password.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/sign-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/sign-in.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -134,7 +170,7 @@
           <entry key="dummy" value="102" />
           <entry key="gradle" value="229" />
           <entry key="html" value="113" />
-          <entry key="java" value="98650" />
+          <entry key="java" value="98651" />
           <entry key="properties" value="45" />
           <entry key="txt" value="55" />
           <entry key="xml" value="134" />
@@ -144,7 +180,7 @@
         <counts>
           <entry key="Groovy" value="229" />
           <entry key="HTML" value="113" />
-          <entry key="JAVA" value="98650" />
+          <entry key="JAVA" value="98651" />
           <entry key="PLAIN_TEXT" value="157" />
           <entry key="Properties" value="45" />
           <entry key="XML" value="134" />
@@ -214,8 +250,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/utils/FileUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="374">
+              <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -790,7 +826,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="68" />
     <option name="y" value="20" />
     <option name="width" value="1400" />
@@ -903,7 +939,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SearchEverywhereHistoryKey" value="Froala&#9;null&#9;null" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550688311641" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550689361907" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/checkstyle-config.xml" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -1534,8 +1570,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/utils/FileUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="374">
+          <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

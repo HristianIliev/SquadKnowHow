@@ -56,8 +56,6 @@ public class FileUtils {
     }
 
     return uploadResult.get("url").toString();
-//    path = path.substring(path.indexOf("/static"));
-//    return path;
   }
 
   public static String convertToFilepathFromBase64(String base64Image,
@@ -77,8 +75,6 @@ public class FileUtils {
     }
 
     return uploadResult.get("url").toString();
-//    path = path.substring(path.indexOf("/static"));
-//    return path;
   }
 
   private static String getNameOfFile() {
@@ -104,9 +100,6 @@ public class FileUtils {
     } catch (IOException e) {
       e.printStackTrace();
     }
-//    File file = new File("./src/main/webapp" + path);
-//
-//    return file.delete();
   }
 
   public static byte[] toByteArray(File file) throws IOException {

@@ -2,36 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59602243-1f34-401f-9618-ce8bc5462a69" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.5.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.5.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/squadknowhow/dbmodels/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/squadknowhow/dbmodels/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/squadknowhow/services/DbGroupsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/squadknowhow/services/DbGroupsService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/squadknowhow/services/DbProfileService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/squadknowhow/services/DbProfileService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/squadknowhow/services/DbRegistrationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/squadknowhow/services/DbRegistrationService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/squadknowhow/utils/FileUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/squadknowhow/utils/FileUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/my-messages.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/my-messages.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/my-projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/my-projects.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/profile-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/profile-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbGroupsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbGroupsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProfileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProjectsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProjectsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbRegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbRegistrationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/utils/FileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/my-messages.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/my-messages.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/my-projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/my-projects.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/profile-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/profile-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/css/3dcarousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/css/3dcarousel.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/css/landing-animation.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/css/landing-animation.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/css/my-projects.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/css/my-projects.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/auctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/auctions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/groups-logged.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/groups-logged.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/my-messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/my-messages.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/my-projects.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/my-projects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/people-logged.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/people-logged.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/people.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/people.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -98,12 +72,12 @@
     <session id="-487953935">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="169" />
+          <entry key="project.closed" value="170" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.10" value="13" />
           <entry key="project.open.time.10303" value="1" />
           <entry key="project.open.time.11" value="15" />
-          <entry key="project.open.time.12" value="22" />
+          <entry key="project.open.time.12" value="23" />
           <entry key="project.open.time.13" value="20" />
           <entry key="project.open.time.14" value="19" />
           <entry key="project.open.time.15" value="18" />
@@ -128,7 +102,7 @@
           <entry key="project.open.time.788" value="1" />
           <entry key="project.open.time.8" value="12" />
           <entry key="project.open.time.9" value="25" />
-          <entry key="project.opened" value="216" />
+          <entry key="project.opened" value="217" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -240,8 +214,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/utils/FileUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="114" column="5" lean-forward="true" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
+            <state relative-caret-position="330">
+              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -841,6 +815,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -921,7 +896,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -929,7 +903,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SearchEverywhereHistoryKey" value="Froala&#9;null&#9;null" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550519624854" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550688311641" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/checkstyle-config.xml" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -1154,7 +1128,7 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.92827445" visible="true" weight="0.21321961" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.92827445" visible="true" weight="0.2153518" />
       <window_info id="Structure" order="1" sideWeight="0.5010395" side_tool="true" weight="0.21055438" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1163,7 +1137,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.07172557" side_tool="true" weight="0.21055438" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32952183" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33367983" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33367983" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991684" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1560,8 +1534,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/utils/FileUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="114" column="5" lean-forward="true" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
+        <state relative-caret-position="330">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

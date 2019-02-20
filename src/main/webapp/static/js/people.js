@@ -419,7 +419,7 @@ function populateUsers(result) {
     var profileCover = "";
     switch (users[i].skillset.name) {
       case "Програмист":
-        profileCover = "static/images/rotating_card_thumb2.png";
+        profileCover = "https://res.cloudinary.com/hpsh4d23h/image/upload/v1550688024/rotating_card_thumb2.png";
         profileStyle = "";
         break;
       case "Инженер":

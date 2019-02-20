@@ -355,6 +355,7 @@ function getProjectsOfUser() {
     });
   })
 
-
+  $("#demo01").animatedModal();
+  
   $(".preloader").fadeOut(500);
 }

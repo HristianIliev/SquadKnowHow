@@ -666,7 +666,7 @@ function populateUsers(result) {
                   .append(
                     $("<h4/>")
                     .addClass("text-center")
-                    .text("Образувание")
+                    .text("Образование")
                   )
                   .append(
                     $("<p/>")

@@ -3,11 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="59602243-1f34-401f-9618-ce8bc5462a69" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/Documentation.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/my-projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/my-projects.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/configurations/LogoutSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/configurations/LogoutSuccessHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/configurations/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/configurations/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/562.docx" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/562.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/562.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/562.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/SquadKnowHow Презентация.url" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/~$562.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/Рекламни материали.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/my-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/my-profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register-designer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register-designer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register-developer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register-developer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register-engineer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register-engineer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register-filmmaker.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register-filmmaker.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register-musician.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register-musician.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register-product-manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register-product-manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register-scientist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register-scientist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register-writer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register-writer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/people-logged.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/people-logged.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/people.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/people.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -181,8 +193,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/configurations/WebSecurityConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="90" column="52" lean-forward="true" selection-start-line="90" selection-start-column="52" selection-end-line="90" selection-end-column="52" />
+            <state relative-caret-position="307">
+              <caret line="85" column="15" selection-start-line="85" selection-start-column="15" selection-end-line="85" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -1573,8 +1585,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/configurations/WebSecurityConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="90" column="52" lean-forward="true" selection-start-line="90" selection-start-column="52" selection-end-line="90" selection-end-column="52" />
+        <state relative-caret-position="307">
+          <caret line="85" column="15" selection-start-line="85" selection-start-column="15" selection-end-line="85" selection-end-column="15" />
         </state>
       </provider>
     </entry>

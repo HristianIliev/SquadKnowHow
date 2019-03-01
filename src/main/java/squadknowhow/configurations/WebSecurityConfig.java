@@ -38,27 +38,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/",
                     "/css/**",
                     "/static/**",
-//                    "/api/**",
-                    "/api/contact",
-                    "/api/getCoordinates",
-                    "/api/getPotentialCandidates",
-                    "/api/getCities",
-                    "/api/getSkills",
-                    "/api/getLanguages",
-                    "/api/getPeoplePages",
-                    "/api/users",
-                    "/api/getProjectPages",
-                    "/api/projects",
-                    "/api/getGroupPages",
-                    "/api/groups",
-                    "/api/checkIfEmailIsTaken",
-                    "/api/uploadProfilePicture",
-                    "/api/register",
-                    "/api/areTagsCorrect",
-                    "/api/getEmployedBy",
-                    "/api/getInterests",
-                    "/api/reset-password",
-                    "/api/forgot-password",
+                    "/api/**",
+//                    "/api/contact",
+//                    "/api/getCoordinates",
+//                    "/api/getPotentialCandidates",
+//                    "/api/getCities",
+//                    "/api/getSkills",
+//                    "/api/getLanguages",
+//                    "/api/getPeoplePages",
+//                    "/api/users",
+//                    "/api/getProjectPages",
+//                    "/api/projects",
+//                    "/api/getGroupPages",
+//                    "/api/groups",
+//                    "/api/checkIfEmailIsTaken",
+//                    "/api/uploadProfilePicture",
+//                    "/api/register",
+//                    "/api/areTagsCorrect",
+//                    "/api/getEmployedBy",
+//                    "/api/getInterests",
+//                    "/api/reset-password",
+//                    "/api/forgot-password",
                     "/home",
                     "/",
                     "/people",
@@ -99,7 +99,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .addLogoutHandler(logoutSuccessHandler)
             .permitAll()
             .and()
-            .rememberMe().key("SquadKnowHow");
+            .rememberMe()
+            .key("SquadKnowHow");
   }
 
   @Autowired

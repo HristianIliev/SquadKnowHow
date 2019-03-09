@@ -713,7 +713,7 @@ $("#button-send-all-message").click(function (e) {
     message: "Напиши своето съобщение:",
     input: [
       '<input id="new-message-topic" name="topic" type="text" placeholder="Тема" required />',
-      '<div class="form-group"><textarea id="new-message-content" name="content" class="form-control" placeholder="Съдържание" rows="10"></textarea></div>'
+      '<div class="form-group"><textarea id="new-message-content" name="content" class="form-control" placeholder="Съдържание" rows="10" required></textarea></div>'
     ].join(""),
     buttons: [
       $.extend({}, vex.dialog.buttons.YES, {

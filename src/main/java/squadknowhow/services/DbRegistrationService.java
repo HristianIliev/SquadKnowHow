@@ -300,6 +300,7 @@ public class DbRegistrationService implements IRegistrationService {
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
     userToInsert.setDateCreated(sdf.format(now));
+    userToInsert.setShowGithubStatistics(true);
 
     this.usersRepository.create(userToInsert);
 
@@ -612,6 +613,8 @@ public class DbRegistrationService implements IRegistrationService {
     } else {
       userToChange.setPreviousEmployment(null);
     }
+
+    userToChange.setGithubUsername(newInfo.getGithubUsername());
 
     this.usersRepository.update(userToChange);
     return true;

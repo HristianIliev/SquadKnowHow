@@ -83,4 +83,8 @@ public interface IProfileService extends UserDetailsService {
   boolean changeImage(int id, RequestBase64 base64) throws IOException;
 
   ResponseSuccessful deleteNotifications(int id);
+
+  boolean stopGithubStatistics(int id);
+
+  boolean startGithubStatistics(int id);
 }

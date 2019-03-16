@@ -191,6 +191,8 @@ public class User implements Model {
   private String activationKey;
   @Column(name = "dateCreated")
   private String dateCreated;
+  @Column(name = "showGithubStatistics")
+  private boolean showGithubStatistics;
 
   public User() {
 
@@ -944,5 +946,13 @@ public class User implements Model {
 
   public void setDateCreated(String dateCreated) {
     this.dateCreated = dateCreated;
+  }
+
+  public boolean isShowGithubStatistics() {
+    return showGithubStatistics;
+  }
+
+  public void setShowGithubStatistics(boolean showGithubStatistics) {
+    this.showGithubStatistics = showGithubStatistics;
   }
 }

@@ -473,6 +473,32 @@ public class DbProfileService implements IProfileService {
     return new ResponseSuccessful(true);
   }
 
+  @Override
+  public boolean stopGithubStatistics(int id) {
+    if (!this.idValidator.isValid(id)) {
+      throw new InvalidParameterException("Id is not valid");
+    }
+
+    User user = this.usersRepository.getById(id);
+    user.setShowGithubStatistics(false);
+    this.usersRepository.update(user);
+
+    return true;
+  }
+
+  @Override
+  public boolean startGithubStatistics(int id) {
+    if (!this.idValidator.isValid(id)) {
+      throw new InvalidParameterException("Id is not valid");
+    }
+
+    User user = this.usersRepository.getById(id);
+    user.setShowGithubStatistics(true);
+    this.usersRepository.update(user);
+
+    return true;
+  }
+
   // helper method for creating a timestamp with the date and the time.
   private String createTimestamp() {
     Calendar calendar = Calendar.getInstance();

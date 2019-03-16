@@ -234,7 +234,7 @@
                                 </div>
                             </div>
                             <div class="form-buttons">
-                                <button class="profile-edit-button-red" style="margin-right: 10px"><i class="fas fa-times"></i>
+                                <button class="profile-edit-button-red profile-delete-btn" style="margin-right: 10px"><i class="fas fa-times"></i>
                                     Изтрий профила</button>
                                 <button type="submit" class="profile-edit-button-green personal-information-change"><i
                                         class="fa fa-check"></i>
@@ -300,9 +300,19 @@
                                     <div class="col-md-8"><input th:value="${previousEmployment}" id="previous-employer-profile"
                                             type="text" class="form-control" style="padding: 6px 12px;margin-bottom: 0px;"></div>
                                 </div>
+                                <div class="form-group" th:if="${user.getGithubUsername() != null}">
+                                    <label for="github-profile" class="col-md-4 control-label" style="text-align:right;">Github
+                                        профил</label>
+                                    <div class="col-md-8"><input th:value="${user.getGithubUsername()}" id="github-profile"
+                                            type="text" class="form-control" style="padding: 6px 12px;margin-bottom: 0px;"></div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-buttons">
+                            <button th:if="${user.isShowGithubStatistics()}" class="profile-edit-button-red profile-github-contributions" style="margin-right: 10px"><i class="fab fa-github"></i>
+                                Спри показването на Github активност</button>
+                            <button th:if="${!user.isShowGithubStatistics()}" class="profile-edit-button-green profile-github-contributions-show" style="margin-right: 10px"><i class="fab fa-github"></i>
+                                Показвай Github активност</button>
                             <button type="submit" class="profile-edit-button-green other-information-change"><i class="fa fa-check"></i>
                                 Промени данните
                             </button>

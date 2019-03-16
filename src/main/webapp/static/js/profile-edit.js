@@ -250,7 +250,27 @@ function setUpAutocomplete() {
 }
 
 $(document).ready(function () {
-  $(".profile-edit-button-red").click(function () {
+  $(".profile-github-contributions").click(function () {
+    $.ajax({
+      url: "/api/stopGithubStatistics?id=" + id,
+      method: "GET",
+      success: function (result) {
+        location.replace("/profile");
+      }
+    });
+  });
+
+  $(".profile-github-contributions-show").click(function () {
+    $.ajax({
+      url: "/api/startGithubStatistics?id=" + id,
+      method: "GET",
+      success: function (result) {
+        location.replace("/profile");
+      }
+    });
+  });
+
+  $(".profile-delete-btn").click(function () {
     $.confirm({
       title: "Потвърдете изтриването",
       content: "Сигурни ли сте, че искате да изтриете профила си?",
@@ -384,6 +404,10 @@ $(document).ready(function () {
     if ($("#previous-employer-profile").val() === '') {
       unemployed = true;
     }
+    var github = "";
+    if($("#github-profile").length !== 0){
+      github = $("#github-profile").val();
+    }
 
     var instance = $(this);
 
@@ -476,7 +500,8 @@ $(document).ready(function () {
           {
             name: previousEmployment[5]
           }
-        ]
+        ],
+        githubUsername: github
       }),
       contentType: "application/json",
       success: function (result) {

@@ -3,15 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="59602243-1f34-401f-9618-ce8bc5462a69" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/562.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/562.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/SquadKnowHow Softuniada documentation.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/Презентация SquadKnowHow.url" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/Рекламни материали/back.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/Рекламни материали/front.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/Рекламни материали/Рекламни материали.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/project-page-admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/project-page-admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/my-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/my-profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/contracts/IProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/contracts/IProfileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/restcontrollers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/restcontrollers/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProfileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbRegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbRegistrationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/my-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/my-profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/profile-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/profile-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/profile-edit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/profile-edit.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -78,9 +79,9 @@
     <session id="-487953935">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="180" />
+          <entry key="project.closed" value="182" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.10" value="14" />
+          <entry key="project.open.time.10" value="15" />
           <entry key="project.open.time.10303" value="1" />
           <entry key="project.open.time.11" value="15" />
           <entry key="project.open.time.12" value="25" />
@@ -105,11 +106,11 @@
           <entry key="project.open.time.35" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.52" value="1" />
-          <entry key="project.open.time.7" value="6" />
+          <entry key="project.open.time.7" value="7" />
           <entry key="project.open.time.788" value="1" />
           <entry key="project.open.time.8" value="12" />
           <entry key="project.open.time.9" value="25" />
-          <entry key="project.opened" value="231" />
+          <entry key="project.opened" value="233" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -117,7 +118,7 @@
           <entry key="class" value="10" />
           <entry key="gradle" value="7" />
           <entry key="html" value="9" />
-          <entry key="java" value="959" />
+          <entry key="java" value="963" />
           <entry key="java___jb_tmp___" value="1" />
           <entry key="properties" value="3" />
           <entry key="sql" value="1" />
@@ -129,7 +130,7 @@
           <entry key="CLASS" value="10" />
           <entry key="Groovy" value="7" />
           <entry key="HTML" value="9" />
-          <entry key="JAVA" value="959" />
+          <entry key="JAVA" value="963" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Properties" value="3" />
           <entry key="SQL" value="1" />
@@ -141,7 +142,7 @@
           <entry key="dummy" value="102" />
           <entry key="gradle" value="229" />
           <entry key="html" value="113" />
-          <entry key="java" value="98706" />
+          <entry key="java" value="99028" />
           <entry key="properties" value="45" />
           <entry key="txt" value="55" />
           <entry key="xml" value="134" />
@@ -151,7 +152,7 @@
         <counts>
           <entry key="Groovy" value="229" />
           <entry key="HTML" value="113" />
-          <entry key="JAVA" value="98706" />
+          <entry key="JAVA" value="99028" />
           <entry key="PLAIN_TEXT" value="157" />
           <entry key="Properties" value="45" />
           <entry key="XML" value="134" />
@@ -165,32 +166,32 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/configurations/WebSecurityConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="96" column="21" lean-forward="true" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/5.0.3.RELEASE/d9ea219dfab41c16f8535d191886e89ec8b32e37/spring-security-config-5.0.3.RELEASE-sources.jar!/org/springframework/security/config/annotation/web/configurers/ExpressionUrlAuthorizationConfigurer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1107">
-              <caret line="438" column="57" lean-forward="true" selection-start-line="438" selection-start-column="57" selection-end-line="438" selection-end-column="57" />
-              <folding>
-                <element signature="e#15689#15690#0" expanded="true" />
-                <element signature="e#15726#15727#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/restcontrollers/ProfileController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="130" column="51" lean-forward="true" selection-start-line="130" selection-start-column="51" selection-end-line="130" selection-end-column="51" />
+            <state relative-caret-position="330">
+              <caret line="50" column="60" selection-start-line="50" selection-start-column="60" selection-end-line="50" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/contracts/IProfileService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="461">
+              <caret line="88" column="40" selection-start-line="88" selection-start-column="40" selection-end-line="88" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="53" column="30" lean-forward="true" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
+              <folding>
+                <element signature="e#24048#24049#0" expanded="true" />
+                <element signature="e#24085#24086#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -198,8 +199,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/restcontrollers/RegistrationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="36" column="33" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
+            <state relative-caret-position="299">
+              <caret line="42" column="3" lean-forward="true" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbRegistrationService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="413">
+              <caret line="605" column="90" lean-forward="true" selection-start-line="605" selection-start-column="90" selection-end-line="605" selection-end-column="90" />
             </state>
           </provider>
         </entry>
@@ -207,8 +217,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/configurations/LogoutSuccessHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="352">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -216,17 +226,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProfileService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="543" selection-start-line="543" selection-end-line="543" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/controllers/ProjectsWebController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4312">
-              <caret line="212" column="28" selection-start-line="212" selection-start-column="28" selection-end-line="212" selection-end-column="28" />
+            <state relative-caret-position="439">
+              <caret line="493" lean-forward="true" selection-start-line="493" selection-end-line="493" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -270,7 +274,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>uploadProjectPicture</find>
       <find>uploadPictures</find>
       <find>uploadCover</find>
       <find>createProject</find>
@@ -295,11 +298,12 @@
       <find>recommendation</find>
       <find>uploadImage</find>
       <find>tinyMCE</find>
-      <find>changeOtherInfo</find>
       <find>convertToFilepath</find>
       <find>deleteProject</find>
       <find>notes</find>
       <find>logout</find>
+      <find>username</find>
+      <find>changeOtherInfo</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot;&quot;</replace>
@@ -757,7 +761,6 @@
         <option value="$PROJECT_DIR$/src/main/java/squadknowhow/restcontrollers/CalendarEventsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/squadknowhow/restcontrollers/ExternalAPIsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/squadknowhow/restcontrollers/PayPalController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/squadknowhow/contracts/IProfileService.java" />
         <option value="$PROJECT_DIR$/src/main/java/squadknowhow/services/PayPalService.java" />
         <option value="$PROJECT_DIR$/src/main/java/squadknowhow/restcontrollers/GroupsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/squadknowhow/contracts/IGroupsService.java" />
@@ -790,14 +793,15 @@
         <option value="$PROJECT_DIR$/src/main/java/squadknowhow/services/ExternalAPIsService.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProjectsService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProfileService.java" />
         <option value="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbGroupsService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbRegistrationService.java" />
         <option value="$PROJECT_DIR$/src/main/java/squadknowhow/utils/FileUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/squadknowhow/restcontrollers/ProfileController.java" />
         <option value="$PROJECT_DIR$/src/main/java/squadknowhow/configurations/LogoutSuccessHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/squadknowhow/configurations/WebSecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/squadknowhow/contracts/IProfileService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProfileService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/squadknowhow/restcontrollers/ProfileController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbRegistrationService.java" />
       </list>
     </option>
   </component>
@@ -808,8 +812,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="68" />
+    <option name="y" value="20" />
     <option name="width" value="1400" />
     <option name="height" value="824" />
   </component>
@@ -832,8 +836,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -940,6 +942,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1172,7 +1176,7 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.92827445" visible="true" weight="0.12686567" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.92827445" visible="true" weight="0.12899786" />
       <window_info id="Structure" order="1" sideWeight="0.5010395" side_tool="true" weight="0.21055438" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1181,7 +1185,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.07172557" side_tool="true" weight="0.21055438" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32952183" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33367983" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33367983" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991684" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1238,13 +1242,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1550">
           <caret line="46" column="33" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/contracts/IProfileService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="35" column="36" lean-forward="true" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -1451,13 +1448,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbRegistrationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10934">
-          <caret line="532" column="24" selection-start-line="532" selection-start-column="24" selection-end-line="532" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProjectsService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="37686">
@@ -1469,13 +1459,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7040">
           <caret line="368" column="14" selection-start-line="368" selection-start-column="14" selection-end-line="368" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9284">
-          <caret line="553" column="17" selection-start-line="553" selection-start-column="17" selection-end-line="553" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1517,10 +1500,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/restcontrollers/RegistrationController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/configurations/WebSecurityConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="36" column="33" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
+        <state relative-caret-position="320">
+          <caret line="93" column="34" selection-start-line="93" selection-start-column="34" selection-end-line="93" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/5.0.3.RELEASE/d9ea219dfab41c16f8535d191886e89ec8b32e37/spring-security-config-5.0.3.RELEASE-sources.jar!/org/springframework/security/config/annotation/web/configurers/ExpressionUrlAuthorizationConfigurer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8206">
+          <caret line="438" column="57" selection-start-line="438" selection-start-column="57" selection-end-line="438" selection-end-column="57" />
+          <folding>
+            <element signature="e#15689#15690#0" expanded="true" />
+            <element signature="e#15726#15727#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1552,42 +1546,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/contracts/IProfileService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="88" column="40" selection-start-line="88" selection-start-column="40" selection-end-line="88" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProfileService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="543" selection-start-line="543" selection-end-line="543" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/restcontrollers/ProfileController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="130" column="51" lean-forward="true" selection-start-line="130" selection-start-column="51" selection-end-line="130" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/5.0.3.RELEASE/d9ea219dfab41c16f8535d191886e89ec8b32e37/spring-security-config-5.0.3.RELEASE-sources.jar!/org/springframework/security/config/annotation/web/configurers/ExpressionUrlAuthorizationConfigurer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1107">
-          <caret line="438" column="57" lean-forward="true" selection-start-line="438" selection-start-column="57" selection-end-line="438" selection-end-column="57" />
+        <state relative-caret-position="439">
+          <caret line="493" lean-forward="true" selection-start-line="493" selection-end-line="493" />
           <folding>
-            <element signature="e#15689#15690#0" expanded="true" />
-            <element signature="e#15726#15727#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/configurations/LogoutSuccessHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="352">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/configurations/WebSecurityConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="96" column="21" lean-forward="true" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
+        <state relative-caret-position="350">
+          <caret line="53" column="30" lean-forward="true" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
+          <folding>
+            <element signature="e#24048#24049#0" expanded="true" />
+            <element signature="e#24085#24086#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/restcontrollers/RegistrationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="42" column="3" lean-forward="true" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/services/DbRegistrationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="605" column="90" lean-forward="true" selection-start-line="605" selection-start-column="90" selection-end-line="605" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/squadknowhow/restcontrollers/ProfileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="50" column="60" selection-start-line="50" selection-start-column="60" selection-end-line="50" selection-end-column="60" />
         </state>
       </provider>
     </entry>

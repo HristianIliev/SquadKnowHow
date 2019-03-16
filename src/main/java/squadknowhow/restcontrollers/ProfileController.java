@@ -33,6 +33,18 @@ public class ProfileController {
     this.profileService = profileService;
   }
 
+  @RequestMapping(value = "/stopGithubStatistics", method = RequestMethod.GET)
+  @ResponseBody
+  public boolean stopGithubStatistics(@RequestParam("id") int id){
+    return this.profileService.stopGithubStatistics(id);
+  }
+
+  @RequestMapping(value = "/startGithubStatistics", method = RequestMethod.GET)
+  @ResponseBody
+  public boolean startGithubStatistics(@RequestParam("id") int id){
+    return this.profileService.startGithubStatistics(id);
+  }
+
   @RequestMapping(value = "/changeImage", method = RequestMethod.POST)
   @ResponseBody
   public boolean changeImage(@RequestParam("id") int id,

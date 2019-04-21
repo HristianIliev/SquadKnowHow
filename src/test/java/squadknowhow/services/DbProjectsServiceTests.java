@@ -1112,9 +1112,6 @@ public class DbProjectsServiceTests {
     project.setPicture4("/test");
     project.setPicture5("/test");
     project.setPicture6("/test");
-    project.setPicture7("/test");
-    project.setPicture8("/test");
-    project.setPicture9("/test");
     project.setAdvices(advices);
     project.setCreator(0);
     project.setUpdates(new ArrayList<>(Collections.singletonList(new Update())));
@@ -2412,9 +2409,6 @@ public class DbProjectsServiceTests {
     project.setPicture4("/test");
     project.setPicture5("/test");
     project.setPicture6("/test");
-    project.setPicture7("/test");
-    project.setPicture8("/test");
-    project.setPicture9("/test");
     when(this.projectsRepositoryMock.getById(projectId)).thenReturn(project);
 
     List<FineUploaderImage> actual = sut.getProjectImages(projectId);
@@ -2440,9 +2434,6 @@ public class DbProjectsServiceTests {
     project.setPicture4("test");
     project.setPicture5("test");
     project.setPicture6("test");
-    project.setPicture7("test");
-    project.setPicture8("test");
-    project.setPicture9("test");
     when(this.projectsRepositoryMock.getById(projectId)).thenReturn(project);
 
     int actual1 = sut.deleteProjectFile(projectId, 1);

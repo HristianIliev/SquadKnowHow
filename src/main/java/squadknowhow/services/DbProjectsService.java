@@ -1363,18 +1363,6 @@ public class DbProjectsService implements IProjectsService {
         FileUtils.deleteFile(project.getPicture6());
         project.setPicture6(path);
         break;
-      case "7":
-        FileUtils.deleteFile(project.getPicture7());
-        project.setPicture7(path);
-        break;
-      case "8":
-        FileUtils.deleteFile(project.getPicture8());
-        project.setPicture8(path);
-        break;
-      case "9":
-        FileUtils.deleteFile(project.getPicture9());
-        project.setPicture9(path);
-        break;
       default:
         throw new InvalidParameterException("File name is not valid");
     }
@@ -1574,36 +1562,6 @@ public class DbProjectsService implements IProjectsService {
               new FileUploaderParameters(projectId, 6)));
     }
 
-    if (isNotNull(project.getPicture7())) {
-      result.add(new FineUploaderImage(
-              this.getNameOfFile(project.getPicture7()),
-              generateUUID(),
-              project.getPicture7(),
-              FileUtils.getSizeOfFile(project.getPicture7()),
-              "/api/deleteProjectFile",
-              new FileUploaderParameters(projectId, 7)));
-    }
-
-    if (isNotNull(project.getPicture8())) {
-      result.add(new FineUploaderImage(
-              this.getNameOfFile(project.getPicture8()),
-              generateUUID(),
-              project.getPicture8(),
-              FileUtils.getSizeOfFile(project.getPicture8()),
-              "/api/deleteProjectFile",
-              new FileUploaderParameters(projectId, 8)));
-    }
-
-    if (isNotNull(project.getPicture9())) {
-      result.add(new FineUploaderImage(
-              this.getNameOfFile(project.getPicture9()),
-              generateUUID(),
-              project.getPicture9(),
-              FileUtils.getSizeOfFile(project.getPicture9()),
-              "/api/deleteProjectFile",
-              new FileUploaderParameters(projectId, 9)));
-    }
-
     return result;
   }
 
@@ -1638,18 +1596,6 @@ public class DbProjectsService implements IProjectsService {
       case 6:
         FileUtils.deleteFile(project.getPicture6());
         project.setPicture6(null);
-        break;
-      case 7:
-        FileUtils.deleteFile(project.getPicture7());
-        project.setPicture7(null);
-        break;
-      case 8:
-        FileUtils.deleteFile(project.getPicture8());
-        project.setPicture8(null);
-        break;
-      case 9:
-        FileUtils.deleteFile(project.getPicture9());
-        project.setPicture9(null);
         break;
       default:
         return STATUS_NOT_FOUND;
@@ -1793,21 +1739,6 @@ public class DbProjectsService implements IProjectsService {
     if (projectToDelete.getPicture6() != null
             && !projectToDelete.getPicture6().isEmpty()) {
       FileUtils.deleteFile(projectToDelete.getPicture6());
-    }
-
-    if (projectToDelete.getPicture7() != null
-            && !projectToDelete.getPicture7().isEmpty()) {
-      FileUtils.deleteFile(projectToDelete.getPicture7());
-    }
-
-    if (projectToDelete.getPicture8() != null
-            && !projectToDelete.getPicture8().isEmpty()) {
-      FileUtils.deleteFile(projectToDelete.getPicture8());
-    }
-
-    if (projectToDelete.getPicture9() != null
-            && !projectToDelete.getPicture9().isEmpty()) {
-      FileUtils.deleteFile(projectToDelete.getPicture9());
     }
 
     if (projectToDelete.getListEntries() != null) {

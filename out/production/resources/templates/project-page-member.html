@@ -21,8 +21,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+        integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
     <!-- Material Design Bootstrap -->
     <link href="/static/css/mdb.min.css" rel="stylesheet">
@@ -70,15 +70,18 @@
 
     <link rel="stylesheet" href="/static/css/footer-distributed.css">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="/static/js/moment.js"></script>
     <script src="/static/js/fullcalendar.min.js"></script>
     <script src="/static/js/locale-all.js"></script>
     <link rel="stylesheet" href="/static/css/fullcalendar.min.css">
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha18/js/tempusdominus-bootstrap-4.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha18/css/tempusdominus-bootstrap-4.min.css" />
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha18/js/tempusdominus-bootstrap-4.min.js">
+    </script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha18/css/tempusdominus-bootstrap-4.min.css" />
 
     <style>
         @media(max-width: 1281px) {
@@ -367,23 +370,23 @@
     <link rel="stylesheet" href="/static/css/project-page-admin-regulator.css">
 
     <style>
-            .cd-timeline__date{
-                    font-size: 16px !important;
-        font-weight: 400 !important;
-            }
-    
-            .cd-timeline__content > h2 {
-                font-size: 20px !important;
-                font-weight: 400 !important;
-            }
-    
-            .cd-timeline__content > p {
-                font-size: 16px !important;
-                font-weight: 400 !important;
-            }
-        </style>
-        
-        <link rel="stylesheet" href="/static/css/updates_commentsRegulator.css">
+        .cd-timeline__date {
+            font-size: 16px !important;
+            font-weight: 400 !important;
+        }
+
+        .cd-timeline__content>h2 {
+            font-size: 20px !important;
+            font-weight: 400 !important;
+        }
+
+        .cd-timeline__content>p {
+            font-size: 16px !important;
+            font-weight: 400 !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="/static/css/updates_commentsRegulator.css">
 </head>
 
 <body th:id="'user-id_' + ${user.getId()}" data-spy="scroll" class="gray-bg-my-profile">
@@ -398,7 +401,9 @@
 
             <div class="note-btn__uLJR" title="Бележки">
                 <svg viewBox="0 0 24 24" width="1em" height="1em" class="icon__3Su4">
-                    <path fill-rule="evenodd" d="M4 8l6-6h8c1.1 0 2 .9 2 2v16c0 1.1-.89 2-1.99 2H6c-1.1 0-2-.9-2-2V8zm14.01 12V4H11v5H6v11h12.01z"></path>
+                    <path fill-rule="evenodd"
+                        d="M4 8l6-6h8c1.1 0 2 .9 2 2v16c0 1.1-.89 2-1.99 2H6c-1.1 0-2-.9-2-2V8zm14.01 12V4H11v5H6v11h12.01z">
+                    </path>
                 </svg>
             </div>
             <div class="note-editor-wrapper">
@@ -407,119 +412,133 @@
                 </div>
             </div>
 
-            <div class="card card-smth">
-                <div class="card-body animated zoomIn wow">
+            <div class="card card-smth" style="margin-top: 15px;margin-bottom: 15px;">
+                <div class="card-body animated zoomIn">
                     <ul class="nav nav-pills mb-3 nav-fill nav-justified" id="pills-tab" role="tablist">
                         <li class="nav-item active my-active unstyled">
-                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
-                                aria-controls="pills-home" aria-selected="true">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
+                                role="tab" aria-controls="pills-home" aria-selected="true" style="margin-bottom: 10px;">
                                 <i class="fa fa-info-circle"></i> Проект</a>
                         </li>
                         <li class="nav-item unstyled">
-                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
-                                aria-controls="pills-profile" aria-selected="false">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
+                                role="tab" aria-controls="pills-profile" aria-selected="false"
+                                style="margin-bottom: 10px;">
                                 <i class="fas fa-unlock-alt"></i> Панел на участника</a>
                         </li>
                         <li class="nav-item unstyled">
-                            <a class="nav-link" id="pills-calendar-tab" data-toggle="pill" href="#pills-calendar" role="tab"
-                                aria-controls="pills-calendar" aria-selected="false">
+                            <a class="nav-link" id="pills-calendar-tab" data-toggle="pill" href="#pills-calendar"
+                                role="tab" aria-controls="pills-calendar" aria-selected="false"
+                                style="margin-bottom: 10px;">
                                 <i class="far fa-calendar-alt"></i> Календар със събитията</a>
                         </li>
                     </ul>
+                </div>
+            </div>
 
-                    <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane active animated fadeInUp" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
-                            style="margin-right: 15px;">
-                            <div class="row">
+
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane active animated fadeInUp" id="pills-home" role="tabpanel"
+                    aria-labelledby="pills-home-tab">
+                    <div class="card card-smth" style="margin-top: 15px;margin-bottom: 15px;">
+                        <div class="card-body animated zoomIn">
+                            <div class="row" style="margin-right: 0px;">
                                 <div class="col-md-12 project-title">
-                                    <h1 id="project-name" class="project-name-for-note" th:text="${project.getName()}"></h1>
+                                    <h1 id="project-name" class="project-name-for-note" th:text="${project.getName()}">
+                                    </h1>
                                 </div>
-                                <div class="col-sm-6 col-md-6 project-cover-photo-container">
-                                    <a id="project-cover-photo-a" th:href="${project.getCover()}" data-lightbox="image-1"
+                                <div class="col-sm-6 col-md-6 project-cover-photo-container hkCNKG">
+                                    <a id="project-cover-photo-a" th:href="${project.getCover()}"
+                                        data-lightbox="image-1" data-title="My caption">
+                                        <img id="project-cover-photo-img"
+                                            class="project-cover-photo z-depth-3 img-thumbnail blurred-div"
+                                            data-lightbox="image-1" data-title="Заглавна снимка"
+                                            th:src="@{${project.getCover()}}" alt=""
+                                            style="padding: 0px;border-radius: 7px;">
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-2 col-md-2 project-picture-1 hkCNKG">
+                                    <a id="project-picture-1-a" th:href="${project.getPicture1()}"
+                                        data-lightbox="image-1" data-title="My caption">
+                                        <img id="project-picture-1-img"
+                                            class="z-depth-3 img-thumbnail smaller-picture blurred-div"
+                                            data-lightbox="image-1" data-title="My caption"
+                                            th:src="@{${project.getPicture1()}}" alt="">
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-2 col-md-2 project-picture-2 hkCNKG"
+                                    th:if="${project.getPicture2() != null}">
+                                    <a th:href="${project.getPicture2()}" data-lightbox="image-1"
                                         data-title="My caption">
-                                        <img id="project-cover-photo-img" class="project-cover-photo z-depth-3 img-thumbnail"
-                                            data-lightbox="image-1" data-title="Заглавна снимка" th:src="@{${project.getCover()}}"
-                                            alt="">
+                                        <img class="z-depth-3 img-thumbnail smaller-picture blurred-div"
+                                            th:src="@{${project.getPicture2()}}" alt="" data-lightbox="image-1"
+                                            data-title="My caption">
                                     </a>
                                 </div>
 
-                                <div class="col-sm-2 col-md-2 project-picture-1">
-                                    <a id="project-picture-1-a" th:href="${project.getPicture1()}" data-lightbox="image-1"
+                                <div class="col-sm-2 col-md-2 project-picture-3 hkCNKG"
+                                    th:if="${project.getPicture3() != null}">
+                                    <a th:href="${project.getPicture3()}" data-lightbox="image-1"
                                         data-title="My caption">
-                                        <img id="project-picture-1-img" class="z-depth-3 img-thumbnail smaller-picture"
-                                            data-lightbox="image-1" data-title="My caption" th:src="@{${project.getPicture1()}}"
-                                            alt="">
+                                        <img class="z-depth-3 img-thumbnail smaller-picture blurred-div"
+                                            th:src="@{${project.getPicture3()}}" alt="" data-lightbox="image-1"
+                                            data-title="My caption">
                                     </a>
                                 </div>
 
-                                <div class="col-sm-2 col-md-2 project-picture-2" th:if="${project.getPicture2() != null}">
-                                    <a th:href="${project.getPicture2()}" data-lightbox="image-1" data-title="My caption">
-                                        <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture2()}}"
-                                            alt="" data-lightbox="image-1" data-title="My caption">
+                                <div class="col-sm-2 col-md-2 project-picture-4 hkCNKG"
+                                    th:if="${project.getPicture4() != null}">
+                                    <a th:href="${project.getPicture4()}" data-lightbox="image-1"
+                                        data-title="My caption">
+                                        <img class="z-depth-3 img-thumbnail smaller-picture blurred-div"
+                                            th:src="@{${project.getPicture4()}}" alt="" data-lightbox="image-1"
+                                            data-title="My caption">
                                     </a>
                                 </div>
 
-                                <div class="col-sm-2 col-md-2 project-picture-3" th:if="${project.getPicture3() != null}">
-                                    <a th:href="${project.getPicture3()}" data-lightbox="image-1" data-title="My caption">
-                                        <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture3()}}"
-                                            alt="" data-lightbox="image-1" data-title="My caption">
+                                <div class="col-sm-2 col-md-2 project-picture-5 hkCNKG"
+                                    th:if="${project.getPicture5() != null}">
+                                    <a th:href="${project.getPicture5()}" data-lightbox="image-1"
+                                        data-title="My caption">
+                                        <img class="z-depth-3 img-thumbnail smaller-picture blurred-div"
+                                            th:src="@{${project.getPicture5()}}" alt="" data-lightbox="image-1"
+                                            data-title="My caption">
                                     </a>
                                 </div>
 
-                                <div class="col-sm-2 col-md-2 project-picture-4" th:if="${project.getPicture4() != null}">
-                                    <a th:href="${project.getPicture4()}" data-lightbox="image-1" data-title="My caption">
-                                        <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture4()}}"
-                                            alt="" data-lightbox="image-1" data-title="My caption">
-                                    </a>
-                                </div>
-
-                                <div class="col-sm-2 col-md-2 project-picture-5" th:if="${project.getPicture5() != null}">
-                                    <a th:href="${project.getPicture5()}" data-lightbox="image-1" data-title="My caption">
-                                        <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture5()}}"
-                                            alt="" data-lightbox="image-1" data-title="My caption">
-                                    </a>
-                                </div>
-
-                                <div class="col-sm-2 col-md-2 project-picture-6" th:if="${project.getPicture6() != null}">
-                                    <a th:href="${project.getPicture6()}" data-lightbox="image-1" data-title="My caption">
-                                        <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture6()}}"
-                                            alt="" data-lightbox="image-1" data-title="My caption">
-                                    </a>
-                                </div>
-
-                                <div class="col-sm-2 col-md-2 project-picture-7" th:if="${project.getPicture7() != null}">
-                                    <a th:href="${project.getPicture7()}" data-lightbox="image-1" data-title="My caption">
-                                        <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture7()}}"
-                                            alt="" data-lightbox="image-1" data-title="My caption">
-                                    </a>
-                                </div>
-
-                                <div class="col-sm-2 col-md-2 project-picture-8" th:if="${project.getPicture8() != null}">
-                                    <a th:href="${project.getPicture8()}" data-lightbox="image-1" data-title="My caption">
-                                        <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture8()}}"
-                                            alt="" data-lightbox="image-1" data-title="My caption">
-                                    </a>
-                                </div>
-
-                                <div class="col-sm-2 col-md-2 project-picture-9" th:if="${project.getPicture9() != null}">
-                                    <a th:href="${project.getPicture9()}" data-lightbox="image-1" data-title="My caption">
-                                        <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture9()}}"
-                                            alt="" data-lightbox="image-1" data-title="My caption">
+                                <div class="col-sm-2 col-md-2 project-picture-6 hkCNKG"
+                                    th:if="${project.getPicture6() != null}">
+                                    <a th:href="${project.getPicture6()}" data-lightbox="image-1"
+                                        data-title="My caption">
+                                        <img class="z-depth-3 img-thumbnail smaller-picture blurred-div"
+                                            th:src="@{${project.getPicture6()}}" alt="" data-lightbox="image-1"
+                                            data-title="My caption">
                                     </a>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="card card-smth" style="margin-top: 15px;margin-bottom: 15px;">
+                        <div class="card-body animated zoomIn">
                             <div class="row">
                                 <div class="col-md-3 smaller-collumn">
                                     <hr class="divider">
                                     <h4 class="header-text-finance">Проектът се нуждае от:</h4>
                                     <ul class="project-needs">
-                                        <span th:if="${project.getProjectNeeds().size() == 0}">Този проект не се нуждае
+                                        <span th:if="${project.getProjectNeeds().size() == 0}">Този проект не се
+                                            нуждае
                                             от
                                             други
                                             хора
                                         </span>
                                         <li th:each="projectNeed: ${project.getProjectNeeds()}" th:inline="text">
-                                            [[${projectNeed.getName()}]] <span th:id="${project.getWantedMemberId(projectNeed.getName())}" class="span-link" th:if="${project.isThereWantedParameters(projectNeed.getName())}">изискв. <i class="fas fa-external-link-alt"></i></span>
+                                            [[${projectNeed.getName()}]] <span
+                                                th:id="${project.getWantedMemberId(projectNeed.getName())}"
+                                                class="span-link"
+                                                th:if="${project.isThereWantedParameters(projectNeed.getName())}">изискв.
+                                                <i class="fas fa-external-link-alt"></i></span>
                                         </li>
                                     </ul>
                                     </ul>
@@ -527,29 +546,40 @@
                                     <h4 class="header-text-finance">Работещи по проекта:</h4>
                                     <ul class="project-members">
                                         <li th:each="member: ${project.getMembers()}">
-                                            <a th:id="'profile-id_' + ${member.getId()}" class="about-a should-send-profile-id"
-                                                th:href="'/user/' + ${member.getId()}" th:text="${member.getFirstName()} + ' ' + ${member.getLastName()}"></a>
+                                            <a th:id="'profile-id_' + ${member.getId()}"
+                                                class="about-a should-send-profile-id"
+                                                th:href="'/user/' + ${member.getId()}"
+                                                th:text="${member.getFirstName()} + ' ' + ${member.getLastName()}"></a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="col-md-9 project-description">
                                     <div class="project--description-ribbon">
-                                        <div id="project-description-ribbon" class="active-project-ribbon"><span>Описание</span></div>
+                                        <div id="project-description-ribbon" class="active-project-ribbon">
+                                            <span>Описание</span></div>
                                         <div id="project-updates-ribbon"><span>Новости<span class="count-ribbon"
-                                                    th:text="${project.getUpdates().size()}"></span></span></div>
-                                        <div id="project-comments-ribbon"><span>Коментари<a class="count-ribbon" th:href="${pageUrl} + '#disqus_thread'" th:attr="data-disqus-identifier=${pageIdentifier}"></a></span></div>
+                                                    th:text="${project.getUpdates().size()}"></span></span>
+                                        </div>
+                                        <div id="project-comments-ribbon"><span>Коментари<a class="count-ribbon"
+                                                    th:href="${pageUrl} + '#disqus_thread'"
+                                                    th:attr="data-disqus-identifier=${pageIdentifier}"></a></span>
+                                        </div>
                                     </div>
                                     <div class="project-description-tab-ribbon">
                                         <div class="progress" th:if="${project.isNeedsMoney()}">
-                                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                                role="progressbar"
                                                 th:attr="aria-valuenow=${project.getPercentageReceived()}"
-                                                aria-valuemin="0" aria-valuemax="100" th:style="'width:' + ${project.getPercentageReceived()} + '%;text-align:center;'"
+                                                aria-valuemin="0" aria-valuemax="100"
+                                                th:style="'width:' + ${project.getPercentageReceived()} + '%;text-align:center;'"
                                                 th:inline="text">[[${project.getPercentageReceived()}]]%</div>
                                         </div>
-                                        <h4 style="margin-bottom:0px;" th:inline="text" th:if="${project.isNeedsMoney()}">
+                                        <h4 style="margin-bottom:0px;" th:inline="text"
+                                            th:if="${project.isNeedsMoney()}">
                                             Проектът се нуждае от [[${project.getNeededMoney()}]] USD
                                         </h4>
-                                        <span class="money-caption" th:inline="text" th:if="${project.isNeedsMoney()}">[[${project.getReceivedMoney()}]]
+                                        <span class="money-caption" th:inline="text"
+                                            th:if="${project.isNeedsMoney()}">[[${project.getReceivedMoney()}]]
                                             USD събрани</span>
                                         <hr class="divider" th:if="${project.isNeedsMoney()}">
                                         <h4>
@@ -563,22 +593,29 @@
                                         <ul class="project-goals">
                                             <li th:text="${project.getGoal1()}">
                                             </li>
-                                            <li th:if="${project.getGoal2().length() != 0}" th:text="${project.getGoal2()}">
+                                            <li th:if="${project.getGoal2().length() != 0}"
+                                                th:text="${project.getGoal2()}">
                                             </li>
-                                            <li th:if="${project.getGoal3().length() != 0}" th:text="${project.getGoal3()}">
+                                            <li th:if="${project.getGoal3().length() != 0}"
+                                                th:text="${project.getGoal3()}">
                                             </li>
                                         </ul>
                                         <hr class="divider" th:if="${project.getGithubPage().length() != 0}">
-                                        <h4 th:if="${project.getGithubPage().length() != 0}">Github страница:</h4>
-                                        <a th:if="${project.getGithubPage().length() != 0}" th:href="${project.getGithubPage()}"
-                                            class="about-a" th:text="${project.getGithubPage()}"></a>
+                                        <h4 th:if="${project.getGithubPage().length() != 0}">Github страница:
+                                        </h4>
+                                        <a th:if="${project.getGithubPage().length() != 0}"
+                                            th:href="${project.getGithubPage()}" class="about-a"
+                                            th:text="${project.getGithubPage()}"></a>
                                         <hr class="divider" th:if="${project.getYoutubeLink().length() != 0}">
-                                        <h4 class="project-video-link" th:if="${project.getYoutubeLink().length() != 0}">
+                                        <h4 class="project-video-link"
+                                            th:if="${project.getYoutubeLink().length() != 0}">
                                             Линк към видео на проекта:
                                         </h4>
-                                        <a th:if="${project.getYoutubeLink().length() != 0}" th:href="${project.getYoutubeLink()}"
-                                            th:text="${project.getYoutubeLink()}" class="about-a" style="margin-bottom: 20px;"></a>
-                                        <div class="c-content-contact-1 c-opt-1" style="margin-top: 20px;height: 615px;width: 99%;">
+                                        <a th:if="${project.getYoutubeLink().length() != 0}"
+                                            th:href="${project.getYoutubeLink()}" th:text="${project.getYoutubeLink()}"
+                                            class="about-a" style="margin-bottom: 20px;"></a>
+                                        <div class="c-content-contact-1 c-opt-1"
+                                            style="margin-top: 20px;height: 615px;width: 99%;">
                                             <div data-auto-height=".c-height" class="row" style="padding-right: 15px;">
                                                 <div class="col-lg-8 col-md-6 c-desktop"></div>
                                                 <div class="col-lg-4 col-md-6">
@@ -587,54 +624,72 @@
                                                             <h3 th:text="${project.getName()}">SAMPLE NAME</h3>
                                                         </div>
                                                         <div class="c-section">
-                                                            <div class="c-content-label uppercase bg-blue">Адрес</div>
+                                                            <div class="c-content-label uppercase bg-blue">Адрес
+                                                            </div>
                                                             <p class="arena-address"></p>
                                                         </div>
                                                         <div class="c-section">
-                                                            <div class="c-content-label uppercase bg-blue">Контакти</div>
+                                                            <div class="c-content-label uppercase bg-blue">
+                                                                Контакти
+                                                            </div>
                                                             <p>
                                                                 <strong>Телефон:</strong>
-                                                                <span th:inline="text">[[${project.getTelephone()}]]</span>
+                                                                <span
+                                                                    th:inline="text">[[${project.getTelephone()}]]</span>
                                                             </p>
                                                         </div>
                                                         <!---->
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div id="map" class="c-content-contact-1-gmap" style="width: 100%; height: 615px; margin-bottom: 40px; overflow: hidden;">
+                                            <div id="map" class="c-content-contact-1-gmap"
+                                                style="width: 100%; height: 615px; margin-bottom: 40px; overflow: hidden;">
                                             </div>
                                         </div>
-                                        <button class="print-button" style="float: right;" onclick="window.print()"><span
-                                                class="print-icon"></span></button>
+                                        <button class="print-button" style="float: right;"
+                                            onclick="window.print()"><span class="print-icon"></span></button>
                                         <a th:href="'/presentation/' + ${project.getId()}">
-                                            <div class="titanic titanic-broken-link" title="Натисни тази икона за да видиш презентацията за този проект"
-                                                style="cursor:pointer; padding-bottom: 10px; margin-right: 20px;float: right;display: inline-block;height: 100px;"></div>
+                                            <div class="titanic titanic-broken-link"
+                                                title="Натисни тази икона за да видиш презентацията за този проект"
+                                                style="cursor:pointer; padding-bottom: 10px; margin-right: 20px;float: right;display: inline-block;height: 100px;">
+                                            </div>
                                         </a>
                                     </div>
                                     <div class="project-updates-tab-ribbon" style="display: none;">
                                         <div class="project-timeline">
                                             <section class="cd-timeline js-cd-timeline">
                                                 <div class="cd-timeline__container">
-                                                    <div class="cd-timeline__block js-cd-block" th:each="update: ${updates}"
+                                                    <div class="cd-timeline__block js-cd-block"
+                                                        th:each="update: ${updates}"
                                                         th:if="${update.getType() != 'Initial update'}">
-                                                        <div th:if="${update.getType() == 'green'}" class="cd-timeline__img cd-timeline__img--picture js-cd-img animated bounceIn">
+                                                        <div th:if="${update.getType() == 'green'}"
+                                                            class="cd-timeline__img cd-timeline__img--picture js-cd-img animated bounceIn">
                                                             <img src="/static/images/cd-icon-picture.svg" alt="Picture">
                                                         </div>
-                                                        <div th:if="${update.getType() == 'red'}" class="cd-timeline__img cd-timeline__img--movie js-cd-img animated bounceIn">
+                                                        <div th:if="${update.getType() == 'red'}"
+                                                            class="cd-timeline__img cd-timeline__img--movie js-cd-img animated bounceIn">
                                                             <img src="/static/images/cd-icon-movie.svg" alt="Picture">
                                                         </div>
-                                                        <div th:if="${update.getType() == 'yellow'}" class="cd-timeline__img cd-timeline__img--location js-cd-img animated bounceIn">
-                                                            <img src="/static/images/cd-icon-location.svg" alt="Picture">
+                                                        <div th:if="${update.getType() == 'yellow'}"
+                                                            class="cd-timeline__img cd-timeline__img--location js-cd-img animated bounceIn">
+                                                            <img src="/static/images/cd-icon-location.svg"
+                                                                alt="Picture">
                                                         </div>
 
-                                                        <div class="cd-timeline__content js-cd-content animated fadeInLeft">
-                                                            <h2 th:text="${update.getTitle()}">Title of section 1</h2>
-                                                            <p th:text="${update.getContent()}">Lorem ipsum dolor sit
-                                                                amet, consectetur adipisicing elit. Iusto, optio,
-                                                                dolorum provident rerum aut hic quasi placeat iure
+                                                        <div
+                                                            class="cd-timeline__content js-cd-content animated fadeInLeft">
+                                                            <h2 th:text="${update.getTitle()}">Title of section
+                                                                1</h2>
+                                                            <p th:text="${update.getContent()}">Lorem ipsum
+                                                                dolor sit
+                                                                amet, consectetur adipisicing elit. Iusto,
+                                                                optio,
+                                                                dolorum provident rerum aut hic quasi placeat
+                                                                iure
                                                                 tempora laudantium ipsa ad debitis unde? Iste
                                                                 voluptatibus minus veritatis qui ut.</p>
-                                                            <span class="cd-timeline__date" th:text="${update.getUpdateDate()}">Jan
+                                                            <span class="cd-timeline__date"
+                                                                th:text="${update.getUpdateDate()}">Jan
                                                                 14</span>
                                                         </div>
                                                     </div>
@@ -642,7 +697,8 @@
                                             </section>
                                             <div class="timeline-launched-project">
                                                 <div style="text-align: center;">
-                                                    <span class="timeline-date-launched" th:text="${project.getProjectLaunchedDate()}">January
+                                                    <span class="timeline-date-launched"
+                                                        th:text="${project.getProjectLaunchedDate()}">January
                                                         4, 2019</span>
                                                     <div class="timeline-label">
                                                         Проектът е създаден
@@ -654,7 +710,7 @@
                                     <div class="project-comments-tab-ribbon" style="display: none;">
                                         <div id="disqus_thread"></div>
                                         <script th:inline="javascript">
-var disqus_config = function () {
+                                            var disqus_config = function () {
                     this.page.url = [[${pageUrl}]];
                     this.page.identifier = [[${pageIdentifier}]];
                     this.page.title = [[${pageTitle}]];
@@ -667,13 +723,19 @@ var disqus_config = function () {
                   (d.head || d.body).appendChild(s);
                   })();
                                         </script>
-                                        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments
+                                        <noscript>Please enable JavaScript to view the <a
+                                                href="https://disqus.com/?ref_noscript">comments
                                                 powered by Disqus.</a></noscript>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane animated fadeInUp" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    </div>
+                </div>
+                <div class="tab-pane animated fadeInUp" id="pills-profile" role="tabpanel"
+                    aria-labelledby="pills-profile-tab">
+                    <div class="card card-smth" style="margin-top: 15px;margin-bottom: 15px;">
+                        <div class="card-body animated zoomIn">
                             <div class="row regulate-this-mobile">
                                 <div class="col-md-12 project-title">
                                     <h1>Панел на участника</h1>
@@ -683,9 +745,11 @@ var disqus_config = function () {
                                 </div>
                                 <div class="col-md-7 project-members-table-box">
                                     <!--Table-->
-                                    <table class="table table-hover table-responsive-md w-auto table-striped table-bordered">
+                                    <table
+                                        class="table table-hover table-responsive-md w-auto table-striped table-bordered">
                                         <!--Table head-->
-                                        <div class="view gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+                                        <div
+                                            class="view gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
                                             <div>
                                             </div>
                                             <a href="" class="white-text mx-3">Участници в проекта</a>
@@ -701,7 +765,8 @@ var disqus_config = function () {
                                                     <i class="fa fa-address-card fa-lg pr-2" aria-hidden="true"></i>
                                                     Фамилия</th>
                                                 <th class="white-text fsmr">
-                                                    <i class="fas fa-magic fa-lg pr-2" aria-hidden="true"></i> Умения</th>
+                                                    <i class="fas fa-magic fa-lg pr-2" aria-hidden="true"></i> Умения
+                                                </th>
                                                 <th class="white-text fsmr">
                                                     <i class="fas fa-at fa-lg pr-2" aria-hidden="true"></i> Е-майл</th>
                                             </tr>
@@ -724,7 +789,8 @@ var disqus_config = function () {
                                                 <td class="fsmr" th:if="${member.getId() != user.getId()}">
                                                     <a class="about-a" th:href="'mailto:' + ${member.getEmail()}"
                                                         th:text="${member.getEmail()}"></a>
-                                                    <i class="fas fa-pencil-alt ml-1 trigger-modal" th:id="${member.getId()}"
+                                                    <i class="fas fa-pencil-alt ml-1 trigger-modal"
+                                                        th:id="${member.getId()}"
                                                         title="Натисни тази икона за да напишеш съобщение до потребителя"></i>
                                                 </td>
                                             </tr>
@@ -737,7 +803,12 @@ var disqus_config = function () {
                                 <div class="col-md-12 lobilist" style="height: auto; max-height: 10000px;"></div>
                             </div>
                         </div>
-                        <div class="tab-pane animated fadeInUp" id="pills-calendar" role="tabpanel" aria-labelledby="pills-calendar-tab">
+                    </div>
+                </div>
+                <div class="tab-pane animated fadeInUp" id="pills-calendar" role="tabpanel"
+                    aria-labelledby="pills-calendar-tab">
+                    <div class="card card-smth" style="margin-top: 15px;margin-bottom: 15px;">
+                        <div class="card-body animated zoomIn">
                             <div id='calendar'></div>
                         </div>
                     </div>
@@ -748,25 +819,32 @@ var disqus_config = function () {
 
             <div id="animatedModal">
                 <div class="modal-wrapper">
-                    <div id="agora_local" style="z-index: 9999; width:270px;height:171px;display: inline-block; position: absolute; bottom: 0; right: 0;margin-bottom: 10px; margin-right: 10px;"></div>
+                    <div id="agora_local"
+                        style="z-index: 9999; width:270px;height:171px;display: inline-block; position: absolute; bottom: 0; right: 0;margin-bottom: 10px; margin-right: 10px;">
+                    </div>
                     <div id="closebt-container" class="close-animatedModal">
                         <img id="close-the-modal" class="closebt" src="/static/img/closebt.svg" />
                     </div>
                     <div id="modal-container" class="call-modal-content">
-                        <div id="video" style="display: flex;justify-content: center;flex-direction: column;flex-grow: 1;">
+                        <div id="video"
+                            style="display: flex;justify-content: center;flex-direction: column;flex-grow: 1;">
                             <img id="receiver" th:src="@{${user.getImage()}}" alt="" />
                             <p class="receiver-name">Hristian Iliev</p>
                             <p class="call-duration">Вмомента се звъни..</p>
                         </div>
                         <div class="call-controls">
-                            <div id="stop-video" class="titanic titanic-stop" style="height: 50px;display: inline-block;margin-right: 40px;"
+                            <div id="stop-video" class="titanic titanic-stop"
+                                style="height: 50px;display: inline-block;margin-right: 40px;"
                                 title="Натисни тази икона за да сппреш камерата"></div>
-                            <div id="mute-mic" class="titanic titanic-no-mic" style="height: 50px;display: inline-block;"
+                            <div id="mute-mic" class="titanic titanic-no-mic"
+                                style="height: 50px;display: inline-block;"
                                 title="Натисни тази икона за да заглушиш микрофона"></div>
-                            <div id="share-screen" class="titanic titanic-checkbox" style="height: 50px;display: inline-block;margin-left: 40px;"
+                            <div id="share-screen" class="titanic titanic-checkbox"
+                                style="height: 50px;display: inline-block;margin-left: 40px;"
                                 title="Натисни тази икона за да споделиш екрана си"></div>
                             <span class="red-circle" style="display: flex; justify-content: center;margin-left: 40px">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATUSURBVHhe7ZtNiFVlHMZnFMLvD3KljsZQq1xI7mwjKuQiMHATggZtQmvXImkjI4jiJgjShTsrmFJXZa2C8gPNqXa5GQxBwlXqVOJnM/2ec5+5zL2j3HPec87cO+P/Bw/vef/3fZ/3fZ+ZOXPu1ekLgiAIgiAIgiAIgiAIgiCoi/Hx8YXoVfQm+gAdm5iY+Jr2Au0vtKPoJrqNHlu6Vm3UY857zjH0PpKXPBd6mbkBh1zOobahD9GX6Bp6Qr0W5O01vkBaU2sv83Z6Hza7GO3gLEdpr6JpYVF7hH5H36DP0EfobbSZlzehQa7X0K5E862Vrg2iTRrrOZorj2+RPB/xegvUFOrPXGpPb6DF3m5vwIbWoPfQ9+hBY9sN1Efn0SfoHUob0QueWjnyZp3X0LvoU3QRPdReJqF/H32HtOfVnjqzsI9VLL4fXULjja01v9qqHUJbUdfvSWxrEfvQj7L2pL01fyq4Fgp5H3rRU+qB9frRFhYaRs0fFa7/pdENfQ/tKg/vWbRH9roXnUb3dAbB9UM0zOUW1O/h1YH54Wwl4FrfaefQbtRb95QCcJQlPoPO8l/jdNn5DntINeD5Eqa6dwgFuc4vzRk413qdLTshZ9WZ/VJ5MNS3tr4yp1yqDDzXYv0W7RDSo85ldAPp2U+/sSVdq6bXNEZjd6K1tqkMPE/5rMMulQMjPTKIe2jA5WTY2wIHdhL9oc2WQR722kl3gZdJBp8BpLOKzS6nwYb6MbnijQ65XBimz2P+DqQH3DH5TUL/H5ofafWuInseRKupTXsORK97jMb+hPQLrAn9MfQ50rPoPC9fGOYP2U9nT/+FgsEuG/1Js8TlwjBfb8EyuBYj6GO6ei6c72GF0Vx52Etv8aY+Uo16WGGYrl8uOrN8drlcHCaP2GS/S0nIQ+Cje9d6lytH3lrDy024nITOLA/aEZeKwdztNriFSj0Qy0e4WztermyA+tDjlq22u5wfJv/gyQdcSsY+sypAgcUB+SgLl/LBhA2eeIdmucvJyEu4WzterooA9WmSMlAWG1zuDOOPetJxl0ohL+Fu7Xi5StYjgxPyoj3iUmcY/JsnbXWpFPIS7taOl6sqwG3yov3Vpc4wWM9mmrTUpVLIS7hbO16uqgCXykuZuNSZbHVwtzS2m5UBCtvl9/P4CNDYrniAfNvqA8iLLuvbOalvu8IHavfLi5fr3v49Xhu4ILksw6S+7VICbPHLi5fr3v49vvCBn4XtKvPrhJfr3v5J/W9NoC39eRseA/Yac6l2ur5/Bp/1JP3TY/ImtDg6Z68zLueGOS33pLwwp7v7Z/Ar6C9NrAK8btMM2j43zGu5J+WlJ/bPJH2A+RVq+QC0IHeZfwa9bNsZY7bvP+gF+Mon3QMDQ3hJ98AgCHoCfnyv6D7oblAUP0rM2FvAOYfziwBTcX4RYCrOLwJMxflFgKk4vwgwFecXAabi/CLAPJDTtD9/aMQ3PUBKtf2pxKyEdxsH9a6DYFr+H06WHribQVf/X0XvUA669HxDICsI47qCag9RNeFuMzzVPGeFX3q+IYh1TwtRfeHr9vDm3F8KlEKBtIeoaxPh5UHBtIWYEeEVQAFNhjiVCK8ACmpqiBFeAgpMwUV4JVBwEV4QBEEQBEEQBEEQ9BJ9ff8D34ntJUBajlQAAAAASUVORK5CYII=" />
+                                <img
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATUSURBVHhe7ZtNiFVlHMZnFMLvD3KljsZQq1xI7mwjKuQiMHATggZtQmvXImkjI4jiJgjShTsrmFJXZa2C8gPNqXa5GQxBwlXqVOJnM/2ec5+5zL2j3HPec87cO+P/Bw/vef/3fZ/3fZ+ZOXPu1ekLgiAIgiAIgiAIgiAIgiCoi/Hx8YXoVfQm+gAdm5iY+Jr2Au0vtKPoJrqNHlu6Vm3UY857zjH0PpKXPBd6mbkBh1zOobahD9GX6Bp6Qr0W5O01vkBaU2sv83Z6Hza7GO3gLEdpr6JpYVF7hH5H36DP0EfobbSZlzehQa7X0K5E862Vrg2iTRrrOZorj2+RPB/xegvUFOrPXGpPb6DF3m5vwIbWoPfQ9+hBY9sN1Efn0SfoHUob0QueWjnyZp3X0LvoU3QRPdReJqF/H32HtOfVnjqzsI9VLL4fXULjja01v9qqHUJbUdfvSWxrEfvQj7L2pL01fyq4Fgp5H3rRU+qB9frRFhYaRs0fFa7/pdENfQ/tKg/vWbRH9roXnUb3dAbB9UM0zOUW1O/h1YH54Wwl4FrfaefQbtRb95QCcJQlPoPO8l/jdNn5DntINeD5Eqa6dwgFuc4vzRk413qdLTshZ9WZ/VJ5MNS3tr4yp1yqDDzXYv0W7RDSo85ldAPp2U+/sSVdq6bXNEZjd6K1tqkMPE/5rMMulQMjPTKIe2jA5WTY2wIHdhL9oc2WQR722kl3gZdJBp8BpLOKzS6nwYb6MbnijQ65XBimz2P+DqQH3DH5TUL/H5ofafWuInseRKupTXsORK97jMb+hPQLrAn9MfQ50rPoPC9fGOYP2U9nT/+FgsEuG/1Js8TlwjBfb8EyuBYj6GO6ei6c72GF0Vx52Etv8aY+Uo16WGGYrl8uOrN8drlcHCaP2GS/S0nIQ+Cje9d6lytH3lrDy024nITOLA/aEZeKwdztNriFSj0Qy0e4WztermyA+tDjlq22u5wfJv/gyQdcSsY+sypAgcUB+SgLl/LBhA2eeIdmucvJyEu4WzterooA9WmSMlAWG1zuDOOPetJxl0ohL+Fu7Xi5StYjgxPyoj3iUmcY/JsnbXWpFPIS7taOl6sqwG3yov3Vpc4wWM9mmrTUpVLIS7hbO16uqgCXykuZuNSZbHVwtzS2m5UBCtvl9/P4CNDYrniAfNvqA8iLLuvbOalvu8IHavfLi5fr3v49Xhu4ILksw6S+7VICbPHLi5fr3v49vvCBn4XtKvPrhJfr3v5J/W9NoC39eRseA/Yac6l2ur5/Bp/1JP3TY/ImtDg6Z68zLueGOS33pLwwp7v7Z/Ar6C9NrAK8btMM2j43zGu5J+WlJ/bPJH2A+RVq+QC0IHeZfwa9bNsZY7bvP+gF+Mon3QMDQ3hJ98AgCHoCfnyv6D7oblAUP0rM2FvAOYfziwBTcX4RYCrOLwJMxflFgKk4vwgwFecXAabi/CLAPJDTtD9/aMQ3PUBKtf2pxKyEdxsH9a6DYFr+H06WHribQVf/X0XvUA669HxDICsI47qCag9RNeFuMzzVPGeFX3q+IYh1TwtRfeHr9vDm3F8KlEKBtIeoaxPh5UHBtIWYEeEVQAFNhjiVCK8ACmpqiBFeAgpMwUV4JVBwEV4QBEEQBEEQBEEQ9BJ9ff8D34ntJUBajlQAAAAASUVORK5CYII=" />
                             </span>
                         </div>
                     </div>
@@ -876,7 +954,8 @@ var disqus_config = function () {
     <script src="/static/js/material.min.js"></script>
     <script src="/static/js/notifications.js"></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjJimoTORP3LAM9lx8aasMG5_1dlNgrGI&language=bg&libraries=places&callback=initMap"
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjJimoTORP3LAM9lx8aasMG5_1dlNgrGI&language=bg&libraries=places&callback=initMap"
         async defer></script>
 
     <!-- <script src="/static/js/headerSignedInRegulator.js"></script> -->
@@ -896,7 +975,9 @@ var disqus_config = function () {
 
     <!-- Include Editor JS files. -->
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@2.9.0/js/froala_editor.pkgd.min.js"></script> -->
-    <script src='https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=1khodv3pt82ph2yokwbs92ujrb3cpbp92eeed86xo772qdxt'></script>
+    <script
+        src='https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=1khodv3pt82ph2yokwbs92ujrb3cpbp92eeed86xo772qdxt'>
+    </script>
 
     <!-- Initialize the editor. -->
     <script src="/static/js/projectNotes.js">
@@ -904,8 +985,9 @@ var disqus_config = function () {
 
     <script id="dsq-count-scr" src="//squadknowhow.disqus.com/count.js" async></script>
 
-    <script src="/static/js/setUpWantedMembers.js"></script>    
-    <script src="//instant.page/1.1.0" type="module" integrity="sha384-EwBObn5QAxP8f09iemwAJljc+sU+eUXeL9vSBw1eNmVarwhKk2F9vBEpaN9rsrtp"></script>
+    <script src="/static/js/setUpWantedMembers.js"></script>
+    <script src="//instant.page/1.1.0" type="module"
+        integrity="sha384-EwBObn5QAxP8f09iemwAJljc+sU+eUXeL9vSBw1eNmVarwhKk2F9vBEpaN9rsrtp"></script>
 </body>
 
 

@@ -96,12 +96,6 @@ public class Project implements Model {
   private String picture5;
   @Column(name = "picture6")
   private String picture6;
-  @Column(name = "picture7")
-  private String picture7;
-  @Column(name = "picture8")
-  private String picture8;
-  @Column(name = "picture9")
-  private String picture9;
   @OneToMany(mappedBy = "project")
   @JsonManagedReference
   @LazyCollection(LazyCollectionOption.FALSE)
@@ -371,30 +365,6 @@ public class Project implements Model {
 
   public void setPicture6(String picture6) {
     this.picture6 = picture6;
-  }
-
-  public String getPicture7() {
-    return picture7;
-  }
-
-  public void setPicture7(String picture7) {
-    this.picture7 = picture7;
-  }
-
-  public String getPicture8() {
-    return picture8;
-  }
-
-  public void setPicture8(String picture8) {
-    this.picture8 = picture8;
-  }
-
-  public String getPicture9() {
-    return picture9;
-  }
-
-  public void setPicture9(String picture9) {
-    this.picture9 = picture9;
   }
 
   public Integer getCreator() {

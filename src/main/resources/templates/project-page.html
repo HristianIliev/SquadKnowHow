@@ -18,8 +18,8 @@
   <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
   <link rel="stylesheet" href="/static/css/themify-icons.css" />
   <link rel="stylesheet" href="/static/css/magnific-popup.css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
-    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+    integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
@@ -275,7 +275,8 @@
 
       <div class="note-btn__uLJR" title="Бележки">
         <svg viewBox="0 0 24 24" width="1em" height="1em" class="icon__3Su4">
-          <path fill-rule="evenodd" d="M4 8l6-6h8c1.1 0 2 .9 2 2v16c0 1.1-.89 2-1.99 2H6c-1.1 0-2-.9-2-2V8zm14.01 12V4H11v5H6v11h12.01z"></path>
+          <path fill-rule="evenodd"
+            d="M4 8l6-6h8c1.1 0 2 .9 2 2v16c0 1.1-.89 2-1.99 2H6c-1.1 0-2-.9-2-2V8zm14.01 12V4H11v5H6v11h12.01z"></path>
         </svg>
       </div>
       <div class="note-editor-wrapper">
@@ -285,7 +286,7 @@
       </div>
 
       <div class="card card-smth">
-        <div class="card-body animated zoomIn wow">
+        <div class="card-body animated zoomIn">
           <div class="row" style="margin-right: 5px;">
             <div class="col-md-12 project-title">
               <div id="project-name" style="align-items: center;display: flex;justify-content: center;">
@@ -293,104 +294,89 @@
                 <div class="heart" th:classappend="${isFavorite} ? is-active : none"></div>
               </div>
             </div>
-            <div class="col-sm-6 col-md-6 project-cover-photo-container">
-              <a id="project-cover-photo-a" th:href="${project.getCover()}" data-lightbox="image-1" data-title="My caption">
-                <img id="project-cover-photo-img" class="project-cover-photo z-depth-3 img-thumbnail" data-lightbox="image-1"
-                  data-title="Заглавна снимка" th:src="@{${project.getCover()}}" alt="" />
+            <div class="col-sm-6 col-md-6 project-cover-photo-container hkCNKG">
+              <a id="project-cover-photo-a" th:href="${project.getCover()}" data-lightbox="image-1"
+                data-title="My caption">
+                <img id="project-cover-photo-img" class="project-cover-photo z-depth-3 img-thumbnail blurred-div"
+                  data-lightbox="image-1" data-title="Заглавна снимка" th:src="@{${project.getCover()}}" alt="" style="padding: 0px; border-radius: 7px;"/>
               </a>
             </div>
 
-            <div class="col-sm-2 col-md-2 project-picture-1">
-              <a id="project-picture-1-a" th:href="${project.getPicture1()}" data-lightbox="image-1" data-title="My caption">
-                <img id="project-picture-1-img" class="z-depth-3 img-thumbnail smaller-picture" data-lightbox="image-1"
+            <div class="col-sm-2 col-md-2 project-picture-1 hkCNKG">
+              <a id="project-picture-1-a" th:href="${project.getPicture1()}" data-lightbox="image-1"
+                data-title="My caption">
+                <img id="project-picture-1-img" class="z-depth-3 img-thumbnail smaller-picture blurred-div" data-lightbox="image-1"
                   data-title="My caption" th:src="@{${project.getPicture1()}}" alt="" />
               </a>
             </div>
 
-            <div class="col-sm-2 col-sm-2 col-md-2 project-picture-2" th:if="${project.getPicture2() != null}">
+            <div class="col-sm-2 col-sm-2 col-md-2 project-picture-2 hkCNKG" th:if="${project.getPicture2() != null}">
               <a th:href="${project.getPicture2()}" data-lightbox="image-1" data-title="My caption">
-                <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture2()}}" alt=""
+                <img class="z-depth-3 img-thumbnail smaller-picture blurred-div" th:src="@{${project.getPicture2()}}" alt=""
                   data-lightbox="image-1" data-title="My caption" />
               </a>
             </div>
 
-            <div class="col-sm-2 col-md-2 project-picture-3" th:if="${project.getPicture3() != null}">
+            <div class="col-sm-2 col-md-2 project-picture-3 hkCNKG" th:if="${project.getPicture3() != null}">
               <a th:href="${project.getPicture3()}" data-lightbox="image-1" data-title="My caption">
-                <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture3()}}" alt=""
+                <img class="z-depth-3 img-thumbnail smaller-picture blurred-div" th:src="@{${project.getPicture3()}}" alt=""
                   data-lightbox="image-1" data-title="My caption" />
               </a>
             </div>
 
-            <div class="col-sm-2 col-md-2 project-picture-4" th:if="${project.getPicture4() != null}">
+            <div class="col-sm-2 col-md-2 project-picture-4 hkCNKG" th:if="${project.getPicture4() != null}">
               <a th:href="${project.getPicture4()}" data-lightbox="image-1" data-title="My caption">
-                <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture4()}}" alt=""
+                <img class="z-depth-3 img-thumbnail smaller-picture blurred-div" th:src="@{${project.getPicture4()}}" alt=""
                   data-lightbox="image-1" data-title="My caption" />
               </a>
             </div>
 
-            <div class="col-sm-2 col-md-2 project-picture-5" th:if="${project.getPicture5() != null}">
+            <div class="col-sm-2 col-md-2 project-picture-5 hkCNKG" th:if="${project.getPicture5() != null}">
               <a th:href="${project.getPicture5()}" data-lightbox="image-1" data-title="My caption">
-                <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture5()}}" alt=""
-                  data-lightbox="image-1" data-title="My caption" />
-              </a>
-            </div>
-
-            <div class="col-sm-2 col-md-2 project-picture-6" th:if="${project.getPicture6() != null}">
-              <a th:href="${project.getPicture6()}" data-lightbox="image-1" data-title="My caption">
-                <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture6()}}" alt=""
-                  data-lightbox="image-1" data-title="My caption" />
-              </a>
-            </div>
-
-            <div class="col-sm-2 col-md-2 project-picture-7" th:if="${project.getPicture7() != null}">
-              <a th:href="${project.getPicture7()}" data-lightbox="image-1" data-title="My caption">
-                <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture7()}}" alt=""
-                  data-lightbox="image-1" data-title="My caption" />
-              </a>
-            </div>
-
-            <div class="col-sm-2 col-md-2 project-picture-8" th:if="${project.getPicture8() != null}">
-              <a th:href="${project.getPicture8()}" data-lightbox="image-1" data-title="My caption">
-                <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture8()}}" alt=""
-                  data-lightbox="image-1" data-title="My caption" />
-              </a>
-            </div>
-
-            <div class="col-sm-2 col-md-2 project-picture-9" th:if="${project.getPicture9() != null}">
-              <a th:href="${project.getPicture9()}" data-lightbox="image-1" data-title="My caption">
-                <img class="z-depth-3 img-thumbnail smaller-picture" th:src="@{${project.getPicture9()}}" alt=""
+                <img class="z-depth-3 img-thumbnail smaller-picture blurred-div" th:src="@{${project.getPicture5()}}" alt=""
                   data-lightbox="image-1" data-title="My caption" />
               </a>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="card card-smth">
+        <div class="card-body animated zoomIn wow">
           <div class="row" style="margin-right: 5px;">
-            <div class="col-sm-12 col-md-3 smaller-collumn">
+            <div class="col-sm-12 col-md-3 smaller-collumn" style="padding-top: 20px;">
               <button id="join-project" class="button-white-bg-project button-outline button-outline-2px">
                 <i class="fa fa-thumbs-up"></i> Присъедини се към проекта
               </button>
-              <h4 class="header-text-finance" style="margin-bottom:2.5px;margin-top: 10px;" th:if="${project.isNeedsMoney()}">
+              <h4 class="header-text-finance" style="margin-bottom:2.5px;margin-top: 10px;"
+                th:if="${project.isNeedsMoney()}">
                 Финансирай проекта
               </h4>
               <div id="paypal-button-container" th:if="${project.isNeedsMoney()}"></div>
-              <button id="send-question" class="button-white-bg-project button-outline button-outline-2px" style="margin-top:10px;display: block;">
+              <button id="send-question" class="button-white-bg-project button-outline button-outline-2px"
+                style="margin-top:10px;display: block;">
                 <i class="fa fa-question"></i> Попитай въпрос
               </button>
-              <button id="send-advice" class="button-white-bg-project button-outline button-outline-2px" style="margin-top:10px;">
+              <button id="send-advice" class="button-white-bg-project button-outline button-outline-2px"
+                style="margin-top:10px;">
                 <i class="fa fa-stack-exchange"></i> Дай съвет
               </button>
               <hr class="divider hide-mobile-2" />
               <h4 class="header-text-finance">Проектът се нуждае от:</h4>
               <ul class="project-needs">
                 <span th:if="${project.getProjectNeeds().size() == 0}">Този проект не се нуждае от други хора</span>
-                <li th:each="projectNeed: ${project.getProjectNeeds()}" th:inline="text">[[${projectNeed.getName()}]] 
-                  <span th:id="${project.getWantedMemberId(projectNeed.getName())}" class="span-link" th:if="${project.isThereWantedParameters(projectNeed.getName())}">изискв. <i class="fas fa-external-link-alt"></i></span>
+                <li th:each="projectNeed: ${project.getProjectNeeds()}" th:inline="text">[[${projectNeed.getName()}]]
+                  <span th:id="${project.getWantedMemberId(projectNeed.getName())}" class="span-link"
+                    th:if="${project.isThereWantedParameters(projectNeed.getName())}">изискв. <i
+                      class="fas fa-external-link-alt"></i></span>
                 </li>
               </ul>
               <hr class="divider hide-mobile-2" />
               <h4 class="header-text-finance">Работещи по проекта:</h4>
               <ul class="project-members">
                 <li th:each="member: ${project.getMembers()}">
-                  <a th:id="'profile-id_' + ${member.getId()}" class="about-a should-send-profile-id" th:href="'/user/' + ${member.getId()}"
+                  <a th:id="'profile-id_' + ${member.getId()}" class="about-a should-send-profile-id"
+                    th:href="'/user/' + ${member.getId()}"
                     th:text="${member.getFirstName()} + ' ' + ${member.getLastName()}"></a>
                 </li>
               </ul>
@@ -398,21 +384,25 @@
             <div class="col-sm-12 col-md-9 project-description">
               <div class="project--description-ribbon">
                 <div id="project-description-ribbon" class="active-project-ribbon"><span>Описание</span></div>
-                <div id="project-updates-ribbon"><span>Новости<span class="count-ribbon" th:text="${project.getUpdates().size()}"></span></span></div>
-                <div id="project-comments-ribbon"><span>Коментари<a class="count-ribbon" th:href="${pageUrl} + '#disqus_thread'" th:attr="data-disqus-identifier=${pageIdentifier}"></a></span></div>
+                <div id="project-updates-ribbon"><span>Новости<span class="count-ribbon"
+                      th:text="${project.getUpdates().size()}"></span></span></div>
+                <div id="project-comments-ribbon"><span>Коментари<a class="count-ribbon"
+                      th:href="${pageUrl} + '#disqus_thread'"
+                      th:attr="data-disqus-identifier=${pageIdentifier}"></a></span></div>
               </div>
               <div class="project-description-tab-ribbon">
                 <div class="progress" th:if="${project.isNeedsMoney()}">
-                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" th:attr="aria-valuenow=${project.getPercentageReceived()}"
-                    aria-valuemin="0" aria-valuemax="100" th:style="'width:' + ${project.getPercentageReceived()} + '%;'"
-                    th:inline="text">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                    th:attr="aria-valuenow=${project.getPercentageReceived()}" aria-valuemin="0" aria-valuemax="100"
+                    th:style="'width:' + ${project.getPercentageReceived()} + '%;'" th:inline="text">
                     [[${project.getPercentageReceived()}]]%
                   </div>
                 </div>
                 <h4 style="margin-bottom:0px;" th:inline="text" th:if="${project.isNeedsMoney()}">
                   Проектът се нуждае от [[${project.getNeededMoney()}]] USD
                 </h4>
-                <span class="money-caption" th:inline="text" th:if="${project.isNeedsMoney()}">[[${project.getReceivedMoney()}]]
+                <span class="money-caption" th:inline="text"
+                  th:if="${project.isNeedsMoney()}">[[${project.getReceivedMoney()}]]
                   USD събрани</span>
                 <hr class="divider" th:if="${project.isNeedsMoney()}" />
                 <h3>Описание на проекта:</h3>
@@ -434,8 +424,8 @@
                 <h4 class="project-video-link" th:if="${project.getYoutubeLink().length() != 0}">
                   Линк към видео на проекта:
                 </h4>
-                <a th:if="${project.getYoutubeLink().length() != 0}" th:href="${project.getYoutubeLink()}" th:text="${project.getYoutubeLink()}"
-                  class="about-a" style="margin-bottom: 20px;"></a>
+                <a th:if="${project.getYoutubeLink().length() != 0}" th:href="${project.getYoutubeLink()}"
+                  th:text="${project.getYoutubeLink()}" class="about-a" style="margin-bottom: 20px;"></a>
                 <div class="c-content-contact-1 c-opt-1" style="margin-top: 20px;height: 615px;width: 99%;">
                   <div data-auto-height=".c-height" class="row" style="padding-right: 15px;">
                     <div class="col-lg-8 col-md-6 c-desktop"></div>
@@ -463,28 +453,36 @@
                       </div>
                     </div>
                   </div>
-                  <div id="map" class="c-content-contact-1-gmap" style="width: 100%; height: 615px; margin-bottom: 40px; overflow: hidden;"></div>
+                  <div id="map" class="c-content-contact-1-gmap"
+                    style="width: 100%; height: 615px; margin-bottom: 40px; overflow: hidden;"></div>
                 </div>
-                <button id="report-project" type="button" class="btn btn-outline-info waves-effect btn-lg" style="float: right; font-size: 20px; margin-bottom: 15px; margin-right: 10px">
+                <button id="report-project" type="button" class="btn btn-outline-info waves-effect btn-lg"
+                  style="float: right; font-size: 20px; margin-bottom: 15px; margin-right: 10px">
                   Сигнализирай този проект
                 </button>
                 <a th:href="'/presentation/' + ${project.getId()}">
-                  <div class="titanic titanic-broken-link" title="Натисни тази икона за да видиш презентацията за този проект"
-                    style="cursor:pointer; padding-bottom: 40px; margin-right: 20px;float: right;display: inline-block;height: 100px;"></div>
+                  <div class="titanic titanic-broken-link"
+                    title="Натисни тази икона за да видиш презентацията за този проект"
+                    style="cursor:pointer; padding-bottom: 40px; margin-right: 20px;float: right;display: inline-block;height: 100px;">
+                  </div>
                 </a>
               </div>
               <div class="project-updates-tab-ribbon" style="display: none;">
                 <div class="project-timeline">
                   <section class="cd-timeline js-cd-timeline">
                     <div class="cd-timeline__container">
-                      <div class="cd-timeline__block js-cd-block" th:each="update: ${updates}" th:if="${update.getType() != 'Initial update'}">
-                        <div th:if="${update.getType() == 'green'}" class="cd-timeline__img cd-timeline__img--picture js-cd-img animated bounceIn">
+                      <div class="cd-timeline__block js-cd-block" th:each="update: ${updates}"
+                        th:if="${update.getType() != 'Initial update'}">
+                        <div th:if="${update.getType() == 'green'}"
+                          class="cd-timeline__img cd-timeline__img--picture js-cd-img animated bounceIn">
                           <img src="/static/images/cd-icon-picture.svg" alt="Picture">
                         </div>
-                        <div th:if="${update.getType() == 'red'}" class="cd-timeline__img cd-timeline__img--movie js-cd-img animated bounceIn">
+                        <div th:if="${update.getType() == 'red'}"
+                          class="cd-timeline__img cd-timeline__img--movie js-cd-img animated bounceIn">
                           <img src="/static/images/cd-icon-movie.svg" alt="Picture">
                         </div>
-                        <div th:if="${update.getType() == 'yellow'}" class="cd-timeline__img cd-timeline__img--location js-cd-img animated bounceIn">
+                        <div th:if="${update.getType() == 'yellow'}"
+                          class="cd-timeline__img cd-timeline__img--location js-cd-img animated bounceIn">
                           <img src="/static/images/cd-icon-location.svg" alt="Picture">
                         </div>
 
@@ -539,7 +537,9 @@
 
       <div id="animatedModal">
         <div class="modal-wrapper">
-          <div id="agora_local" style="z-index: 9999; width:270px;height:171px;display: inline-block; position: absolute; bottom: 0; right: 0;margin-bottom: 10px; margin-right: 10px;"></div>
+          <div id="agora_local"
+            style="z-index: 9999; width:270px;height:171px;display: inline-block; position: absolute; bottom: 0; right: 0;margin-bottom: 10px; margin-right: 10px;">
+          </div>
           <div id="closebt-container" class="close-animatedModal">
             <img id="close-the-modal" class="closebt" src="/static/img/closebt.svg" />
           </div>
@@ -550,13 +550,17 @@
               <p class="call-duration">Вмомента се звъни..</p>
             </div>
             <div class="call-controls">
-              <div id="stop-video" class="titanic titanic-stop" style="height: 50px;display: inline-block;margin-right: 40px;"
+              <div id="stop-video" class="titanic titanic-stop"
+                style="height: 50px;display: inline-block;margin-right: 40px;"
                 title="Натисни тази икона за да сппреш камерата"></div>
-              <div id="mute-mic" class="titanic titanic-no-mic" style="height: 50px;display: inline-block;" title="Натисни тази икона за да заглушиш микрофона"></div>
-              <div id="share-screen" class="titanic titanic-checkbox" style="height: 50px;display: inline-block;margin-left: 40px;"
+              <div id="mute-mic" class="titanic titanic-no-mic" style="height: 50px;display: inline-block;"
+                title="Натисни тази икона за да заглушиш микрофона"></div>
+              <div id="share-screen" class="titanic titanic-checkbox"
+                style="height: 50px;display: inline-block;margin-left: 40px;"
                 title="Натисни тази икона за да споделиш екрана си"></div>
               <span class="red-circle" style="display: flex; justify-content: center;margin-left: 40px">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATUSURBVHhe7ZtNiFVlHMZnFMLvD3KljsZQq1xI7mwjKuQiMHATggZtQmvXImkjI4jiJgjShTsrmFJXZa2C8gPNqXa5GQxBwlXqVOJnM/2ec5+5zL2j3HPec87cO+P/Bw/vef/3fZ/3fZ+ZOXPu1ekLgiAIgiAIgiAIgiAIgiCoi/Hx8YXoVfQm+gAdm5iY+Jr2Au0vtKPoJrqNHlu6Vm3UY857zjH0PpKXPBd6mbkBh1zOobahD9GX6Bp6Qr0W5O01vkBaU2sv83Z6Hza7GO3gLEdpr6JpYVF7hH5H36DP0EfobbSZlzehQa7X0K5E862Vrg2iTRrrOZorj2+RPB/xegvUFOrPXGpPb6DF3m5vwIbWoPfQ9+hBY9sN1Efn0SfoHUob0QueWjnyZp3X0LvoU3QRPdReJqF/H32HtOfVnjqzsI9VLL4fXULjja01v9qqHUJbUdfvSWxrEfvQj7L2pL01fyq4Fgp5H3rRU+qB9frRFhYaRs0fFa7/pdENfQ/tKg/vWbRH9roXnUb3dAbB9UM0zOUW1O/h1YH54Wwl4FrfaefQbtRb95QCcJQlPoPO8l/jdNn5DntINeD5Eqa6dwgFuc4vzRk413qdLTshZ9WZ/VJ5MNS3tr4yp1yqDDzXYv0W7RDSo85ldAPp2U+/sSVdq6bXNEZjd6K1tqkMPE/5rMMulQMjPTKIe2jA5WTY2wIHdhL9oc2WQR722kl3gZdJBp8BpLOKzS6nwYb6MbnijQ65XBimz2P+DqQH3DH5TUL/H5ofafWuInseRKupTXsORK97jMb+hPQLrAn9MfQ50rPoPC9fGOYP2U9nT/+FgsEuG/1Js8TlwjBfb8EyuBYj6GO6ei6c72GF0Vx52Etv8aY+Uo16WGGYrl8uOrN8drlcHCaP2GS/S0nIQ+Cje9d6lytH3lrDy024nITOLA/aEZeKwdztNriFSj0Qy0e4WztermyA+tDjlq22u5wfJv/gyQdcSsY+sypAgcUB+SgLl/LBhA2eeIdmucvJyEu4WzterooA9WmSMlAWG1zuDOOPetJxl0ohL+Fu7Xi5StYjgxPyoj3iUmcY/JsnbXWpFPIS7taOl6sqwG3yov3Vpc4wWM9mmrTUpVLIS7hbO16uqgCXykuZuNSZbHVwtzS2m5UBCtvl9/P4CNDYrniAfNvqA8iLLuvbOalvu8IHavfLi5fr3v49Xhu4ILksw6S+7VICbPHLi5fr3v49vvCBn4XtKvPrhJfr3v5J/W9NoC39eRseA/Yac6l2ur5/Bp/1JP3TY/ImtDg6Z68zLueGOS33pLwwp7v7Z/Ar6C9NrAK8btMM2j43zGu5J+WlJ/bPJH2A+RVq+QC0IHeZfwa9bNsZY7bvP+gF+Mon3QMDQ3hJ98AgCHoCfnyv6D7oblAUP0rM2FvAOYfziwBTcX4RYCrOLwJMxflFgKk4vwgwFecXAabi/CLAPJDTtD9/aMQ3PUBKtf2pxKyEdxsH9a6DYFr+H06WHribQVf/X0XvUA669HxDICsI47qCag9RNeFuMzzVPGeFX3q+IYh1TwtRfeHr9vDm3F8KlEKBtIeoaxPh5UHBtIWYEeEVQAFNhjiVCK8ACmpqiBFeAgpMwUV4JVBwEV4QBEEQBEEQBEEQ9BJ9ff8D34ntJUBajlQAAAAASUVORK5CYII=" />
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATUSURBVHhe7ZtNiFVlHMZnFMLvD3KljsZQq1xI7mwjKuQiMHATggZtQmvXImkjI4jiJgjShTsrmFJXZa2C8gPNqXa5GQxBwlXqVOJnM/2ec5+5zL2j3HPec87cO+P/Bw/vef/3fZ/3fZ+ZOXPu1ekLgiAIgiAIgiAIgiAIgiCoi/Hx8YXoVfQm+gAdm5iY+Jr2Au0vtKPoJrqNHlu6Vm3UY857zjH0PpKXPBd6mbkBh1zOobahD9GX6Bp6Qr0W5O01vkBaU2sv83Z6Hza7GO3gLEdpr6JpYVF7hH5H36DP0EfobbSZlzehQa7X0K5E862Vrg2iTRrrOZorj2+RPB/xegvUFOrPXGpPb6DF3m5vwIbWoPfQ9+hBY9sN1Efn0SfoHUob0QueWjnyZp3X0LvoU3QRPdReJqF/H32HtOfVnjqzsI9VLL4fXULjja01v9qqHUJbUdfvSWxrEfvQj7L2pL01fyq4Fgp5H3rRU+qB9frRFhYaRs0fFa7/pdENfQ/tKg/vWbRH9roXnUb3dAbB9UM0zOUW1O/h1YH54Wwl4FrfaefQbtRb95QCcJQlPoPO8l/jdNn5DntINeD5Eqa6dwgFuc4vzRk413qdLTshZ9WZ/VJ5MNS3tr4yp1yqDDzXYv0W7RDSo85ldAPp2U+/sSVdq6bXNEZjd6K1tqkMPE/5rMMulQMjPTKIe2jA5WTY2wIHdhL9oc2WQR722kl3gZdJBp8BpLOKzS6nwYb6MbnijQ65XBimz2P+DqQH3DH5TUL/H5ofafWuInseRKupTXsORK97jMb+hPQLrAn9MfQ50rPoPC9fGOYP2U9nT/+FgsEuG/1Js8TlwjBfb8EyuBYj6GO6ei6c72GF0Vx52Etv8aY+Uo16WGGYrl8uOrN8drlcHCaP2GS/S0nIQ+Cje9d6lytH3lrDy024nITOLA/aEZeKwdztNriFSj0Qy0e4WztermyA+tDjlq22u5wfJv/gyQdcSsY+sypAgcUB+SgLl/LBhA2eeIdmucvJyEu4WzterooA9WmSMlAWG1zuDOOPetJxl0ohL+Fu7Xi5StYjgxPyoj3iUmcY/JsnbXWpFPIS7taOl6sqwG3yov3Vpc4wWM9mmrTUpVLIS7hbO16uqgCXykuZuNSZbHVwtzS2m5UBCtvl9/P4CNDYrniAfNvqA8iLLuvbOalvu8IHavfLi5fr3v49Xhu4ILksw6S+7VICbPHLi5fr3v49vvCBn4XtKvPrhJfr3v5J/W9NoC39eRseA/Yac6l2ur5/Bp/1JP3TY/ImtDg6Z68zLueGOS33pLwwp7v7Z/Ar6C9NrAK8btMM2j43zGu5J+WlJ/bPJH2A+RVq+QC0IHeZfwa9bNsZY7bvP+gF+Mon3QMDQ3hJ98AgCHoCfnyv6D7oblAUP0rM2FvAOYfziwBTcX4RYCrOLwJMxflFgKk4vwgwFecXAabi/CLAPJDTtD9/aMQ3PUBKtf2pxKyEdxsH9a6DYFr+H06WHribQVf/X0XvUA669HxDICsI47qCag9RNeFuMzzVPGeFX3q+IYh1TwtRfeHr9vDm3F8KlEKBtIeoaxPh5UHBtIWYEeEVQAFNhjiVCK8ACmpqiBFeAgpMwUV4JVBwEV4QBEEQBEEQBEEQ9BJ9ff8D34ntJUBajlQAAAAASUVORK5CYII=" />
               </span>
             </div>
           </div>
@@ -572,8 +576,8 @@
     <div th:replace="fragments/footerSignedIn :: footer"></div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="/static/js/vendor/bootstrap.min.js"></script>
   <!-- Plugin-JS -->
   <script src="/static/js/owl.carousel.min.js"></script>
@@ -640,7 +644,8 @@
   <script src="/static/js/notifications.js"></script>
   <script src="/static/js/paypal-checkout.js"></script>
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjJimoTORP3LAM9lx8aasMG5_1dlNgrGI&language=bg&libraries=places&callback=initMap"
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjJimoTORP3LAM9lx8aasMG5_1dlNgrGI&language=bg&libraries=places&callback=initMap"
     async defer></script>
 
   <!-- <script src="/static/js/headerSignedInRegulator.js"></script> -->
@@ -659,7 +664,8 @@
 
   <!-- Include Editor JS files. -->
   <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@2.9.0/js/froala_editor.pkgd.min.js"></script> -->
-  <script src='https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=1khodv3pt82ph2yokwbs92ujrb3cpbp92eeed86xo772qdxt'></script>
+  <script src='https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=1khodv3pt82ph2yokwbs92ujrb3cpbp92eeed86xo772qdxt'>
+  </script>
 
   <!-- Initialize the editor. -->
   <script src="/static/js/projectNotes.js">
@@ -668,7 +674,8 @@
   <script id="dsq-count-scr" src="//squadknowhow.disqus.com/count.js" async></script>
 
   <script src="/static/js/setUpWantedMembers.js"></script>
-  <script src="//instant.page/1.1.0" type="module" integrity="sha384-EwBObn5QAxP8f09iemwAJljc+sU+eUXeL9vSBw1eNmVarwhKk2F9vBEpaN9rsrtp"></script>
+  <script src="//instant.page/1.1.0" type="module"
+    integrity="sha384-EwBObn5QAxP8f09iemwAJljc+sU+eUXeL9vSBw1eNmVarwhKk2F9vBEpaN9rsrtp"></script>
 </body>
 
 </html>

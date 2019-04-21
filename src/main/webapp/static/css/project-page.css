@@ -3,17 +3,29 @@
   width: 100%;
 }
 
+.z-depth-3 {
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .10), 0 5px 20px 0 rgba(0, 0, 0, .20);
+}
+
+@media (min-width: 768px) {
+  .hkCNKG:hover .blurred-div {
+    transform: scale(1.05);
+  }
+}
+
 .project-cover-photo-container {
   padding-left: 35px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
 }
 
 .smaller-picture {
+  border-radius: 7px !important;
+  padding: 0px;
   border: none;
   display: block;
   margin: 0 auto;
   width: 100%;
-  height: 135.67px;
+  height: 220px;
   margin-bottom: 10px;
 }
 
@@ -31,8 +43,7 @@
 .heart {
   width: 100px;
   height: 100px;
-  background: url("https://cssanimation.rocks/images/posts/steps/heart.png")
-    no-repeat;
+  background: url("https://cssanimation.rocks/images/posts/steps/heart.png") no-repeat;
   background-position: 0 0;
   cursor: pointer;
   transition: background-position 1s steps(28);
@@ -40,10 +51,12 @@
   float: right;
   display: inline-block;
 }
+
 .heart.is-active {
   transition-duration: 1s;
   background-position: -2800px 0;
 }
+
 .stage {
   position: fixed;
   top: 50%;

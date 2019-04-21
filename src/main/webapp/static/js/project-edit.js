@@ -826,18 +826,6 @@ $(document).ready(function() {
                   uploader.fineUploader("setName", 6, "6");
                 }
 
-                if ($(".qq-file-id-7").length !== 0) {
-                  uploader.fineUploader("setName", 7, "7");
-                }
-
-                if ($(".qq-file-id-8").length !== 0) {
-                  uploader.fineUploader("setName", 8, "8");
-                }
-
-                if ($(".qq-file-id-9").length !== 0) {
-                  uploader.fineUploader("setName", 9, "9");
-                }
-
                 secondUpload = true;
 
                 $("#fine-uploader").fineUploader("uploadStoredFiles");
@@ -1080,7 +1068,7 @@ $(document).ready(function() {
       },
       validation: {
         sizeLimit: 10048576,
-        itemLimit: 10,
+        itemLimit: 7,
         allowedExtensions: ["jpeg", "jpg", "gif", "png"]
       },
       maxConnections: 1,

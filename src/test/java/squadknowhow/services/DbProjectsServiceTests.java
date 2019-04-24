@@ -952,42 +952,6 @@ public class DbProjectsServiceTests {
   }
 
   @Test
-  public void uploadPictures_whenParametersAreValid_shouldReturnResponseUploadWithTrueAndSetProjectPicture7() throws IOException {
-    ResponseUpload expected = new ResponseUpload(true);
-    int id = 1;
-    String fileName = "7";
-    when(this.projectsRepositoryMock.getById(id)).thenReturn(new Project());
-
-    ResponseUpload actual = sut.uploadPictures(null, id, fileName);
-
-    Assert.assertEquals(expected, actual);
-  }
-
-  @Test
-  public void uploadPictures_whenParametersAreValid_shouldReturnResponseUploadWithTrueAndSetProjectPicture8() throws IOException {
-    ResponseUpload expected = new ResponseUpload(true);
-    int id = 1;
-    String fileName = "8";
-    when(this.projectsRepositoryMock.getById(id)).thenReturn(new Project());
-
-    ResponseUpload actual = sut.uploadPictures(null, id, fileName);
-
-    Assert.assertEquals(expected, actual);
-  }
-
-  @Test
-  public void uploadPictures_whenParametersAreValid_shouldReturnResponseUploadWithTrueAndSetProjectPicture9() throws IOException {
-    ResponseUpload expected = new ResponseUpload(true);
-    int id = 1;
-    String fileName = "9";
-    when(this.projectsRepositoryMock.getById(id)).thenReturn(new Project());
-
-    ResponseUpload actual = sut.uploadPictures(null, id, fileName);
-
-    Assert.assertEquals(expected, actual);
-  }
-
-  @Test
   public void uploadImage_whenIdIsLessThan1_shoudThrowInvalidParameterException() throws IOException {
     expectedEx.expect(InvalidParameterException.class);
     expectedEx.expectMessage("Id is not valid");
@@ -996,7 +960,7 @@ public class DbProjectsServiceTests {
   }
 
   @Test
-  public void uploadImage_whenParametersAreValid_shouldReturnResponseUpload() throws IOException {
+  public void uploadImage_whenParametersAreValid_shouldReturnResponseUploadWithTrue() throws IOException {
     ResponseUpload expected = new ResponseUpload(true);
     int id = 1;
     when(this.projectsRepositoryMock.getById(id)).thenReturn(new Project());
@@ -2442,10 +2406,7 @@ public class DbProjectsServiceTests {
     int actual4 = sut.deleteProjectFile(projectId, 4);
     int actual5 = sut.deleteProjectFile(projectId, 5);
     int actual6 = sut.deleteProjectFile(projectId, 6);
-    int actual7 = sut.deleteProjectFile(projectId, 7);
-    int actual8 = sut.deleteProjectFile(projectId, 8);
-    int actual9 = sut.deleteProjectFile(projectId, 9);
-    int actual10 = sut.deleteProjectFile(projectId, 112);
+    int actual7 = sut.deleteProjectFile(projectId, 1122);
 
     Assert.assertEquals(actual1, 200);
     Assert.assertEquals(actual2, 200);
@@ -2453,9 +2414,6 @@ public class DbProjectsServiceTests {
     Assert.assertEquals(actual4, 200);
     Assert.assertEquals(actual5, 200);
     Assert.assertEquals(actual6, 200);
-    Assert.assertEquals(actual7, 200);
-    Assert.assertEquals(actual8, 200);
-    Assert.assertEquals(actual9, 200);
-    Assert.assertEquals(actual10, 404);
+    Assert.assertEquals(actual7, 404);
   }
 }

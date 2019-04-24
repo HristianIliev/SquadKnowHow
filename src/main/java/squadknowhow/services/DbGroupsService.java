@@ -84,7 +84,7 @@ public class DbGroupsService implements IGroupsService {
     group.setLogo(path);
     this.groupsRepository.update(group);
 
-    return new ResponseUpload(false);
+    return new ResponseUpload(true);
   }
 
   @Override

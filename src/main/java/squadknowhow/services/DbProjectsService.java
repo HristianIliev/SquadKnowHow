@@ -1387,7 +1387,7 @@ public class DbProjectsService implements IProjectsService {
     project.setCover(path);
 
     this.projectsRepository.update(project);
-    return new ResponseUpload(false);
+    return new ResponseUpload(true);
   }
 
   @Override

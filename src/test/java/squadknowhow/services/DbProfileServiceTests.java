@@ -9,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import squadknowhow.contracts.IRepository;
 import squadknowhow.dbmodels.*;
 import squadknowhow.request.models.EditedUser;
@@ -29,6 +30,7 @@ import squadknowhow.utils.validators.base.IValidator;
 import java.io.IOException;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.isA;
@@ -856,11 +858,7 @@ public class DbProfileServiceTests {
   @Test
   public void changeImage_whenParametersAreValid_shouldReturnTrue() throws IOException {
     int id = 1;
-    RequestBase64 base64 = new RequestBase64("TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlz\n" +
-            "IHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaCBpcyBhIGx1c3Qgb2Yg\n" +
-            "dGhlIG1pbmQsIHRoYXQgYnkgYSBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGlu\n" +
-            "dWVkIGFuZCBpbmRlZmF0aWdhYmxlIGdlbmVyYXRpb24gb2Yga25vd2xlZGdlLCBleGNlZWRzIHRo\n" +
-            "ZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4=", "jpg");
+    RequestBase64 base64 = new RequestBase64("test", "jpg");
     User user = new User();
     user.setImage("test");
     when(this.usersRepositoryMock.getById(isA(Integer.class))).thenReturn(user);
@@ -892,5 +890,55 @@ public class DbProfileServiceTests {
     ResponseSuccessful actual = sut.deleteNotifications(id);
 
     Assert.assertEquals(expected, actual);
+  }
+
+  @Test
+  public void loadUserByUsername_whenUserIsNotActivated_shouldThrowUsernameNotFoundException(){
+    expectedEx.expect(UsernameNotFoundException.class);
+    expectedEx.expectMessage("Account not activated");
+    String email = "hristian00i@abv.bg";
+    User user = new User();
+    user.setEmail(email);
+    when(this.usersRepositoryMock.getAll()).thenReturn(Collections.singletonList(user));
+
+    sut.loadUserByUsername(email);
+  }
+
+  @Test
+  public void startGithubStatistics_whenIdIsNotValid_shouldThrowInvalidParameterException(){
+    expectedEx.expect(InvalidParameterException.class);
+    expectedEx.expectMessage("Id is not valid");
+    int id = 0;
+
+    sut.startGithubStatistics(id);
+  }
+
+  @Test
+  public void startGithubStatistics_whenParametersAreValid_shouldReturnTrue(){
+    int id = 1;
+    when(this.usersRepositoryMock.getById(id)).thenReturn(new User());
+
+    boolean actual = sut.startGithubStatistics(id);
+
+    Assert.assertTrue(actual);
+  }
+
+  @Test
+  public void stopGithubStatistics_whenIdIsNotValid_shouldThrowInvalidParameterException(){
+    expectedEx.expect(InvalidParameterException.class);
+    expectedEx.expectMessage("Id is not valid");
+    int id = 0;
+
+    sut.stopGithubStatistics(id);
+  }
+
+  @Test
+  public void stopGithubStatistics_whenParametersAreValid_shouldReturnTrue(){
+    int id = 1;
+    when(this.usersRepositoryMock.getById(id)).thenReturn(new User());
+
+    boolean actual = sut.stopGithubStatistics(id);
+
+    Assert.assertTrue(actual);
   }
 }

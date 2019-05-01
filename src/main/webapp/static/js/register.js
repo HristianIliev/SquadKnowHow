@@ -45,7 +45,7 @@ switch (myData) {
 }
 
 $(document).ready(function () {
-  $(":checkbox").labelauty();
+  // $(":checkbox").labelauty();
 });
 
 $("#checkbox1").change(function () {
@@ -83,19 +83,6 @@ $("#first-proceed-btn").click(function (ev) {
 
   //#region first name validation
   if (firstName.val().length === 0) {
-    // firstName.webuiPopover("destroy");
-
-    // firstName.webuiPopover({
-    //   placement: "right",
-    //   trigger: "manual",
-    //   content: "Това поле не може да е празно",
-    //   style: "popover",
-    //   closeable: true,
-    //   animation: "pop",
-    //   width: "auto", //can be set with  number
-    //   height: "auto"
-    // });
-    // firstName.webuiPopover("show");
     iziToast.error({
       title: "Грешка",
       message: "Името не може да е празно",
@@ -119,19 +106,6 @@ $("#first-proceed-btn").click(function (ev) {
   }
 
   if (firstName.val().length < 2 || firstName.val().length > 16) {
-    // firstName.webuiPopover("destroy");
-
-    // firstName.webuiPopover({
-    //   placement: "right",
-    //   trigger: "manual",
-    //   content: "Трябва да е между 2 и 16 символа",
-    //   style: "popover",
-    //   closeable: true,
-    //   animation: "pop",
-    //   width: "auto", //can be set with  number
-    //   height: "auto"
-    // });
-    // firstName.webuiPopover("show");
     iziToast.error({
       title: "Грешка",
       message: "Името трябва да е между 2 и 16 символа",
@@ -158,18 +132,6 @@ $("#first-proceed-btn").click(function (ev) {
 
   //#region last name validation
   if (lastName.val().length === 0) {
-    // lastName.webuiPopover("destroy");
-    // lastName.webuiPopover({
-    //   placement: "right",
-    //   trigger: "manual",
-    //   content: "Това поле не може да бъде празно",
-    //   style: "popover",
-    //   closeable: true,
-    //   animation: "pop",
-    //   width: "auto", //can be set with  number
-    //   height: "auto"
-    // });
-    // lastName.webuiPopover("show");
     iziToast.error({
       title: "Грешка",
       message: "Фамилията не може да е празно",
@@ -194,18 +156,6 @@ $("#first-proceed-btn").click(function (ev) {
   }
 
   if (lastName.val().length < 2 || lastName.val().length > 16) {
-    // lastName.webuiPopover("destroy");
-    // lastName.webuiPopover({
-    //   placement: "right",
-    //   trigger: "manual",
-    //   content: "Трябва да е между 2 и 16 символа",
-    //   style: "popover",
-    //   closeable: true,
-    //   animation: "pop",
-    //   width: "auto", //can be set with  number
-    //   height: "auto"
-    // });
-    // lastName.webuiPopover("show");
     iziToast.error({
       title: "Грешка",
       message: "Фамилията трябва да е мжду 2 и 16 символа",
@@ -232,18 +182,6 @@ $("#first-proceed-btn").click(function (ev) {
 
   //#region email validation
   if (email.val().length === 0) {
-    // email.webuiPopover("destroy");
-    // email.webuiPopover({
-    //   placement: "right",
-    //   trigger: "manual",
-    //   content: "Това поле не може да бъде празно",
-    //   style: "popover",
-    //   closeable: true,
-    //   animation: "pop",
-    //   width: "auto", //can be set with  number
-    //   height: "auto"
-    // });
-    // email.webuiPopover("show");
     iziToast.error({
       title: "Грешка",
       message: "Имейлът не може да е празен",
@@ -270,18 +208,6 @@ $("#first-proceed-btn").click(function (ev) {
 
   //#region password validation
   if (password.val().length === 0) {
-    // password.webuiPopover("destroy");
-    // password.webuiPopover({
-    //   placement: "right",
-    //   trigger: "manual",
-    //   content: "Това поле не може да бъде празно",
-    //   style: "popover",
-    //   closeable: true,
-    //   animation: "pop",
-    //   width: "auto", //can be set with  number
-    //   height: "auto"
-    // });
-    // password.webuiPopover("show");
     iziToast.error({
       title: "Грешка",
       message: "Паролата не може да е празна",
@@ -305,22 +231,40 @@ $("#first-proceed-btn").click(function (ev) {
     return false;
   }
 
-  if (password.val().length < 8 || password.val().length > 20) {
-    // password.webuiPopover("destroy");
-    // password.webuiPopover({
-    //   placement: "right",
-    //   trigger: "manual",
-    //   content: "Трябва да е между 8 и 20",
-    //   style: "popover",
-    //   closeable: true,
-    //   animation: "pop",
-    //   width: "auto", //can be set with  number
-    //   height: "auto"
-    // });
-    // password.webuiPopover("show");
+  // if (password.val().length < 8 || password.val().length > 20) {
+
+  // }
+
+  var cyrillicTest = new RegExp("[а-яА-ЯЁё]");
+  if(password.val().match(cyrillicTest)){
     iziToast.error({
       title: "Грешка",
-      message: "Паролата трябва да е мжду 8 и 20 символа",
+      message: "Паролата не може да е на кирилица",
+      position: "topRight"
+    });
+
+    passwordIcon.attr("style", "color: rgb(230, 92, 92);");
+    password.attr("style", "border-bottom: 1px solid rgb(230, 92, 92)");
+    passwordLabel.attr("style", "color: rgb(230, 92, 92);");
+
+    passwordIcon.addClass("validated-icon");
+    password.addClass("validated-form");
+    passwordLabel.addClass("validated-label");
+
+    $(".validated-form").click(function () {
+      $(this).attr("style", " ");
+      $(".validated-label").attr("style", " ");
+      $(".validated-icon").attr("style", " ");
+    });
+
+    return false;
+  }
+
+  var passw = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,20})");
+  if (!password.val().match(passw)) {
+    iziToast.error({
+      title: "Грешка",
+      message: "Паролата е в некоректен формат",
       position: "topRight"
     });
 
@@ -344,18 +288,6 @@ $("#first-proceed-btn").click(function (ev) {
 
   //#region confirm password validation
   if (confirmPassword.val().length === 0) {
-    // confirmPassword.webuiPopover("destroy");
-    // confirmPassword.webuiPopover({
-    //   placement: "right",
-    //   trigger: "manual",
-    //   content: "Това поле не може да бъде празно",
-    //   style: "popover",
-    //   closeable: true,
-    //   animation: "pop",
-    //   width: "auto", //can be set with  number
-    //   height: "auto"
-    // });
-    // confirmPassword.webuiPopover("show");
     iziToast.error({
       title: "Грешка",
       message: "Моля повторете паролата",
@@ -380,18 +312,6 @@ $("#first-proceed-btn").click(function (ev) {
   }
 
   if (!(confirmPassword.val() === password.val())) {
-    // confirmPassword.webuiPopover("destroy");
-    // confirmPassword.webuiPopover({
-    //   placement: "right",
-    //   trigger: "manual",
-    //   content: "Паролите не съвпадат",
-    //   style: "popover",
-    //   closeable: true,
-    //   animation: "pop",
-    //   width: "auto", //can be set with  number
-    //   height: "auto"
-    // });
-    // confirmPassword.webuiPopover("show");
     iziToast.error({
       title: "Грешка",
       message: "Паролите не съвпадат",
@@ -418,18 +338,6 @@ $("#first-proceed-btn").click(function (ev) {
 
   //#region description validation
   if (description.val().length === 0) {
-    // description.webuiPopover("destroy");
-    // description.webuiPopover({
-    //   placement: "right",
-    //   trigger: "manual",
-    //   content: "Това поле не може да бъде празно",
-    //   style: "popover",
-    //   closeable: true,
-    //   animation: "pop",
-    //   width: "auto", //can be set with  number
-    //   height: "auto"
-    // });
-    // description.webuiPopover("show");
     iziToast.error({
       title: "Грешка",
       message: "Описанието не може да е празно",
@@ -454,18 +362,6 @@ $("#first-proceed-btn").click(function (ev) {
   }
 
   if (description.val().length < 25) {
-    // description.webuiPopover("destroy");
-    // description.webuiPopover({
-    //   placement: "right",
-    //   trigger: "manual",
-    //   content: "Трябва да е минимум 25 символа",
-    //   style: "popover",
-    //   closeable: true,
-    //   animation: "pop",
-    //   width: "auto", //can be set with  number
-    //   height: "auto"
-    // });
-    // description.webuiPopover("show");
     iziToast.error({
       title: "Грешка",
       message: "Описанието трябва да е минимум 25 символа",
@@ -515,18 +411,6 @@ $("#first-proceed-btn").click(function (ev) {
       $(".loader-entries").remove();
 
       if (result === false) {
-        // email.webuiPopover("destroy");
-        // email.webuiPopover({
-        //   placement: "right",
-        //   trigger: "manual",
-        //   content: "Имейлът е вече зает",
-        //   style: "popover",
-        //   closeable: true,
-        //   animation: "pop",
-        //   width: "auto",
-        //   height: "auto"
-        // });
-        // email.webuiPopover("show");
         iziToast.error({
           title: "Грешка",
           message: "Вече съществува акаунт с този имейл",

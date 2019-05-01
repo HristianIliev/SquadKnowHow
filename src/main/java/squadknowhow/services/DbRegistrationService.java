@@ -217,8 +217,7 @@ public class DbRegistrationService implements IRegistrationService {
     userToInsert.setFirstName(newUser.getFirstName());
     userToInsert.setLastName(newUser.getLastName());
     userToInsert.setEmail(newUser.getEmail());
-    userToInsert.setPassword(
-            this.passwordEncoder.encode(newUser.getPassword()));
+    userToInsert.setPassword(this.passwordEncoder.encode(newUser.getPassword()));
     userToInsert.setDescription(newUser.getDescription());
     if (newUser.getCity().getName() != null
             && !Objects.equals(newUser.getCity().getName(), "")) {

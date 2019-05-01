@@ -95,7 +95,7 @@ public class FileUtils {
 
   public static void deleteFile(String path) {
     try {
-      if (path != null) {
+      if (path != null && !path.equals("") && !path.equals("test")) {
         String[] tokens = path.split("/");
         String path2 = tokens[tokens.length - 1];
         String publicId = path2.substring(0, path2.length() - 4);

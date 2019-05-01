@@ -63,8 +63,7 @@ function setUpAutocomplete() {
   $("#city-profile").autocomplete({
     source: "/api/getCities",
     minLength: 2,
-    select: function (event, ui) {
-    },
+    select: function (event, ui) {},
     autoFocus: true
   });
 
@@ -200,8 +199,7 @@ function setUpAutocomplete() {
   $("#employer-profile").autocomplete({
     source: "/api/getEmployedBy",
     minLength: 2,
-    select: function (event, ui) {
-    },
+    select: function (event, ui) {},
     autoFocus: true
   });
 
@@ -405,7 +403,7 @@ $(document).ready(function () {
       unemployed = true;
     }
     var github = "";
-    if($("#github-profile").length !== 0){
+    if ($("#github-profile").length !== 0) {
       github = $("#github-profile").val();
     }
 
@@ -542,6 +540,17 @@ $(document).ready(function () {
         message: "Паролите не съвпадат",
         position: "topRight"
       });
+      return false;
+    }
+
+    var passw = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,20})");
+    if (!password.match(passw)) {
+      iziToast.error({
+        title: "Грешка",
+        message: "Паролата е в некоректен формат",
+        position: "topRight"
+      });
+
       return false;
     }
 

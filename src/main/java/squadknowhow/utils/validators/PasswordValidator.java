@@ -13,7 +13,7 @@ public class PasswordValidator implements IValidator<String> {
     return isNotEmpty(password)
             && isNotNull(password)
             && password.length() >= MIN_PASSWORD_LENGTH
-            && password.length() < MAX_PASSWORD_LENGTH;
+            && password.length() <= MAX_PASSWORD_LENGTH;
   }
 
   private boolean isNotEmpty(String str) {

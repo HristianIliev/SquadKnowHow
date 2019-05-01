@@ -634,7 +634,6 @@ $(document).ready(function() {
             return false;
           }
 
-          // FIXME: ako project imeto e veche zaeto nishto nqma da stane
           if (changed) {
             $.ajax({
               url: "/api/checkProjectName?name=" + name,

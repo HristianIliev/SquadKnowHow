@@ -397,16 +397,7 @@
 
 <body th:id="'user-id_' + ${user.getId()}" data-spy="scroll" class="gray-bg-my-profile">
     <div id="fb-root"></div>
-    <script>
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = 'https://connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v3.1';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.3"></script>
 
     <div th:replace="fragments/preloader :: preloader"></div>
 
@@ -846,11 +837,7 @@
                                     <button type="button"
                                         class="button-schedule-a-meeting button-outline button-outline-2px">
                                         <i class="far fa-clock"></i> Насрочи събитие</button>
-                                    <div class="fb-share-button" data-href="http://squad-knowhow.herokuapp.com/home"
-                                        data-layout="button_count" data-size="large" data-mobile-iframe="true">
-                                        <a target="_blank"
-                                            href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2Fproject-admin%2F78&amp;src=sdkpreparse"
-                                            class="fb-xfbml-parse-ignore">Сподели</a></div>
+                                        <div class="fb-share-button" data-href="https://squadknowhow.herokuapp.com/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsquadknowhow.herokuapp.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Сподели</a></div>
                                 </div>
                                 <div class="col-md-5 advices-project-box">
                                     <h3 class="card-title-people text-center" style="color: rgb(109, 109, 109);">Съвети

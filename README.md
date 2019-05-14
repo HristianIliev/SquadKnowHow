@@ -1,6 +1,6 @@
 # SquadKnowHow
 
-SquadKnowHow is a web application made with Spring MVC and MySQL with Hibernate and it is a platform that eases the whole process of finding a team to collaborate with and realise your project or idea. The platform is able to create, manage, brainstorm and finally realise the project with an user friendly interface and many more features. It is also aimed at people who are looking to freelance in a certain project and have certain skills, abilities and interests. The website has a lot more features than what meets the eye such as:
+SquadKnowHow is a web application made with Spring MVC and MySQL with Hibernate and it is a platform that eases the whole process of finding a team to collaborate with and realise your project or idea. The platform is able to create, manage, brainstorm and finally realise the project with a user friendly interface and many more features. It is also aimed at people who are looking to freelance in a certain project and have certain skills, abilities and interests. The website has a lot more features than what meets the eye such as:
 
 - [Specialized roles](#specialized-roles)
 - [CV creation](#cv-creation)
@@ -17,7 +17,7 @@ SquadKnowHow is a web application made with Spring MVC and MySQL with Hibernate 
 
 ## Specialized roles
 
-- In this platform before people are able to register they must choose in which role they specialize in. After they have decided for a specialty in SquadKnowHow their experience will be tailored for the needs and nature of their respective profession and that will be able to distinguish themselves extremely easy from the other users in the website.
+- In this platform before people are able to register they must choose in which role they specialize in. After they have decided for a specialty in SquadKnowHow their experience will be tailored for the needs and nature of their respective profession and they will be able to distinguish themselves extremely easy from the other users in the website.
 
 ## ![Roles picture](https://res.cloudinary.com/hpsh4d23h/image/upload/v1557848802/Screenshot_30.png)
 
@@ -25,13 +25,13 @@ SquadKnowHow is a web application made with Spring MVC and MySQL with Hibernate 
 
 ## CV creation
 
-- When the users have already decided with which profession they will create their profile they are walked through the process of creating an account. There they are able to make a compact CV of themselves in order to increase the chances of someone finding them and also to ease people who are looking for specific things in a person. In this CV there can be image of the person, skills, interests, education, working place, working places in the past, languages, project links (or github links). Name, email, password and description are mandatory while the other information is optional. After they are done with this whole process the system will send them an email in order to authenticate them and grant them access to SquadKnowHow.
+- When the users have already decided with which profession they will create their profile they are walked through the process of creating an account. There they are able to make a compact CV of themselves in order to increase the chances of someone finding them and also to ease people who are looking for specific things in a person. In this CV a user can include his image, skills, interests, education, working place, working places in the past, languages, project links (or github links). Name, email, password and description are mandatory while the other information is optional. After they are done with this whole process the system will send them an email in order to authenticate them and grant them access to SquadKnowHow.
 
 ---
 
 ## Communication system
 
-- SquadKnowHow provides the users with a fully-fledged messaging system that works in a similar way as electronic messages. People can access their messages in the page "Моите съобщения". Everytime something that concerns a certain user happens this user gets a notification. In order to make the communication between two possible business partners as easy as possible SquadKnowHow provides users with video and voice-only calls (as Skype or Discord). It works on top of the Web technology developed by Google WebRTC.
+- SquadKnowHow provides the users with a fully-fledged messaging system that works in a similar way as electronic messages. People can access their messages in the page "Моите съобщения". Everytime when something that concerns a certain user happens this user gets a notification. In order to make the communication between two possible business partners as easy as possible SquadKnowHow provides users with video and voice-only calls (as Skype or Discord). It works on top of the Web technology developed by Google WebRTC.
 
 ## ![Messages picture](https://res.cloudinary.com/hpsh4d23h/image/upload/v1557860136/Messages_inbox.png)
 

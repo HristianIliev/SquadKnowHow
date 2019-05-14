@@ -47,7 +47,7 @@ public class HibernateUtils {
         prop.setProperty("hibernate.connection.password", REMOTE_CONNECTION_PASSWORD);
         prop.setProperty("hibernate.connection.username", REMOTE_CONNECTION_USERNAME);
         prop.setProperty("hibernate.default_schema", "db374c8f445c7e4c5fb4e8a918012f492e");
-        prop.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL57Dialect");
+        prop.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5DBDialect");
         prop.setProperty("hibernate.connection.CharSet", "utf8");
         prop.setProperty("hibernate.connection.characterEncoding", "utf8");
         prop.setProperty("hibernate.connection.useUnicode", "true");

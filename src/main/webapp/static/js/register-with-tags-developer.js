@@ -26,7 +26,7 @@ var uploader = $("#fine-uploader").fineUploader({
     },
     callbacks: {
         onAllComplete: function(succeeded, failed) {
-            location.replace("/activation?notactivated");
+            location.replace("/home");
         }
     }
 });
@@ -493,7 +493,7 @@ $("#finish-btn").on("click", function() {
                                             );
                                             $("#fine-uploader").fineUploader("uploadStoredFiles");
                                         } else {
-                                            location.replace("/activation?notactivated");
+                                            location.replace("/home?notactivated");
                                         }
                                     }
                                 });

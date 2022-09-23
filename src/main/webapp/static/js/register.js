@@ -84,8 +84,8 @@ $("#first-proceed-btn").click(function(ev) {
     //#region first name validation
     if (firstName.val().length === 0) {
         iziToast.error({
-            title: "Грешка",
-            message: "Името не може да е празно",
+            title: "Error",
+            message: "Name cannot be empty",
             position: "topRight"
         });
 
@@ -339,8 +339,8 @@ $("#first-proceed-btn").click(function(ev) {
     //#region description validation
     if (description.val().length === 0) {
         iziToast.error({
-            title: "Грешка",
-            message: "Описанието не може да е празно",
+            title: "Error",
+            message: "Description cannot be empty",
             position: "topRight"
         });
 
@@ -412,8 +412,8 @@ $("#first-proceed-btn").click(function(ev) {
 
             if (result === false) {
                 iziToast.error({
-                    title: "Грешка",
-                    message: "Вече съществува акаунт с този имейл",
+                    title: "Error",
+                    message: "There is already another user with this email",
                     position: "topRight"
                 });
 

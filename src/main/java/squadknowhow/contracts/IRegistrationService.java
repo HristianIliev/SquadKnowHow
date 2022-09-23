@@ -21,7 +21,7 @@ public interface IRegistrationService {
 
   boolean editProfile(EditedUser user);
 
-  void sendActivationEmail(String email, String activationKey);
+//  void sendActivationEmail(String email, String activationKey);
 
   boolean checkActivationKey(String activationKey);
 

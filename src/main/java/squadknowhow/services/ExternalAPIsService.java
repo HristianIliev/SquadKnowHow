@@ -27,6 +27,7 @@ public class ExternalAPIsService {
   private static final String ACCOUNT_SID = System.getenv("ACCOUNT_SID");
   private static final String AUTH_TOKEN = System.getenv("AUTH_TOKEN");
   private static final String FROM_NUMBER_TELEPHONE = System.getenv("FROM_NUMBER");
+  private static final String EMAIL_USERNAME = System.getenv("EMAIL_USERNAME");
   private static final String EMAIL_PASS = System.getenv("EMAIL_PASS");
 
   private final IRepository<User> usersRepository;
@@ -81,8 +82,8 @@ public class ExternalAPIsService {
       Message message = Message
               .creator(new PhoneNumber("+" + telephone),
                       new PhoneNumber("+353861803664"),
-                      "Твоят SquadKnowHow"
-                              + " верификационен код е: "
+                      "Your SquadKnowHow"
+                              + " verification code is: "
                               + randomNum)
               .create();
 
@@ -102,7 +103,7 @@ public class ExternalAPIsService {
             new javax.mail.Authenticator() {
               protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(
-                        "hristian00i.dev@gmail.com",
+                        EMAIL_USERNAME,
                         EMAIL_PASS);
               }
             });
@@ -111,9 +112,9 @@ public class ExternalAPIsService {
       String to = this.usersRepository.getById(userId).getEmail();
       InternetAddress[] address = InternetAddress.parse(to, true);
       msg.setRecipients(javax.mail.Message.RecipientType.TO, address);
-      msg.setSubject("SquadKnowHow верификационен код");
+      msg.setSubject("SquadKnowHow verification code");
       msg.setSentDate(new Date());
-      msg.setText("Твоят SquadKnowHow " + "верификационен код е: " + randomNum);
+      msg.setText("Your SquadKnowHow " + "verification code is: " + randomNum);
       msg.setHeader("XPriority", "1");
       Transport.send(msg);
       System.out.println("Mail has been sent successfully");

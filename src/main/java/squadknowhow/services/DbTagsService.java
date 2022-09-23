@@ -165,7 +165,7 @@ public class DbTagsService implements ITagsService {
     }
 
     if (result.size() == 0) {
-      result.add("Не съществува такъв резултат");
+      result.add("No such city");
     }
 
     return result;
@@ -187,7 +187,7 @@ public class DbTagsService implements ITagsService {
     }
 
     if (result.size() == 0) {
-      result.add("Не съществува такъв резултат");
+      result.add("No such skill");
     }
 
     return result;
@@ -209,7 +209,7 @@ public class DbTagsService implements ITagsService {
     }
 
     if (result.size() == 0) {
-      result.add("Не съществува такъв резултат");
+      result.add("No such interest");
     }
 
     return result;
@@ -231,7 +231,7 @@ public class DbTagsService implements ITagsService {
     }
 
     if (result.size() == 0) {
-      result.add("Не съществува такъв резултат");
+      result.add("No such language");
     }
 
     return result;
@@ -253,7 +253,7 @@ public class DbTagsService implements ITagsService {
     }
 
     if (result.size() == 0) {
-      result.add("Не съществува такъв резултат");
+      result.add("No such employment");
     }
 
     return result;

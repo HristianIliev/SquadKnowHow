@@ -626,29 +626,29 @@ public class Project implements Model {
   private String getMonthNameLong(int month) {
     switch (month) {
       case 0:
-        return "Януари";
+        return "January";
       case 1:
-        return "Февруари";
+        return "February";
       case 2:
-        return "Март";
+        return "March";
       case 3:
-        return "Април";
+        return "April";
       case 4:
-        return "Май";
+        return "May";
       case 5:
-        return "Юни";
+        return "June";
       case 6:
-        return "Юли";
+        return "July";
       case 7:
-        return "Август";
+        return "August";
       case 8:
-        return "Септември";
+        return "September";
       case 9:
-        return "Октомври";
+        return "October";
       case 10:
-        return "Ноември";
+        return "November";
       case 11:
-        return "Декември";
+        return "December";
       default:
         return null;
     }

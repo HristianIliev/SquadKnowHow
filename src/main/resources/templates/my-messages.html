@@ -7,7 +7,7 @@
     <meta name="keywords" content="Squad,Team,Organize">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моите съобщения - SquadKnowHow</title>
+    <title>My messages - SquadKnowHow</title>
 
     <!-- Tab-icon -->
     <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png">
@@ -23,8 +23,7 @@
     <link rel="stylesheet" href="/static/css/themify-icons.css">
 
     <!-- Icons -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Animations -->
@@ -183,8 +182,7 @@
             </div>
 
             <div class="phone-container">
-                <div class="phonering-alo-phone phonering-alo-green phonering-alo-show" id="phonering-alo-phoneIcon"
-                    style="margin-left: 0px;margin-right: 0px;">
+                <div class="phonering-alo-phone phonering-alo-green phonering-alo-show" id="phonering-alo-phoneIcon" style="margin-left: 0px;margin-right: 0px;">
                     <div class="phonering-alo-ph-circle"></div>
                     <div class="phonering-alo-ph-circle-fill"></div>
                     <a class="pps-btn-img" title="Гласов разговор" onclick="showDialogCall()">
@@ -205,15 +203,13 @@
                 <div class="card-body">
                     <ul class="nav nav-pills mb-3 nav-fill nav-justified" id="pills-tab" role="tablist">
                         <li class="nav-item active my-active">
-                            <a class="nav-link nav-link-messages active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
-                                role="tab" aria-controls="pills-home" aria-selected="true">
+                            <a class="nav-link nav-link-messages active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">
                                 <i class="fa fa-envelope"></i>
                                 <span th:inline="text"> Получени съобщения ([[${user.getMessages().size()}]])</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-link-messages" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
-                                role="tab" aria-controls="pills-profile" aria-selected="false">
+                            <a class="nav-link nav-link-messages" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
                                 <i class="fa fa-share-square"></i>
                                 <span th:inline="text"> Изпратени съобщения ([[${user.getSentMessages().size()}]])</spa>
                             </a>
@@ -228,128 +224,116 @@
                                         th:classappend="${iter.index == iter.size - 1} ? 'active' : ''" th:href="'#message-' + ${message.getId()} + '_' + ${message.getSender().getId()}"
                                         class="list-group-item list-group-item-action" data-toggle="list" role="tab">
                                         <span class="badge badge-primary badge-pill" th:inline="text">[[${message.getTimestamp()}]]</span>
-                                        <span th:inline="text">[[${iter.index + 1}]]. От:
+                                <span th:inline="text">[[${iter.index + 1}]]. От:
                                             [[${message.getSender().getFirstName()}]]
                                             [[${message.getSender().getLastName()}]]</span>
-                                    </a>
-                                </div>
+                            </a>
+                </div>
 
-                                <!-- Tab panes -->
-                                <div id="received-messages-content" class="tab-content col-md-8">
-                                    <div th:each="message, iter: ${user.getMessagesReverse()}" class="tab-pane animated fadeInUp"
-                                        th:classappend="${iter.index == iter.size - 1} ? 'active' : ''" th:id="'message-' + ${message.getId()} + '_' + ${message.getSender().getId()}"
-                                        role="tabpanel" th:inline="text">
-                                        Тема: [[${message.getTopic()}]]
-                                        <hr class="divider">
-                                        <div th:text="${message.getContent()}">
-                                        </div>
-                                        <button th:if="${message.getKind() == 'normal'}" type="button" class="delete-button-messages button button-caution button-caution-outline-2px button-pill">
+                <!-- Tab panes -->
+                <div id="received-messages-content" class="tab-content col-md-8">
+                    <div th:each="message, iter: ${user.getMessagesReverse()}" class="tab-pane animated fadeInUp" th:classappend="${iter.index == iter.size - 1} ? 'active' : ''" th:id="'message-' + ${message.getId()} + '_' + ${message.getSender().getId()}" role="tabpanel"
+                        th:inline="text">
+                        Тема: [[${message.getTopic()}]]
+                        <hr class="divider">
+                        <div th:text="${message.getContent()}">
+                        </div>
+                        <button th:if="${message.getKind() == 'normal'}" type="button" class="delete-button-messages button button-caution button-caution-outline-2px button-pill">
                                             <i class="fa fa-minus-circle"></i> Изтрий
                                         </button>
-                                        <button th:if="${message.getKind() == 'normal'}" type="button" class="trigger-modal button button-primary button-primary-outline-2px button-pill button-outline">
+                        <button th:if="${message.getKind() == 'normal'}" type="button" class="trigger-modal button button-primary button-primary-outline-2px button-pill button-outline">
                                             <i class="fa fa-reply"></i> Отговори
                                         </button>
-                                        <button th:if="${message.getKind() == 'requestToJoin'}" class="reject-button-messages button button-caution button-caution-outline-2px button-pill"
-                                            type="button">
+                        <button th:if="${message.getKind() == 'requestToJoin'}" class="reject-button-messages button button-caution button-caution-outline-2px button-pill" type="button">
                                             <i class="fa fa-minus-circle"></i> Отхвърли
                                         </button>
-                                        <button th:if="${message.getKind() == 'requestToJoin'}" type="button" class="button button-pill button-approve-outline-2px approve-button-messages">
+                        <button th:if="${message.getKind() == 'requestToJoin'}" type="button" class="button button-pill button-approve-outline-2px approve-button-messages">
                                             <i class="fa fa-reply"></i> Одобри
                                         </button>
-                                        <button th:if="${message.getKind() == 'inviteToJoin'}" class="reject-invite-button button button-caution button-caution-outline-2px button-pill"
-                                            type="button">
+                        <button th:if="${message.getKind() == 'inviteToJoin'}" class="reject-invite-button button button-caution button-caution-outline-2px button-pill" type="button">
                                             <i class="fa fa-minus-circle"></i> Отхвърли
                                         </button>
-                                        <button th:if="${message.getKind() == 'inviteToJoin'}" type="button" class="button button-pill button-approve-outline-2px accept-invite-button">
+                        <button th:if="${message.getKind() == 'inviteToJoin'}" type="button" class="button button-pill button-approve-outline-2px accept-invite-button">
                                             <i class="fa fa-reply"></i> Приеми
                                         </button>
-                                        <button th:if="${message.getKind() == 'rejectionMessage'}" class="delete-button-messages button button-caution button-caution-outline-2px button-pill"
-                                            type="button">
+                        <button th:if="${message.getKind() == 'rejectionMessage'}" class="delete-button-messages button button-caution button-caution-outline-2px button-pill" type="button">
                                             <i class="fa fa-minus-circle"></i> Изтрий
                                         </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <h3 class="text-center" th:if="${user.getMessages().size() == 0}">Няма получени съобщения</h3>
-                        </div>
-                        <div class="tab-pane animated fadeInUp" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                            <div class="row">
-                                <!-- List group -->
-                                <div class="list-group col-md-4" id="myList2" role="tablist">
-                                    <a th:each="message, iter: ${user.getSentMessagesReverse()}" th:classappend="${iter.index == iter.size - 1} ? 'active' : ''"
-                                        th:href="'#message_' + ${message.getId()}" class="list-group-item list-group-item-action"
-                                        data-toggle="list" role="tab">
-                                        <span class="badge badge-primary badge-pill" th:inline="text">[[${message.getTimestamp()}]]</span>
-                                        <span th:inline="text">[[${iter.index + 1}]]. До:
-                                            [[${message.getRecipient().getFirstName()}]]
-                                            [[${message.getRecipient().getLastName()}]]</span>
-                                    </a>
-                                </div>
-
-                                <!-- Tab panes -->
-                                <div id="sent-messages-content" class="tab-content col-md-8">
-                                    <div th:each="message, iter: ${user.getSentMessagesReverse()}" class="tab-pane animated fadeInUp"
-                                        th:classappend="${iter.index == iter.size - 1} ? 'active' : ''" th:id="'message_' + ${message.getId()}"
-                                        role="tabpanel" th:inline="text">
-                                        Темa: [[${message.getTopic()}]]
-                                        <hr class="divider">
-                                        <div th:text="${message.getContent()}">
-                                        </div>
-                                        <button class="delete-button-messages-sent button button-caution button-pill"
-                                            type="button">
-                                            <i class="fa fa-minus-circle"></i> Изтрий
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <h3 th:if="${user.getSentMessages().size() == 0}">Няма изпратени съобщения</h3>
-                        </div>
                     </div>
                 </div>
             </div>
-
-            <a id="demo01" href="#animatedModal"></a>
-
-            <div id="animatedModal">
-                <div class="modal-wrapper">
-                    <div id="agora_local" style="z-index: 9999; width:270px;height:171px;display: inline-block; position: absolute; bottom: 0; right: 0;margin-bottom: 10px; margin-right: 10px;"></div>
-                    <div id="closebt-container" class="close-animatedModal">
-                        <img id="close-the-modal" class="closebt" src="/static/img/closebt.svg">
-                    </div>
-                    <div id="modal-container" class="call-modal-content">
-                        <div id="video" style="display: flex;justify-content: center;flex-direction: column;flex-grow: 1;">
-                            <!-- <div class="call-participators-container"> -->
-                            <img id="receiver" th:src="@{${user.getImage()}}" alt="">
-                            <p class="receiver-name">Hristian Iliev</p>
-                            <!-- </div> -->
-                            <p class="call-duration">Вмомента се звъни..</p>
-                        </div>
-                        <div class="call-controls">
-                            <div id="stop-video" class='titanic titanic-stop' style="height: 50px;display: inline-block;margin-right: 40px;"
-                                title="Натисни тази икона за да сппреш камерата"></div>
-                            <div id="mute-mic" class='titanic titanic-no-mic' style="height: 50px;display: inline-block;"
-                                title="Натисни тази икона за да заглушиш микрофона"></div>
-                            <!-- <div id="share-screen" class='titanic titanic-checkbox' style="height: 50px;display: inline-block;margin-left: 40px;"
-                                title="Натисни тази икона за да споделиш екрана си"></div> -->
-                            <span class="red-circle" style="display: flex; justify-content: center;margin-left: 40px">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATUSURBVHhe7ZtNiFVlHMZnFMLvD3KljsZQq1xI7mwjKuQiMHATggZtQmvXImkjI4jiJgjShTsrmFJXZa2C8gPNqXa5GQxBwlXqVOJnM/2ec5+5zL2j3HPec87cO+P/Bw/vef/3fZ/3fZ+ZOXPu1ekLgiAIgiAIgiAIgiAIgiCoi/Hx8YXoVfQm+gAdm5iY+Jr2Au0vtKPoJrqNHlu6Vm3UY857zjH0PpKXPBd6mbkBh1zOobahD9GX6Bp6Qr0W5O01vkBaU2sv83Z6Hza7GO3gLEdpr6JpYVF7hH5H36DP0EfobbSZlzehQa7X0K5E862Vrg2iTRrrOZorj2+RPB/xegvUFOrPXGpPb6DF3m5vwIbWoPfQ9+hBY9sN1Efn0SfoHUob0QueWjnyZp3X0LvoU3QRPdReJqF/H32HtOfVnjqzsI9VLL4fXULjja01v9qqHUJbUdfvSWxrEfvQj7L2pL01fyq4Fgp5H3rRU+qB9frRFhYaRs0fFa7/pdENfQ/tKg/vWbRH9roXnUb3dAbB9UM0zOUW1O/h1YH54Wwl4FrfaefQbtRb95QCcJQlPoPO8l/jdNn5DntINeD5Eqa6dwgFuc4vzRk413qdLTshZ9WZ/VJ5MNS3tr4yp1yqDDzXYv0W7RDSo85ldAPp2U+/sSVdq6bXNEZjd6K1tqkMPE/5rMMulQMjPTKIe2jA5WTY2wIHdhL9oc2WQR722kl3gZdJBp8BpLOKzS6nwYb6MbnijQ65XBimz2P+DqQH3DH5TUL/H5ofafWuInseRKupTXsORK97jMb+hPQLrAn9MfQ50rPoPC9fGOYP2U9nT/+FgsEuG/1Js8TlwjBfb8EyuBYj6GO6ei6c72GF0Vx52Etv8aY+Uo16WGGYrl8uOrN8drlcHCaP2GS/S0nIQ+Cje9d6lytH3lrDy024nITOLA/aEZeKwdztNriFSj0Qy0e4WztermyA+tDjlq22u5wfJv/gyQdcSsY+sypAgcUB+SgLl/LBhA2eeIdmucvJyEu4WzterooA9WmSMlAWG1zuDOOPetJxl0ohL+Fu7Xi5StYjgxPyoj3iUmcY/JsnbXWpFPIS7taOl6sqwG3yov3Vpc4wWM9mmrTUpVLIS7hbO16uqgCXykuZuNSZbHVwtzS2m5UBCtvl9/P4CNDYrniAfNvqA8iLLuvbOalvu8IHavfLi5fr3v49Xhu4ILksw6S+7VICbPHLi5fr3v49vvCBn4XtKvPrhJfr3v5J/W9NoC39eRseA/Yac6l2ur5/Bp/1JP3TY/ImtDg6Z68zLueGOS33pLwwp7v7Z/Ar6C9NrAK8btMM2j43zGu5J+WlJ/bPJH2A+RVq+QC0IHeZfwa9bNsZY7bvP+gF+Mon3QMDQ3hJ98AgCHoCfnyv6D7oblAUP0rM2FvAOYfziwBTcX4RYCrOLwJMxflFgKk4vwgwFecXAabi/CLAPJDTtD9/aMQ3PUBKtf2pxKyEdxsH9a6DYFr+H06WHribQVf/X0XvUA669HxDICsI47qCag9RNeFuMzzVPGeFX3q+IYh1TwtRfeHr9vDm3F8KlEKBtIeoaxPh5UHBtIWYEeEVQAFNhjiVCK8ACmpqiBFeAgpMwUV4JVBwEV4QBEEQBEEQBEEQ9BJ9ff8D34ntJUBajlQAAAAASUVORK5CYII=">
-                            </span>
-                        </div>
-                    </div>
+            <h3 class="text-center" th:if="${user.getMessages().size() == 0}">Няма получени съобщения</h3>
+        </div>
+        <div class="tab-pane animated fadeInUp" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <div class="row">
+                <!-- List group -->
+                <div class="list-group col-md-4" id="myList2" role="tablist">
+                    <a th:each="message, iter: ${user.getSentMessagesReverse()}" th:classappend="${iter.index == iter.size - 1} ? 'active' : ''" th:href="'#message_' + ${message.getId()}" class="list-group-item list-group-item-action" data-toggle="list" role="tab">
+                        <span class="badge badge-primary badge-pill" th:inline="text">[[${message.getTimestamp()}]]</span>
+                        <span th:inline="text">[[${iter.index + 1}]]. До:
+                                            [[${message.getRecipient().getFirstName()}]]
+                                            [[${message.getRecipient().getLastName()}]]</span>
+                    </a>
                 </div>
 
-                <!-- <div class="modal-content">
-                </div> -->
+                <!-- Tab panes -->
+                <div id="sent-messages-content" class="tab-content col-md-8">
+                    <div th:each="message, iter: ${user.getSentMessagesReverse()}" class="tab-pane animated fadeInUp" th:classappend="${iter.index == iter.size - 1} ? 'active' : ''" th:id="'message_' + ${message.getId()}" role="tabpanel" th:inline="text">
+                        Темa: [[${message.getTopic()}]]
+                        <hr class="divider">
+                        <div th:text="${message.getContent()}">
+                        </div>
+                        <button class="delete-button-messages-sent button button-caution button-pill" type="button">
+                                            <i class="fa fa-minus-circle"></i> Изтрий
+                                        </button>
+                    </div>
+                </div>
+            </div>
+            <h3 th:if="${user.getSentMessages().size() == 0}">Няма изпратени съобщения</h3>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <a id="demo01" href="#animatedModal"></a>
+
+    <div id="animatedModal">
+        <div class="modal-wrapper">
+            <div id="agora_local" style="z-index: 9999; width:270px;height:171px;display: inline-block; position: absolute; bottom: 0; right: 0;margin-bottom: 10px; margin-right: 10px;"></div>
+            <div id="closebt-container" class="close-animatedModal">
+                <img id="close-the-modal" class="closebt" src="/static/img/closebt.svg">
+            </div>
+            <div id="modal-container" class="call-modal-content">
+                <div id="video" style="display: flex;justify-content: center;flex-direction: column;flex-grow: 1;">
+                    <!-- <div class="call-participators-container"> -->
+                    <img id="receiver" th:src="@{${user.getImage()}}" alt="">
+                    <p class="receiver-name">Hristian Iliev</p>
+                    <!-- </div> -->
+                    <p class="call-duration">Вмомента се звъни..</p>
+                </div>
+                <div class="call-controls">
+                    <div id="stop-video" class='titanic titanic-stop' style="height: 50px;display: inline-block;margin-right: 40px;" title="Натисни тази икона за да сппреш камерата"></div>
+                    <div id="mute-mic" class='titanic titanic-no-mic' style="height: 50px;display: inline-block;" title="Натисни тази икона за да заглушиш микрофона"></div>
+                    <!-- <div id="share-screen" class='titanic titanic-checkbox' style="height: 50px;display: inline-block;margin-left: 40px;"
+                                title="Натисни тази икона за да споделиш екрана си"></div> -->
+                    <span class="red-circle" style="display: flex; justify-content: center;margin-left: 40px">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATUSURBVHhe7ZtNiFVlHMZnFMLvD3KljsZQq1xI7mwjKuQiMHATggZtQmvXImkjI4jiJgjShTsrmFJXZa2C8gPNqXa5GQxBwlXqVOJnM/2ec5+5zL2j3HPec87cO+P/Bw/vef/3fZ/3fZ+ZOXPu1ekLgiAIgiAIgiAIgiAIgiCoi/Hx8YXoVfQm+gAdm5iY+Jr2Au0vtKPoJrqNHlu6Vm3UY857zjH0PpKXPBd6mbkBh1zOobahD9GX6Bp6Qr0W5O01vkBaU2sv83Z6Hza7GO3gLEdpr6JpYVF7hH5H36DP0EfobbSZlzehQa7X0K5E862Vrg2iTRrrOZorj2+RPB/xegvUFOrPXGpPb6DF3m5vwIbWoPfQ9+hBY9sN1Efn0SfoHUob0QueWjnyZp3X0LvoU3QRPdReJqF/H32HtOfVnjqzsI9VLL4fXULjja01v9qqHUJbUdfvSWxrEfvQj7L2pL01fyq4Fgp5H3rRU+qB9frRFhYaRs0fFa7/pdENfQ/tKg/vWbRH9roXnUb3dAbB9UM0zOUW1O/h1YH54Wwl4FrfaefQbtRb95QCcJQlPoPO8l/jdNn5DntINeD5Eqa6dwgFuc4vzRk413qdLTshZ9WZ/VJ5MNS3tr4yp1yqDDzXYv0W7RDSo85ldAPp2U+/sSVdq6bXNEZjd6K1tqkMPE/5rMMulQMjPTKIe2jA5WTY2wIHdhL9oc2WQR722kl3gZdJBp8BpLOKzS6nwYb6MbnijQ65XBimz2P+DqQH3DH5TUL/H5ofafWuInseRKupTXsORK97jMb+hPQLrAn9MfQ50rPoPC9fGOYP2U9nT/+FgsEuG/1Js8TlwjBfb8EyuBYj6GO6ei6c72GF0Vx52Etv8aY+Uo16WGGYrl8uOrN8drlcHCaP2GS/S0nIQ+Cje9d6lytH3lrDy024nITOLA/aEZeKwdztNriFSj0Qy0e4WztermyA+tDjlq22u5wfJv/gyQdcSsY+sypAgcUB+SgLl/LBhA2eeIdmucvJyEu4WzterooA9WmSMlAWG1zuDOOPetJxl0ohL+Fu7Xi5StYjgxPyoj3iUmcY/JsnbXWpFPIS7taOl6sqwG3yov3Vpc4wWM9mmrTUpVLIS7hbO16uqgCXykuZuNSZbHVwtzS2m5UBCtvl9/P4CNDYrniAfNvqA8iLLuvbOalvu8IHavfLi5fr3v49Xhu4ILksw6S+7VICbPHLi5fr3v49vvCBn4XtKvPrhJfr3v5J/W9NoC39eRseA/Yac6l2ur5/Bp/1JP3TY/ImtDg6Z68zLueGOS33pLwwp7v7Z/Ar6C9NrAK8btMM2j43zGu5J+WlJ/bPJH2A+RVq+QC0IHeZfwa9bNsZY7bvP+gF+Mon3QMDQ3hJ98AgCHoCfnyv6D7oblAUP0rM2FvAOYfziwBTcX4RYCrOLwJMxflFgKk4vwgwFecXAabi/CLAPJDTtD9/aMQ3PUBKtf2pxKyEdxsH9a6DYFr+H06WHribQVf/X0XvUA669HxDICsI47qCag9RNeFuMzzVPGeFX3q+IYh1TwtRfeHr9vDm3F8KlEKBtIeoaxPh5UHBtIWYEeEVQAFNhjiVCK8ACmpqiBFeAgpMwUV4JVBwEV4QBEEQBEEQBEEQ9BJ9ff8D34ntJUBajlQAAAAASUVORK5CYII=">
+                            </span>
+                </div>
             </div>
         </div>
 
-        <div th:replace="fragments/footerSignedIn :: footer"></div>
+        <!-- <div class="modal-content">
+                </div> -->
+    </div>
+    </div>
+
+    <div th:replace="fragments/footerSignedIn :: footer"></div>
     </div>
 
     <!-- -------------JS------------------- -->
     <!-- Jquery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
     <!-- Bootstrap -->
     <script src="/static/js/vendor/bootstrap.min.js"></script>
@@ -382,7 +366,7 @@
 
     <script src="/static/js/jquery-ui.min.js"></script>
     <script src="/static/js/easytimer.min.js"></script>
-    
+
     <script src="https://cdn.agora.io/sdk/web/AgoraRTCSDK-2.4-latest.js"></script>
     <script>
         var indexOfUndescoreForUserId = $("body")
@@ -421,7 +405,7 @@
                         text: "Затвори"
                     })
                 ],
-                callback: function (data) {
+                callback: function(data) {
                     if (!data) {
                         console.log("Cancelled");
                     } else {
@@ -434,7 +418,7 @@
                             url: "/api/checkOnline?emails=" + data.emails + "&senderId=" + id +
                                 "&isAudio=" + false,
                             method: "GET",
-                            success: function (result) {
+                            success: function(result) {
                                 console.log(result);
                                 if (result.successful || result.successful == "true") {
                                     function join() {
@@ -446,10 +430,10 @@
                                             mode: 'live'
                                         });
                                         client.init("f93511279880484bae87889cf18c8946",
-                                            function () {
+                                            function() {
                                                 console.log("AgoraRTC client initialized");
                                                 client.join(null, "webtest", undefined,
-                                                    function (uid) {
+                                                    function(uid) {
                                                         console.log("User " + uid +
                                                             " join channel successfully"
                                                         );
@@ -470,19 +454,19 @@
                                                         // }
                                                         // The user has granted access to the camera and mic.
                                                         localStream.on("accessAllowed",
-                                                            function () {
+                                                            function() {
                                                                 console.log(
                                                                     "accessAllowed"
                                                                 );
                                                             });
                                                         // The user has denied access to the camera and mic.
                                                         localStream.on("accessDenied",
-                                                            function () {
+                                                            function() {
                                                                 console.log(
                                                                     "accessDenied"
                                                                 );
                                                             });
-                                                        localStream.init(function () {
+                                                        localStream.init(function() {
                                                             console.log(
                                                                 "getUserMedia successfully"
                                                             );
@@ -496,9 +480,9 @@
                                                                     0])
 
                                                             $(".red-circle").click(
-                                                                function () {
+                                                                function() {
                                                                     client.leave(
-                                                                        function () {
+                                                                        function() {
                                                                             $
                                                                                 (
                                                                                     "#video"
@@ -548,7 +532,7 @@
                                                                                     "Leavel channel successfully"
                                                                                 );
                                                                         },
-                                                                        function (
+                                                                        function(
                                                                             err
                                                                         ) {
                                                                             console
@@ -560,7 +544,7 @@
                                                                 });
 
                                                             $("#mute-mic").click(
-                                                                function () {
+                                                                function() {
                                                                     if (!
                                                                         isMicMuted
                                                                     ) {
@@ -579,7 +563,7 @@
                                                                 });
 
                                                             $("#stop-video").click(
-                                                                function () {
+                                                                function() {
                                                                     if (!
                                                                         isVideoDisabled
                                                                     ) {
@@ -621,7 +605,7 @@
                                                             );
                                                             client.publish(
                                                                 localStream,
-                                                                function (
+                                                                function(
                                                                     err) {
                                                                     console
                                                                         .log(
@@ -631,56 +615,56 @@
                                                                 });
                                                             client.on(
                                                                 'stream-published',
-                                                                function (
+                                                                function(
                                                                     evt) {
                                                                     console
                                                                         .log(
                                                                             "Publish local stream successfully"
                                                                         );
                                                                 });
-                                                        }, function (err) {
+                                                        }, function(err) {
                                                             console.log(
                                                                 "getUserMedia failed",
                                                                 err);
                                                         });
                                                         // }
                                                     },
-                                                    function (err) {
+                                                    function(err) {
                                                         console.log(
                                                             "Join channel failed",
                                                             err);
                                                     });
                                             },
-                                            function (err) {
+                                            function(err) {
                                                 console.log("AgoraRTC client init failed",
                                                     err);
                                             });
                                         // channelKey = "";
-                                        client.on('error', function (err) {
+                                        client.on('error', function(err) {
                                             console.log("Got error msg:", err.reason);
                                             if (err.reason === 'DYNAMIC_KEY_TIMEOUT') {
-                                                client.renewChannelKey(null, function () {
+                                                client.renewChannelKey(null, function() {
                                                     console.log(
                                                         "Renew channel key successfully"
                                                     );
-                                                }, function (err) {
+                                                }, function(err) {
                                                     console.log(
                                                         "Renew channel key failed: ",
                                                         err);
                                                 });
                                             }
                                         });
-                                        client.on('stream-added', function (evt) {
+                                        client.on('stream-added', function(evt) {
                                             var stream = evt.stream;
                                             console.log("New stream added: " + stream.getId());
                                             console.log("Subscribe ", stream);
-                                            client.subscribe(stream, function (err) {
+                                            client.subscribe(stream, function(err) {
                                                 console.log(
                                                     "Subscribe stream failed",
                                                     err);
                                             });
                                         });
-                                        client.on('stream-subscribed', function (evt) {
+                                        client.on('stream-subscribed', function(evt) {
                                             didReceiverPickUp = true;
                                             var stream = evt.stream;
                                             console.log(
@@ -706,13 +690,13 @@
                                             var timer = new Timer();
                                             timer.start();
                                             timer.addEventListener('secondsUpdated',
-                                                function (e) {
+                                                function(e) {
                                                     $('.call-duration').html(timer.getTimeValues()
                                                         .toString());
                                                 });
 
                                         });
-                                        client.on('stream-removed', function (evt) {
+                                        client.on('stream-removed', function(evt) {
                                             var stream = evt.stream;
                                             stream.stop();
                                             $('#agora_remote' + stream.getId()).remove();
@@ -720,14 +704,14 @@
                                             console.log("Remote stream is removed " +
                                                 stream.getId());
                                         });
-                                        client.on('peer-leave', function (evt) {
+                                        client.on('peer-leave', function(evt) {
                                             var stream = evt.stream;
                                             if (stream) {
                                                 stream.stop();
                                                 stream.close();
                                                 localStream.close();
                                                 client.leave(
-                                                    function () {
+                                                    function() {
                                                         audio.pause();
                                                         $("#video").empty();
                                                         $("#video").append(
@@ -749,7 +733,7 @@
                                                             "Leavel channel successfully"
                                                         );
                                                     },
-                                                    function (err) {
+                                                    function(err) {
                                                         console.log(
                                                             "Leave channel failed"
                                                         );
@@ -782,7 +766,7 @@
                     $.ajax({
                         url: "/api/noMoreCalling?emails=" + emails + "&id=" + id,
                         method: "GET",
-                        success: function (result) {
+                        success: function(result) {
                             audio = new Audio('/static/sounds/endCall.mp3');
                             audio.play();
                             $(".red-circle").trigger("click");
@@ -800,7 +784,7 @@
             }
 
             $("#video-call-users")
-                .on("keydown", function (event) {
+                .on("keydown", function(event) {
                     if (
                         event.keyCode === $.ui.keyCode.TAB &&
                         $(this).autocomplete("instance").menu.active
@@ -809,7 +793,7 @@
                     }
                 })
                 .autocomplete({
-                    source: function (request, response) {
+                    source: function(request, response) {
                         $.getJSON(
                             "/api/getEmails", {
                                 term: extractLast(request.term)
@@ -817,18 +801,18 @@
                             response
                         );
                     },
-                    search: function () {
+                    search: function() {
                         // custom minLength
                         var term = extractLast(this.value);
                         if (term.length < 2) {
                             return false;
                         }
                     },
-                    focus: function () {
+                    focus: function() {
                         // prevent value inserted on focus
                         return false;
                     },
-                    select: function (event, ui) {
+                    select: function(event, ui) {
                         var terms = split(this.value);
                         // remove the current input
                         terms.pop();
@@ -858,7 +842,7 @@
                         text: "Затвори"
                     })
                 ],
-                callback: function (data) {
+                callback: function(data) {
                     if (!data) {
                         console.log("Cancelled");
                     } else {
@@ -871,7 +855,7 @@
                             url: "/api/checkOnline?emails=" + data.emails + "&senderId=" + id +
                                 "&isAudio=" + true,
                             method: "GET",
-                            success: function (result) {
+                            success: function(result) {
                                 console.log(result);
                                 if (result.successful || result.successful == "true") {
                                     function join() {
@@ -885,10 +869,10 @@
                                         });
 
                                         client.init("f93511279880484bae87889cf18c8946",
-                                            function () {
+                                            function() {
                                                 console.log("AgoraRTC client initialized");
                                                 client.join(null, "webtest", undefined,
-                                                    function (uid) {
+                                                    function(uid) {
                                                         console.log("User " + uid +
                                                             " join channel successfully"
                                                         );
@@ -902,19 +886,19 @@
 
                                                         // The user has granted access to the camera and mic.
                                                         localStream.on("accessAllowed",
-                                                            function () {
+                                                            function() {
                                                                 console.log(
                                                                     "accessAllowed"
                                                                 );
                                                             });
                                                         // The user has denied access to the camera and mic.
                                                         localStream.on("accessDenied",
-                                                            function () {
+                                                            function() {
                                                                 console.log(
                                                                     "accessDenied"
                                                                 );
                                                             });
-                                                        localStream.init(function () {
+                                                        localStream.init(function() {
                                                             console.log(
                                                                 "getUserMedia successfully"
                                                             );
@@ -959,9 +943,9 @@
                                                             //         0]);
 
                                                             $(".red-circle").click(
-                                                                function () {
+                                                                function() {
                                                                     client.leave(
-                                                                        function () {
+                                                                        function() {
                                                                             $
                                                                                 (
                                                                                     "#video"
@@ -1006,7 +990,7 @@
                                                                                     "Leavel channel successfully"
                                                                                 );
                                                                         },
-                                                                        function (
+                                                                        function(
                                                                             err
                                                                         ) {
                                                                             console
@@ -1018,7 +1002,7 @@
                                                                 });
 
                                                             $("#mute-mic").click(
-                                                                function () {
+                                                                function() {
                                                                     if (!
                                                                         isMicMuted
                                                                     ) {
@@ -1062,7 +1046,7 @@
                                                             );
                                                             client.publish(
                                                                 localStream,
-                                                                function (
+                                                                function(
                                                                     err) {
                                                                     console
                                                                         .log(
@@ -1072,56 +1056,56 @@
                                                                 });
                                                             client.on(
                                                                 'stream-published',
-                                                                function (
+                                                                function(
                                                                     evt) {
                                                                     console
                                                                         .log(
                                                                             "Publish local stream successfully"
                                                                         );
                                                                 });
-                                                        }, function (err) {
+                                                        }, function(err) {
                                                             console.log(
                                                                 "getUserMedia failed",
                                                                 err);
                                                         });
                                                         // }
                                                     },
-                                                    function (err) {
+                                                    function(err) {
                                                         console.log(
                                                             "Join channel failed",
                                                             err);
                                                     });
                                             },
-                                            function (err) {
+                                            function(err) {
                                                 console.log("AgoraRTC client init failed",
                                                     err);
                                             });
                                         // channelKey = "";
-                                        client.on('error', function (err) {
+                                        client.on('error', function(err) {
                                             console.log("Got error msg:", err.reason);
                                             if (err.reason === 'DYNAMIC_KEY_TIMEOUT') {
-                                                client.renewChannelKey(null, function () {
+                                                client.renewChannelKey(null, function() {
                                                     console.log(
                                                         "Renew channel key successfully"
                                                     );
-                                                }, function (err) {
+                                                }, function(err) {
                                                     console.log(
                                                         "Renew channel key failed: ",
                                                         err);
                                                 });
                                             }
                                         });
-                                        client.on('stream-added', function (evt) {
+                                        client.on('stream-added', function(evt) {
                                             var stream = evt.stream;
                                             console.log("New stream added: " + stream.getId());
                                             console.log("Subscribe ", stream);
-                                            client.subscribe(stream, function (err) {
+                                            client.subscribe(stream, function(err) {
                                                 console.log(
                                                     "Subscribe stream failed",
                                                     err);
                                             });
                                         });
-                                        client.on('stream-subscribed', function (evt) {
+                                        client.on('stream-subscribed', function(evt) {
                                             didReceiverPickUp = true;
                                             var stream = evt.stream;
                                             console.log(
@@ -1141,13 +1125,13 @@
                                             var timer = new Timer();
                                             timer.start();
                                             timer.addEventListener('secondsUpdated',
-                                                function (e) {
+                                                function(e) {
                                                     $('.call-duration').html(timer.getTimeValues()
                                                         .toString());
                                                 });
 
                                         });
-                                        client.on('stream-removed', function (evt) {
+                                        client.on('stream-removed', function(evt) {
                                             var stream = evt.stream;
                                             stream.stop();
                                             $('#agora_remote' + stream.getId()).remove();
@@ -1155,14 +1139,14 @@
                                             console.log("Remote stream is removed " +
                                                 stream.getId());
                                         });
-                                        client.on('peer-leave', function (evt) {
+                                        client.on('peer-leave', function(evt) {
                                             var stream = evt.stream;
                                             if (stream) {
                                                 stream.stop();
                                                 stream.close();
                                                 localStream.close();
                                                 client.leave(
-                                                    function () {
+                                                    function() {
                                                         audio.pause();
                                                         $("#video").empty();
                                                         $("#video").append(
@@ -1184,7 +1168,7 @@
                                                             "Leavel channel successfully"
                                                         );
                                                     },
-                                                    function (err) {
+                                                    function(err) {
                                                         console.log(
                                                             "Leave channel failed"
                                                         );
@@ -1217,7 +1201,7 @@
                     $.ajax({
                         url: "/api/noMoreCalling?emails=" + emails + "&id=" + id,
                         method: "GET",
-                        success: function (result) {
+                        success: function(result) {
                             audio = new Audio('/static/sounds/endCall.mp3');
                             audio.play();
                             $(".red-circle").trigger("click");
@@ -1235,7 +1219,7 @@
             }
 
             $("#video-call-users")
-                .on("keydown", function (event) {
+                .on("keydown", function(event) {
                     if (
                         event.keyCode === $.ui.keyCode.TAB &&
                         $(this).autocomplete("instance").menu.active
@@ -1244,7 +1228,7 @@
                     }
                 })
                 .autocomplete({
-                    source: function (request, response) {
+                    source: function(request, response) {
                         $.getJSON(
                             "/api/getEmails", {
                                 term: extractLast(request.term)
@@ -1252,18 +1236,18 @@
                             response
                         );
                     },
-                    search: function () {
+                    search: function() {
                         // custom minLength
                         var term = extractLast(this.value);
                         if (term.length < 2) {
                             return false;
                         }
                     },
-                    focus: function () {
+                    focus: function() {
                         // prevent value inserted on focus
                         return false;
                     },
-                    select: function (event, ui) {
+                    select: function(event, ui) {
                         var terms = split(this.value);
                         // remove the current input
                         terms.pop();

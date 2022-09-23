@@ -2,312 +2,308 @@
 <html class="no-js" lang="bg" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="author" content="Hristian Iliev" />
-  <meta name="keywords" content="Squad,Team,Organize" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Групи - SquadKnowHow</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Hristian Iliev" />
+    <meta name="keywords" content="Squad,Team,Organize" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Groups - SquadKnowHow</title>
 
-  <!-- Tab-icon -->
-  <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png" />
-  <link rel="shortcut icon" type="image/ico" href="/static/images/favicon.ico" />
+    <!-- Tab-icon -->
+    <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png" />
+    <link rel="shortcut icon" type="image/ico" href="/static/images/favicon.ico" />
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
 
-  <link rel="stylesheet" href="/static/css/themify-icons.css" />
+    <link rel="stylesheet" href="/static/css/themify-icons.css" />
 
-  <!-- Animations -->
-  <link rel="stylesheet" href="/static/css/animate.css" />
+    <!-- Animations -->
+    <link rel="stylesheet" href="/static/css/animate.css" />
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
-    crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
 
-  <!-- Material-design-bootstrap -->
-  <link href="/static/css/mdb.min.css" rel="stylesheet" />
+    <!-- Material-design-bootstrap -->
+    <link href="/static/css/mdb.min.css" rel="stylesheet" />
 
-  <!-- Notifications -->
-  <link rel="stylesheet" href="/static/css/notifications.css" />
+    <!-- Notifications -->
+    <link rel="stylesheet" href="/static/css/notifications.css" />
 
-  <!-- Main-css -->
-  <link rel="stylesheet" href="/static/css/normalize.css" />
-  <link rel="stylesheet" href="/static/css/style.css" />
-  <link rel="stylesheet" href="/static/css/responsive.css" />
-  <link rel="stylesheet" href="/static/css/my-messages.css" />
-  <link rel="stylesheet" href="/static/css/people.css" />
+    <!-- Main-css -->
+    <link rel="stylesheet" href="/static/css/normalize.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/responsive.css" />
+    <link rel="stylesheet" href="/static/css/my-messages.css" />
+    <link rel="stylesheet" href="/static/css/people.css" />
 
-  <!-- Rotating-card -->
-  <link rel="stylesheet" href="/static/css/rotating-card-groups.css" />
+    <!-- Rotating-card -->
+    <link rel="stylesheet" href="/static/css/rotating-card-groups.css" />
 
-  <!-- Popups -->
-  <link rel="stylesheet" href="/static/css/iziToast.min.css" />
+    <!-- Popups -->
+    <link rel="stylesheet" href="/static/css/iziToast.min.css" />
 
-  <!--[if lt IE 9]>
+    <!--[if lt IE 9]>
       <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-  <style>
-    /* @media(max-width: 1450px) { */
-      .stats-row {
-        padding-top: 5px;
-      }
-      /* } */
-      button:focus {
-        outline: -webkit-focus-ring-color auto 0px;
-      }
+    <style>
+        /* @media(max-width: 1450px) { */
+        
+        .stats-row {
+            padding-top: 5px;
+        }
+        /* } */
+        
+        button:focus {
+            outline: -webkit-focus-ring-color auto 0px;
+        }
     </style>
 
-  <link rel="stylesheet" href="/static/css/footer-distributed.css" />
+    <link rel="stylesheet" href="/static/css/footer-distributed.css" />
 
-  <link rel="stylesheet" href="/static/css/jQuery-modal-custom-css.css" />
+    <link rel="stylesheet" href="/static/css/jQuery-modal-custom-css.css" />
 
-  <script src="https://cdn.rawgit.com/icons8/titanic/master/dist/js/titanic.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.5.9/bodymovin.min.js"></script>
+    <script src="https://cdn.rawgit.com/icons8/titanic/master/dist/js/titanic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.5.9/bodymovin.min.js"></script>
 
-  <link rel="stylesheet" href="/static/css/sweetAlert2.css" />
+    <link rel="stylesheet" href="/static/css/sweetAlert2.css" />
 
-  <link rel="stylesheet" href="/static/css/videoCall.css" />
+    <link rel="stylesheet" href="/static/css/videoCall.css" />
 
-  <style>
-    .ui-widget.ui-widget-content {
-        z-index: 9999;
-      }
-      .sk-wave {
-        /* margin: 40px auto; */
-        margin-top: auto;
-        position: fixed;
-        left: 50%;
-        transform: translate(-50%, 0);
-        z-index: 99999;
-        width: 60px;
-        height: 60px;
-        text-align: center;
-        font-size: 10px;
-      }
-
-      .sk-wave .sk-rect {
-        margin: 0 3px 0 0;
-        background-color: white;
-        height: 100%;
-        width: 7px;
-        display: inline-block;
-        -webkit-animation: sk-waveStretchDelay 1.2s infinite ease-in-out;
-        animation: sk-waveStretchDelay 1.2s infinite ease-in-out;
-      }
-
-      .sk-wave .sk-rect1 {
-        -webkit-animation-delay: -1.2s;
-        animation-delay: -1.2s;
-      }
-
-      .sk-wave .sk-rect2 {
-        -webkit-animation-delay: -1.1s;
-        animation-delay: -1.1s;
-      }
-
-      .sk-wave .sk-rect3 {
-        -webkit-animation-delay: -1s;
-        animation-delay: -1s;
-      }
-
-      .sk-wave .sk-rect4 {
-        -webkit-animation-delay: -0.9s;
-        animation-delay: -0.9s;
-      }
-
-      .sk-wave .sk-rect5 {
-        -webkit-animation-delay: -0.8s;
-        animation-delay: -0.8s;
-      }
-
-      @-webkit-keyframes sk-waveStretchDelay {
-        0%,
-        40%,
-        100% {
-          -webkit-transform: scaleY(0.4);
-          transform: scaleY(0.4);
+    <style>
+        .ui-widget.ui-widget-content {
+            z-index: 9999;
         }
-        20% {
-          -webkit-transform: scaleY(1);
-          transform: scaleY(1);
+        
+        .sk-wave {
+            /* margin: 40px auto; */
+            margin-top: auto;
+            position: fixed;
+            left: 50%;
+            transform: translate(-50%, 0);
+            z-index: 99999;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            font-size: 10px;
         }
-      }
-
-      @keyframes sk-waveStretchDelay {
-        0%,
-        40%,
-        100% {
-          -webkit-transform: scaleY(0.4);
-          transform: scaleY(0.4);
+        
+        .sk-wave .sk-rect {
+            margin: 0 3px 0 0;
+            background-color: white;
+            height: 100%;
+            width: 7px;
+            display: inline-block;
+            -webkit-animation: sk-waveStretchDelay 1.2s infinite ease-in-out;
+            animation: sk-waveStretchDelay 1.2s infinite ease-in-out;
         }
-        20% {
-          -webkit-transform: scaleY(1);
-          transform: scaleY(1);
+        
+        .sk-wave .sk-rect1 {
+            -webkit-animation-delay: -1.2s;
+            animation-delay: -1.2s;
         }
-      }
-
-      .btn-outline-white:hover{
-      box-shadow: 0 3px 6px rgba(0,0,0,.2), 0 3px 6px rgba(0,0,0,.26);
-      background-color: #45c0e8!important;
-    }
+        
+        .sk-wave .sk-rect2 {
+            -webkit-animation-delay: -1.1s;
+            animation-delay: -1.1s;
+        }
+        
+        .sk-wave .sk-rect3 {
+            -webkit-animation-delay: -1s;
+            animation-delay: -1s;
+        }
+        
+        .sk-wave .sk-rect4 {
+            -webkit-animation-delay: -0.9s;
+            animation-delay: -0.9s;
+        }
+        
+        .sk-wave .sk-rect5 {
+            -webkit-animation-delay: -0.8s;
+            animation-delay: -0.8s;
+        }
+        
+        @-webkit-keyframes sk-waveStretchDelay {
+            0%,
+            40%,
+            100% {
+                -webkit-transform: scaleY(0.4);
+                transform: scaleY(0.4);
+            }
+            20% {
+                -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+            }
+        }
+        
+        @keyframes sk-waveStretchDelay {
+            0%,
+            40%,
+            100% {
+                -webkit-transform: scaleY(0.4);
+                transform: scaleY(0.4);
+            }
+            20% {
+                -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+            }
+        }
+        
+        .btn-outline-white:hover {
+            box-shadow: 0 3px 6px rgba(0, 0, 0, .2), 0 3px 6px rgba(0, 0, 0, .26);
+            background-color: #45c0e8!important;
+        }
     </style>
-    
+
     <link rel="stylesheet" href="/static/css/headerSignedInRegulator.css">
 
     <link rel="stylesheet" href="/static/css/groups-logged-regulator.css">
 </head>
 
 <body th:id="'user-id_' + ${user.getId()}" data-spy="scroll" class="gray-bg-people">
-  <div th:replace="fragments/preloader :: preloader"></div>
+    <div th:replace="fragments/preloader :: preloader"></div>
 
-  <div class="page-wrapper">
-    <div id="for-sweet">
-      <div th:replace="fragments/headerSignedIn :: header('groups')"></div>
+    <div class="page-wrapper">
+        <div id="for-sweet">
+            <div th:replace="fragments/headerSignedIn :: header('groups')"></div>
 
-      <nav class="navbar navbar-dark navbar-search-people light-sky-bg">
-        <div style="margin-right: 0px; margin-left: 0px;" class="row">
-          <!-- Search by name -->
-          <form class="form-inline col-xs-12 col-sm-9 col-md-6">
-            <div class="md-form mt-0">
-              <input style="margin-left: 25px;width: 298px;" id="search-user-name" class="form-control mr-sm-2" type="text"
-                placeholder="Въведи името на проекта, който търсиш..." aria-label="Search" />
-              <button id="btn-search-user-name" class="btn btn-outline-white btn-lg" type="submit">
-                <i class="fa fa-search"></i> Търси
+            <nav class="navbar navbar-dark navbar-search-people light-sky-bg">
+                <div style="margin-right: 0px; margin-left: 0px;" class="row">
+                    <!-- Search by name -->
+                    <form class="form-inline col-xs-12 col-sm-9 col-md-6">
+                        <div class="md-form mt-0">
+                            <input style="margin-left: 25px;width: 298px;" id="search-user-name" class="form-control mr-sm-2" type="text" placeholder="Въведи името на проекта, който търсиш..." aria-label="Search" />
+                            <button id="btn-search-user-name" class="btn btn-outline-white btn-lg" type="submit">
+                <i class="fa fa-search"></i> Search
               </button>
-            </div>
-          </form>
-        </div>
-      </nav>
+                        </div>
+                    </form>
+                </div>
+            </nav>
 
-      <!-- Card -->
-      <div class="card pagination-box">
-        <!-- Card content -->
-        <div class="card-body">
-          <h2 class="card-title-people text-center">Групи от потребители</h2>
-          <h4 class="card-sub-title text-center">
-            Групите от потребители в SquadKnowHow помагат на потребители със
-            едни и същи интереси или занимания да се открият по-лесно и да
-            започнат страхотни проекти заедно
-          </h4>
-          <button id="button-create-group" class="button-white-bg white-button-with-border button-outline">
-            <i class="fa fa-plus"></i> Създай група
+            <!-- Card -->
+            <div class="card pagination-box">
+                <!-- Card content -->
+                <div class="card-body">
+                    <h2 class="card-title-people text-center">Groups of users</h2>
+                    <h4 class="card-sub-title text-center">
+                        Groups of users in SquadKnowHow connect users with simmilar interests in order to nourish the enterprenurial spirit.
+                    </h4>
+                    <button id="button-create-group" class="button-white-bg white-button-with-border button-outline">
+            <i class="fa fa-plus"></i> Create group
           </button>
-          <hr />
-          <div class="row">
-            <div class="card-deck" id="card-deck-groups-logged"></div>
-          </div>
-        </div>
+                    <hr />
+                    <div class="row">
+                        <div class="card-deck" id="card-deck-groups-logged"></div>
+                    </div>
+                </div>
 
-        <!-- Pagination -->
-        <div style="text-align:center;">
-          <ul id="pagination-groups" class="pagination-lg justify-content-end"></ul>
-        </div>
-      </div>
-      <!-- /.Card -->
-      <a id="demo01" href="#animatedModal"></a>
-
-      <div id="animatedModal">
-        <div class="modal-wrapper">
-          <div id="agora_local" style="z-index: 9999; width:270px;height:171px;display: inline-block; position: absolute; bottom: 0; right: 0;margin-bottom: 10px; margin-right: 10px;"></div>
-          <div id="closebt-container" class="close-animatedModal">
-            <img id="close-the-modal" class="closebt" src="/static/img/closebt.svg" />
-          </div>
-          <div id="modal-container" class="call-modal-content">
-            <div id="video" style="display: flex;justify-content: center;flex-direction: column;flex-grow: 1;">
-              <img id="receiver" th:src="@{${user.getImage()}}" alt="" />
-              <p class="receiver-name">Hristian Iliev</p>
-              <p class="call-duration">Вмомента се звъни..</p>
+                <!-- Pagination -->
+                <div style="text-align:center;">
+                    <ul id="pagination-groups" class="pagination-lg justify-content-end"></ul>
+                </div>
             </div>
-            <div class="call-controls">
-              <div id="stop-video" class="titanic titanic-stop" style="height: 50px;display: inline-block;margin-right: 40px;"
-                title="Натисни тази икона за да сппреш камерата"></div>
-              <div id="mute-mic" class="titanic titanic-no-mic" style="height: 50px;display: inline-block;" title="Натисни тази икона за да заглушиш микрофона"></div>
-              <div id="share-screen" class="titanic titanic-checkbox" style="height: 50px;display: inline-block;margin-left: 40px;"
-                title="Натисни тази икона за да споделиш екрана си"></div>
-              <span class="red-circle" style="display: flex; justify-content: center;margin-left: 40px">
+            <!-- /.Card -->
+            <a id="demo01" href="#animatedModal"></a>
+
+            <div id="animatedModal">
+                <div class="modal-wrapper">
+                    <div id="agora_local" style="z-index: 9999; width:270px;height:171px;display: inline-block; position: absolute; bottom: 0; right: 0;margin-bottom: 10px; margin-right: 10px;"></div>
+                    <div id="closebt-container" class="close-animatedModal">
+                        <img id="close-the-modal" class="closebt" src="/static/img/closebt.svg" />
+                    </div>
+                    <div id="modal-container" class="call-modal-content">
+                        <div id="video" style="display: flex;justify-content: center;flex-direction: column;flex-grow: 1;">
+                            <img id="receiver" th:src="@{${user.getImage()}}" alt="" />
+                            <p class="receiver-name">Hristian Iliev</p>
+                            <p class="call-duration">Вмомента се звъни..</p>
+                        </div>
+                        <div class="call-controls">
+                            <div id="stop-video" class="titanic titanic-stop" style="height: 50px;display: inline-block;margin-right: 40px;" title="Натисни тази икона за да сппреш камерата"></div>
+                            <div id="mute-mic" class="titanic titanic-no-mic" style="height: 50px;display: inline-block;" title="Натисни тази икона за да заглушиш микрофона"></div>
+                            <div id="share-screen" class="titanic titanic-checkbox" style="height: 50px;display: inline-block;margin-left: 40px;" title="Натисни тази икона за да споделиш екрана си"></div>
+                            <span class="red-circle" style="display: flex; justify-content: center;margin-left: 40px">
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATUSURBVHhe7ZtNiFVlHMZnFMLvD3KljsZQq1xI7mwjKuQiMHATggZtQmvXImkjI4jiJgjShTsrmFJXZa2C8gPNqXa5GQxBwlXqVOJnM/2ec5+5zL2j3HPec87cO+P/Bw/vef/3fZ/3fZ+ZOXPu1ekLgiAIgiAIgiAIgiAIgiCoi/Hx8YXoVfQm+gAdm5iY+Jr2Au0vtKPoJrqNHlu6Vm3UY857zjH0PpKXPBd6mbkBh1zOobahD9GX6Bp6Qr0W5O01vkBaU2sv83Z6Hza7GO3gLEdpr6JpYVF7hH5H36DP0EfobbSZlzehQa7X0K5E862Vrg2iTRrrOZorj2+RPB/xegvUFOrPXGpPb6DF3m5vwIbWoPfQ9+hBY9sN1Efn0SfoHUob0QueWjnyZp3X0LvoU3QRPdReJqF/H32HtOfVnjqzsI9VLL4fXULjja01v9qqHUJbUdfvSWxrEfvQj7L2pL01fyq4Fgp5H3rRU+qB9frRFhYaRs0fFa7/pdENfQ/tKg/vWbRH9roXnUb3dAbB9UM0zOUW1O/h1YH54Wwl4FrfaefQbtRb95QCcJQlPoPO8l/jdNn5DntINeD5Eqa6dwgFuc4vzRk413qdLTshZ9WZ/VJ5MNS3tr4yp1yqDDzXYv0W7RDSo85ldAPp2U+/sSVdq6bXNEZjd6K1tqkMPE/5rMMulQMjPTKIe2jA5WTY2wIHdhL9oc2WQR722kl3gZdJBp8BpLOKzS6nwYb6MbnijQ65XBimz2P+DqQH3DH5TUL/H5ofafWuInseRKupTXsORK97jMb+hPQLrAn9MfQ50rPoPC9fGOYP2U9nT/+FgsEuG/1Js8TlwjBfb8EyuBYj6GO6ei6c72GF0Vx52Etv8aY+Uo16WGGYrl8uOrN8drlcHCaP2GS/S0nIQ+Cje9d6lytH3lrDy024nITOLA/aEZeKwdztNriFSj0Qy0e4WztermyA+tDjlq22u5wfJv/gyQdcSsY+sypAgcUB+SgLl/LBhA2eeIdmucvJyEu4WzterooA9WmSMlAWG1zuDOOPetJxl0ohL+Fu7Xi5StYjgxPyoj3iUmcY/JsnbXWpFPIS7taOl6sqwG3yov3Vpc4wWM9mmrTUpVLIS7hbO16uqgCXykuZuNSZbHVwtzS2m5UBCtvl9/P4CNDYrniAfNvqA8iLLuvbOalvu8IHavfLi5fr3v49Xhu4ILksw6S+7VICbPHLi5fr3v49vvCBn4XtKvPrhJfr3v5J/W9NoC39eRseA/Yac6l2ur5/Bp/1JP3TY/ImtDg6Z68zLueGOS33pLwwp7v7Z/Ar6C9NrAK8btMM2j43zGu5J+WlJ/bPJH2A+RVq+QC0IHeZfwa9bNsZY7bvP+gF+Mon3QMDQ3hJ98AgCHoCfnyv6D7oblAUP0rM2FvAOYfziwBTcX4RYCrOLwJMxflFgKk4vwgwFecXAabi/CLAPJDTtD9/aMQ3PUBKtf2pxKyEdxsH9a6DYFr+H06WHribQVf/X0XvUA669HxDICsI47qCag9RNeFuMzzVPGeFX3q+IYh1TwtRfeHr9vDm3F8KlEKBtIeoaxPh5UHBtIWYEeEVQAFNhjiVCK8ACmpqiBFeAgpMwUV4JVBwEV4QBEEQBEEQBEEQ9BJ9ff8D34ntJUBajlQAAAAASUVORK5CYII=" />
               </span>
-            </div>
-          </div>
-        </div>
+                        </div>
+                    </div>
+                </div>
 
-        <!--
+                <!--
             <div class="modal-content">
             </div>
           -->
-      </div>
+            </div>
+        </div>
+
+        <div th:replace="fragments/footerSignedIn :: footer"></div>
     </div>
 
-    <div th:replace="fragments/footerSignedIn :: footer"></div>
-  </div>
+    <!-- -------------JS------------------- -->
+    <!-- Jquery -->
+    <script src="/static/js/vendor/jquery-1.12.4.min.js"></script>
 
-  <!-- -------------JS------------------- -->
-  <!-- Jquery -->
-  <script src="/static/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/static/js/vendor/bootstrap.min.js"></script>
 
-  <!-- Bootstrap -->
-  <script src="/static/js/vendor/bootstrap.min.js"></script>
+    <!-- Material-design-bootstrap -->
+    <script type="text/javascript" src="/static/js-mdb/popper.min.js"></script>
+    <script type="text/javascript" src="/static/js-mdb/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/js-mdb/mdb.min.js"></script>
 
-  <!-- Material-design-bootstrap -->
-  <script type="text/javascript" src="/static/js-mdb/popper.min.js"></script>
-  <script type="text/javascript" src="/static/js-mdb/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/static/js-mdb/mdb.min.js"></script>
+    <!-- Popups -->
+    <script src="/static/js/iziToast.min.js" type="text/javascript"></script>
 
-  <!-- Popups -->
-  <script src="/static/js/iziToast.min.js" type="text/javascript"></script>
+    <!-- Rotate-button -->
+    <script type="text/javascript">
+        $().ready(function() {
+            $('[rel="tooltip"]').tooltip();
+        });
 
-  <!-- Rotate-button -->
-  <script type="text/javascript">
-    $().ready(function () {
-      $('[rel="tooltip"]').tooltip();
-    });
+        function rotateCard(btn) {
+            var $card = $(btn).closest(".card-container");
+            console.log($card);
+            if ($card.hasClass("hover")) {
+                $card.removeClass("hover");
+            } else {
+                $card.addClass("hover");
+            }
+        }
+    </script>
 
-    function rotateCard(btn) {
-      var $card = $(btn).closest(".card-container");
-      console.log($card);
-      if ($card.hasClass("hover")) {
-        $card.removeClass("hover");
-      } else {
-        $card.addClass("hover");
-      }
-    }
-  </script>
+    <!-- Pagination -->
+    <script src="/static/js/jquery.twbsPagination.min.js"></script>
 
-  <!-- Pagination -->
-  <script src="/static/js/jquery.twbsPagination.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/speechkitt.min.js"></script>
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/speechkitt.min.js"></script>
+    <!-- Main-js -->
+    <script src="/static/js/groups-logged.js"></script>
+    <script src="/static/js/vendor.js"></script>
+    <script src="static/js/notifications.js"></script>
 
-  <!-- Main-js -->
-  <script src="/static/js/groups-logged.js"></script>
-  <script src="/static/js/vendor.js"></script>
-  <script src="static/js/notifications.js"></script>
+    <!-- <script src="/static/js/headerSignedInRegulator.js"></script> -->
 
-  <!-- <script src="/static/js/headerSignedInRegulator.js"></script> -->
-
-  <script src="/static/js/easytimer.min.js"></script>
-  <script src="/static/js/animatedModal.min.js"></script>
-  <script>
-    var titanic = new Titanic({
-      hover: true,
-      click: true
-    });
-    $("#demo01").animatedModal();
-  </script>
-  <script src="https://cdn.agora.io/sdk/web/AgoraRTCSDK-2.4-latest.js"></script>
-  <script src="/static/js/sweetAlert2.all.min.js"></script>
-  <script src="/static/js/callChecker.js"></script>
-  <script src="https://cdn.cai.tools.sap/webchat/webchat.js" channelId="5c13beea-6178-4523-aa4d-2e49f614dc4b" token="439d116772c7aa7ecd9184cc95c5ef21"
-    id="recast-webchat"></script>
+    <script src="/static/js/easytimer.min.js"></script>
+    <script src="/static/js/animatedModal.min.js"></script>
+    <script>
+        var titanic = new Titanic({
+            hover: true,
+            click: true
+        });
+        $("#demo01").animatedModal();
+    </script>
+    <script src="https://cdn.agora.io/sdk/web/AgoraRTCSDK-2.4-latest.js"></script>
+    <script src="/static/js/sweetAlert2.all.min.js"></script>
+    <script src="/static/js/callChecker.js"></script>
+    <script src="https://cdn.cai.tools.sap/webchat/webchat.js" channelId="5c13beea-6178-4523-aa4d-2e49f614dc4b" token="439d116772c7aa7ecd9184cc95c5ef21" id="recast-webchat"></script>
     <script src="//instant.page/1.1.0" type="module" integrity="sha384-EwBObn5QAxP8f09iemwAJljc+sU+eUXeL9vSBw1eNmVarwhKk2F9vBEpaN9rsrtp"></script>
 </body>
 

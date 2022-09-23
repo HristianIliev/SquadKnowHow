@@ -88,23 +88,23 @@ public class PeopleWebController {
 
   private String getProfileClass(User user) {
     switch (user.getSkillset().getName()) {
-      case "Програмист":
+      case "Programmer":
         return "profileProgrammer";
-      case "Инженер":
+      case "Engineer":
         return "profileEngineer";
-      case "Дизайнер":
+      case "Designer":
         return "profileDesigner";
-      case "Учен":
+      case "Scientist":
         return "profileScientist";
-      case "Музикант":
+      case "Musician":
         return "profileMusician";
-      case "Артист":
+      case "Artis":
         return "profileArtist";
-      case "Писател":
+      case "Writer":
         return "profileWriter";
-      case "Режисьор":
+      case "Filmmaker":
         return "profileFilmmaker";
-      case "Продуктов мениджър":
+      case "Product Manager":
         return "profileProductManager";
       default:
         return "";
@@ -152,10 +152,10 @@ public class PeopleWebController {
   }
 
   private String getCorrectString(String profileInfo) {
-    if (profileInfo.equals("Няма въведени умения") ||
-            profileInfo.equals("Няма въведени интереси") ||
-            profileInfo.equals("Няма предишни работни места") ||
-            profileInfo.equals("Няма въведени езици")) {
+    if (profileInfo.equals("No provided interests") ||
+            profileInfo.equals("No provided skills") ||
+            profileInfo.equals("No previous work places") ||
+            profileInfo.equals("No previous languages")) {
       return "";
     }
 

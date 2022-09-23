@@ -40,6 +40,7 @@ import java.util.Properties;
 @Service
 public class DbRegistrationService implements IRegistrationService {
   private static final String IS_LOCAL = System.getenv("IS_LOCAL");
+  private static final String EMAIL_USERNAME = System.getenv("EMAIL_USERNAME");
   private static final String EMAIL_PASS = System.getenv("EMAIL_PASS");
 
   private final IValidator<Integer> idValidator;
@@ -381,7 +382,7 @@ public class DbRegistrationService implements IRegistrationService {
     Session session = Session.getInstance(props, new javax.mail.Authenticator() {
       protected PasswordAuthentication getPasswordAuthentication() {
         return new PasswordAuthentication(
-                "hristian00i.dev@gmail.com",
+                EMAIL_USERNAME,
                 EMAIL_PASS);
       }
     });
@@ -389,16 +390,14 @@ public class DbRegistrationService implements IRegistrationService {
       MimeMessage msg = new MimeMessage(session);
       InternetAddress[] address = InternetAddress.parse(email, true);
       msg.setRecipients(javax.mail.Message.RecipientType.TO, address);
-      msg.setSubject("Сменяне на парола");
+      msg.setSubject("Password Change");
       msg.setSentDate(new Date());
       if (IS_LOCAL.equals("false")) {
-        msg.setText("Ако искаш да промениш паролата"
-                + " си последвай следващия линк: "
+        msg.setText("If you want to change your password click on the following link: "
                 + "https://squadknowhow.herokuapp.com/reset-password/"
                 + user.getId());
       } else {
-        msg.setText("Ако искаш да промениш паролата"
-                + " си последвай следващия линк: "
+        msg.setText("If you want to change your password click on the following link"
                 + "localhost:3000/reset-password/"
                 + user.getId());
       }
@@ -457,7 +456,7 @@ public class DbRegistrationService implements IRegistrationService {
             new javax.mail.Authenticator() {
               protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(
-                        "hristian00i.dev@gmail.com",
+                        EMAIL_USERNAME,
                         EMAIL_PASS);
               }
             });
@@ -465,17 +464,15 @@ public class DbRegistrationService implements IRegistrationService {
       MimeMessage msg = new MimeMessage(session);
       InternetAddress[] address = InternetAddress.parse(email, true);
       msg.setRecipients(javax.mail.Message.RecipientType.TO, address);
-      msg.setSubject("Активиране на акаунт");
+      msg.setSubject("Account activation");
       msg.setSentDate(new Date());
       if (IS_LOCAL.equals("false")) {
-        msg.setText("За да активираш акаунта"
-                + " си кликни на следния линк: "
+        msg.setText("In order to activate your account click on the following link "
                 + "https://squadknowhow.herokuapp.com/"
                 + "activation?activationKey="
                 + activationKey);
       } else {
-        msg.setText("За да активираш акаунта"
-                + " си кликни на следния линк: "
+        msg.setText("In order to activate your account click on the following: "
                 + "localhost:3000/activation?activationKey="
                 + activationKey);
       }
@@ -524,19 +521,19 @@ public class DbRegistrationService implements IRegistrationService {
 
     switch (Integer.parseInt(newInfo.getDegree())) {
       case 1:
-        userToChange.setDegree("В училище");
+        userToChange.setDegree("In school");
         break;
       case 2:
-        userToChange.setDegree("Професионален бакалавър");
+        userToChange.setDegree("Professional Bachelor");
         break;
       case 3:
-        userToChange.setDegree("Бакалавър");
+        userToChange.setDegree("Bachelor");
         break;
       case 4:
-        userToChange.setDegree("Магистър");
+        userToChange.setDegree("Master");
         break;
       case 5:
-        userToChange.setDegree("Доктор");
+        userToChange.setDegree("PhD");
         break;
       default:
         userToChange.setDegree(null);

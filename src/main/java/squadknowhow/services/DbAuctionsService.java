@@ -467,22 +467,18 @@ public class DbAuctionsService implements IAuctionsService {
     result.setRecipient(recipient);
     switch (kind) {
       case "finishAuctionMessageCreator":
-        result.setTopic("Вашият търг за проект \""
-                + projectName + "\" приключи.");
-        result.setContent("Правата за вашия проект бяха"
-                + " закупени за "
-                + amount + "EUR от " + sender.getFirstName() + " "
+        result.setTopic("Your auction for project \""
+                + projectName + "\" has ended.");
+        result.setContent("The rights for your project were bought for"
+                + amount + "EUR from " + sender.getFirstName() + " "
                 + sender.getLastName());
         result.setKind("rejectionMessage");
         break;
       case "finishAuctionMessageWinner":
-        result.setTopic("Спечелен търг "
-                + "за правата на проект \""
+        result.setTopic("Won auction for the rights of project "
                 + projectName + "\".");
-        result.setContent("Вие успешно успяхте"
-                + " да закупите правата "
-                + "на проект за "
-                + amount + "EUR създаден от "
+        result.setContent("You successfullu bought the rights for project"
+                + amount + "EUR created by "
                 + sender.getFirstName() + " "
                 + sender.getLastName());
         result.setKind("rejectionMessage");
@@ -503,13 +499,13 @@ public class DbAuctionsService implements IAuctionsService {
 
     switch (kind) {
       case "auction-finish-creator":
-        result.setContent("Търгът за \""
-                + projectName + "\" приключи");
+        result.setContent("Auction for \""
+                + projectName + "\" ended");
         result.setKind(kind);
         break;
       case "auction-finish-winner":
-        result.setContent("Търгът за \""
-                + projectName + "\" приключи");
+        result.setContent("Auction for \""
+                + projectName + "\" ended");
         result.setKind(kind);
         break;
       default:

@@ -92,6 +92,7 @@ public class DbProjectsService implements IProjectsService {
   private static final String AUTH_TOKEN = System.getenv("AUTH_TOKEN");
   private static final String FROM_NUMBER = System.getenv("FROM_NUMBER");
   private static final int PHONE_NUMBER_LENGTH = 13;
+  private static final String EMAIL_USERNAME = System.getenv("EMAIL_USERNAME");
   private static final String EMAIL_PASS = System.getenv("EMAIL_PASS");
 
   private final IRepository<Question> questionsRepository;
@@ -699,12 +700,12 @@ public class DbProjectsService implements IProjectsService {
             .getInstance(props, new javax.mail.Authenticator() {
               protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(
-                        "hristian00i.dev@gmail.com", EMAIL_PASS);
+                        EMAIL_USERNAME, EMAIL_PASS);
               }
             });
     try {
       MimeMessage msg = new MimeMessage(session);
-      String to = "hristian00i@abv.bg";
+      String to = "hristian00i@gmail.com";
       InternetAddress[] address = InternetAddress.parse(to, true);
       msg.setRecipients(javax.mail.Message.RecipientType.TO, address);
       msg.setSubject("Докладване за проект");
@@ -1136,19 +1137,19 @@ public class DbProjectsService implements IProjectsService {
                   parameter.getValues().get(i));
           switch (educationToInsert) {
             case 1:
-              wantedMember.setEducation("В училище");
+              wantedMember.setEducation("In school");
               break;
             case 2:
-              wantedMember.setEducation("Професионален бакалавър");
+              wantedMember.setEducation("Professional Bachelor");
               break;
             case 3:
-              wantedMember.setEducation("Бакалавър");
+              wantedMember.setEducation("Bachelor");
               break;
             case 4:
-              wantedMember.setEducation("Магистър");
+              wantedMember.setEducation("Master");
               break;
             case 5:
-              wantedMember.setEducation("Доктор");
+              wantedMember.setEducation("PhD");
               break;
           }
         }
@@ -1224,57 +1225,57 @@ public class DbProjectsService implements IProjectsService {
     }
 
     if (programmer != null && !programmer.isEmpty()) {
-      this.finalizeSetupOfWantedMembers(programmer, result, project, "Програмист");
+      this.finalizeSetupOfWantedMembers(programmer, result, project, "Programmer");
     } else {
-      this.removeWantedMember(project, "Програмист");
+      this.removeWantedMember(project, "Programmer");
     }
 
     if (designer != null && !designer.isEmpty()) {
-      this.finalizeSetupOfWantedMembers(designer, result, project, "Дизайнер");
+      this.finalizeSetupOfWantedMembers(designer, result, project, "Designer");
     } else {
-      this.removeWantedMember(project, "Дизайнер");
+      this.removeWantedMember(project, "Designer");
     }
 
     if (engineer != null && !engineer.isEmpty()) {
-      this.finalizeSetupOfWantedMembers(engineer, result, project, "Инженер");
+      this.finalizeSetupOfWantedMembers(engineer, result, project, "Engineer");
     } else {
-      this.removeWantedMember(project, "Инженер");
+      this.removeWantedMember(project, "Engineer");
     }
 
     if (writer != null && !writer.isEmpty()) {
-      this.finalizeSetupOfWantedMembers(writer, result, project, "Писател");
+      this.finalizeSetupOfWantedMembers(writer, result, project, "Writer");
     } else {
-      this.removeWantedMember(project, "Писател");
+      this.removeWantedMember(project, "Writer");
     }
 
     if (scientist != null && !scientist.isEmpty()) {
-      this.finalizeSetupOfWantedMembers(scientist, result, project, "Учен");
+      this.finalizeSetupOfWantedMembers(scientist, result, project, "Scientist");
     } else {
-      this.removeWantedMember(project, "Учен");
+      this.removeWantedMember(project, "Scientist");
     }
 
     if (musician != null && !musician.isEmpty()) {
-      this.finalizeSetupOfWantedMembers(musician, result, project, "Музикант");
+      this.finalizeSetupOfWantedMembers(musician, result, project, "Musician");
     } else {
-      this.removeWantedMember(project, "Музикант");
+      this.removeWantedMember(project, "Musician");
     }
 
     if (filmmaker != null && !filmmaker.isEmpty()) {
-      this.finalizeSetupOfWantedMembers(filmmaker, result, project, "Режисьор");
+      this.finalizeSetupOfWantedMembers(filmmaker, result, project, "Filmmaker");
     } else {
-      this.removeWantedMember(project, "Режисьор");
+      this.removeWantedMember(project, "Filmmaker");
     }
 
     if (productManager != null && !productManager.isEmpty()) {
-      this.finalizeSetupOfWantedMembers(productManager, result, project, "Продуктов мениджър");
+      this.finalizeSetupOfWantedMembers(productManager, result, project, "Product Manager");
     } else {
-      this.removeWantedMember(project, "Продуктов мениджър");
+      this.removeWantedMember(project, "Product Manager");
     }
 
     if (artist != null && !artist.isEmpty()) {
-      this.finalizeSetupOfWantedMembers(artist, result, project, "Артист");
+      this.finalizeSetupOfWantedMembers(artist, result, project, "Artist");
     } else {
-      this.removeWantedMember(project, "Артист");
+      this.removeWantedMember(project, "Artist");
     }
 
     return result;
@@ -1619,7 +1620,7 @@ public class DbProjectsService implements IProjectsService {
               candidate.getImage(),
               new ArrayList<>(Collections.singletonList(
                       new ChatbotReplyCarouselContentButton(
-                              "Виж профил",
+                              "See profile",
                               "web_url",
                               "https://squadknowhow.herokuapp.com/user/"
                                       + candidate.getId())))));
@@ -1863,18 +1864,18 @@ public class DbProjectsService implements IProjectsService {
     result.setRecipient(recipient);
     switch (kind) {
       case "rejectionMessage":
-        result.setTopic("Отхвърлена заявка за проект \""
+        result.setTopic("Rejected application for project \""
                 + projectName + "\"");
-        result.setContent("Заявката ти за проект \""
-                + projectName + "\" беше отхвърлена.");
+        result.setContent("Your application for project \""
+                + projectName + "\" has been rejected.");
         result.setKind(kind);
         break;
       case "rejectInviteMessage":
-        result.setTopic("Отхвърлена покана");
-        result.setContent("Поканата ти към "
+        result.setTopic("Rejected invitation");
+        result.setContent("Your invitation to "
                 + senderFirstName + " "
-                + senderLastName + " за проект \""
-                + projectName + "\" беше отхвърлена.");
+                + senderLastName + " for project \""
+                + projectName + "\" has been rejected.");
         result.setKind("rejectionMessage");
         break;
       case "normal":
@@ -1883,53 +1884,46 @@ public class DbProjectsService implements IProjectsService {
         result.setKind(kind);
         break;
       case "requestToJoin":
-        result.setTopic("Заявка за включване"
-                + " към проект \""
+        result.setTopic("Your request to join project"
                 + projectName + "\"");
-        result.setContent("Здравей "
-                + recipientFirstName + ", аз се казвам "
+        result.setContent("Hello, "
+                + recipientFirstName + ", my name is "
                 + senderFirstName + " " + senderLastName
-                + " и съм много"
-                + " заинтригуван от твоята идея "
-                + "за проект и бих искал да участвам"
-                + " и да я доразвия"
-                + " като заема мястото на "
+                + " and I am very interested in your idea for a project. Can I join it in the role of"
                 + skillset + ".");
         result.setKind(kind);
         break;
       case "inviteToJoin":
-        result.setTopic("Покана за участие в проект \""
+        result.setTopic("Request to join a project \""
                 + projectName + "\"");
-        result.setContent("Ти беше поканена от "
+        result.setContent("You were invited by "
                 + senderFirstName + " " + senderLastName
-                + ", създател на проекта " + projectName
-                + ", да участваш в"
-                + " неговата разработка"
-                + " и да приемеш позицията на "
+                + ", creator of project " + projectName
+                + ", to join a project and take the role of "
                 + skillset
-                + " в екипа на проекта. Приемаш ли?");
+                + " in the team of the project. Do you accept?");
         result.setKind(kind);
         break;
       case "approvedMessage":
-        result.setTopic("Приета заявка за проект \""
+        result.setTopic("Accepted request to join \""
                 + projectName + "\"");
-        result.setContent("Заявката ти за проект \""
-                + projectName + "\" беше приета.");
+        result.setContent("Your request to join \""
+                + projectName + "\" was accepted.");
         result.setKind("rejectionMessage");
         break;
       case "approvedMessageInvite":
-        result.setTopic("Приета покана за проект \""
+        result.setTopic("Accepted invitation for project \""
                 + projectName + "\"");
-        result.setContent("Поканата ти за проект \""
-                + projectName + "\" към "
+        result.setContent("Your invitation for \""
+                + projectName + "\" to "
                 + senderFirstName + " "
-                + senderLastName + " беше приета.");
+                + senderLastName + " was accepted.");
         result.setKind("rejectionMessage");
         break;
       case "leftMessage":
-        result.setTopic("Напускане на проект");
+        result.setTopic("Leave project");
         result.setContent(senderFirstName + " "
-                + senderLastName + " напусна проект \""
+                + senderLastName + " left project \""
                 + projectName + "\"");
         result.setKind("rejectionMessage");
         break;
@@ -1953,54 +1947,50 @@ public class DbProjectsService implements IProjectsService {
 
     switch (kind) {
       case "rejection-message":
-        result.setContent(" отхвърли "
-                + "заявката ти за проект \""
+        result.setContent(" rejected "
+                + "your request for project \""
                 + projectName + "\".");
         result.setKind(kind);
         break;
       case "normal":
         result.setContent(senderFirstName + " "
-                + senderLastName + ", създател на \""
-                + projectName + "\" ти изпрати съобщение.");
+                + senderLastName + ", creator of \""
+                + projectName + "\" sent you a message.");
         result.setKind(kind);
         break;
       case "normal-advice":
-        result.setContent(" ти изпрати съвет относно \""
+        result.setContent(" sent you an advice for \""
                 + projectName + "\".");
         result.setKind(kind);
         break;
       case "normal-question":
-        result.setContent(" те попита въпрос относно \""
+        result.setContent(" asket you a question about \""
                 + projectName + "\".");
         result.setKind(kind);
         break;
       case "approval-message":
-        result.setContent(" поиска да "
-                + "се включи в проект \""
+        result.setContent(" wants to join \""
                 + projectName + "\".");
         result.setKind(kind);
         break;
       case "invite-message":
-        result.setContent(" те покани да"
-                + " участваш в проект \""
+        result.setContent(" invited you to join \""
                 + projectName + "\".");
         result.setKind(kind);
         break;
       case "approved-new-member":
-        result.setContent(" те одобри да"
-                + " участваш в проект \""
+        result.setContent(" accepted you as member of \""
                 + projectName + "\".");
         result.setKind(kind);
         break;
       case "approved-new-member-invite":
-        result.setContent(" прие твоята покана"
-                + " за участие в проект \""
+        result.setContent(" accepted your invitation for project \""
                 + projectName + "\".");
         result.setKind(kind);
         break;
       case "project-leave":
         result.setContent(
-                " напусна проект " + projectName + ".");
+                " left project " + projectName + ".");
         result.setKind(kind);
         break;
       default:
@@ -2085,7 +2075,7 @@ public class DbProjectsService implements IProjectsService {
 
     if (!Objects.equals(userCategory, "")
             && !Objects.equals(userCategory, "        "
-            + "проекти търсещи:              ")) {
+            + "projects looking:              ")) {
       predicates.add((ProjectShort project) -> project.getProjectNeeds()
               .stream()
               .anyMatch(projectNeed -> projectNeed.getName()

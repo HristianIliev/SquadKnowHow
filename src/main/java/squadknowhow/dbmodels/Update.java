@@ -142,29 +142,29 @@ public class Update implements Model {
   private String getMonthNameShort(int month) {
     switch (month) {
       case 0:
-        return "Яну";
+        return "Jan";
       case 1:
-        return "Фев";
+        return "Feb";
       case 2:
-        return "Мар";
+        return "Mar";
       case 3:
-        return "Апp";
+        return "Apr";
       case 4:
-        return "Май";
+        return "May";
       case 5:
-        return "Юни";
+        return "Jun";
       case 6:
-        return "Юли";
+        return "Jul";
       case 7:
-        return "Авг";
+        return "Aug";
       case 8:
-        return "Сеп";
+        return "Sep";
       case 9:
-        return "Окт";
+        return "Oct";
       case 10:
-        return "Ное";
+        return "Nov";
       case 11:
-        return "Дек";
+        return "Dec";
       default:
         return null;
     }

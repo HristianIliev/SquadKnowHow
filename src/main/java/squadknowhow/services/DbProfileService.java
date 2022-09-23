@@ -47,6 +47,7 @@ import java.util.stream.Collectors;
 public class DbProfileService implements IProfileService {
   private static final int PAGE_LENGTH = 12;
   private static final double PAGE_LENGTH_DOUBLE = 12.0;
+  private static final String EMAIL_USERNAME = System.getenv("EMAIL_USERNAME");
   private static final String EMAIL_PASS = System.getenv("EMAIL_PASS");
 
   private final IValidator<Integer> idValidator;
@@ -256,18 +257,18 @@ public class DbProfileService implements IProfileService {
     Session session = Session
             .getInstance(props, new javax.mail.Authenticator() {
               protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("hristian00i.dev@gmail.com",
+                return new PasswordAuthentication(EMAIL_USERNAME,
                         EMAIL_PASS);
               }
             });
     try {
       MimeMessage msg = new MimeMessage(session);
-      String to = "hristian00i@abv.bg";
+      String to = "hristian00i@gmail.com";
       InternetAddress[] address = InternetAddress.parse(to, true);
       msg.setRecipients(javax.mail.Message.RecipientType.TO, address);
       msg.setSubject(subject);
       msg.setSentDate(new Date());
-      msg.setText("Потребител с име: " + name + " и email: "
+      msg.setText("User with name: " + name + " и email: "
               + email
               + " поиска да се свърже с вас."
               + " Неговото запитване е: "
@@ -630,7 +631,7 @@ public class DbProfileService implements IProfileService {
 
     if (!Objects.equals(userCategory, "")
             && !Objects.equals(userCategory,
-            "      търси за:            ")) {
+            "      look for:            ")) {
       predicates.add((UserShort user) -> user.getSkillset().getName()
               .equals(userCategory));
     }

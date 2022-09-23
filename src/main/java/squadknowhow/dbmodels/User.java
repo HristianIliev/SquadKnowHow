@@ -538,7 +538,7 @@ public class User implements Model {
     }
 
     if (this.getInterests().size() == 0) {
-      result.append("Няма въведени интереси");
+      result.append("No provided interests");
     }
 
     return result.toString();
@@ -552,15 +552,15 @@ public class User implements Model {
     }
 
     switch (degree) {
-      case "В училище":
+      case "In school":
         return 1;
-      case "Професионален бакалавър":
+      case "Professional Bachelor":
         return 2;
-      case "Бакалавър":
+      case "Bachelor":
         return 3;
-      case "Магистър":
+      case "Master":
         return 4;
-      case "Доктор":
+      case "PhD":
         return 5;
     }
 
@@ -578,7 +578,7 @@ public class User implements Model {
     }
 
     if (this.getSkills().size() == 0) {
-      result.append("Няма въведени умения");
+      result.append("No provided skills");
     }
 
     return result.toString();
@@ -595,7 +595,7 @@ public class User implements Model {
     }
 
     if (this.getPreviousEmployment().size() == 0) {
-      result.append("Няма предишни работни места");
+      result.append("No previous work places");
     }
 
     return result.toString();
@@ -612,7 +612,7 @@ public class User implements Model {
     }
 
     if (this.getLanguages().size() == 0 || this.getLanguages() == null) {
-      result.append("Няма въведени езици");
+      result.append("No previous languages");
     }
 
     return result.toString();

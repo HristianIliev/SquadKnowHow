@@ -1,5 +1,9 @@
 # SquadKnowHow
 
+URL: https://squadknowhow.herokuapp.com/ (give it a little time until the Heroku dynos spin up)
+
+The Website was used for information technology competition in Bulgaria and because of that the platform was initially craeted fully in Bulgarian. Some efforts were made to translate it to English, but because of lack of time only half of it was translated, simply due to the sheer amount of text.
+
 SquadKnowHow is a web application made with Spring MVC and MySQL with Hibernate and it is a platform that eases the whole process of finding a team to collaborate with and realise your project or idea. The platform is able to create, manage, brainstorm and finally realise the project with a user friendly interface and many more features. It is also aimed at people who are looking to freelance in a certain project and have certain skills, abilities and interests. The website has a lot more features than what meets the eye such as:
 
 - [Specialized roles](#specialized-roles)

@@ -493,7 +493,7 @@ $("#finish-btn").on("click", function() {
                                             );
                                             $("#fine-uploader").fineUploader("uploadStoredFiles");
                                         } else {
-                                            location.replace("/home?notactivated");
+                                            location.replace("/home");
                                         }
                                     }
                                 });

@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59602243-1f34-401f-9618-ce8bc5462a69" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.5.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.5.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/controllers/PeopleWebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/controllers/PeopleWebController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/Update.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/dbmodels/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/request/models/CreateProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/request/models/CreateProject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbAuctionsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbAuctionsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProfileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProjectsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbProjectsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbRegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbRegistrationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbTagsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/services/DbTagsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/squadknowhow/services/ExternalAPIsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/squadknowhow/services/ExternalAPIsService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

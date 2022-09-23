@@ -294,7 +294,7 @@ public class DbRegistrationService implements IRegistrationService {
     userToInsert.setJobsPercent(0);
     userToInsert.setRecommendations(0);
     userToInsert.setImage("/static/all-images/Portrait_Placeholder.png");
-    userToInsert.setActivated(false);
+    userToInsert.setActivated(true);
     userToInsert.setActivationKey(this.createActivationKey(userToInsert.getEmail()));
     Date now = new Date();
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -304,7 +304,7 @@ public class DbRegistrationService implements IRegistrationService {
 
     this.usersRepository.create(userToInsert);
 
-    this.sendActivationEmail(userToInsert.getEmail(), userToInsert.getActivationKey());
+//    this.sendActivationEmail(userToInsert.getEmail(), userToInsert.getActivationKey());
 
     return new ResponseRegister(userToInsert.getId());
   }
@@ -442,47 +442,48 @@ public class DbRegistrationService implements IRegistrationService {
     return true;
   }
 
-  @Override
-  public void sendActivationEmail(String email, String activationKey) {
-    User user = this.getUserByEmail(email);
-
-    Properties props = new Properties();
-    props.put("mail.smtp.host", "true");
-    props.put("mail.smtp.starttls.enable", "true");
-    props.put("mail.smtp.host", "smtp.gmail.com");
-    props.put("mail.smtp.port", "587");
-    props.put("mail.smtp.auth", "true");
-    Session session = Session.getInstance(props,
-            new javax.mail.Authenticator() {
-              protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(
-                        EMAIL_USERNAME,
-                        EMAIL_PASS);
-              }
-            });
-    try {
-      MimeMessage msg = new MimeMessage(session);
-      InternetAddress[] address = InternetAddress.parse(email, true);
-      msg.setRecipients(javax.mail.Message.RecipientType.TO, address);
-      msg.setSubject("Account activation");
-      msg.setSentDate(new Date());
-      if (IS_LOCAL.equals("false")) {
-        msg.setText("In order to activate your account click on the following link "
-                + "https://squadknowhow.herokuapp.com/"
-                + "activation?activationKey="
-                + activationKey);
-      } else {
-        msg.setText("In order to activate your account click on the following: "
-                + "localhost:3000/activation?activationKey="
-                + activationKey);
-      }
-      msg.setHeader("XPriority", "1");
-      Transport.send(msg);
-      System.out.println("Mail has been sent successfully");
-    } catch (MessagingException mex) {
-      System.out.println("Unable to send an email" + mex);
-    }
-  }
+  // GOOGLE disabled this functionality so for lack of better alternativy it is removed.
+//  @Override
+//  public void sendActivationEmail(String email, String activationKey) {
+//    User user = this.getUserByEmail(email);
+//
+//    Properties props = new Properties();
+//    props.put("mail.smtp.host", "true");
+//    props.put("mail.smtp.starttls.enable", "true");
+//    props.put("mail.smtp.host", "smtp.gmail.com");
+//    props.put("mail.smtp.port", "587");
+//    props.put("mail.smtp.auth", "true");
+//    Session session = Session.getInstance(props,
+//            new javax.mail.Authenticator() {
+//              protected PasswordAuthentication getPasswordAuthentication() {
+//                return new PasswordAuthentication(
+//                        EMAIL_USERNAME,
+//                        EMAIL_PASS);
+//              }
+//            });
+//    try {
+//      MimeMessage msg = new MimeMessage(session);
+//      InternetAddress[] address = InternetAddress.parse(email, true);
+//      msg.setRecipients(javax.mail.Message.RecipientType.TO, address);
+//      msg.setSubject("Account activation");
+//      msg.setSentDate(new Date());
+//      if (IS_LOCAL.equals("false")) {
+//        msg.setText("In order to activate your account click on the following link "
+//                + "https://squadknowhow.herokuapp.com/"
+//                + "activation?activationKey="
+//                + activationKey);
+//      } else {
+//        msg.setText("In order to activate your account click on the following: "
+//                + "localhost:3000/activation?activationKey="
+//                + activationKey);
+//      }
+//      msg.setHeader("XPriority", "1");
+//      Transport.send(msg);
+//      System.out.println("Mail has been sent successfully");
+//    } catch (MessagingException mex) {
+//      System.out.println("Unable to send an email" + mex);
+//    }
+//  }
 
   @Override
   public boolean checkActivationKey(String activationKey) {

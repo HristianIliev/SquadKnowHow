@@ -85,7 +85,6 @@ SquadKnowHow is a web application made with Spring MVC and MySQL with Hibernate 
 
 Reach out to me at one of the following places!
 
-- personal email: hristian00i@abv.bg
-- for questions to the platform: hristian00i@gmail.com
+- hristian00i@gmail.com
 
 ---
